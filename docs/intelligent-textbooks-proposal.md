@@ -6,7 +6,9 @@
 
 **Facilitator:** Dan McCreary
 
-Summary: This project will allow participating students to create a set of intelligent textbooks that embrace the modern use of generative AI. The output of this project will be the foundation of an intelligent textbook for each student who participates.  Students will gain a deep understanding of how to create high-quality prompts that extract precise knowledge from large-language models and store this information in an open format on GitHub with a textbook rendered on GitHub pages.  No prior programming experience is required, but students must work with faculty that are subject-matter experts in a specific course.
+## Summary
+
+This project will allow participating students to create a set of intelligent textbooks that embrace the modern use of generative AI. The output of this project will be the foundation of an intelligent textbook for each student who participates.  Students will gain a deep understanding of how to create high-quality prompts that extract precise knowledge from large-language models and store this information in an open format on GitHub with a textbook rendered on GitHub pages.  No prior programming experience is required, but students must work with faculty that are subject-matter experts in a specific course.
 
 ## Details
 
