@@ -17,11 +17,10 @@ nav:
 
 theme:
   name: material
-  # logo: img/logo.png
-  # favicon: img/my-icon.png
-  palette:
-    primary: custom
-    accent: 'gold'
+  logo: img/logo.png
+  favicon: img/favicon.ico
+  primary: custom
+  accent: 'gold'
   include_sidebar: true
   features:
     - content.code.copy
