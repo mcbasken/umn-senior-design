@@ -6,3 +6,9 @@
     height: 50px;
     width: 150px;
 }
+
+:root {
+    --md-primary-fg-color: #800000;
+    --md-primary-fg-color--light: #a04545;
+    --md-primary-fg-color--dark: #600000;
+  }
