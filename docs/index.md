@@ -2,7 +2,7 @@
 
 ## 2025 Spring Semester
 
-[Designing and Building Intelligent Textbooks](./intelligent-textbooks-proposal.md)
+[Designing and Building Intelligent Textbooks](./intelligent-textbooks-proposal.md) - where students us generative AI to build [intelligent textbooks](./glossary.md#intelligent-textbook).
 
 ## 2024 Spring Semester
 
