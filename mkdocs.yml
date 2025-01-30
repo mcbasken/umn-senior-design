@@ -1,4 +1,4 @@
-site_name: University of Minnesota Senior Projects
+site_name: University of Minnesota EECD Senior Projects
 site_description: 'DESCRIPTION All content licensed Creative Commons ShareAlike Attribution Noncommercial'
 site_author: 'Dan McCreary'
 repo_name: 'GitHub Repo'
@@ -13,7 +13,7 @@ nav:
   - References: references.md
   - Contact: contact.md
  
-# CoderDojo Microsite Standards from here down
+# Dan's MicroSite Standards from here down
 
 theme:
   name: material
