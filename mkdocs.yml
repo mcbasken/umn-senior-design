@@ -1,4 +1,4 @@
-site_name: Mkdocs Template Site
+site_name: University of Minnesota Senior Projects
 site_description: 'DESCRIPTION All content licensed Creative Commons ShareAlike Attribution Noncommercial'
 site_author: 'Dan McCreary'
 repo_name: 'GitHub Repo'
@@ -20,8 +20,8 @@ theme:
   # logo: img/logo.png
   # favicon: img/my-icon.png
   palette:
-    primary: 'blue'
-    accent: 'orange'
+    primary: custom
+    accent: 'gold'
   include_sidebar: true
   features:
     - content.code.copy
