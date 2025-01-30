@@ -1,10 +1,8 @@
 # University of Minnesota EECD Senior Projects
 
-## Links
-
 ## 2025 Spring Semester
 
-Designing and Building Intelligent Textbooks
+[Designing and Building Intelligent Textbooks](./intelligent-textbooks-proposal.md)
 
 ## 2024 Spring Semester
 
