@@ -1,9 +1,9 @@
 site_name: University of Minnesota EECD Senior Projects
 site_description: 'DESCRIPTION All content licensed Creative Commons ShareAlike Attribution Noncommercial'
-site_author: 'Dan McCreary'
+site_author: 'Matthew Basken'
 repo_name: 'GitHub Repo'
-site_url: 'https://dmccreary.github.io/u-of-mn-senior-projects/'
-repo_url: 'https://github.com/dmccreary/u-of-mn-senior-projects'
+site_url: 'https://mcbasken.github.io/UMN-Senior-Design/'
+repo_url: 'https://github.com/mcbasken/UMN-Senior-Design'
 edit_uri: 'blob/master/docs'
 
 nav:
