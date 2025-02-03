@@ -10,7 +10,8 @@ nav:
   - Home: index.md
   - About: about.md
   - Introduction: 
-  - Intro: introduction.md
+    - Logic Review: logic.md
+    - 
   - Intelligent Textbooks Proposal: intelligent-textbooks-proposal.md
   - Glossary: glossary.md
   - References: references.md
