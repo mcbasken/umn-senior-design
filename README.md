@@ -2,7 +2,7 @@
 
 Website: 
 
-[https://dmccreary.github.io/u-of-mn-senior-projects/](https://dmccreary.github.io//u-of-mn-senior-projects/)
+[https://mcbasken.github.io/umn-senior-design/](https://mcbasken.github.io//umn-senior-design/)
 
 
 ## 2025
