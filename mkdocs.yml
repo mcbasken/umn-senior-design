@@ -8,6 +8,9 @@ edit_uri: 'blob/master/docs'
 
 nav:
   - Home: index.md
+  - About: about.md
+  - Introduction: 
+  - Intro: introduction.md
   - Intelligent Textbooks Proposal: intelligent-textbooks-proposal.md
   - Glossary: glossary.md
   - References: references.md
