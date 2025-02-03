@@ -2,7 +2,7 @@
 
 Website: 
 
-[https://mcbasken.github.io/umn-senior-design/](https://mcbasken.github.io//umn-senior-design/)
+[https://mcbasken.github.io/UMN-Senior-Design/](https://mcbasken.github.io//UMN-Senior-Design/)
 
 
 ## 2025
