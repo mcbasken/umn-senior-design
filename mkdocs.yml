@@ -10,8 +10,8 @@ nav:
   - Home: index.md
   - About: about.md
   - Introduction: 
-    - Logic: logic.md
-    - Verilog: verilog.md
+    - Logic: introduction/logic.md
+    - Verilog: introduction/verilog.md
   - Intelligent Textbooks Proposal: intelligent-textbooks-proposal.md
   - Glossary: glossary.md
   - References: references.md
