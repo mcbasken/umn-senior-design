@@ -9,9 +9,9 @@ edit_uri: 'blob/master/docs'
 nav:
   - Home: index.md
   - Introduction: 
-    - Intro: introduction/index.md
-    - Logic: introduction/logic.md
-    - Verilog: introduction/verilog.md
+    - Intro: docs/introduction/index.md
+    - Logic: docs/introduction/logic.md
+    - Verilog: docs/introduction/verilog.md
   - Glossary: glossary.md
   - References: references.md
   - Contact: contact.md
