@@ -8,13 +8,14 @@ edit_uri: 'blob/master/docs'
 
 nav:
   - Home: index.md
-  - Introduction: 
-    - Intro: introduction/index.md
-    - Logic: introduction/logic.md
-    - Verilog: introduction/verilog.md
+  - Introduction:
+      - Intro: introduction/index.md
+      - Logic: introduction/logic.md
+      - Verilog: introduction/verilog.md
   - Glossary: glossary.md
   - References: references.md
   - Contact: contact.md
+
  
 # Dan's MicroSite Standards from here down
 
