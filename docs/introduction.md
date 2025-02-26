@@ -5,7 +5,7 @@ Digital Design with Programmable Logic explores the principles of modern digital
 Learning Objectives (Aligned with Bloom’s Taxonomy)
 
 ## Learning Objectives
-### 1. **Remember** – Identify and recall fundamental digital logic concepts, FPGA architectures, and Verilog syntax.
+### 1. Remember – Identify and recall fundamental digital logic concepts, FPGA architectures, and Verilog syntax.
 * AI-powered flashcards reinforce key definitions and concepts.
 
 * Generative AI crafts analogies, such as comparing a multiplexer to a train track switch to illustrate signal selection.
