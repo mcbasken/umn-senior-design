@@ -8,10 +8,10 @@ edit_uri: 'blob/master/docs'
 
 nav:
   - Home: index.md
-  - Introduction:
-      - Intro: introduction/index.md
-      - Logic: introduction/logic.md
-      - Verilog: introduction/verilog.md
+  - Introduction: introduction.md
+  - Chapter 1:
+      - Overview: chapter1/index.md
+      - Fundamentals of Digital Logic: chapter1/fundamental_digital_logic.md
   - Glossary: glossary.md
   - References: references.md
   - Contact: contact.md
