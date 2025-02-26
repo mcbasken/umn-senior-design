@@ -9,8 +9,8 @@ edit_uri: 'blob/master/docs'
 nav:
   - Home: index.md
   - Introduction: 
-      - index.md
-      - taxonomy.md
+      - introduction/index.md
+      - introduction/taxonomy.md
   - Chapter 1:
       - Overview: chapter1/index.md
       - Fundamentals of Digital Logic: chapter1/fundamental_digital_logic.md
