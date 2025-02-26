@@ -1,0 +1,24 @@
+/* For changing the list dots */
+ul {
+    list-style-type: disc; /* Default circle bullets */
+}
+
+/* For customizing list items 
+ul li {
+    list-style-type: square; /* Square bullets */
+    /* Example of adding custom image for bullets */
+    list-style-image: url('path/to/custom-dot.png'); /* Replace with your image URL */
+}*/
+
+/* Customize the list for ordered lists as well */
+ol {
+    list-style-type: decimal; /* Default number bullets */
+}
+
+/* You can also change the color of the bullets */
+ul li::before {
+    content: "\2022"; /* Unicode bullet character */
+    font-size: 1.5em;
+    color: #FF5733; /* Replace with your desired color */
+    margin-right: 10px;
+}
