@@ -36,11 +36,14 @@ Learning Objectives (Aligned with Bloom’s Taxonomy)
 
 4. **Simulations and Animations:** AI-powered visualizations depict real-time circuit behavior, such as voltage propagation in logic gates and flip-flop state changes.
 
-5.**Learning Activities and Projects:** AI recommends customized projects, from designing ALUs to creating digital communication systems, with real-time feedback on implementation.
+5. **Learning Activities and Projects:** AI recommends customized projects, from designing ALUs to creating digital communication systems, with real-time feedback on implementation.
 
-6.**Assessment and Feedback:** AI-driven grading tools provide in-depth feedback, offering explanations rather than just scores, and prompting students to iteratively improve their designs.
-##Final Capstone Project
+6. **Assessment and Feedback:** AI-driven grading tools provide in-depth feedback, offering explanations rather than just scores, and prompting students to iteratively improve their designs.
+
+## Final Capstone Project
+
 Students will design a complex FPGA-based system, such as a real-time signal processor or an AI-accelerated digital controller. AI will assist in debugging, optimization, and performance evaluation, ensuring students develop industry-relevant skills.
-##Conclusion
+
+## Conclusion
 This course redefines digital design education by integrating generative AI as a mentor, content creator, and feedback provider. Through interactive simulations, dynamic assessments, and AI-assisted learning, students will gain a deep, practical understanding of digital systems, preparing them for careers in embedded systems, FPGA development, and beyond.
 
