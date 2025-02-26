@@ -1,20 +1,24 @@
-#Digital Design with Programmable Logic
-##Course Description
+# Digital Design with Programmable Logic
+
+## Course Description
 Digital Design with Programmable Logic explores the principles of modern digital circuit design using hardware description languages (HDLs) and field-programmable gate arrays (FPGAs). This course integrates generative AI as a dynamic teaching assistant, providing students with personalized learning experiences, real-time feedback, and interactive simulations. By leveraging Bloom’s Taxonomy, the course systematically develops students' cognitive skills, from fundamental knowledge acquisition to innovative circuit design and troubleshooting.
 Learning Objectives (Aligned with Bloom’s Taxonomy)
-###1. **Remember** – Identify and recall fundamental digital logic concepts, FPGA architectures, and Verilog syntax.
-AI-powered flashcards reinforce key definitions and concepts.
-Generative AI crafts analogies, such as comparing a multiplexer to a train track switch to illustrate signal selection.
-###2. **Understand** – Explain the operation of combinational and sequential circuits using truth tables, timing diagrams, and HDL code.
-AI-generated historical narratives introduce milestone moments in circuit design, featuring pioneers like Claude Shannon and Alan Turing.
-Interactive AI chatbots answer student queries with explanations tailored to their learning style.
-###3. **Apply** – Implement digital circuits in Verilog and simulate them in FPGA development environments.
+
+## Learning Objectives
+### 1. **Remember** – Identify and recall fundamental digital logic concepts, FPGA architectures, and Verilog syntax.
+* AI-powered flashcards reinforce key definitions and concepts.
+
+* Generative AI crafts analogies, such as comparing a multiplexer to a train track switch to illustrate signal selection.
+### 2. **Understand** – Explain the operation of combinational and sequential circuits using truth tables, timing diagrams, and HDL code.
+* AI-generated historical narratives introduce milestone moments in circuit design, featuring pioneers like Claude Shannon and Alan Turing.
+* Interactive AI chatbots answer student queries with explanations tailored to their learning style.
+### 3. **Apply** – Implement digital circuits in Verilog and simulate them in FPGA development environments.
 * AI-generated quizzes adapt in real-time to reinforce weak areas in circuit analysis.
 * AI-assisted walkthroughs guide students step-by-step through circuit implementation, debugging, and waveform analysis.
-###4. **Analyze** – Differentiate between various logic families, optimization techniques, and FPGA-based design methodologies.
-AI-powered simulations allow students to manipulate parameters and visualize circuit behavior.
-AI-driven comparative analyses showcase trade-offs in power, speed, and area for different design choices.
-###5. **Evaluate** – Assess the efficiency and correctness of digital designs, identifying design bottlenecks and proposing optimizations.
+### 4. **Analyze** – Differentiate between various logic families, optimization techniques, and FPGA-based design methodologies.
+*AI-powered simulations allow students to manipulate parameters and visualize circuit behavior.
+*AI-driven comparative analyses showcase trade-offs in power, speed, and area for different design choices.
+### 5. **Evaluate** – Assess the efficiency and correctness of digital designs, identifying design bottlenecks and proposing optimizations.
 AI provides instant feedback on circuit performance metrics.
 AI-driven discussion prompts encourage students to debate architectural decisions, such as synchronous vs. asynchronous design.
 ###6. **Create** – Design and implement complex digital systems, incorporating real-world constraints and industry best practices.
