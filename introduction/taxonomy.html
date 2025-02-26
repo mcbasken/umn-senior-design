@@ -477,64 +477,113 @@
   
 
 
-<h1 id="Digital-Design">Digital Design with Programmable Logic</h1>
-<p><strong>Facilitator:</strong> Matthew Basken</p>
-<h2 id="description">Course Description</h2>
-<p>Digital Design with Programmable Logic explores the principles of modern digital circuit design using hardware description languages (HDLs) and field-programmable gate arrays (FPGAs). This course integrates generative AI as a dynamic teaching assistant, providing students with personalized learning experiences, real-time feedback, and interactive simulations. By leveraging Bloom’s Taxonomy, the course systematically develops students' cognitive skills, from fundamental knowledge acquisition to innovative circuit design and troubleshooting.</p>
-<h2 id="objectives">Learning Objectives (Aligned with Bloom’s Taxonomy)</h2>
-<ol>
-    <li><strong>Remember</strong> – Identify and recall fundamental digital logic concepts, FPGA architectures, and Verilog syntax.
-        <ul>
-            <li>AI-powered flashcards reinforce key definitions and concepts.</li>
-            <li>Generative AI crafts analogies, such as comparing a multiplexer to a train track switch to illustrate signal selection.</li>
-        </ul>
-    </li>
-    <li><strong>Understand</strong> – Explain the operation of combinational and sequential circuits using truth tables, timing diagrams, and HDL code.
-        <ul>
-            <li>AI-generated historical narratives introduce milestone moments in circuit design, featuring pioneers like Claude Shannon and Alan Turing.</li>
-            <li>Interactive AI chatbots answer student queries with explanations tailored to their learning style.</li>
-        </ul>
-    </li>
-    <li><strong>Apply</strong> – Implement digital circuits in Verilog and simulate them in FPGA development environments.
-        <ul>
-            <li>AI-generated quizzes adapt in real-time to reinforce weak areas in circuit analysis.</li>
-            <li>AI-assisted walkthroughs guide students step-by-step through circuit implementation, debugging, and waveform analysis.</li>
-        </ul>
-    </li>
-    <li><strong>Analyze</strong> – Differentiate between various logic families, optimization techniques, and FPGA-based design methodologies.
-        <ul>
-            <li>AI-powered simulations allow students to manipulate parameters and visualize circuit behavior.</li>
-            <li>AI-driven comparative analyses showcase trade-offs in power, speed, and area for different design choices.</li>
-        </ul>
-    </li>
-    <li><strong>Evaluate</strong> – Assess the efficiency and correctness of digital designs, identifying design bottlenecks and proposing optimizations.
-        <ul>
-            <li>AI provides instant feedback on circuit performance metrics.</li>
-            <li>AI-driven discussion prompts encourage students to debate architectural decisions, such as synchronous vs. asynchronous design.</li>
-        </ul>
-    </li>
-    <li><strong>Create</strong> – Design and implement complex digital systems, incorporating real-world constraints and industry best practices.
-        <ul>
-            <li>AI suggests scaffolded design projects based on student proficiency, guiding them from basic circuits to full-scale FPGA implementations.</li>
-            <li>AI-generated code review tools analyze Verilog code for best practices and efficiency.</li>
-        </ul>
-    </li>
-</ol>
-<h2 id="how-generative-ai-enhances-learning">How Generative AI Enhances Learning</h2>
-<ol>
-    <li><strong>Metaphors and Analogies:</strong> Generative AI creates intuitive explanations, such as comparing a finite state machine to a vending machine that dispenses different items based on a sequence of inputs.</li>
-    <li><strong>Stories and Lessons:</strong> AI-generated historical insights introduce students to the evolution of digital design, embedding technical content in engaging narratives featuring engineers and inventors.</li>
-    <li><strong>Content Generation:</strong> AI dynamically crafts quizzes, debugging exercises, and guided Verilog coding challenges to reinforce individual learning paths.</li>
-    <li><strong>Simulations and Animations:</strong> AI-powered visualizations depict real-time circuit behavior, such as voltage propagation in logic gates and flip-flop state changes.</li>
-    <li><strong>Learning Activities and Projects:</strong> AI recommends customized projects, from designing ALUs to creating digital communication systems, with real-time feedback on implementation.</li>
-    <li><strong>Assessment and Feedback:</strong> AI-driven grading tools provide in-depth feedback, offering explanations rather than just scores, and prompting students to iteratively improve their designs.</li>
-</ol>
-<h2 id="capstone">Final Capstone Project</h2>
-<p>Students will design a complex FPGA-based system, such as a real-time signal processor or an AI-accelerated digital controller. AI will assist in debugging, optimization, and performance evaluation, ensuring students develop industry-relevant skills.</p>
-
-<h2 id="conclusion">Conclusion</h2>
-<p>This course redefines digital design education by integrating generative AI as a mentor, content creator, and feedback provider. Through interactive simulations, dynamic assessments, and AI-assisted learning, students will gain a deep, practical understanding of digital systems, preparing them for careers in embedded systems, FPGA development, and beyond.</p>
-
+<h1>Digital Design Course Taxonomy</h1>
+    
+    <h2>1. Foundational Concepts</h2>
+    <p class="definition">Definition: Basic concepts introduced at the start of the course, forming the foundation for all future learning.</p>
+    <ul>
+        <li>Introduction to Digital Design</li>
+        <li>Boolean Algebra</li>
+        <li>Logic Gates</li>
+        <li>Truth Tables</li>
+        <li>Sum of Products (SOP)</li>
+        <li>Product of Sums (POS)</li>
+        <li>Karnaugh Maps</li>
+        <li>Simplification Techniques</li>
+        <li>Minterms and Maxterms</li>
+        <li>Binary Arithmetic</li>
+        <li>Signed and Unsigned Numbers</li>
+        <li>Two's Complement Representation</li>
+    </ul>
+    
+    <h2>2. Combinational Logic</h2>
+    <p class="definition">Definition: Concepts related to circuits where the output is a function of only the current inputs.</p>
+    <ul>
+        <li>Combinational Logic</li>
+        <li>Combinational Circuit Design</li>
+        <li>Adders and Subtractors</li>
+        <li>Multiplexers (MUX)</li>
+        <li>Demultiplexers (DEMUX)</li>
+        <li>Decoders</li>
+        <li>Encoders</li>
+        <li>Comparators</li>
+        <li>Arithmetic Logic Unit (ALU)</li>
+    </ul>
+    
+    <h2>3. Sequential Logic</h2>
+    <p class="definition">Definition: Concepts involving circuits where the output depends on both current inputs and past inputs (memory).</p>
+    <ul>
+        <li>Sequential Logic</li>
+        <li>Register Transfer Level (RTL) Design</li>
+        <li>Edge-triggered Flip-Flops</li>
+        <li>Latches</li>
+        <li>D Flip-Flop (DFF)</li>
+        <li>T Flip-Flop (TFF)</li>
+        <li>JK Flip-Flop</li>
+        <li>SR Flip-Flop</li>
+        <li>Shift Registers</li>
+        <li>Counters</li>
+        <li>Asynchronous Sequential Circuits</li>
+        <li>Synchronous Sequential Circuits</li>
+    </ul>
+    
+    <h2>4. Verilog Basics</h2>
+    <p class="definition">Definition: Basic knowledge of Verilog, the primary hardware description language used in the course.</p>
+    <ul>
+        <li>Verilog Basics</li>
+        <li>Verilog Syntax and Semantics</li>
+        <li>Data Types in Verilog</li>
+        <li>Module Definition in Verilog</li>
+        <li>Inputs and Outputs in Verilog</li>
+        <li>Assign Statements</li>
+        <li>Continuous Assignment</li>
+        <li>Procedural Blocks (always, initial)</li>
+        <li>Variables vs. Nets</li>
+        <li>Verilog Operators</li>
+    </ul>
+    
+    <h2>5. Design Techniques</h2>
+    <p class="definition">Definition: Concepts related to the methods and approaches for designing and implementing digital circuits.</p>
+    <ul>
+        <li>Design Hierarchy in Verilog</li>
+        <li>Clock Generators and Dividers</li>
+        <li>RTL Simulation</li>
+        <li>Verilog for Sequential Logic</li>
+        <li>Verilog for FSM Design</li>
+        <li>Static Timing Analysis</li>
+        <li>Digital System Optimization</li>
+        <li>Power Consumption in Digital Circuits</li>
+        <li>Testability in Digital Design</li>
+        <li>Boundary Scan</li>
+    </ul>
+    
+    <h2>6. Finite State Machines (FSM)</h2>
+    <p class="definition">Definition: Concepts related to state machines, a critical part of designing complex digital systems.</p>
+    <ul>
+        <li>Finite State Machines (FSM)</li>
+        <li>State Diagram Representation</li>
+        <li>Mealy vs. Moore FSM</li>
+        <li>State Machine Design in Verilog</li>
+        <li>Advanced FSM Techniques</li>
+        <li>Timing Diagrams</li>
+    </ul>
+    
+    <h2>7. FPGA and Embedded Systems</h2>
+    <p class="definition">Definition: Concepts related to designing systems on programmable devices like FPGAs and embedded systems.</p>
+    <ul>
+        <li>FPGA Architecture</li>
+        <li>FPGA vs. ASIC Design</li>
+        <li>FPGA Design Flow</li>
+        <li>Verilog for FPGA Design</li>
+        <li>Synthesis of Verilog Code</li>
+        <li>FPGA Constraints and Constraints File</li>
+        <li>Clocking in FPGA</li>
+        <li>FPGA Configuration and Programming</li>
+        <li>Bitstream Generation</li>
+        <li>Embedded Systems Design</li>
+        <li>Verilog for Embedded Systems</li>
+        <li>Interfacing with Peripherals in FPGA</li>
+    </ul>
 
 
 
