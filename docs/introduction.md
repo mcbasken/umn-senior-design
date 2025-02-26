@@ -8,7 +8,7 @@ Learning Objectives (Aligned with Bloom’s Taxonomy)
 1.  **Remember** – Identify and recall fundamental digital logic concepts, FPGA architectures, and Verilog syntax.
     * AI-powered flashcards reinforce key definitions and concepts.
     * Generative AI crafts analogies, such as comparing a multiplexer to a train track switch to illustrate signal selection.
- 2. **Understand** – Explain the operation of combinational and sequential circuits using truth tables, timing diagrams, and HDL code.
+2. **Understand** – Explain the operation of combinational and sequential circuits using truth tables, timing diagrams, and HDL code.
     * AI-generated historical narratives introduce milestone moments in circuit design, featuring pioneers like Claude Shannon and Alan Turing.
     * Interactive AI chatbots answer student queries with explanations tailored to their learning style.
 3. **Apply** – Implement digital circuits in Verilog and simulate them in FPGA development environments.
@@ -26,13 +26,19 @@ Learning Objectives (Aligned with Bloom’s Taxonomy)
     * AI suggests scaffolded design projects based on student proficiency, guiding them from basic circuits to full-scale FPGA implementations.
     * AI-generated code review tools analyze Verilog code for best practices and efficiency.
 
-##How Generative AI Enhances Learning
-Metaphors and Analogies: Generative AI creates intuitive explanations, such as comparing a finite state machine to a vending machine that dispenses different items based on a sequence of inputs.
-Stories and Lessons: AI-generated historical insights introduce students to the evolution of digital design, embedding technical content in engaging narratives featuring engineers and inventors.
-Content Generation: AI dynamically crafts quizzes, debugging exercises, and guided Verilog coding challenges to reinforce individual learning paths.
-Simulations and Animations: AI-powered visualizations depict real-time circuit behavior, such as voltage propagation in logic gates and flip-flop state changes.
-Learning Activities and Projects: AI recommends customized projects, from designing ALUs to creating digital communication systems, with real-time feedback on implementation.
-Assessment and Feedback: AI-driven grading tools provide in-depth feedback, offering explanations rather than just scores, and prompting students to iteratively improve their designs.
+## How Generative AI Enhances Learning
+
+1. **Metaphors and Analogies:** Generative AI creates intuitive explanations, such as comparing a finite state machine to a vending machine that dispenses different items based on a sequence of inputs.
+
+2. **Stories and Lessons:** AI-generated historical insights introduce students to the evolution of digital design, embedding technical content in engaging narratives featuring engineers and inventors.
+
+3. **Content Generation:** AI dynamically crafts quizzes, debugging exercises, and guided Verilog coding challenges to reinforce individual learning paths.
+
+4. **Simulations and Animations:** AI-powered visualizations depict real-time circuit behavior, such as voltage propagation in logic gates and flip-flop state changes.
+
+5.**Learning Activities and Projects:** AI recommends customized projects, from designing ALUs to creating digital communication systems, with real-time feedback on implementation.
+
+6.**Assessment and Feedback:** AI-driven grading tools provide in-depth feedback, offering explanations rather than just scores, and prompting students to iteratively improve their designs.
 ##Final Capstone Project
 Students will design a complex FPGA-based system, such as a real-time signal processor or an AI-accelerated digital controller. AI will assist in debugging, optimization, and performance evaluation, ensuring students develop industry-relevant skills.
 ##Conclusion
