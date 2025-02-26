@@ -39,6 +39,7 @@ theme:
     - content.action.edit
 plugins:
   - search
+  - glossary
 #  - social
 markdown_extensions:
   - admonition
