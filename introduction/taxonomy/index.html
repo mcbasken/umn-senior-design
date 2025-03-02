@@ -202,10 +202,18 @@
       
       <!-- ✅ Restore "Navigation" Header -->
       <div class="custom-sidebar-header">
-        <h2 style="font-size: 1.5em; text-align: center; font-weight: bold; margin-bottom: 15px;">
-          Navigation
-        </h2>
+        <h2 class="nav-title">Navigation</h2>
       </div>
+      
+      <style>
+        .nav-title {
+          font-size: 20px !important;  /* Bigger Font */
+          font-weight: bold !important;  /* Force Bold */
+          text-align: center;
+          margin-bottom: 15px;
+        }
+      </style>
+
 
       <!-- ✅ Sidebar Navigation -->
       <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
@@ -225,7 +233,7 @@
             </div>
           
             <!-- ✅ Nested Taxonomy (NO GAP FIXED) -->
-            <ul class="md-nav__list" style="margin-bottom: 0; padding-left: 20px;">
+            <ul class="md-nav__list" style="margin-bottom: 0px !important; padding-left: 20px !important;">
               <li class="md-nav__item md-nav__item--active">
                 <a href="/umn-senior-design/introduction/taxonomy/" class="md-nav__link md-nav__link--active">
                   <span class="md-ellipsis">Taxonomy</span>
