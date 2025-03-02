@@ -130,13 +130,13 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
+<label class="md-header__button md-icon" for="__search">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/>
   </svg>
 </label>
 
-<!-- ✅ Proper Search Bar Implementation -->
+<!-- ✅ Proper Search Bar -->
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
@@ -156,6 +156,7 @@
     </form>
   </div>
 </div>
+
 
     <div class="md-search__output">
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
@@ -195,26 +196,26 @@
   <div class="md-main__inner md-grid">
 
     <!-- ✅ Left Sidebar (Navigation) -->
-    <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
   <div class="md-sidebar__scrollwrap">
     <div class="md-sidebar__inner">
       
-      <!-- ✅ Restore "Navigation" Title -->
+      <!-- ✅ Restore "Navigation" Header -->
       <div class="custom-sidebar-header">
         <p style="font-weight: bold; text-align: center; margin-bottom: 10px;">
           Navigation
         </p>
       </div>
 
-      <!-- ✅ Left Navigation -->
+      <!-- ✅ Sidebar Navigation -->
       <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
         <ul class="md-nav__list">
           <li class="md-nav__item">
             <a href=".." class="md-nav__link"><span class="md-ellipsis">Home</span></a>
           </li>
-
+          
           <!-- ✅ Introduction Section -->
-          <li class="md-nav__item md-nav__item--nested">
+           <li class="md-nav__item md-nav__item--nested">
             <input class="md-nav__toggle md-toggle" type="checkbox" id="__nav_taxonomy" checked>
             <div class="md-nav__link md-nav__container">
               <a href="../" class="md-nav__link"> <span class="md-ellipsis">Introduction</span></a>
@@ -222,10 +223,10 @@
                 <span class="md-nav__icon md-icon"></span>
               </label>
             </div>
-            
-            <!-- ✅ Nested List for Taxonomy -->
+          
+            <!-- ✅ Properly Nested "Taxonomy" -->
             <ul class="md-nav__list">
-              <li class="md-nav__item md-nav__item--active">
+              <li class="md-nav__item md-nav__item--active" style="padding-left: 15px;">
                 <a href="/umn-senior-design/introduction/taxonomy/" class="md-nav__link md-nav__link--active">
                   <span class="md-ellipsis">Taxonomy</span>
                 </a>
