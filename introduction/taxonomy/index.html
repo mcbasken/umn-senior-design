@@ -275,20 +275,18 @@
 
   <ul class="md-nav__list" data-md-scrollfix>
     
-    <!-- ✅ Mark "Taxonomy" as Active -->
-    <li class="md-nav__item md-nav__item--active">
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__taxonomy_toc" checked>
+      <!-- ✅ Fix: Only One Active "Taxonomy" Link -->
+      <li class="md-nav__item md-nav__item--active">
+        <a href="/umn-senior-design/introduction/taxonomy/" class="md-nav__link md-nav__link--active">
+          <span class="md-ellipsis">Taxonomy</span>
+        </a>
+      </li>
       
       <!-- Taxonomy Label -->
       <label class="md-nav__link" for="__taxonomy_toc">
         <span class="md-ellipsis">Taxonomy</span>
         <span class="md-nav__icon md-icon"></span>
       </label>
-
-      <!-- ✅ Corrected Taxonomy Link -->
-      <a href="/umn-senior-design/introduction/taxonomy/" class="md-nav__link md-nav__link--active">
-        <span class="md-ellipsis">Taxonomy</span>
-      </a>
 
       <!-- ✅ Table of Contents for Taxonomy -->
       <nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
