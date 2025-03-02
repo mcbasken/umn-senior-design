@@ -34,10 +34,6 @@ theme:
     - navigation.path
     - navigation.prune
     - navigation.indexes
-    - navigation.instant
-    - search.suggest
-    - search.highlight
-    - search.share
     - toc.follow
     - navigation.top
     # this adds the prev and next icons in the footer
