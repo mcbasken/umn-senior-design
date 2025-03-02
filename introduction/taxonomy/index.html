@@ -21,7 +21,9 @@
         <link rel="next" href="../../chapter1/">
       
       
-      <link rel="icon" href="../img/favicon.ico">
+      <!--<link rel="icon" href="../../img/favicon.ico">-->
+      <link rel="icon" href="/umn-senior-design/img/favicon.ico">
+
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
     
     
@@ -51,7 +53,7 @@
       
     
     
-      <link rel="stylesheet" href="../css/extra.css">
+      <link rel="stylesheet" href="../../css/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -98,9 +100,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Digital Design" class="md-header__button md-logo" aria-label="Digital Design" data-md-component="logo">
+    <a href="../.." title="Digital Design" class="md-header__button md-logo" aria-label="Digital Design" data-md-component="logo">
       
-  <img src="../img/logo.png" alt="logo">
+  <img src="../../img/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -253,131 +255,72 @@
     
   
   
-  
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
-              
+  <input class="md-nav__toggle md-toggle" type="checkbox" id="__nav_taxonomy" checked>
   
-  <span class="md-ellipsis">
-    Introduction
-  </span>
-  
+  <div class="md-nav__link md-nav__container">
+    <a href="../" class="md-nav__link md-nav__link--active">
+      <span class="md-ellipsis">Introduction</span>
+    </a>
 
-            </a>
-            
-              
-              <label class="md-nav__link md-nav__link--active" for="__nav_3" id="__nav_3_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Introduction
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
+    <label class="md-nav__link md-nav__link--active" for="__nav_taxonomy" id="__nav_taxonomy_label" tabindex="0">
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+  </div>
 
-            <li class="md-nav__item">
-      <a href="taxonomy/" class="md-nav__link">
-        
-  
-        <span class="md-ellipsis">
-          Taxonomy
-        </span>
-  
+  <!-- Corrected Navigation Structure -->
+  <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_taxonomy_label" aria-expanded="true">
+    <label class="md-nav__title" for="__nav_taxonomy">
+      <span class="md-nav__icon md-icon"></span> Introduction
+    </label>
 
-          </a>
+    <ul class="md-nav__list" data-md-scrollfix>
+      <!-- Fixed Taxonomy Link -->
+      <li class="md-nav__item">
+        <a href="taxonomy/" class="md-nav__link">
+          <span class="md-ellipsis">Taxonomy</span>
+        </a>
       </li>
     </ul>
-
   </nav>
+</li>
 
-</li> <!-- Closing the main list item -->
+    <!-- Navigation item for "Chapter 1" -->
+<li class="md-nav__item md-nav__item--nested">
+  <a href="../chapter1/" class="md-nav__link">
+    <span class="md-ellipsis">Chapter 1</span>
+    <span class="md-nav__icon md-icon"></span>
+  </a>
+</li>
 
-
-
-    
-
-    
-     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">    
-            
-    
-      <a href="../chapter1/" class="md-nav__link">
-
-    
-  <span class="md-ellipsis">
-    Chapter 1
-  </span>
-  
-      <span class="md-nav__icon md-icon"></span>
-      </a>
-    </li>
-  
-
-    
-    <li class="md-nav__item">
-      <a href="../glossary/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Glossary
-  </span>
-  
-
-      </a>
-    </li>
-  
+<!-- Navigation item for "Glossary" -->
 <li class="md-nav__item">
-      <a href="../references/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    References
-  </span>
-  
+  <a href="../glossary/" class="md-nav__link">
+    <span class="md-ellipsis">Glossary</span>
+  </a>
+</li>
 
-      </a>
-    </li>
-  
+<!-- Navigation item for "References" -->
+<li class="md-nav__item">
+  <a href="../references/" class="md-nav__link">
+    <span class="md-ellipsis">References</span>
+  </a>
+</li>
 
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../contact/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Contact
-  </span>
-  
+<!-- Navigation item for "Contact" -->
+<li class="md-nav__item">
+  <a href="../contact/" class="md-nav__link">
+    <span class="md-ellipsis">Contact</span>
+  </a>
+</li>
 
-      </a>
-    </li>
-  
-
-    
-  </ul>
+<!-- Ensure the <ul> closes AFTER all list items -->
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
+</div>
+</div>
+</div>
+
             
             
               
