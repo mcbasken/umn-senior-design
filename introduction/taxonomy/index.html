@@ -323,30 +323,30 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
+<div class="md-container" data-md-component="container">
+  <main class="md-main" data-md-component="main">
+    <div class="md-main__inner md-grid"> <!-- ✅ Ensures proper layout -->
 
-  
-  
-  
-    
-  
-  
-<!-- Table of Contents (ToC) -->
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  <label class="md-nav__title" for="__toc">
-    <span class="md-nav__icon md-icon"></span>
-    Table of Contents
-  </label>
-  <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      <!-- SIDEBAR (LEFT) -->
+      <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+        ...
+      </div>
 
-    <li class="md-nav__item">
-      <a href="#foundations-of-digital-design" class="md-nav__link">
-        <span class="md-ellipsis">Foundations of Digital Design</span>
-      </a>
-    </li>
+      <!-- SECONDARY SIDEBAR (ToC) -->
+      <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+        <div class="md-sidebar__scrollwrap">
+          <div class="md-sidebar__inner">
+            <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+              <label class="md-nav__title" for="__toc">
+                <span class="md-nav__icon md-icon"></span>
+                Table of Contents
+              </label>
+              <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix">
+                <li class="md-nav__item">
+                  <a href="#foundations-of-digital-design" class="md-nav__link">
+                    <span class="md-ellipsis">Foundations of Digital Design</span>
+                  </a>
+                </li>
 
     <li class="md-nav__item">
       <a href="#combinational-logic-design" class="md-nav__link">
