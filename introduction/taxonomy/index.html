@@ -186,9 +186,6 @@
     
     
          
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
           
             
 <div class="md-container" data-md-component="container">           
@@ -337,7 +334,9 @@
                
           
       <!-- 🎯 MAIN CONTENT -->
-      <div class="md-content" data-md-component="content">
+    <main class="md-main" data-md-component="main">
+      <div class="md-main__inner md-grid">
+       <div class="md-content" data-md-component="content">
         <article class="md-content__inner md-typeset">
           
           <!-- Content Section -->
@@ -444,6 +443,8 @@
            </article>
           </div> <!-- ✅ Closes Main Content Wrapper -->
          </div>
+    </main> <!-- ✅ Closes Main Content Wrapper -->
+</div>  <!-- ✅ Close md-container -->
 
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
