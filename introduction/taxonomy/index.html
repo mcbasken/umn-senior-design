@@ -187,89 +187,78 @@
     
          
           
-            
-<div class="md-container" data-md-component="container">           
-<!-- ✅ Left Sidebar (Navigation) -->
- <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-  <div class="md-sidebar__scrollwrap">
-    <div class="md-sidebar__inner">
-      <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-       <ul class="md-nav__list" data-md-scrollfix>
-        <label class="md-nav__title" for="__drawer">
-          <a href=".." title="Digital Design" class="md-nav__button md-logo" aria-label="Digital Design" data-md-component="logo">
-            <img src="../img/logo.png" alt="logo">
-          </a>
-          Digital Design
-        </label>
 
-      <!-- ✅ MAIN NAVIGATION LIST -->
+<main class="md-main" data-md-component="main">
+  <div class="md-main__inner md-grid">
 
-          <!-- ✅ Home Link -->
-          <li class="md-nav__item">
-              <a href=".." class="md-nav__link"> <span class="md-ellipsis">Home</span> </a> 
+    <!-- ✅ Left Sidebar (Navigation) -->
+    <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          <!-- Left Navigation -->
+          <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+            <ul class="md-nav__list">
+              <li class="md-nav__item">
+                <a href=".." class="md-nav__link"><span class="md-ellipsis">Home</span></a>
               </li>
     
           <!-- ✅ Introduction Section -->
-          <li class="md-nav__item md-nav__item--nested">
-            <input class="md-nav__toggle md-toggle" type="checkbox" id="__nav_taxonomy" checked>
-            <div class="md-nav__link md-nav__container">
-              <a href="../" class="md-nav__link"> <span class="md-ellipsis">Introduction</span></a>
-              <label class="md-nav__link md-nav__link--active" for="__nav_taxonomy" id="__nav_taxonomy_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            </div>
-            
-            <!-- ✅ Nested List for Taxonomy -->
-            <ul class="md-nav__list">
-              <li class="md-nav__item md-nav__item--active">
-                <a href="/umn-senior-design/introduction/taxonomy/" class="md-nav__link md-nav__link--active">
-                  <span class="md-ellipsis">Taxonomy</span>
+              <li class="md-nav__item md-nav__item--nested">
+                <input class="md-nav__toggle md-toggle" type="checkbox" id="__nav_taxonomy" checked>
+                <div class="md-nav__link md-nav__container">
+                  <a href="../" class="md-nav__link"> <span class="md-ellipsis">Introduction</span></a>
+                  <label class="md-nav__link md-nav__link--active" for="__nav_taxonomy" id="__nav_taxonomy_label" tabindex="0">
+                    <span class="md-nav__icon md-icon"></span>
+                  </label>
+                </div>
+                
+                <!-- ✅ Nested List for Taxonomy -->
+                <ul class="md-nav__list">
+                  <li class="md-nav__item md-nav__item--active">
+                    <a href="/umn-senior-design/introduction/taxonomy/" class="md-nav__link md-nav__link--active">
+                      <span class="md-ellipsis">Taxonomy</span>
+                    </a>
+                  </li>
+                </ul> <!-- ✅ Closes the Nested List -->
+              </li> <!-- ✅ Closes "Introduction" Section -->
+    
+              <!-- ✅ Chapter 1 -->
+              <li class="md-nav__item md-nav__item--nested">
+                <a href="/umn-senior-design/chapter1/" class="md-nav__link">
+                  <span class="md-ellipsis">Chapter 1</span>
+                  <span class="md-nav__icon md-icon"></span>
                 </a>
               </li>
-            </ul> <!-- ✅ Closes the Nested List -->
-          </li> <!-- ✅ Closes "Introduction" Section -->
-
-          <!-- ✅ Chapter 1 -->
-          <li class="md-nav__item md-nav__item--nested">
-            <a href="/umn-senior-design/chapter1/" class="md-nav__link">
-              <span class="md-ellipsis">Chapter 1</span>
-              <span class="md-nav__icon md-icon"></span>
-            </a>
-          </li>
-
-          <!-- ✅ Glossary -->
-          <li class="md-nav__item">
-            <a href="../glossary/" class="md-nav__link">
-              <span class="md-ellipsis">Glossary</span>
-            </a>
-          </li>
-
-          <!-- ✅ References -->
-          <li class="md-nav__item">
-            <a href="../references/" class="md-nav__link">
-              <span class="md-ellipsis">References</span>
-            </a>
-          </li>
-
-          <!-- ✅ Contact -->
-          <li class="md-nav__item">
-            <a href="../contact/" class="md-nav__link">
-              <span class="md-ellipsis">Contact</span>
-            </a>
-          </li>
-        </ul> <!-- ✅ Closes Main Sidebar List -->
-       </li>
-      </ul>
-    </nav> <!-- ✅ Close Navigation -->
-    </div> <!-- ✅ Close .md-sidebar__inner -->
-  </div> <!-- ✅ Close .md-sidebar__scrollwrap -->
- </div> <!-- ✅ Close .md-sidebar md-sidebar--primary -->
+    
+              <!-- ✅ Glossary -->
+              <li class="md-nav__item">
+                <a href="../glossary/" class="md-nav__link">
+                  <span class="md-ellipsis">Glossary</span>
+                </a>
+              </li>
+    
+              <!-- ✅ References -->
+              <li class="md-nav__item">
+                <a href="../references/" class="md-nav__link">
+                  <span class="md-ellipsis">References</span>
+                </a>
+              </li>
+    
+              <!-- ✅ Contact -->
+              <li class="md-nav__item">
+                <a href="../contact/" class="md-nav__link">
+                  <span class="md-ellipsis">Contact</span>
+                </a>
+              </li>
+            </ul>
+          </nav> <!-- ✅ Close Navigation -->
+        </div> <!-- ✅ Close .md-sidebar__inner -->
+       </div> <!-- ✅ Close .md-sidebar__scrollwrap -->
+     </div> <!-- ✅ Close .md-sidebar md-sidebar--primary -->
 <!-- ✅ END Left Sidebar -->
 
     <!-- 🎯 MAIN CONTENT -->
-<main class="md-main" data-md-component="main">
-  <div class="md-main__inner md-grid">
-    <div class="md-content" data-md-component="content">
+     <div class="md-content" data-md-component="content">
       <article class="md-content__inner md-typeset">
           
           <!-- Content Section -->
@@ -372,77 +361,74 @@
               <li>AI Accelerators and Hardware for Machine Learning</li>
               <li>Quantum Computing and Emerging Hardware Trends</li>
           </ul>
-          
       </article>
     </div>
-  </div>
-</main>
 
       
  <!-- ✅ Right Sidebar -->
-<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
-  <div class="md-sidebar__scrollwrap">
-    <div class="md-sidebar__inner">
-      <nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
-        <label class="md-nav__title" for="__toc">
-          <span class="md-nav__icon md-icon"></span> Table of Contents
-        </label>
-          <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-          
-          <li class="md-nav__item">
-            <a href="#foundations-of-digital-design" class="md-nav__link">
-              <span class="md-ellipsis">Foundations of Digital Design</span>
-            </a>
-          </li>
-
-          <li class="md-nav__item">
-            <a href="#combinational-logic-design" class="md-nav__link">
-              <span class="md-ellipsis">Combinational Logic Design</span>
-            </a>
-          </li>
-
-          <li class="md-nav__item">
-            <a href="#sequential-logic-and-memory-elements" class="md-nav__link">
-              <span class="md-ellipsis">Sequential Logic and Memory Elements</span>
-            </a>
-          </li>
-
-          <li class="md-nav__item">
-            <a href="#hardware-description-languages-hdl-and-verilog" class="md-nav__link">
-              <span class="md-ellipsis">HDL and Verilog</span>
-            </a>
-          </li>
-
-          <li class="md-nav__item">
-            <a href="#finite-state-machines-fsms-and-control-logic" class="md-nav__link">
-              <span class="md-ellipsis">Finite State Machines (FSMs) and Control Logic</span>
-            </a>
-          </li>
-
-          <li class="md-nav__item">
-            <a href="#fpga-design-and-implementation" class="md-nav__link">
-              <span class="md-ellipsis">FPGA Design and Implementation</span>
-            </a>
-          </li>
-
-          <li class="md-nav__item">
-            <a href="#system-design-and-optimization" class="md-nav__link">
-              <span class="md-ellipsis">System Design and Optimization</span>
-            </a>
-          </li>
-
-          <li class="md-nav__item">
-            <a href="#advanced-applications-and-emerging-trends" class="md-nav__link">
-              <span class="md-ellipsis">Advanced Applications and Emerging Trends</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+    <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          <nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+            <label class="md-nav__title" for="__toc">
+              <span class="md-nav__icon md-icon"></span> Table of Contents
+            </label>
+              <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+              
+              <li class="md-nav__item">
+                <a href="#foundations-of-digital-design" class="md-nav__link">
+                  <span class="md-ellipsis">Foundations of Digital Design</span>
+                </a>
+              </li>
+    
+              <li class="md-nav__item">
+                <a href="#combinational-logic-design" class="md-nav__link">
+                  <span class="md-ellipsis">Combinational Logic Design</span>
+                </a>
+              </li>
+    
+              <li class="md-nav__item">
+                <a href="#sequential-logic-and-memory-elements" class="md-nav__link">
+                  <span class="md-ellipsis">Sequential Logic and Memory Elements</span>
+                </a>
+              </li>
+    
+              <li class="md-nav__item">
+                <a href="#hardware-description-languages-hdl-and-verilog" class="md-nav__link">
+                  <span class="md-ellipsis">HDL and Verilog</span>
+                </a>
+              </li>
+    
+              <li class="md-nav__item">
+                <a href="#finite-state-machines-fsms-and-control-logic" class="md-nav__link">
+                  <span class="md-ellipsis">Finite State Machines (FSMs) and Control Logic</span>
+                </a>
+              </li>
+    
+              <li class="md-nav__item">
+                <a href="#fpga-design-and-implementation" class="md-nav__link">
+                  <span class="md-ellipsis">FPGA Design and Implementation</span>
+                </a>
+              </li>
+    
+              <li class="md-nav__item">
+                <a href="#system-design-and-optimization" class="md-nav__link">
+                  <span class="md-ellipsis">System Design and Optimization</span>
+                </a>
+              </li>
+    
+              <li class="md-nav__item">
+                <a href="#advanced-applications-and-emerging-trends" class="md-nav__link">
+                  <span class="md-ellipsis">Advanced Applications and Emerging Trends</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-</div>  <!-- ✅ Close md-container -->
+</main>
           
     
 
