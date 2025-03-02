@@ -123,140 +123,147 @@
             </div>
           </div>
         </div>
-
-<!-- 🎯 MAIN CONTENT -->
-<main class="md-main" data-md-component="main">
-  <div class="md-main__inner md-grid">
-
-    <!-- ✅ Main Content -->
-    <div class="md-content" data-md-component="content">
-      <article class="md-content__inner md-typeset">
+    
+         <!-- ✅ Table of Contents -->
+        <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+          <div class="md-sidebar__scrollwrap">
+            <div class="md-sidebar__inner">
+              <nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+                <label class="md-nav__title" for="__toc">
+                  <span class="md-nav__icon md-icon"></span> ToC
+                </label>
+                <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
         
-        <h2 id="foundations-of-digital-design">Foundations of Digital Design</h2>
-        <p class="definition">Definition: Core concepts that form the basis for understanding digital systems.</p>
-        <ul>
-          <li>Introduction to Digital Systems</li>
-          <li>Number Systems and Conversions</li>
-          <li>Boolean Algebra and Logic Gates</li>
-          <li>Truth Tables and Logic Expressions</li>
-          <li>Canonical Forms (SOP, POS)</li>
-          <li>Logic Simplification (Karnaugh Maps, Quine-McCluskey)</li>
-          <li>Minterms and Maxterms</li>
-          <li>Binary Arithmetic and Overflow</li>
-          <li>Signed and Unsigned Representations</li>
-          <li>Two’s Complement and Arithmetic Circuits</li>
-        </ul>
+                  <li class="md-nav__item"><a href="#foundations-of-digital-design" class="md-nav__link">Foundations</a></li>
+                  <li class="md-nav__item"><a href="#combinational-logic-design" class="md-nav__link">Combinational Logic</a></li>
+                  <li class="md-nav__item"><a href="#sequential-logic-and-memory-elements" class="md-nav__link">Sequential Logic</a></li>
+                  <li class="md-nav__item"><a href="#hardware-description-languages-hdl-and-verilog" class="md-nav__link">HDL & Verilog</a></li>
+                  <li class="md-nav__item"><a href="#finite-state-machines-fsms-and-control-logic" class="md-nav__link">FSMs & Control</a></li>
+                  <li class="md-nav__item"><a href="#fpga-design-and-implementation" class="md-nav__link">FPGA Design</a></li>
+                  <li class="md-nav__item"><a href="#system-design-and-optimization" class="md-nav__link">Optimization</a></li>
+                  <li class="md-nav__item"><a href="#advanced-applications-and-emerging-trends" class="md-nav__link">Advanced Topics</a></li>
+        
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
 
-        <h2 id="combinational-logic-design">Combinational Logic Design</h2>
-        <p class="definition">Definition: Circuits whose output depends solely on the current input values.</p>
-        <ul>
-          <li>Designing Combinational Circuits</li>
-          <li>Multiplexers (MUX) and Demultiplexers (DEMUX)</li>
-          <li>Encoders and Decoders</li>
-          <li>Arithmetic Circuits (Adders, Subtractors, Multipliers, ALUs)</li>
-          <li>Comparators</li>
-          <li>Logic Implementation with ROM and PLAs</li>
-          <li>Verilog Modeling of Combinational Circuits</li>
-        </ul>
 
-        <h2 id="sequential-logic-and-memory-elements">Sequential Logic and Memory Elements</h2>
-        <p class="definition">Definition: Circuits that use memory elements to store and process past input values.</p>
-        <ul>
-          <li>Introduction to Sequential Circuits</li>
-          <li>Flip-Flops and Latches (DFF, TFF, JK, SR)</li>
-          <li>Clocking and Edge-triggered Behavior</li>
-          <li>Registers and Shift Registers</li>
-          <li>Asynchronous vs. Synchronous Circuits</li>
-          <li>Counters (Binary, Johnson, Ring)</li>
-          <li>Memory Elements (SRAM, DRAM, ROM, FIFO)</li>
-          <li>State Machines and Sequential Circuit Analysis</li>
-        </ul>
+      <!-- 🎯 MAIN CONTENT -->
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+      
+          <!-- ✅ Main Content -->
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+              <h2 id="foundations-of-digital-design">Foundations of Digital Design</h2>
+              <p class="definition">Definition: Core concepts that form the basis for understanding digital systems.</p>
+              <ul>
+                <li>Introduction to Digital Systems</li>
+                <li>Number Systems and Conversions</li>
+                <li>Boolean Algebra and Logic Gates</li>
+                <li>Truth Tables and Logic Expressions</li>
+                <li>Canonical Forms (SOP, POS)</li>
+                <li>Logic Simplification (Karnaugh Maps, Quine-McCluskey)</li>
+                <li>Minterms and Maxterms</li>
+                <li>Binary Arithmetic and Overflow</li>
+                <li>Signed and Unsigned Representations</li>
+                <li>Two’s Complement and Arithmetic Circuits</li>
+              </ul>
+      
+              <h2 id="combinational-logic-design">Combinational Logic Design</h2>
+              <p class="definition">Definition: Circuits whose output depends solely on the current input values.</p>
+              <ul>
+                <li>Designing Combinational Circuits</li>
+                <li>Multiplexers (MUX) and Demultiplexers (DEMUX)</li>
+                <li>Encoders and Decoders</li>
+                <li>Arithmetic Circuits (Adders, Subtractors, Multipliers, ALUs)</li>
+                <li>Comparators</li>
+                <li>Logic Implementation with ROM and PLAs</li>
+                <li>Verilog Modeling of Combinational Circuits</li>
+              </ul>
+      
+              <h2 id="sequential-logic-and-memory-elements">Sequential Logic and Memory Elements</h2>
+              <p class="definition">Definition: Circuits that use memory elements to store and process past input values.</p>
+              <ul>
+                <li>Introduction to Sequential Circuits</li>
+                <li>Flip-Flops and Latches (DFF, TFF, JK, SR)</li>
+                <li>Clocking and Edge-triggered Behavior</li>
+                <li>Registers and Shift Registers</li>
+                <li>Asynchronous vs. Synchronous Circuits</li>
+                <li>Counters (Binary, Johnson, Ring)</li>
+                <li>Memory Elements (SRAM, DRAM, ROM, FIFO)</li>
+                <li>State Machines and Sequential Circuit Analysis</li>
+              </ul>
+      
+              <h2 id="hardware-description-languages-hdl-and-verilog">Hardware Description Languages (HDL) and Verilog</h2>
+              <p class="definition">Definition: Fundamentals of describing digital logic using Verilog.</p>
+              <ul>
+                <li>Introduction to Verilog and HDLs</li>
+                <li>Verilog Syntax and Semantics</li>
+                <li>Data Types and Operators</li>
+                <li>Combinational and Sequential Logic in Verilog</li>
+                <li>Procedural Blocks (always, initial)</li>
+                <li>Testbenches and Simulation</li>
+                <li>Timing and Delays in Verilog</li>
+                <li>Writing Synthesizable Verilog Code</li>
+              </ul>
+      
+              <h2 id="finite-state-machines-fsms-and-control-logic">Finite State Machines (FSMs) and Control Logic</h2>
+              <p class="definition">Definition: FSMs as a fundamental concept in digital system control and automation.</p>
+              <ul>
+                <li>Finite State Machine (FSM) Fundamentals</li>
+                <li>State Diagram and Table Representation</li>
+                <li>Mealy vs. Moore FSM Models</li>
+                <li>State Encoding Techniques</li>
+                <li>FSM Design and Optimization</li>
+                <li>FSM Implementation in Verilog</li>
+              </ul>
+      
+              <h2 id="fpga-design-and-implementation">FPGA Design and Implementation</h2>
+              <p class="definition">Definition: Designing and deploying digital systems on Field Programmable Gate Arrays (FPGAs).</p>
+              <ul>
+                <li>Introduction to FPGA Architecture</li>
+                <li>FPGA vs. ASIC Design</li>
+                <li>FPGA Design Flow</li>
+                <li>Verilog for FPGA Development</li>
+                <li>Constraints and Timing Analysis</li>
+                <li>Clocking and PLLs in FPGA</li>
+                <li>FPGA Configuration and Bitstream Generation</li>
+                <li>Hardware Debugging with FPGA</li>
+              </ul>
+      
+              <h2 id="system-design-and-optimization">System Design and Optimization</h2>
+              <p class="definition">Definition: Techniques for designing efficient, high-performance digital systems.</p>
+              <ul>
+                <li>Design Hierarchy and Modularity</li>
+                <li>Hardware/Software Co-Design</li>
+                <li>Pipelining and Parallelism</li>
+                <li>Low-Power Design Strategies</li>
+                <li>Performance vs. Area Trade-offs</li>
+                <li>Static Timing Analysis and Optimization</li>
+                <li>Testability and Fault Detection</li>
+                <li>Boundary Scan and JTAG</li>
+              </ul>
+      
+              <h2 id="advanced-applications-and-emerging-trends">Advanced Applications and Emerging Trends</h2>
+              <p class="definition">Definition: Applying digital design concepts to real-world and cutting-edge technologies.</p>
+              <ul>
+                <li>Digital Signal Processing (DSP) Architectures</li>
+                <li>Computer Architecture Basics (RISC, CISC, Microcontrollers)</li>
+                <li>High-Speed Communication Protocols (UART, SPI, I2C, PCIe)</li>
+                <li>AI Accelerators and Hardware for Machine Learning</li>
+                <li>Quantum Computing and Emerging Hardware Trends</li>
+              </ul>
+      
+            </article>
+          </div>
+      
+        </div> <!-- ✅ Closes md-main__inner -->
+      </main> <!-- ✅ Closes Main Content -->
 
-        <h2 id="hardware-description-languages-hdl-and-verilog">Hardware Description Languages (HDL) and Verilog</h2>
-        <p class="definition">Definition: Fundamentals of describing digital logic using Verilog.</p>
-        <ul>
-          <li>Introduction to Verilog and HDLs</li>
-          <li>Verilog Syntax and Semantics</li>
-          <li>Data Types and Operators</li>
-          <li>Combinational and Sequential Logic in Verilog</li>
-          <li>Procedural Blocks (always, initial)</li>
-          <li>Testbenches and Simulation</li>
-          <li>Timing and Delays in Verilog</li>
-          <li>Writing Synthesizable Verilog Code</li>
-        </ul>
-
-        <h2 id="finite-state-machines-fsms-and-control-logic">Finite State Machines (FSMs) and Control Logic</h2>
-        <p class="definition">Definition: FSMs as a fundamental concept in digital system control and automation.</p>
-        <ul>
-          <li>Finite State Machine (FSM) Fundamentals</li>
-          <li>State Diagram and Table Representation</li>
-          <li>Mealy vs. Moore FSM Models</li>
-          <li>State Encoding Techniques</li>
-          <li>FSM Design and Optimization</li>
-          <li>FSM Implementation in Verilog</li>
-        </ul>
-
-        <h2 id="fpga-design-and-implementation">FPGA Design and Implementation</h2>
-        <p class="definition">Definition: Designing and deploying digital systems on Field Programmable Gate Arrays (FPGAs).</p>
-        <ul>
-          <li>Introduction to FPGA Architecture</li>
-          <li>FPGA vs. ASIC Design</li>
-          <li>FPGA Design Flow</li>
-          <li>Verilog for FPGA Development</li>
-          <li>Constraints and Timing Analysis</li>
-          <li>Clocking and PLLs in FPGA</li>
-          <li>FPGA Configuration and Bitstream Generation</li>
-          <li>Hardware Debugging with FPGA</li>
-        </ul>
-
-        <h2 id="system-design-and-optimization">System Design and Optimization</h2>
-        <p class="definition">Definition: Techniques for designing efficient, high-performance digital systems.</p>
-        <ul>
-          <li>Design Hierarchy and Modularity</li>
-          <li>Hardware/Software Co-Design</li>
-          <li>Pipelining and Parallelism</li>
-          <li>Low-Power Design Strategies</li>
-          <li>Performance vs. Area Trade-offs</li>
-          <li>Static Timing Analysis and Optimization</li>
-          <li>Testability and Fault Detection</li>
-          <li>Boundary Scan and JTAG</li>
-        </ul>
-
-        <h2 id="advanced-applications-and-emerging-trends">Advanced Applications and Emerging Trends</h2>
-        <p class="definition">Definition: Applying digital design concepts to real-world and cutting-edge technologies.</p>
-        <ul>
-          <li>Digital Signal Processing (DSP) Architectures</li>
-          <li>Computer Architecture Basics (RISC, CISC, Microcontrollers)</li>
-          <li>High-Speed Communication Protocols (UART, SPI, I2C, PCIe)</li>
-          <li>AI Accelerators and Hardware for Machine Learning</li>
-          <li>Quantum Computing and Emerging Hardware Trends</li>
-        </ul>
-
-      </article>
-    </div>
-
-  </div> <!-- ✅ Closes md-main__inner -->
-</main> <!-- ✅ Closes Main Content -->
-
-<!-- ✅ Right Sidebar -->
-<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
-  <div class="md-sidebar__scrollwrap">
-    <div class="md-sidebar__inner">
-      <nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
-        <label class="md-nav__title" for="__toc">
-          <span class="md-nav__icon md-icon"></span> Table of Contents
-        </label>
-        <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-          <li class="md-nav__item">
-            <a href="#foundations-of-digital-design" class="md-nav__link">
-              <span class="md-ellipsis">Foundations of Digital Design</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</div>
 
 </div> <!-- ✅ Closes md-main__inner -->
 </main> <!-- ✅ Closes Main Content -->
