@@ -1,319 +1,94 @@
-<!doctype html>
-<html lang="en" class="no-js">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="DESCRIPTION All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DESCRIPTION - All content licensed Creative Commons ShareAlike Attribution Noncommercial">
     <meta name="author" content="Matthew Basken">
-    <link rel="canonical" href="https://mcbasken.github.io/umn-senior-design/introduction/taxonomy/">
-    <link rel="icon" href="/umn-senior-design/img/favicon.ico">
-    <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
-
-    <title>Taxonomy - Digital Design with Programmable Logic</title>
-
+    <title>Introduction - Digital Design with Programmable Logic</title>
     <link rel="stylesheet" href="/umn-senior-design/assets/stylesheets/main.0253249f.min.css">
     <link rel="stylesheet" href="/umn-senior-design/assets/stylesheets/palette.06af60db.min.css">
-    <link rel="stylesheet" href="../../css/extra.css">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700|Roboto+Mono:400,700&display=fallback">
-    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono"; }</style>
+    <link rel="stylesheet" href="../css/extra.css">
+    <link rel="icon" href="../img/favicon.ico">
 </head>
-
-<body dir="ltr">
-
-<header class="md-header md-header--shadow" data-md-component="header">
-    <nav class="md-header__inner md-grid" aria-label="Header">
-        
-        <!-- ✅ Logo & Title -->
-        <a href="../.." title="Digital Design" class="md-header__button md-logo" aria-label="Digital Design">
-            <img src="/umn-senior-design/img/logo.png" alt="logo">
-        </a>
-
-        <!-- ✅ Navigation Toggle Button -->
-        <label class="md-header__button md-icon" for="__drawer">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
-            </svg>
-        </label>
-
-        <div class="md-header__title">
-            <div class="md-header__ellipsis">
-                <div class="md-header__topic">
-                    <span class="md-ellipsis">Digital Design With Programmable Logic</span>
+<body>
+    <!-- Header Navigation -->
+    <header class="md-header md-header--shadow">
+        <nav class="md-header__inner md-grid" aria-label="Navigation">
+            <a href=".." title="Digital Design" class="md-header__button md-logo">
+                <img src="../img/logo.png" alt="logo">
+            </a>
+            <label class="md-header__button md-icon" for="__drawer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+            </label>
+            <div class="md-search">
+                <input type="text" class="md-search__input" placeholder="Search...">
+            </div>
                 </div>
             </div>
+            <div class="md-header__source">
+            <a href="https://github.com/mcbasken/umn-senior-design" title="GitHub Repo" class="md-source">
+                <img src="../img/github-icon.svg" alt="GitHub" width="30">
+            </a>
         </div>
-
-        <!-- 🔍 Search Button -->
-        <label class="md-header__button md-icon" for="__search">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/>
-            </svg>
-        </label>
     </nav>
-</header>
-        <!-- 🔍 Search Component -->
-        <div class="md-search" data-md-component="search" role="dialog">
-            <label class="md-search__overlay" for="__search"></label>
-            <div class="md-search__inner" role="search">
-                <form class="md-search__form" name="search">
-                    <input type="text" class="md-search__input" name="query" aria-label="Search"
-                        placeholder="Search..." autocapitalize="off" autocorrect="off"
-                        autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-                    <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                        </svg>
-                    </button>
-                </form>
+    </header>
 
-
-                <!-- 🔍 Search Results -->
-                <div class="md-search__output">
-                    <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-                        <div class="md-search-result" data-md-component="search-result">
-                            <div class="md-search-result__meta">Initializing search...</div>
-                            <ol class="md-search-result__list" role="presentation"></ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-    <!-- ✅ Fixed Sidebar and ToC -->
-    <main class="md-main" data-md-component="main">
+    <!-- Main Layout -->
+    <div class="md-container">
         <div class="md-main__inner md-grid">
-            <div class="md-sidebar md-sidebar--primary">
-                <div class="md-sidebar__scrollwrap">
-                    <div class="md-sidebar__inner">
-                        <label class="md-nav__title">Navigation</label>
-                        <nav class="md-nav md-nav--primary">
-                            <ul class="md-nav__list">
-                                <li class="md-nav__item"><a href=".." class="md-nav__link">Home</a></li>
-                                <li class="md-nav__item"><a href="../" class="md-nav__link">Introduction</a></li>
-                                <li class="md-nav__item"><a href="/umn-senior-design/chapter1/" class="md-nav__link">Chapter 1</a></li>
-                                <li class="md-nav__item"><a href="/umn-senior-design/glossary/" class="md-nav__link">Glossary</a></li>
-                                <li class="md-nav__item"><a href="/umn-senior-design/references/" class="md-nav__link">References</a></li>
-                                <li class="md-nav__item"><a href="/umn-senior-design/contact/" class="md-nav__link">Contact</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- ✅ Fixed Table of Contents (No Gap Below Taxonomy) -->
-            <div class="md-sidebar md-sidebar--secondary">
-                <div class="md-sidebar__scrollwrap">
-                    <div class="md-sidebar__inner">
-                        <nav class="md-nav md-nav--secondary">
-                            <label class="md-nav__title">Table of Contents</label>
-                            <ul class="md-nav__list">
-                                <li class="md-nav__item"><a href="#foundations-of-digital-design">Foundations</a></li>
-                                <li class="md-nav__item"><a href="#combinational-logic-design">Combinational Logic</a></li>
-                                <li class="md-nav__item"><a href="#sequential-logic-and-memory-elements">Sequential Logic</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-</body>
-</html>
-            <!-- ✅ Main Content -->
-            <div class="md-content">
-                <article class="md-content__inner md-typeset">
+            <!-- Sidebar Navigation -->
+            <aside class="md-sidebar md-sidebar--primary">
+                <nav class="md-nav" aria-label="Navigation">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../introduction/index.html">Introduction</a></li>
+                        <li><a href="../chapter1/index.html">Chapter 1</a></li>
+                        <li><a href="../glossary/index.html">Glossary</a></li>
+                        <li><a href="../references/index.html">References</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            
+            <!-- Main Content -->
+            <main class="md-main">
+                <div class="md-main__inner">
+                    <!-- Table of Contents -->
+                    <nav class="md-nav md-nav--secondary" aria-label="Table of Contents">
+                        <ul>
+                            <li><a href="#section1">Section 1</a></li>
+                            <li><a href="#section2">Section 2</a></li>
+                            <li><a href="#section3">Section 3</a></li>
+                        </ul>
+                    </nav>
                     
-              <h2 id="foundations-of-digital-design">Foundations of Digital Design</h2>
-              <p class="definition">Definition: Core concepts that form the basis for understanding digital systems.</p>
-              <ul>
-                <li>Introduction to Digital Systems</li>
-                <li>Number Systems and Conversions</li>
-                <li>Boolean Algebra and Logic Gates</li>
-                <li>Truth Tables and Logic Expressions</li>
-                <li>Canonical Forms (SOP, POS)</li>
-                <li>Logic Simplification (Karnaugh Maps, Quine-McCluskey)</li>
-                <li>Minterms and Maxterms</li>
-                <li>Binary Arithmetic and Overflow</li>
-                <li>Signed and Unsigned Representations</li>
-                <li>Two’s Complement and Arithmetic Circuits</li>
-              </ul>
-      
-              <h2 id="combinational-logic-design">Combinational Logic Design</h2>
-              <p class="definition">Definition: Circuits whose output depends solely on the current input values.</p>
-              <ul>
-                <li>Designing Combinational Circuits</li>
-                <li>Multiplexers (MUX) and Demultiplexers (DEMUX)</li>
-                <li>Encoders and Decoders</li>
-                <li>Arithmetic Circuits (Adders, Subtractors, Multipliers, ALUs)</li>
-                <li>Comparators</li>
-                <li>Logic Implementation with ROM and PLAs</li>
-                <li>Verilog Modeling of Combinational Circuits</li>
-              </ul>
-      
-              <h2 id="sequential-logic-and-memory-elements">Sequential Logic and Memory Elements</h2>
-              <p class="definition">Definition: Circuits that use memory elements to store and process past input values.</p>
-              <ul>
-                <li>Introduction to Sequential Circuits</li>
-                <li>Flip-Flops and Latches (DFF, TFF, JK, SR)</li>
-                <li>Clocking and Edge-triggered Behavior</li>
-                <li>Registers and Shift Registers</li>
-                <li>Asynchronous vs. Synchronous Circuits</li>
-                <li>Counters (Binary, Johnson, Ring)</li>
-                <li>Memory Elements (SRAM, DRAM, ROM, FIFO)</li>
-                <li>State Machines and Sequential Circuit Analysis</li>
-              </ul>
-      
-              <h2 id="hardware-description-languages-hdl-and-verilog">Hardware Description Languages (HDL) and Verilog</h2>
-              <p class="definition">Definition: Fundamentals of describing digital logic using Verilog.</p>
-              <ul>
-                <li>Introduction to Verilog and HDLs</li>
-                <li>Verilog Syntax and Semantics</li>
-                <li>Data Types and Operators</li>
-                <li>Combinational and Sequential Logic in Verilog</li>
-                <li>Procedural Blocks (always, initial)</li>
-                <li>Testbenches and Simulation</li>
-                <li>Timing and Delays in Verilog</li>
-                <li>Writing Synthesizable Verilog Code</li>
-              </ul>
-      
-              <h2 id="finite-state-machines-fsms-and-control-logic">Finite State Machines (FSMs) and Control Logic</h2>
-              <p class="definition">Definition: FSMs as a fundamental concept in digital system control and automation.</p>
-              <ul>
-                <li>Finite State Machine (FSM) Fundamentals</li>
-                <li>State Diagram and Table Representation</li>
-                <li>Mealy vs. Moore FSM Models</li>
-                <li>State Encoding Techniques</li>
-                <li>FSM Design and Optimization</li>
-                <li>FSM Implementation in Verilog</li>
-              </ul>
-      
-              <h2 id="fpga-design-and-implementation">FPGA Design and Implementation</h2>
-              <p class="definition">Definition: Designing and deploying digital systems on Field Programmable Gate Arrays (FPGAs).</p>
-              <ul>
-                <li>Introduction to FPGA Architecture</li>
-                <li>FPGA vs. ASIC Design</li>
-                <li>FPGA Design Flow</li>
-                <li>Verilog for FPGA Development</li>
-                <li>Constraints and Timing Analysis</li>
-                <li>Clocking and PLLs in FPGA</li>
-                <li>FPGA Configuration and Bitstream Generation</li>
-                <li>Hardware Debugging with FPGA</li>
-              </ul>
-      
-              <h2 id="system-design-and-optimization">System Design and Optimization</h2>
-              <p class="definition">Definition: Techniques for designing efficient, high-performance digital systems.</p>
-              <ul>
-                <li>Design Hierarchy and Modularity</li>
-                <li>Hardware/Software Co-Design</li>
-                <li>Pipelining and Parallelism</li>
-                <li>Low-Power Design Strategies</li>
-                <li>Performance vs. Area Trade-offs</li>
-                <li>Static Timing Analysis and Optimization</li>
-                <li>Testability and Fault Detection</li>
-                <li>Boundary Scan and JTAG</li>
-              </ul>
-      
-              <h2 id="advanced-applications-and-emerging-trends">Advanced Applications and Emerging Trends</h2>
-              <p class="definition">Definition: Applying digital design concepts to real-world and cutting-edge technologies.</p>
-              <ul>
-                <li>Digital Signal Processing (DSP) Architectures</li>
-                <li>Computer Architecture Basics (RISC, CISC, Microcontrollers)</li>
-                <li>High-Speed Communication Protocols (UART, SPI, I2C, PCIe)</li>
-                <li>AI Accelerators and Hardware for Machine Learning</li>
-                <li>Quantum Computing and Emerging Hardware Trends</li>
-              </ul>
-      
-            </article>
-          </div>
-      
-        </div> <!-- ✅ Closes md-main__inner -->
-      </main> <!-- ✅ Closes Main Content -->
-
-
-</div> <!-- ✅ Closes md-main__inner -->
-</main> <!-- ✅ Closes Main Content -->
-
-<!-- ✅ Back to Top Button -->
-<button type="button" class="md-top md-icon" data-md-component="top" hidden>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/>
-  </svg>
-  Back to top
-</button>
-
-<!-- ✅ Footer -->
-<footer class="md-footer">
-  <nav class="md-footer__inner md-grid" aria-label="Footer">
-    <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction">
-      <div class="md-footer__button md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/>
-        </svg>
-      </div>
-      <div class="md-footer__title">
-        <span class="md-footer__direction">Previous</span>
-        <div class="md-ellipsis">Introduction</div>
-      </div>
-    </a>
-
-    <a href="../../chapter1/" class="md-footer__link md-footer__link--next" aria-label="Next: Chapter 1">
-      <div class="md-footer__title">
-        <span class="md-footer__direction">Next</span>
-        <div class="md-ellipsis">Chapter 1</div>
-      </div>
-      <div class="md-footer__button md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/>
-        </svg>
-      </div>
-    </a>
-  </nav>
-
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-      </div>
+                    <article class="md-content">
+                        <h1>Introduction</h1>
+                        <section id="section1">
+                            <h2>Section 1</h2>
+                            <p><!-- Content for section 1 goes here --></p>
+                        </section>
+                        <section id="section2">
+                            <h2>Section 2</h2>
+                            <p><!-- Content for section 2 goes here --></p>
+                        </section>
+                        <section id="section3">
+                            <h2>Section 3</h2>
+                            <p><!-- Content for section 3 goes here --></p>
+                        </section>
+                    </article>
+                </div>
+            </main>
+        </div>
     </div>
-  </div>
-</footer>
-
-</div> <!-- ✅ Closes Main Wrapper -->
-
-<!-- ✅ Fix Search -->
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search"
-        placeholder="Search..." autocapitalize="off" autocorrect="off" 
-        autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/>
-        </svg>
-      </label>
-      <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-        </svg>
-      </button>
-    </form>
-  </div>
-</div>
-
-<!-- ✅ Scripts -->
-<script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
-<script src="../js/extra.js"></script>
-
+    
+    <!-- Footer Navigation -->
+    <footer class="md-footer">
+        <nav class="md-footer__inner md-grid">
+            <a href="../index.html" class="md-footer__link md-footer__link--prev">⬅ Previous</a>
+            <a href="taxonomy/index.html" class="md-footer__link md-footer__link--next">Next ➡</a>
+        </nav>
+    </footer>
 </body>
 </html>
-
