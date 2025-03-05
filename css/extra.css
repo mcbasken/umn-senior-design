@@ -6,6 +6,10 @@
     height: 50px;
     width: 50px;
 }
+/* Change header title color to gold */
+.md-header__title {
+    color: gold !important;
+}
 
 :root {
     --md-primary-fg-color: #800000;
