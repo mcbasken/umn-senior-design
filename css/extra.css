@@ -8,7 +8,7 @@
 }
 /* Change header title color to gold */
 .md-header__title {
-    color: gold !important;
+    color: #FFD100 !important;
 }
 
 :root {
