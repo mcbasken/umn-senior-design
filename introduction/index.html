@@ -200,7 +200,7 @@
                 </a>
             </li>
         
-            <!-- Introduction (Active when on Introduction) -->
+            <!-- Introduction (Active) -->
             <li class="md-nav__item md-nav__item--nested">
                 <input class="md-nav__toggle md-toggle" type="checkbox" id="__nav_intro" checked>
                 <div class="md-nav__link md-nav__container">
@@ -211,6 +211,21 @@
                         <span class="md-nav__icon md-icon"></span>
                     </label>
                 </div>
+        
+                <!-- Nested Taxonomy under Introduction -->
+                <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_intro_label" aria-expanded="true">
+                    <label class="md-nav__title" for="__nav_intro">
+                        <span class="md-nav__icon md-icon"></span>
+                        Introduction
+                    </label>
+                    <ul class="md-nav__list" data-md-scrollfix>
+                        <li class="md-nav__item">
+                            <a href="/umn-senior-design/taxonomy/" class="md-nav__link">
+                                <span class="md-ellipsis">Taxonomy</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </li>
         
             <!-- Chapter 1 -->
@@ -277,6 +292,7 @@
             </li>
         
         </ul>
+
 
             </nav>
           </div>
