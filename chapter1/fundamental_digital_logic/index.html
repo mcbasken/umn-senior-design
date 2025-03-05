@@ -1,73 +1,643 @@
- <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{title}</title>
-        <link rel="stylesheet" href="../css/styles.css">
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <!-- Meta Information -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="DESCRIPTION All content licensed Creative Commons ShareAlike Attribution Noncommercial">
+    <meta name="author" content="Matthew Basken">
 
-        <!-- ✅ Header Section -->
-        <header class="md-header md-header--shadow" data-md-component="header">
-            <nav class="md-header__inner md-grid" aria-label="Navigation">
-                <a href="../.." title="Digital Design" class="md-header__button md-logo" aria-label="Digital Design">
-                    <img src="../img/logo.png" alt="logo">
-                </a>
-                <label class="md-header__button md-icon" for="__drawer">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
-                    </svg>
-                </label>
-                <div class="md-header__title">
-                    <div class="md-header__ellipsis">
-                        <div class="md-header__topic">
-                            <span class="md-ellipsis">Navigation</span>
+    <!-- Canonical URL for SEO -->
+    <link rel="canonical" href="https://mcbasken.github.io/umn-senior-design/chapter1/fundamental_digital_logic/">
+    
+    <!-- Navigation Links -->
+    <link rel="prev" href="../">
+    <link rel="next" href="../../glossary/">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../img/favicon.ico">
+    
+    <!-- MkDocs Generator Metadata -->
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
+    
+    <!-- Page Title -->
+    <title>Fundamental Digital Logic - Digital Design with Programmable Logic</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+    <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+    <link rel="stylesheet" href="../css/extra.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    
+    <!-- Set Font Variables -->
+    <style>:root { --md-text-font: "Roboto"; --md-code-font: "Roboto Mono"; }</style>
+
+    <!-- Scripts (Left as they were) -->
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+    <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-D7X1XT7Z19"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-D7X1XT7Z19",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-D7X1XT7Z19",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+</head>
+
+<body dir="ltr">
+    <!-- Sidebar Toggle Inputs -->
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    
+    <!-- Overlay for Sidebar -->
+    <label class="md-overlay" for="__drawer"></label>
+
+    <!-- Skip to Content Link -->
+    <div data-md-component="skip">
+        <a href="#main-content" class="md-skip">Skip to content</a>
+    </div>
+    
+    <!-- Announcement Bar (Optional) -->
+    <div data-md-component="announce"></div>
+
+    <!-- Header (Navigation Bar) -->
+    <header class="md-header md-header--shadow" data-md-component="header">
+        <nav class="md-header__inner md-grid" aria-label="Header">
+            <!-- Logo -->
+            <a href=".." title="Digital Design" class="md-header__button md-logo" aria-label="Digital Design" data-md-component="logo">
+                <img src="../img/logo.png" alt="logo">
+            </a>
+            
+            <!-- Hamburger Menu Icon for Mobile -->
+            <label class="md-header__button md-icon" for="__drawer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
+                </svg>
+            </label>
+
+            <!-- Header Title -->
+            <div class="md-header__title" data-md-component="header-title">
+                <div class="md-header__ellipsis">
+                    <div class="md-header__topic">
+                        <span class="md-ellipsis">Fundamental Digital Logic</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Button -->
+            <label class="md-header__button md-icon" for="__search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/>
+                </svg>
+            </label>
+            
+            <!-- Search Dialog -->
+            <div class="md-search" data-md-component="search" role="dialog">
+                <label class="md-search__overlay" for="__search"></label>
+                <div class="md-search__inner" role="search">
+                    
+                    <!-- Search Form -->
+                    <form class="md-search__form" name="search">
+                        <input type="text" class="md-search__input" name="query" 
+                               aria-label="Search" placeholder="Search"
+                               autocapitalize="off" autocorrect="off" 
+                               autocomplete="off" spellcheck="false" 
+                               data-md-component="search-query" required>
+            
+                        <!-- Search Icons (Magnifying Glass & Back Arrow) -->
+                        <label class="md-search__icon md-icon" for="__search">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/>
+                            </svg>
+                        </label>
+            
+                        <!-- Clear Search Button -->
+                        <nav class="md-search__options" aria-label="Search">
+                            <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                </svg>
+                            </button>
+                        </nav>
+                    </form>
+            
+                    <!-- Search Results Container -->
+                    <div class="md-search__output">
+                        <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+                            <div class="md-search-result" data-md-component="search-result">
+                                <div class="md-search-result__meta">Initializing search</div>
+                                <ol class="md-search-result__list" role="presentation"></ol>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <label class="md-header__button md-icon" for="__search">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/>
-                    </svg>
-                </label>
-                <a href="https://github.com/mcbasken/umn-senior-design" title="GitHub Repo" class="md-source">
-                    <img src="../img/github-icon.svg" alt="GitHub" width="30">
-                </a>
-            </nav>
-        </header>
+            </div>
 
-        <!-- ✅ Main Layout -->
-        <div class="md-container" data-md-component="container">
-            <div class="md-main__inner md-grid">
-                <!-- 📌 Sidebar Navigation -->
-                <aside class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-                    <div class="md-sidebar__scrollwrap">
-                        <div class="md-sidebar__inner">
-                            <nav class="md-nav md-nav--primary" aria-label="Navigation">
-                                <label class="md-nav__title" for="__drawer">
-                                    <a href="../.." title="Digital Design" class="md-nav__button md-logo">
-                                        <img src="../img/logo.png" alt="logo">
-                                    </a>
-                                    Digital Design
-                                </label>
-                                <ul>
-                                    {''.join(f'<li><a href="{page.lower().replace(" ", "_")}.html">{page}</a></li>' for page in pages)}
-                                </ul>
-                            </nav>
-                        </div>
+
+
+            <!-- GitHub Repository Link -->
+            <div class="md-header__source">
+                <a href="https://github.com/mcbasken/umn-senior-design" title="Go to repository" class="md-source" data-md-component="source">
+                    <div class="md-source__icon md-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/>
+                        </svg>
                     </div>
-                </aside>
-                <!-- 📌 Main Content -->
-                <main class="md-main" data-md-component="main">
-                    <div class="md-main__inner">
-                        <article class="md-content">
-                            <h1>{title}</h1>
-                            <p>{content}</p>
-                        </article>
-                    </div>
-                </main>
+                    <div class="md-source__repository">GitHub Repo</div>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    
+    <!-- Main Content Container -->
+<div class="md-container" data-md-component="container">
+  
+  <main class="md-main" data-md-component="main">
+    <div class="md-main__inner md-grid">
+      
+      <!-- Primary Sidebar - Main Navigation -->
+      <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+        <div class="md-sidebar__scrollwrap">
+          <div class="md-sidebar__inner">
+
+            <!-- Navigation Menu -->
+            <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+              <label class="md-nav__title" for="__drawer">
+                <a href=".." title="Digital Design" class="md-nav__button md-logo" aria-label="Digital Design" data-md-component="logo">
+                  <img src="../img/logo.png" alt="logo">
+                </a>
+                Navigation
+              </label>
+
+              <!-- GitHub Repository Link -->
+              <div class="md-nav__source">
+                <a href="https://github.com/mcbasken/umn-senior-design" title="Go to repository" class="md-source" data-md-component="source">
+                  <div class="md-source__icon md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                      <path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 
+                      51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 
+                      61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 
+                      12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 
+                      11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 
+                      28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 
+                      28.86 0 0 0 0-40.81"/>
+                    </svg>
+                  </div>
+                  <div class="md-source__repository">GitHub Repo</div>
+                </a>
+              </div>
+
+              <!-- Navigation Links -->
+              <ul class="md-nav__list" data-md-scrollfix>
+               
+              <!-- Home -->
+              <li class="md-nav__item">
+                  <a href=".." class="md-nav__link">
+                      <span class="md-ellipsis">Home</span>
+                  </a>
+              </li>
+          
+              <!-- Introduction Section -->
+              <li class="md-nav__item md-nav__item--nested">
+                  <input class="md-nav__toggle md-toggle" type="checkbox" id="__nav_5">
+                  <div class="md-nav__link md-nav__container">
+                      <a href="./" class="md-nav__link">
+                          <span class="md-ellipsis">Introduction</span>
+                      </a>
+                      <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+                          <span class="md-nav__icon md-icon"></span>
+                      </label>
+                  </div>
+          
+                  <!-- Introduction Subsections -->
+                  <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+                      <label class="md-nav__title" for="__nav_5">
+                          <span class="md-nav__icon md-icon"></span>
+                          Introduction
+                      </label>
+                      <ul class="md-nav__list" data-md-scrollfix>
+                          <li class="md-nav__item">
+                              <a href="../taxonomy/" class="md-nav__link">
+                                  <span class="md-ellipsis">Taxonomy</span>
+                              </a>
+                          </li>
+                      </ul>
+                  </nav>
+              </li>
+          
+              <!-- Chapter 1 Section -->
+              <li class="md-nav__item md-nav__item--nested">
+                  <input class="md-nav__toggle md-toggle" type="checkbox" id="__nav_ch1" checked>
+                  <div class="md-nav__link md-nav__container">
+                      <a href="../chapter1/" class="md-nav__link">
+                          <span class="md-ellipsis">Chapter 1</span>
+                      </a>
+                      <label class="md-nav__link md-nav__link--active" for="__nav_ch1" id="__nav_ch1_label" tabindex="0">
+                          <span class="md-nav__icon md-icon"></span>
+                      </label>
+                  </div>
+          
+                  <!-- Chapter 1 Subsections -->
+                  <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_ch1_label" aria-expanded="true">
+                      <label class="md-nav__title" for="__nav_ch1">
+                          <span class="md-nav__icon md-icon"></span>
+                          Chapter 1
+                      </label>
+                      <ul class="md-nav__list" data-md-scrollfix>
+                          <li class="md-nav__item md-nav__item--active">
+                              <a href="../chapter1/fundamental_digital_logic/" class="md-nav__link md-nav__link--active">
+                                  <span class="md-ellipsis">Fundamental Digital Logic</span>
+                              </a>
+                          </li>
+                      </ul>
+                  </nav>
+              </li>
+          
+              <!-- Glossary -->
+              <li class="md-nav__item">
+                  <a href="../glossary/" class="md-nav__link">
+                      <span class="md-ellipsis">Glossary</span>
+                  </a>
+              </li>
+          
+              <!-- References -->
+              <li class="md-nav__item">
+                  <a href="../references/" class="md-nav__link">
+                      <span class="md-ellipsis">References</span>
+                  </a>
+              </li>
+          
+              <!-- Contact -->
+              <li class="md-nav__item">
+                  <a href="../contact/" class="md-nav__link">
+                      <span class="md-ellipsis">Contact</span>
+                  </a>
+              </li>
+          </ul>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary Sidebar - Table of Contents -->
+      <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+        <div class="md-sidebar__scrollwrap">
+          <div class="md-sidebar__inner">
+
+            <!-- Table of Contents Navigation -->
+            <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+              <label class="md-nav__title" for="__toc">
+                <span class="md-nav__icon md-icon"></span>
+                Table of Contents
+              </label>
+              <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+                <li class="md-nav__item">
+                  <a href="#one" class="md-nav__link">
+                    <span class="md-ellipsis">Foundational Concepts</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#two" class="md-nav__link">
+                    <span class="md-ellipsis">Combinational Logic</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#three" class="md-nav__link">
+                    <span class="md-ellipsis">Sequential Logic</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#four" class="md-nav__link">
+                    <span class="md-ellipsis">Verilog Basics</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#five" class="md-nav__link">
+                    <span class="md-ellipsis">Design Techniques</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#six" class="md-nav__link">
+                    <span class="md-ellipsis">Finite State Machines (FSM)</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#seven" class="md-nav__link">
+                    <span class="md-ellipsis">FPGA and Embedded Systems</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#eight" class="md-nav__link">
+                    <span class="md-ellipsis">Digital Circuit Analysis and Verification</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#nine" class="md-nav__link">
+                    <span class="md-ellipsis">Advanced Topics in Digital Design</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#ten" class="md-nav__link">
+                    <span class="md-ellipsis">Concept Definitions</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#eleven" class="md-nav__link">
+                    <span class="md-ellipsis">Miscellaneous</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content Section -->
+    <div class="md-content" id="main-content" data-md-component="content">
+        <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/mcbasken/umn-senior-design/blob/master/docs/chapter1.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+    <h1>Digital Design Course Taxonomy</h1>
+
+    <h2 id="one">1. Foundational Concepts</h2>
+    <p class="definition">Basic concepts introduced at the start of the course, forming the foundation for all future learning.</p>
+    <ul>
+        <li>Introduction to Digital Design</li>
+        <li>Boolean Algebra</li>
+        <li>Logic Gates</li>
+        <li>Truth Tables</li>
+        <li>Sum of Products (SOP)</li>
+        <li>Product of Sums (POS)</li>
+        <li>Karnaugh Maps</li>
+        <li>Simplification Techniques</li>
+        <li>Minterms and Maxterms</li>
+        <li>Binary Arithmetic</li>
+        <li>Signed and Unsigned Numbers</li>
+        <li>Two's Complement Representation</li>
+    </ul>
+
+    <h2 id="two">2. Combinational Logic</h2>
+    <p class="definition">Concepts related to circuits where the output is a function of only the current inputs.</p>
+    <ul>
+        <li>Combinational Logic</li>
+        <li>Combinational Circuit Design</li>
+        <li>Adders and Subtractors</li>
+        <li>Multiplexers (MUX)</li>
+        <li>Demultiplexers (DEMUX)</li>
+        <li>Decoders</li>
+        <li>Encoders</li>
+        <li>Comparators</li>
+        <li>Arithmetic Logic Unit (ALU)</li>
+    </ul>
+
+    <h2 id="three">3. Sequential Logic</h2>
+    <p class="definition">Concepts involving circuits where the output depends on both current inputs and past inputs (memory).</p>
+    <ul>
+        <li>Sequential Logic</li>
+        <li>Register Transfer Level (RTL) Design</li>
+        <li>Edge-triggered Flip-Flops</li>
+        <li>Latches</li>
+        <li>D Flip-Flop (DFF)</li>
+        <li>T Flip-Flop (TFF)</li>
+        <li>JK Flip-Flop</li>
+        <li>SR Flip-Flop</li>
+        <li>Shift Registers</li>
+        <li>Counters</li>
+        <li>Asynchronous Sequential Circuits</li>
+        <li>Synchronous Sequential Circuits</li>
+    </ul>
+
+    <h2 id="four">4. Verilog Basics</h2>
+    <p class="definition">Basic knowledge of Verilog, the primary hardware description language used in the course.</p>
+    <ul>
+        <li>Verilog Basics</li>
+        <li>Verilog Syntax and Semantics</li>
+        <li>Data Types in Verilog</li>
+        <li>Module Definition in Verilog</li>
+        <li>Inputs and Outputs in Verilog</li>
+        <li>Assign Statements</li>
+        <li>Continuous Assignment</li>
+        <li>Procedural Blocks (always, initial)</li>
+        <li>Variables vs. Nets</li>
+        <li>Verilog Operators</li>
+    </ul>
+
+    <h2 id="five">5. Design Techniques</h2>
+    <p class="definition">Concepts related to the methods and approaches for designing and implementing digital circuits.</p>
+    <ul>
+        <li>Design Hierarchy in Verilog</li>
+        <li>Clock Generators and Dividers</li>
+        <li>RTL Simulation</li>
+        <li>Verilog for Sequential Logic</li>
+        <li>Verilog for FSM Design</li>
+        <li>Static Timing Analysis</li>
+        <li>Digital System Optimization</li>
+        <li>Power Consumption in Digital Circuits</li>
+        <li>Testability in Digital Design</li>
+        <li>Boundary Scan</li>
+    </ul>
+
+    <h2 id="six">6. Finite State Machines (FSM)</h2>
+    <p class="definition">Concepts related to state machines, a critical part of designing complex digital systems.</p>
+    <ul>
+        <li>Finite State Machines (FSM)</li>
+        <li>State Diagram Representation</li>
+        <li>Mealy vs. Moore FSM</li>
+        <li>State Machine Design in Verilog</li>
+        <li>Advanced FSM Techniques</li>
+        <li>Timing Diagrams</li>
+    </ul>
+
+    <h2 id="seven">7. FPGA and Embedded Systems</h2>
+    <p class="definition">Concepts related to designing systems on programmable devices like FPGAs and embedded systems.</p>
+    <ul>
+        <li>FPGA Architecture</li>
+        <li>FPGA vs. ASIC Design</li>
+        <li>FPGA Design Flow</li>
+        <li>Verilog for FPGA Design</li>
+        <li>Synthesis of Verilog Code</li>
+        <li>FPGA Constraints and Constraints File</li>
+        <li>Clocking in FPGA</li>
+        <li>FPGA Configuration and Programming</li>
+        <li>Bitstream Generation</li>
+        <li>Embedded Systems Design</li>
+        <li>Verilog for Embedded Systems</li>
+        <li>Interfacing with Peripherals in FPGA</li>
+    </ul>
+
+        <h2 id="eight">8. Digital Circuit Analysis and Verification</h2>
+    <p class="definition">Techniques and tools for analyzing and verifying digital circuits to ensure correctness and efficiency.</p>
+    <ul>
+        <li>Simulation and Debugging in Verilog</li>
+        <li>Logic Analyzer for Debugging</li>
+        <li>Simulation-Driven Design</li>
+        <li>Circuit Verification</li>
+        <li>Design for Low Power</li>
+        <li>Timing Analysis Tools</li>
+        <li>Signal Integrity in High-Speed Circuits</li>
+        <li>Clock Distribution Networks</li>
+        <li>Code Coverage and Verification</li>
+        <li>Coverage-Driven Verification</li>
+        <li>Assertion-Based Verification</li>
+        <li>Formal Verification</li>
+    </ul>
+
+    <h2 id="nine">9. Advanced Topics in Digital Design</h2>
+    <p class="definition">Advanced topics and emerging trends in digital design, including specialized design techniques and real-world applications.</p>
+    <ul>
+        <li>System-on-Chip (SoC) Design</li>
+        <li>High-Level Synthesis (HLS)</li>
+        <li>Embedded Verilog Modules</li>
+        <li>ASIC Design Flow</li>
+        <li>High-Level Abstractions in Digital Design</li>
+        <li>Digital Design for Machine Learning</li>
+        <li>Digital Design for AI Accelerators</li>
+        <li>Embedded Hardware Accelerators</li>
+        <li>Real-Time Systems in Digital Design</li>
+        <li>Digital Design for Internet of Things (IoT)</li>
+        <li>Verilog for Network-on-Chip (NoC)</li>
+        <li>Power Integrity in Digital Design</li>
+        <li>FPGA in Embedded Systems</li>
+        <li>Advanced Topics in FPGA Programming</li>
+    </ul>
+
+    <h2 id="ten">10. Concept Definitions</h2>
+    <p class="definition">Concepts that introduce and define essential terms and technologies used in the course.</p>
+    <ul>
+        <li>Register Transfer Logic (RTL) Synthesis</li>
+        <li>Arithmetic Logic Unit (ALU)</li>
+        <li>Random Access Memory (RAM)</li>
+        <li>Read-Only Memory (ROM)</li>
+        <li>Programmable Logic Devices (PLD)</li>
+        <li>Complex Programmable Logic Devices (CPLD)</li>
+    </ul>
+
+    <h2 id="eleven">11. Miscellaneous</h2>
+    <p class="definition">Additional essential topics in digital design.</p>
+    <ul>
+        <li>Functional Safety in Digital Systems</li>
+        <li>Reliability Engineering for Digital Systems</li>
+        <li>Digital System Redundancy</li>
+        <li>Hardware Security</li>
+        <li>Cryptographic Algorithms in Hardware</li>
+        <li>Digital Design Debugging</li>
+        <li>Verilog Assertions</li>
+        <li>Delay Model in Digital Design</li>
+        <li>Process Variations and Their Effects</li>
+        <li>SystemVerilog Overview</li>
+        <li>Verification Methodology</li>
+        <li>Universal Verification Methodology (UVM)</li>
+        <li>Model-Based Design</li>
+        <li>Timing Closure in Digital Design</li>
+        <li>Signal Synchronization</li>
+    </ul>
+
+          
+          <!-- Edit Page Button -->
+          <a href="https://github.com/mcbasken/umn-senior-design/blob/master/docs/chapter1.md" title="Edit this page" class="md-content__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/>
+            </svg>
+          </a>
+        </article>    
+    </div>    
+        
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="md-footer">
+        <nav class="md-footer__inner md-grid" aria-label="Footer">
+            
+            <!-- Previous Page Navigation -->
+            <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Chapter 1">
+                <div class="md-footer__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/>
+                    </svg>
+                </div>
+                <div class="md-footer__title">
+                    <span class="md-footer__direction">Previous</span>
+                    <div class="md-ellipsis">Chapter 1</div>
+                </div>
+            </a>
+
+            <!-- Next Page Navigation -->
+            <a href="../glossary/" class="md-footer__link md-footer__link--next" aria-label="Next: Glossary">
+                <div class="md-footer__title">
+                    <span class="md-footer__direction">Next</span>
+                    <div class="md-ellipsis">Glossary</div>
+                </div>
+                <div class="md-footer__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/>
+                    </svg>
+                </div>
+            </a>
+
+        </nav>
+
+        <!-- Footer Meta Information -->
+        <div class="md-footer-meta md-typeset">
+            <div class="md-footer-meta__inner md-grid">
+                <div class="md-copyright">
+                    Made with 
+                    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+                        Material for MkDocs
+                    </a>
+                </div>
             </div>
         </div>
-    </body>
-    </html>
+    </footer>
+
+    </div> <!-- Closing md-container -->
+
+    <!-- Dialog Component for Additional Content -->
+    <div class="md-dialog" data-md-component="dialog">
+        <div class="md-dialog__inner md-typeset"></div>
+    </div>
+
+    <!-- JSON Configuration for MkDocs -->
+    <script id="__config" type="application/json">
+        {
+            "base": "..",
+            "features": [
+                "content.code.copy", "navigation.expand", "navigation.path", 
+                "navigation.prune", "navigation.indexes", "toc.follow", 
+                "navigation.top", "navigation.footer", "content.action.edit"
+            ],
+            "search": "../assets/javascripts/workers/search.6ce7567c.min.js",
+            "translations": {
+                "clipboard.copied": "Copied to clipboard",
+                "clipboard.copy": "Copy to clipboard",
+                "search.result.more.one": "1 more on this page",
+                "search.result.more.other": "# more on this page",
+                "search.result.none": "No matching documents",
+                "search.result.one": "1 matching document",
+                "search.result.other": "# matching documents",
+                "search.result.placeholder": "Type to start searching",
+                "search.result.term.missing": "Missing",
+                "select.version": "Select version"
+            }
+        }
+    </script>
+
+    <!-- JavaScript Bundles -->
+    <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+
+    <!-- Extra JavaScript File -->
+    <script src="../js/extra.js"></script>
+
+</body>
+</html>
