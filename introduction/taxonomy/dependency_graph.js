@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const nodes = [];
         const links = [];
 
+        // Parse CSV and construct nodes & links
         data.forEach(d => {
             nodes.push({ id: d["Concept ID"], name: d["Concept Name"] });
             if (d.Dependencies) {
@@ -15,24 +16,27 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        const width = container.clientWidth - 40; // Reduce width slightly
+        const width = container.clientWidth;
         const height = 600;
 
+        // Create SVG container
         const svg = d3.select(container)
                       .append("svg")
                       .attr("width", width)
                       .attr("height", height)
-                      .append("g") // Ensures the graph elements are inside a group
-                      .attr("transform", `translate(20,20)`); // Moves elements to avoid centering
+                      .append("g")
+                      .attr("transform", `translate(${width / 2},${height / 2})`); // Start from center
 
+        // Force Simulation with Centering
         const simulation = d3.forceSimulation(nodes)
-                             .force("link", d3.forceLink(links).id(d => d.id))
-                             .force("charge", d3.forceManyBody().strength(-200))
-                             .force("center", d3.forceCenter(width / 2, height / 2))
-                             .force("collide", d3.forceCollide(30)) // Avoids clustering in the center
-                             .force("x", d3.forceX(width / 2).strength(0.1)) // Spreads nodes horizontally
-                             .force("y", d3.forceY(height / 2).strength(0.1)); // Spreads nodes vertically
+                             .force("link", d3.forceLink(links).id(d => d.id).distance(150)) // Spread nodes more
+                             .force("charge", d3.forceManyBody().strength(-300)) // Spread nodes apart
+                             .force("collide", d3.forceCollide(40)) // Avoid node overlap
+                             .force("x", d3.forceX(0).strength(0.05)) // Keep nodes centered
+                             .force("y", d3.forceY(0).strength(0.05)) // Keep nodes centered
+                             .on("tick", ticked);
 
+        // Create links
         const link = svg.append("g")
                         .selectAll("line")
                         .data(links)
@@ -41,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         .style("stroke", "#999")
                         .style("stroke-width", "1.5px");
 
+        // Create nodes
         const node = svg.append("g")
                         .selectAll("circle")
                         .data(nodes)
@@ -53,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             .on("drag", dragged)
                             .on("end", dragEnded));
 
+        // Add labels
         const text = svg.append("g")
                         .selectAll("text")
                         .data(nodes)
@@ -63,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         .text(d => d.name)
                         .style("font-size", "10px");
 
-        simulation.on("tick", () => {
+        function ticked() {
             link.attr("x1", d => d.source.x)
                 .attr("y1", d => d.source.y)
                 .attr("x2", d => d.target.x)
@@ -74,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             text.attr("x", d => d.x + 5)
                 .attr("y", d => d.y + 5);
-        });
+        }
 
         function dragStarted(event, d) {
             if (!event.active) simulation.alphaTarget(0.3).restart();
