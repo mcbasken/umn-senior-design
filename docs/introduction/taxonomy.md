@@ -1,164 +1,60 @@
+# Digital Design Course Taxonomy 
 
-# Digital Design Course Taxonomy
+## 1. Foundations of Digital Design
+Digital design forms the basis of modern computing, allowing for the creation of efficient hardware systems. This section introduces fundamental concepts necessary for digital circuit design.
 
-## 1. Foundational Concepts
-*Definition*: Basic concepts introduced at the start of the course, forming the foundation for all future learning.
+### Topics Covered:
+- **Number Systems and Representations**: Binary, octal, hexadecimal, and decimal systems.
+- **Boolean Algebra and Logic Gates**: Fundamental logic operations and De Morgan’s Theorems.
+- **Truth Tables and Logic Expressions**: Representation and simplification techniques.
+- **Karnaugh Maps and Simplification Techniques**: Methods for optimizing logic expressions.
 
-- Introduction to Digital Design
-- Boolean Algebra
-- Logic Gates
-- Truth Tables
-- Sum of Products (SOP)
-- Product of Sums (POS)
-- Karnaugh Maps
-- Simplification Techniques
-- Minterms and Maxterms
-- Binary Arithmetic
-- Signed and Unsigned Numbers
-- Two's Complement Representation
+---
 
-## 2. Combinational Logic
-*Definition*: Concepts related to circuits where the output is a function of only the current inputs.
+## 2. Combinational and Sequential Logic
+Combinational circuits determine output based only on current inputs, while sequential circuits introduce memory elements that consider past inputs.
 
-- Combinational Logic
-- Combinational Circuit Design
-- Adders and Subtractors
-- Multiplexers (MUX)
-- Demultiplexers (DEMUX)
-- Decoders
-- Encoders
-- Comparators
-- Arithmetic Logic Unit (ALU)
+### Topics Covered:
+- **Combinational Circuits**: Adders, multiplexers, decoders, encoders, and ALUs.
+- **Sequential Circuits**: Flip-flops (D, T, JK, SR), shift registers, and counters.
 
-## 3. Sequential Logic
-*Definition*: Concepts involving circuits where the output depends on both current inputs and past inputs (memory).
+---
 
-- Sequential Logic
-- Register Transfer Level (RTL) Design
-- Edge-triggered Flip-Flops
-- Latches
-- D Flip-Flop (DFF)
-- T Flip-Flop (TFF)
-- JK Flip-Flop
-- SR Flip-Flop
-- Shift Registers
-- Counters
-- Asynchronous Sequential Circuits
-- Synchronous Sequential Circuits
+## 3. Finite State Machines and Digital Memory
+State-based circuits and memory elements play a crucial role in digital design, allowing devices to maintain and transition between states.
 
-## 4. Verilog Basics
-*Definition*: Basic knowledge of Verilog, the primary hardware description language used in the course.
+### Topics Covered:
+- **Finite State Machines (FSMs)**: Moore vs. Mealy models, state diagrams.
+- **Memory Elements and Storage**: SRAM vs. DRAM, memory hierarchy.
 
-- Verilog Basics
-- Verilog Syntax and Semantics
-- Data Types in Verilog
-- Module Definition in Verilog
-- Inputs and Outputs in Verilog
-- Assign Statements
-- Continuous Assignment
-- Procedural Blocks (always, initial)
-- Variables vs. Nets
-- Verilog Operators
+---
 
-## 5. Design Techniques
-*Definition*: Concepts related to the methods and approaches for designing and implementing digital circuits.
+## 4. Verilog and Digital Circuit Design
+Verilog is the primary hardware description language (HDL) used in digital design. This section covers Verilog basics and digital circuit design techniques.
 
-- Design Hierarchy in Verilog
-- Clock Generators and Dividers
-- RTL Simulation
-- Verilog for Sequential Logic
-- Verilog for FSM Design
-- Static Timing Analysis
-- Digital System Optimization
-- Power Consumption in Digital Circuits
-- Testability in Digital Design
-- Boundary Scan
+### Topics Covered:
+- **Verilog Syntax and Semantics**: Data types, operators, and module definitions.
+- **Register Transfer Level (RTL) Design**: Structural and behavioral modeling.
+- **Clocking and Timing Analysis**: Flip-flop behavior, edge-triggering, and timing constraints.
 
-## 6. Finite State Machines (FSM)
-*Definition*: Concepts related to state machines, a critical part of designing complex digital systems.
+---
 
-- Finite State Machines (FSM)
-- State Diagram Representation
-- Mealy vs. Moore FSM
-- State Machine Design in Verilog
-- Advanced FSM Techniques
-- Timing Diagrams
+## 5. FPGA and Embedded Systems
+Field-Programmable Gate Arrays (FPGAs) provide a flexible platform for hardware acceleration and embedded systems.
 
-## 7. FPGA and Embedded Systems
-*Definition*: Concepts related to designing systems on programmable devices like FPGAs and embedded systems.
+### Topics Covered:
+- **FPGA Architecture**: Configurable logic blocks, interconnects, and bitstream generation.
+- **FPGA vs. ASIC Design**: Differences, advantages, and trade-offs.
+- **Embedded Systems and Hardware Acceleration**: Interfacing with peripherals, FPGA programming.
 
-- FPGA Architecture
-- FPGA vs. ASIC Design
-- FPGA Design Flow
-- Verilog for FPGA Design
-- Synthesis of Verilog Code
-- FPGA Constraints and Constraints File
-- Clocking in FPGA
-- FPGA Configuration and Programming
-- Bitstream Generation
-- Embedded Systems Design
-- Verilog for Embedded Systems
-- Interfacing with Peripherals in FPGA
+---
 
-## 8. Digital Circuit Analysis and Verification
-*Definition*: Techniques and tools for analyzing and verifying digital circuits to ensure correctness and efficiency.
+## 6. Digital Verification and Optimization
+Verification ensures that digital circuits function correctly under all conditions, while optimization techniques enhance performance and efficiency.
 
-- Simulation and Debugging in Verilog
-- Logic Analyzer for Debugging
-- Simulation-Driven Design
-- Circuit Verification
-- Design for Low Power
-- Timing Analysis Tools
-- Signal Integrity in High-Speed Circuits
-- Clock Distribution Networks
-- Code Coverage and Verification
-- Coverage-Driven Verification
-- Assertion-Based Verification
-- Formal Verification
+### Topics Covered:
+- **Simulation and Debugging**: Verilog testbenches and waveform analysis.
+- **Power Optimization in Digital Circuits**: Low-power design strategies.
+- **Design for Testability (DFT) and Built-in Self-Test (BIST)**: Techniques to ensure manufacturability.
+- **Formal Verification and Assertion-Based Verification**: Methods for verifying correctness.
 
-## 9. Advanced Topics in Digital Design
-*Definition*: Advanced topics and emerging trends in digital design, including specialized design techniques and real-world applications.
-
-- System-on-Chip (SoC) Design
-- High-Level Synthesis (HLS)
-- Embedded Verilog Modules
-- ASIC Design Flow
-- High-Level Abstractions in Digital Design
-- Digital Design for Machine Learning
-- Digital Design for AI Accelerators
-- Embedded Hardware Accelerators
-- Real-Time Systems in Digital Design
-- Digital Design for Internet of Things (IoT)
-- Verilog for Network-on-Chip (NoC)
-- Power Integrity in Digital Design
-- FPGA in Embedded Systems
-- Advanced Topics in FPGA Programming
-
-## 10. Concept Definitions
-*Definition*: Concepts that introduce and define essential terms and technologies used in the course.
-
-- Register Transfer Logic (RTL) Synthesis
-- Arithmetic Logic Unit (ALU)
-- Random Access Memory (RAM)
-- Read-Only Memory (ROM)
-- Programmable Logic Devices (PLD)
-- Complex Programmable Logic Devices (CPLD)
-
-## 11. Miscellaneous
-*Definition*: Concepts that do not fit neatly into any other category but are still essential to the course.
-
-- Functional Safety in Digital Systems
-- Reliability Engineering for Digital Systems
-- Digital System Redundancy
-- Hardware Security
-- Cryptographic Algorithms in Hardware
-- Digital Design Debugging
-- Verilog Assertions
-- Delay Model in Digital Design
-- Process Variations and their Effects
-- SystemVerilog Overview
-- Verification Methodology
-- Universal Verification Methodology (UVM)
-- Model-Based Design
-- Timing Closure in Digital Design
-- Signal Synchronization
