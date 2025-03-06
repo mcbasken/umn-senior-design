@@ -8,24 +8,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Define categories and colors
         const categories = {
-            "Foundations of Digital Design": "#1f77b4",
-            "Combinational and Sequential Logic": "#ff7f0e",
-            "Finite State Machines and Digital Memory": "#2ca02c",
-            "Verilog and Digital Circuit Design": "#d62728",
-            "FPGA and Embedded Systems": "#9467bd",
-            "Digital Verification and Optimization": "#8c564b"
+            "Foundations of Digital Design": "#1f77b4",  // Blue
+            "Combinational and Sequential Logic": "#ff7f0e",  // Orange
+            "Finite State Machines and Digital Memory": "#2ca02c",  // Green
+            "Verilog and Digital Circuit Design": "#d62728",  // Red
+            "FPGA and Embedded Systems": "#9467bd",  // Purple
+            "Digital Verification and Optimization": "#8c564b"  // Brown
         };
 
-        // Assign categories based on Concept Name
-        data.forEach(d => {
-            let category = "Other"; // Default category
-            if (d["Concept Name"].includes("Number") || d["Concept Name"].includes("Boolean")) category = "Foundations of Digital Design";
-            if (d["Concept Name"].includes("Combinational") || d["Concept Name"].includes("Flip-Flop")) category = "Combinational and Sequential Logic";
-            if (d["Concept Name"].includes("FSM") || d["Concept Name"].includes("Memory")) category = "Finite State Machines and Digital Memory";
-            if (d["Concept Name"].includes("Verilog")) category = "Verilog and Digital Circuit Design";
-            if (d["Concept Name"].includes("FPGA") || d["Concept Name"].includes("Embedded")) category = "FPGA and Embedded Systems";
-            if (d["Concept Name"].includes("Verification") || d["Concept Name"].includes("Optimization")) category = "Digital Verification and Optimization";
+        function assignCategory(concept) {
+            if (concept.includes("Number") || concept.includes("Boolean")) return "Foundations of Digital Design";
+            if (concept.includes("Combinational") || concept.includes("Flip-Flop")) return "Combinational and Sequential Logic";
+            if (concept.includes("FSM") || concept.includes("Memory")) return "Finite State Machines and Digital Memory";
+            if (concept.includes("Verilog")) return "Verilog and Digital Circuit Design";
+            if (concept.includes("FPGA") || concept.includes("Embedded")) return "FPGA and Embedded Systems";
+            if (concept.includes("Verification") || concept.includes("Optimization")) return "Digital Verification and Optimization";
+            return "Other"; // Default category
+        }
 
+        // Assign categories to nodes
+        data.forEach(d => {
+            let category = assignCategory(d["Concept Name"]);
             nodes.push({ id: d["Concept ID"], name: d["Concept Name"], category: category });
             if (d.Dependencies) {
                 d.Dependencies.split('|').forEach(dep => {
@@ -51,11 +54,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Force simulation
         const simulation = d3.forceSimulation(nodes)
-                             .force("link", d3.forceLink(links).id(d => d.id).distance(120))
-                             .force("charge", d3.forceManyBody().strength(-250))
-                             .force("collide", d3.forceCollide(50)) // Prevents clustering
-                             .force("x", d3.forceX().strength(0.1)) // Keeps spread horizontally
-                             .force("y", d3.forceY().strength(0.1)) // Keeps spread vertically
+                             .force("link", d3.forceLink(links).id(d => d.id).distance(200))
+                             .force("charge", d3.forceManyBody().strength(-500))  // Spread nodes apart
+                             .force("collide", d3.forceCollide(50))  // Prevent overlap
+                             .force("center", d3.forceCenter(width / 2, height / 2))  // Start at the center
+                             .force("x", d3.forceX(width / 2).strength(0.05))
+                             .force("y", d3.forceY(height / 2).strength(0.05))
                              .on("tick", ticked);
 
         // Create links
