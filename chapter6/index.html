@@ -227,7 +227,7 @@
 </a>
     </div>
   
-  <ul class="md-nav__list" data-md-scrollfix">
+  <ul class="md-nav__list" data-md-scrollfix>
 
     <!-- Home -->
     <li class="md-nav__item">
@@ -237,13 +237,10 @@
     </li>
 
     <!-- Introduction -->
-    <li class="md-nav__item md-nav__item--nested">
-        <input class="md-nav__toggle md-toggle" type="checkbox" id="__nav_intro">
-        <div class="md-nav__link md-nav__container">
-            <a href="/umn-senior-design/introduction/" class="md-nav__link">
-                <span class="md-ellipsis">Introduction</span>
-            </a>
-        </div>
+    <li class="md-nav__item">
+        <a href="/umn-senior-design/introduction/" class="md-nav__link">
+            <span class="md-ellipsis">Introduction</span>
+        </a>
     </li>
 
     <!-- Chapter 1 -->
@@ -274,16 +271,16 @@
         </a>
     </li>
 
-    <!-- ✅ Chapter 5 (Active) ✅ -->
-    <li class="md-nav__item md-nav__item--active">
-        <a href="/umn-senior-design/chapter5/" class="md-nav__link md-nav__link--active">
+    <!-- Chapter 5 -->
+    <li class="md-nav__item">
+        <a href="/umn-senior-design/chapter5/" class="md-nav__link">
             <span class="md-ellipsis">Chapter 5</span>
         </a>
     </li>
 
-    <!-- Chapter 6 -->
-    <li class="md-nav__item">
-        <a href="/umn-senior-design/chapter6/" class="md-nav__link">
+    <!-- Chapter 6 (Active) -->
+    <li class="md-nav__item md-nav__item--active">
+        <a href="/umn-senior-design/chapter6/" class="md-nav__link md-nav__link--active">
             <span class="md-ellipsis">Chapter 6</span>
         </a>
     </li>
@@ -310,6 +307,7 @@
     </li>
 
 </ul>
+
 
 
 </nav>
@@ -388,77 +386,35 @@
   
 
 
-    <h1>Chapter 5: FPGA and Embedded Systems</h1>
+    <h1>Chapter 6: Digital Verification & Optimization</h1>
 
-    <!-- Introduction Section -->
     <h2 id="intro">Introduction</h2>
-    <p>Field Programmable Gate Arrays (FPGAs) and embedded systems are critical components in modern digital design. 
-        FPGAs provide flexibility and reconfigurability, making them ideal for prototyping and high-performance applications, 
-        while embedded systems integrate software and hardware to create efficient computing solutions.</p>
+    <p>Digital verification and optimization are critical in ensuring the correctness, efficiency, and reliability of digital designs. 
+       This chapter covers the principles of verification, debugging, and optimization techniques used in modern digital circuits.</p>
 
-    <p>This chapter explores:</p>
-    <ul>
-        <li>The <strong>architecture and functionality of FPGAs</strong>.</li>
-        <li>The differences between <strong>FPGAs and ASICs</strong>.</li>
-        <li>The <strong>design flow for FPGA development</strong>, including synthesis, placement, and routing.</li>
-        <li><strong>Embedded processors</strong> and their applications in digital systems.</li>
-    </ul>
-
-    <p>By the end of this chapter, you will:</p>
-    <ul>
-        <li>Understand the <strong>fundamental architecture of FPGAs</strong>.</li>
-        <li>Compare the <strong>trade-offs between FPGA and ASIC designs</strong>.</li>
-        <li>Develop a <strong>basic FPGA project</strong> using Verilog.</li>
-        <li>Implement <strong>embedded processing solutions</strong> in digital circuits.</li>
-    </ul>
-
-    <p>This chapter builds the foundation for <strong>digital verification, debugging, and optimization</strong>, covered in Chapter 6.</p>
-
-    <hr>
-
-    <!-- Topics Covered Section -->
     <h3 id="topics">Topics Covered</h3>
     <ul>
-        <li><strong>FPGA Architecture and Design Flow</strong>
-            <ul>
-                <li>Look-Up Tables (LUTs), Flip-Flops, and Interconnects</li>
-                <li>Configurable Logic Blocks (CLBs)</li>
-                <li>FPGA vs. ASIC: Trade-offs and Use Cases</li>
-                <li>FPGA Programming and Bitstream Generation</li>
-                <li>FPGA Synthesis, Placement, and Routing</li>
-            </ul>
-        </li>
-        <li><strong>Embedded Processors and System-on-Chip (SoC)</strong>
-            <ul>
-                <li>Introduction to Embedded Processors in FPGAs</li>
-                <li>ARM Cortex, RISC-V, and Soft-Core Processors</li>
-                <li>FPGA-Based Embedded Systems and Real-Time Processing</li>
-                <li>Memory Hierarchy and Peripherals in Embedded Systems</li>
-                <li>Power Consumption and Performance Considerations</li>
-            </ul>
-        </li>
-        <li><strong>Interfacing and Communication Protocols</strong>
-            <ul>
-                <li>I/O Blocks and GPIO Configuration</li>
-                <li>Serial Communication Protocols (UART, SPI, I2C)</li>
-                <li>Parallel Interfaces and High-Speed Communication</li>
-                <li>Interfacing with External Memories (SRAM, DRAM, Flash)</li>
-            </ul>
-        </li>
+        <li><strong>Simulation & Debugging</strong>: Techniques for verifying digital designs through simulation.</li>
+        <li><strong>Power Optimization</strong>: Methods to reduce power consumption in digital circuits.</li>
+        <li><strong>Design for Testability (DFT)</strong>: Techniques to make digital circuits easier to test and diagnose.</li>
+        <li><strong>Formal Verification</strong>: Ensuring the correctness of designs using mathematical methods.</li>
+        <li><strong>Static Timing Analysis</strong>: Evaluating the performance of a digital design without simulation.</li>
+        <li><strong>Signal Integrity & Clock Distribution</strong>: Managing signal quality and synchronization in high-speed circuits.</li>
     </ul>
 
-    <hr>
-
-    <!-- Learning Objectives Section -->
     <h3 id="learningobjectives">Learning Objectives</h3>
+    <p>By the end of this chapter, you will:</p>
     <ul>
-        <li><strong>Understand FPGA architecture</strong>, including logic elements, interconnects, and memory.</li>
-        <li><strong>Compare FPGAs and ASICs</strong>, identifying strengths and weaknesses in different applications.</li>
-        <li><strong>Design, synthesize, and program an FPGA-based project</strong> using Verilog.</li>
-        <li><strong>Implement embedded processing solutions</strong> using FPGA-based soft-core processors.</li>
-        <li><strong>Utilize common communication protocols</strong> for interfacing external components with FPGAs.</li>
+        <li>Understand how to simulate and debug digital circuits effectively.</li>
+        <li>Learn techniques to optimize power consumption in FPGA and ASIC designs.</li>
+        <li>Apply Design for Testability (DFT) principles to improve circuit testability.</li>
+        <li>Use formal verification methods to ensure correctness and reliability.</li>
+        <li>Perform static timing analysis to evaluate performance constraints.</li>
+        <li>Analyze and improve signal integrity and clock distribution in digital circuits.</li>
     </ul>
 
+    <p>This chapter concludes the textbook by providing essential <strong>verification and optimization</strong> techniques 
+       that ensure digital systems operate correctly and efficiently.</p>
 
     </div>
 
