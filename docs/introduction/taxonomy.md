@@ -58,3 +58,14 @@ Verification ensures that digital circuits function correctly under all conditio
 - **Design for Testability (DFT) and Built-in Self-Test (BIST)**: Techniques to ensure manufacturability.
 - **Formal Verification and Assertion-Based Verification**: Methods for verifying correctness.
 
+---
+
+## Dependency Graph of Digital Design Concepts
+
+Below is the fully connected dependency graph for the course:
+
+<div id="dependency-graph" style="width: 100%; height: 600px; border: 1px solid #ccc;"></div>
+
+<script src="dependency_graph.js"></script>  <!-- ✅ Updated path -->
+
+
