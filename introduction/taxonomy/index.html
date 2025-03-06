@@ -312,58 +312,33 @@
               </label>
               <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
                 <li class="md-nav__item">
-                  <a href="#one" class="md-nav__link">
+                  <a href="#chapter1" class="md-nav__link">
                     <span class="md-ellipsis">Foundational Concepts</span>
                   </a>
                 </li>
                 <li class="md-nav__item">
-                  <a href="#two" class="md-nav__link">
+                  <a href="#chapter1" class="md-nav__link">
                     <span class="md-ellipsis">Combinational Logic</span>
                   </a>
                 </li>
                 <li class="md-nav__item">
-                  <a href="#three" class="md-nav__link">
+                  <a href="#chapter3" class="md-nav__link">
                     <span class="md-ellipsis">Sequential Logic</span>
                   </a>
                 </li>
                 <li class="md-nav__item">
-                  <a href="#four" class="md-nav__link">
+                  <a href="#chapter4" class="md-nav__link">
                     <span class="md-ellipsis">Verilog Basics</span>
                   </a>
                 </li>
                 <li class="md-nav__item">
-                  <a href="#five" class="md-nav__link">
+                  <a href="#chapter5" class="md-nav__link">
                     <span class="md-ellipsis">Design Techniques</span>
                   </a>
                 </li>
                 <li class="md-nav__item">
-                  <a href="#six" class="md-nav__link">
+                  <a href="#chapter6" class="md-nav__link">
                     <span class="md-ellipsis">Finite State Machines (FSM)</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#seven" class="md-nav__link">
-                    <span class="md-ellipsis">FPGA and Embedded Systems</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#eight" class="md-nav__link">
-                    <span class="md-ellipsis">Digital Circuit Analysis and Verification</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#nine" class="md-nav__link">
-                    <span class="md-ellipsis">Advanced Topics in Digital Design</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#ten" class="md-nav__link">
-                    <span class="md-ellipsis">Concept Definitions</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#eleven" class="md-nav__link">
-                    <span class="md-ellipsis">Miscellaneous</span>
                   </a>
                 </li>
               </ul>
@@ -388,177 +363,64 @@
 
     <h1>Digital Design Course Taxonomy</h1>
 
-    <h2 id="one">1. Foundational Concepts</h2>
-    <p class="definition">Basic concepts introduced at the start of the course, forming the foundation for all future learning.</p>
+    <h2 id="chapter1">1. Foundations of Digital Design</h2>
+    <p>Digital design forms the basis of modern computing, allowing for the creation of efficient hardware systems. This section introduces fundamental concepts necessary for digital circuit design.</p>
+
+    <h3>Topics Covered:</h3>
     <ul>
-        <li>Introduction to Digital Design</li>
-        <li>Boolean Algebra</li>
-        <li>Logic Gates</li>
-        <li>Truth Tables</li>
-        <li>Sum of Products (SOP)</li>
-        <li>Product of Sums (POS)</li>
-        <li>Karnaugh Maps</li>
-        <li>Simplification Techniques</li>
-        <li>Minterms and Maxterms</li>
-        <li>Binary Arithmetic</li>
-        <li>Signed and Unsigned Numbers</li>
-        <li>Two's Complement Representation</li>
+        <li><strong>Number Systems and Representations</strong>: Binary, octal, hexadecimal, and decimal systems.</li>
+        <li><strong>Boolean Algebra and Logic Gates</strong>: Fundamental logic operations and De Morgan’s Theorems.</li>
+        <li><strong>Truth Tables and Logic Expressions</strong>: Representation and simplification techniques.</li>
+        <li><strong>Karnaugh Maps and Simplification Techniques</strong>: Methods for optimizing logic expressions.</li>
     </ul>
 
-    <h2 id="two">2. Combinational Logic</h2>
-    <p class="definition">Concepts related to circuits where the output is a function of only the current inputs.</p>
+    <h2 id="chapter2">2. Combinational and Sequential Logic</h2>
+    <p>Combinational circuits determine output based only on current inputs, while sequential circuits introduce memory elements that consider past inputs.</p>
+
+    <h3>Topics Covered:</h3>
     <ul>
-        <li>Combinational Logic</li>
-        <li>Combinational Circuit Design</li>
-        <li>Adders and Subtractors</li>
-        <li>Multiplexers (MUX)</li>
-        <li>Demultiplexers (DEMUX)</li>
-        <li>Decoders</li>
-        <li>Encoders</li>
-        <li>Comparators</li>
-        <li>Arithmetic Logic Unit (ALU)</li>
+        <li><strong>Combinational Circuits</strong>: Adders, multiplexers, decoders, encoders, and ALUs.</li>
+        <li><strong>Sequential Circuits</strong>: Flip-flops (D, T, JK, SR), shift registers, and counters.</li>
     </ul>
 
-    <h2 id="three">3. Sequential Logic</h2>
-    <p class="definition">Concepts involving circuits where the output depends on both current inputs and past inputs (memory).</p>
+    <h2 id="chapter3">3. Finite State Machines and Digital Memory</h2>
+    <p>State-based circuits and memory elements play a crucial role in digital design, allowing devices to maintain and transition between states.</p>
+
+    <h3>Topics Covered:</h3>
     <ul>
-        <li>Sequential Logic</li>
-        <li>Register Transfer Level (RTL) Design</li>
-        <li>Edge-triggered Flip-Flops</li>
-        <li>Latches</li>
-        <li>D Flip-Flop (DFF)</li>
-        <li>T Flip-Flop (TFF)</li>
-        <li>JK Flip-Flop</li>
-        <li>SR Flip-Flop</li>
-        <li>Shift Registers</li>
-        <li>Counters</li>
-        <li>Asynchronous Sequential Circuits</li>
-        <li>Synchronous Sequential Circuits</li>
+        <li><strong>Finite State Machines (FSMs)</strong>: Moore vs. Mealy models, state diagrams.</li>
+        <li><strong>Memory Elements and Storage</strong>: SRAM vs. DRAM, memory hierarchy.</li>
     </ul>
 
-    <h2 id="four">4. Verilog Basics</h2>
-    <p class="definition">Basic knowledge of Verilog, the primary hardware description language used in the course.</p>
+    <h2 id="chapter4">4. Verilog and Digital Circuit Design</h2>
+    <p>Verilog is the primary hardware description language (HDL) used in digital design. This section covers Verilog basics and digital circuit design techniques.</p>
+
+    <h3>Topics Covered:</h3>
     <ul>
-        <li>Verilog Basics</li>
-        <li>Verilog Syntax and Semantics</li>
-        <li>Data Types in Verilog</li>
-        <li>Module Definition in Verilog</li>
-        <li>Inputs and Outputs in Verilog</li>
-        <li>Assign Statements</li>
-        <li>Continuous Assignment</li>
-        <li>Procedural Blocks (always, initial)</li>
-        <li>Variables vs. Nets</li>
-        <li>Verilog Operators</li>
+        <li><strong>Verilog Syntax and Semantics</strong>: Data types, operators, and module definitions.</li>
+        <li><strong>Register Transfer Level (RTL) Design</strong>: Structural and behavioral modeling.</li>
+        <li><strong>Clocking and Timing Analysis</strong>: Flip-flop behavior, edge-triggering, and timing constraints.</li>
     </ul>
 
-    <h2 id="five">5. Design Techniques</h2>
-    <p class="definition">Concepts related to the methods and approaches for designing and implementing digital circuits.</p>
+    <h2 id="chapter5">5. FPGA and Embedded Systems</h2>
+    <p>Field-Programmable Gate Arrays (FPGAs) provide a flexible platform for hardware acceleration and embedded systems.</p>
+
+    <h3>Topics Covered:</h3>
     <ul>
-        <li>Design Hierarchy in Verilog</li>
-        <li>Clock Generators and Dividers</li>
-        <li>RTL Simulation</li>
-        <li>Verilog for Sequential Logic</li>
-        <li>Verilog for FSM Design</li>
-        <li>Static Timing Analysis</li>
-        <li>Digital System Optimization</li>
-        <li>Power Consumption in Digital Circuits</li>
-        <li>Testability in Digital Design</li>
-        <li>Boundary Scan</li>
+        <li><strong>FPGA Architecture</strong>: Configurable logic blocks, interconnects, and bitstream generation.</li>
+        <li><strong>FPGA vs. ASIC Design</strong>: Differences, advantages, and trade-offs.</li>
+        <li><strong>Embedded Systems and Hardware Acceleration</strong>: Interfacing with peripherals, FPGA programming.</li>
     </ul>
 
-    <h2 id="six">6. Finite State Machines (FSM)</h2>
-    <p class="definition">Concepts related to state machines, a critical part of designing complex digital systems.</p>
-    <ul>
-        <li>Finite State Machines (FSM)</li>
-        <li>State Diagram Representation</li>
-        <li>Mealy vs. Moore FSM</li>
-        <li>State Machine Design in Verilog</li>
-        <li>Advanced FSM Techniques</li>
-        <li>Timing Diagrams</li>
-    </ul>
+    <h2 id="chapter6">6. Digital Verification and Optimization</h2>
+    <p>Verification ensures that digital circuits function correctly under all conditions, while optimization techniques enhance performance and efficiency.</p>
 
-    <h2 id="seven">7. FPGA and Embedded Systems</h2>
-    <p class="definition">Concepts related to designing systems on programmable devices like FPGAs and embedded systems.</p>
+    <h3>Topics Covered:</h3>
     <ul>
-        <li>FPGA Architecture</li>
-        <li>FPGA vs. ASIC Design</li>
-        <li>FPGA Design Flow</li>
-        <li>Verilog for FPGA Design</li>
-        <li>Synthesis of Verilog Code</li>
-        <li>FPGA Constraints and Constraints File</li>
-        <li>Clocking in FPGA</li>
-        <li>FPGA Configuration and Programming</li>
-        <li>Bitstream Generation</li>
-        <li>Embedded Systems Design</li>
-        <li>Verilog for Embedded Systems</li>
-        <li>Interfacing with Peripherals in FPGA</li>
-    </ul>
-
-        <h2 id="eight">8. Digital Circuit Analysis and Verification</h2>
-    <p class="definition">Techniques and tools for analyzing and verifying digital circuits to ensure correctness and efficiency.</p>
-    <ul>
-        <li>Simulation and Debugging in Verilog</li>
-        <li>Logic Analyzer for Debugging</li>
-        <li>Simulation-Driven Design</li>
-        <li>Circuit Verification</li>
-        <li>Design for Low Power</li>
-        <li>Timing Analysis Tools</li>
-        <li>Signal Integrity in High-Speed Circuits</li>
-        <li>Clock Distribution Networks</li>
-        <li>Code Coverage and Verification</li>
-        <li>Coverage-Driven Verification</li>
-        <li>Assertion-Based Verification</li>
-        <li>Formal Verification</li>
-    </ul>
-
-    <h2 id="nine">9. Advanced Topics in Digital Design</h2>
-    <p class="definition">Advanced topics and emerging trends in digital design, including specialized design techniques and real-world applications.</p>
-    <ul>
-        <li>System-on-Chip (SoC) Design</li>
-        <li>High-Level Synthesis (HLS)</li>
-        <li>Embedded Verilog Modules</li>
-        <li>ASIC Design Flow</li>
-        <li>High-Level Abstractions in Digital Design</li>
-        <li>Digital Design for Machine Learning</li>
-        <li>Digital Design for AI Accelerators</li>
-        <li>Embedded Hardware Accelerators</li>
-        <li>Real-Time Systems in Digital Design</li>
-        <li>Digital Design for Internet of Things (IoT)</li>
-        <li>Verilog for Network-on-Chip (NoC)</li>
-        <li>Power Integrity in Digital Design</li>
-        <li>FPGA in Embedded Systems</li>
-        <li>Advanced Topics in FPGA Programming</li>
-    </ul>
-
-    <h2 id="ten">10. Concept Definitions</h2>
-    <p class="definition">Concepts that introduce and define essential terms and technologies used in the course.</p>
-    <ul>
-        <li>Register Transfer Logic (RTL) Synthesis</li>
-        <li>Arithmetic Logic Unit (ALU)</li>
-        <li>Random Access Memory (RAM)</li>
-        <li>Read-Only Memory (ROM)</li>
-        <li>Programmable Logic Devices (PLD)</li>
-        <li>Complex Programmable Logic Devices (CPLD)</li>
-    </ul>
-
-    <h2 id="eleven">11. Miscellaneous</h2>
-    <p class="definition">Additional essential topics in digital design.</p>
-    <ul>
-        <li>Functional Safety in Digital Systems</li>
-        <li>Reliability Engineering for Digital Systems</li>
-        <li>Digital System Redundancy</li>
-        <li>Hardware Security</li>
-        <li>Cryptographic Algorithms in Hardware</li>
-        <li>Digital Design Debugging</li>
-        <li>Verilog Assertions</li>
-        <li>Delay Model in Digital Design</li>
-        <li>Process Variations and Their Effects</li>
-        <li>SystemVerilog Overview</li>
-        <li>Verification Methodology</li>
-        <li>Universal Verification Methodology (UVM)</li>
-        <li>Model-Based Design</li>
-        <li>Timing Closure in Digital Design</li>
-        <li>Signal Synchronization</li>
+        <li><strong>Simulation and Debugging</strong>: Verilog testbenches and waveform analysis.</li>
+        <li><strong>Power Optimization in Digital Circuits</strong>: Low-power design strategies.</li>
+        <li><strong>Design for Testability (DFT) and Built-in Self-Test (BIST)</strong>: Techniques to ensure manufacturability.</li>
+        <li><strong>Formal Verification and Assertion-Based Verification</strong>: Methods for verifying correctness.</li>
     </ul>
 
           
