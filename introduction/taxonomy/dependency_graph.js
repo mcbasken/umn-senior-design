@@ -23,49 +23,64 @@ document.addEventListener("DOMContentLoaded", function () {
             if (concept.includes("Verilog")) return "Verilog and Digital Circuit Design";
             if (concept.includes("FPGA") || concept.includes("Embedded")) return "FPGA and Embedded Systems";
             if (concept.includes("Verification") || concept.includes("Optimization")) return "Digital Verification and Optimization";
-            return "Other"; // Default category
+            return null; // Remove items without a category
         }
 
-        // Assign categories to nodes
+        // Assign categories to nodes and filter out those without a category
         data.forEach(d => {
             let category = assignCategory(d["Concept Name"]);
-            nodes.push({ id: d["Concept ID"], name: d["Concept Name"], category: category });
-            if (d.Dependencies) {
-                d.Dependencies.split('|').forEach(dep => {
-                    if (dep) links.push({ source: dep, target: d["Concept ID"] });
-                });
+            if (category) {
+                nodes.push({ id: d["Concept ID"], name: d["Concept Name"], category: category });
+                if (d.Dependencies) {
+                    d.Dependencies.split('|').forEach(dep => {
+                        if (dep) links.push({ source: dep, target: d["Concept ID"] });
+                    });
+                }
             }
         });
+
+        // Filter links to remove any that connect to missing nodes
+        const nodeIds = new Set(nodes.map(n => n.id));
+        const validLinks = links.filter(link => nodeIds.has(link.source) && nodeIds.has(link.target));
 
         const width = container.clientWidth;
         const height = 600;
 
-        // Create zoomable SVG container
+        // Create bordered container to prevent page movement
+        container.style.overflow = "hidden";
+        container.style.border = "1px solid #ccc";
+        container.style.backgroundColor = "white";
+
+        // Create zoomable SVG container inside a fixed space
         const svg = d3.select(container)
                       .append("svg")
                       .attr("width", width)
                       .attr("height", height)
-                      .call(d3.zoom().scaleExtent([0.5, 2]).on("zoom", function (event) {
-                          g.attr("transform", event.transform);
-                      }))
+                      .style("display", "block")
+                      .style("margin", "0 auto")
+                      .call(d3.zoom()
+                          .scaleExtent([0.5, 2])
+                          .on("zoom", function (event) {
+                              g.attr("transform", event.transform);
+                          }))
                       .append("g");
 
         const g = svg.append("g"); // Group for graph elements
 
         // Force simulation
         const simulation = d3.forceSimulation(nodes)
-                             .force("link", d3.forceLink(links).id(d => d.id).distance(200))
-                             .force("charge", d3.forceManyBody().strength(-500))  // Spread nodes apart
-                             .force("collide", d3.forceCollide(50))  // Prevent overlap
-                             .force("center", d3.forceCenter(width / 2, height / 2))  // Start at the center
-                             .force("x", d3.forceX(width / 2).strength(0.05))
-                             .force("y", d3.forceY(height / 2).strength(0.05))
+                             .force("link", d3.forceLink(validLinks).id(d => d.id).distance(150))
+                             .force("charge", d3.forceManyBody().strength(-300))
+                             .force("collide", d3.forceCollide(40)) // Prevent overlap
+                             .force("center", d3.forceCenter(width / 2, height / 2)) // Centering the graph
+                             .force("x", d3.forceX(width / 2).strength(0.1))
+                             .force("y", d3.forceY(height / 2).strength(0.1))
                              .on("tick", ticked);
 
         // Create links
         const link = g.append("g")
                       .selectAll("line")
-                      .data(links)
+                      .data(validLinks)
                       .enter()
                       .append("line")
                       .style("stroke", "#999")
@@ -78,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
                       .enter()
                       .append("circle")
                       .attr("r", 12)
-                      .style("fill", d => categories[d.category] || "#ccc")
+                      .style("fill", d => categories[d.category])
                       .call(d3.drag()
                           .on("start", dragStarted)
                           .on("drag", dragged)
