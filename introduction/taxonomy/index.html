@@ -39,9 +39,24 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
 
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        #dependency-graph { width: 100%; height: 600px; border: 1px solid #ccc; }
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: left; /* Ensures text is aligned properly */
+            margin: 20px;
+        }
+        #dependency-graph { 
+            width: 100%; 
+            height: 600px; 
+            border: 1px solid #ccc; 
+            display: block; 
+            margin: 0 auto; /* Centers only the container, not the SVG elements */
+        }
+        svg {
+            display: block;
+            margin: 0 auto;
+        }
     </style>
+
     
     <!-- Scripts  -->
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
