@@ -1,38 +1,37 @@
-# Chapter 5: FPGA Design & Applications
+# Chapter 6: Digital Verification & Optimization
 
 ## Introduction
-Field-Programmable Gate Arrays (**FPGAs**) are powerful reconfigurable digital devices used in a wide range of applications, from embedded systems to AI accelerators. Understanding FPGA design flow, architecture, and constraints is crucial for implementing high-performance digital circuits.
+Ensuring the correctness and efficiency of digital circuits is a crucial step in the design process. **Digital verification and optimization techniques** help detect errors, improve performance, and optimize power consumption. This chapter introduces industry-standard verification methodologies and best practices for designing high-quality digital systems.
 
 This chapter provides an in-depth understanding of:
-- **FPGA vs. ASIC Design**, exploring trade-offs in cost, performance, and flexibility.
-- **FPGA Design Flow**, from synthesis to bitstream generation.
-- **Embedded Systems in FPGA**, integrating processors and peripherals.
-- **Timing Constraints and Power Optimization**, ensuring efficient and reliable FPGA implementation.
+- **Simulation & Debugging Techniques**, using tools like testbenches and waveform analysis.
+- **Power Optimization Strategies**, including clock gating and low-power design principles.
+- **Design for Testability (DFT)**, covering scan chains and boundary scan techniques.
+- **Formal Verification Methods**, such as assertion-based verification and equivalence checking.
 
 ### Topics Covered:
-- **Introduction to FPGA Architecture**  
-  - FPGA Fabric and Configurable Logic Blocks (CLBs)  
-  - Look-Up Tables (LUTs) and Routing Resources  
-  - FPGA vs. ASIC: Pros and Cons  
-- **FPGA Design Flow**  
-  - High-Level Synthesis (HLS) vs. RTL Design  
-  - Synthesis, Place & Route, and Bitstream Generation  
-  - FPGA Programming and Configuration  
-- **FPGA Constraints and Optimization**  
-  - Clock Constraints and Timing Closure  
-  - Setup and Hold Time Considerations  
-  - Power Optimization Techniques  
-- **Embedded Systems and Hardware Acceleration**  
-  - Integrating Soft Processors (MicroBlaze, Nios II)  
-  - Interfacing with Peripherals (UART, SPI, I2C)  
-  - AI and Machine Learning Acceleration in FPGA  
+- **Simulation & Debugging in Digital Design**  
+  - Writing Testbenches in Verilog  
+  - Using Waveform Viewers and Logic Analyzers  
+  - Debugging Common Issues in Digital Circuits  
+- **Design for Low Power & Performance Optimization**  
+  - Power Consumption Analysis in Digital Circuits  
+  - Clock Gating and Dynamic Power Reduction  
+  - Setup & Hold Time Considerations for Timing Closure  
+- **Design for Testability (DFT) Techniques**  
+  - Scan Chains and Built-In Self-Test (BIST)  
+  - Boundary Scan (JTAG) and IEEE 1149.1  
+- **Formal Verification & Coverage Analysis**  
+  - Assertion-Based Verification (ABV)  
+  - Equivalence Checking and Model Checking  
+  - Coverage-Driven Verification (Code & Functional Coverage)  
 
 ### Learning Objectives:
 By the end of this chapter, you will:
-- **Understand FPGA architecture** and how it differs from ASIC design.
-- **Implement digital circuits** in FPGAs using Verilog.
-- **Use synthesis tools** to generate and configure FPGA bitstreams.
-- **Optimize power and performance** using FPGA constraints.
-- **Integrate embedded processors** and peripherals into FPGA designs.
+- **Simulate and debug** digital circuits using industry-standard tools.
+- **Optimize power consumption** using clock gating and low-power techniques.
+- **Ensure testability** with scan chains and boundary scan methods.
+- **Apply formal verification** techniques to check design correctness.
+- **Understand the role of verification methodologies** in the digital design process.
 
-This chapter sets the stage for **Verification & Advanced Topics**, covered in the final chapter.
+This chapter serves as a **culmination of the entire textbook**, integrating previous topics into a **robust and reliable digital design workflow**.
