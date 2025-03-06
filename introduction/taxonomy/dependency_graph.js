@@ -6,9 +6,27 @@ document.addEventListener("DOMContentLoaded", function () {
         const nodes = [];
         const links = [];
 
-        // Parse CSV and construct nodes & links
+        // Define categories and colors
+        const categories = {
+            "Foundations of Digital Design": "#1f77b4",
+            "Combinational and Sequential Logic": "#ff7f0e",
+            "Finite State Machines and Digital Memory": "#2ca02c",
+            "Verilog and Digital Circuit Design": "#d62728",
+            "FPGA and Embedded Systems": "#9467bd",
+            "Digital Verification and Optimization": "#8c564b"
+        };
+
+        // Assign categories based on Concept Name
         data.forEach(d => {
-            nodes.push({ id: d["Concept ID"], name: d["Concept Name"] });
+            let category = "Other"; // Default category
+            if (d["Concept Name"].includes("Number") || d["Concept Name"].includes("Boolean")) category = "Foundations of Digital Design";
+            if (d["Concept Name"].includes("Combinational") || d["Concept Name"].includes("Flip-Flop")) category = "Combinational and Sequential Logic";
+            if (d["Concept Name"].includes("FSM") || d["Concept Name"].includes("Memory")) category = "Finite State Machines and Digital Memory";
+            if (d["Concept Name"].includes("Verilog")) category = "Verilog and Digital Circuit Design";
+            if (d["Concept Name"].includes("FPGA") || d["Concept Name"].includes("Embedded")) category = "FPGA and Embedded Systems";
+            if (d["Concept Name"].includes("Verification") || d["Concept Name"].includes("Optimization")) category = "Digital Verification and Optimization";
+
+            nodes.push({ id: d["Concept ID"], name: d["Concept Name"], category: category });
             if (d.Dependencies) {
                 d.Dependencies.split('|').forEach(dep => {
                     if (dep) links.push({ source: dep, target: d["Concept ID"] });
@@ -19,55 +37,59 @@ document.addEventListener("DOMContentLoaded", function () {
         const width = container.clientWidth;
         const height = 600;
 
-        // Create SVG container
+        // Create zoomable SVG container
         const svg = d3.select(container)
                       .append("svg")
                       .attr("width", width)
                       .attr("height", height)
-                      .append("g")
-                      .attr("transform", `translate(${width / 2},${height / 2})`); // Start from center
+                      .call(d3.zoom().scaleExtent([0.5, 2]).on("zoom", function (event) {
+                          g.attr("transform", event.transform);
+                      }))
+                      .append("g");
 
-        // Force Simulation with Centering
+        const g = svg.append("g"); // Group for graph elements
+
+        // Force simulation
         const simulation = d3.forceSimulation(nodes)
-                             .force("link", d3.forceLink(links).id(d => d.id).distance(150)) // Spread nodes more
-                             .force("charge", d3.forceManyBody().strength(-300)) // Spread nodes apart
-                             .force("collide", d3.forceCollide(40)) // Avoid node overlap
-                             .force("x", d3.forceX(0).strength(0.05)) // Keep nodes centered
-                             .force("y", d3.forceY(0).strength(0.05)) // Keep nodes centered
+                             .force("link", d3.forceLink(links).id(d => d.id).distance(120))
+                             .force("charge", d3.forceManyBody().strength(-250))
+                             .force("collide", d3.forceCollide(50)) // Prevents clustering
+                             .force("x", d3.forceX().strength(0.1)) // Keeps spread horizontally
+                             .force("y", d3.forceY().strength(0.1)) // Keeps spread vertically
                              .on("tick", ticked);
 
         // Create links
-        const link = svg.append("g")
-                        .selectAll("line")
-                        .data(links)
-                        .enter()
-                        .append("line")
-                        .style("stroke", "#999")
-                        .style("stroke-width", "1.5px");
+        const link = g.append("g")
+                      .selectAll("line")
+                      .data(links)
+                      .enter()
+                      .append("line")
+                      .style("stroke", "#999")
+                      .style("stroke-width", "2px");
 
-        // Create nodes
-        const node = svg.append("g")
-                        .selectAll("circle")
-                        .data(nodes)
-                        .enter()
-                        .append("circle")
-                        .attr("r", 10)
-                        .style("fill", "#4CAF50")
-                        .call(d3.drag()
-                            .on("start", dragStarted)
-                            .on("drag", dragged)
-                            .on("end", dragEnded));
+        // Create nodes with different colors for categories
+        const node = g.append("g")
+                      .selectAll("circle")
+                      .data(nodes)
+                      .enter()
+                      .append("circle")
+                      .attr("r", 12)
+                      .style("fill", d => categories[d.category] || "#ccc")
+                      .call(d3.drag()
+                          .on("start", dragStarted)
+                          .on("drag", dragged)
+                          .on("end", dragEnded));
 
-        // Add labels
-        const text = svg.append("g")
-                        .selectAll("text")
-                        .data(nodes)
-                        .enter()
-                        .append("text")
-                        .attr("dx", 12)
-                        .attr("dy", ".35em")
-                        .text(d => d.name)
-                        .style("font-size", "10px");
+        // Add text labels
+        const text = g.append("g")
+                      .selectAll("text")
+                      .data(nodes)
+                      .enter()
+                      .append("text")
+                      .attr("dx", 15)
+                      .attr("dy", ".35em")
+                      .text(d => d.name)
+                      .style("font-size", "12px");
 
         function ticked() {
             link.attr("x1", d => d.source.x)
