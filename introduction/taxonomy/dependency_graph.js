@@ -1,9 +1,8 @@
 function drawGraph() {
-    // Load CSV file
     fetch("digital_design_dependencies.csv")
     .then(response => response.text())
     .then(csv => {
-        const rows = csv.split("\n").slice(1); // Remove header
+        const rows = csv.split("\n").slice(1).filter(row => row.trim() !== ""); // Remove header & empty lines
         const nodes = [];
         const edges = [];
 
@@ -18,17 +17,18 @@ function drawGraph() {
         };
 
         function assignCategory(concept) {
+            if (!concept) return null;
             if (concept.includes("Number") || concept.includes("Boolean")) return "Foundations of Digital Design";
             if (concept.includes("Combinational") || concept.includes("Flip-Flop")) return "Combinational and Sequential Logic";
             if (concept.includes("FSM") || concept.includes("Memory")) return "Finite State Machines and Digital Memory";
             if (concept.includes("Verilog")) return "Verilog and Digital Circuit Design";
             if (concept.includes("FPGA") || concept.includes("Embedded")) return "FPGA and Embedded Systems";
             if (concept.includes("Verification") || concept.includes("Optimization")) return "Digital Verification and Optimization";
-            return null; // Remove items without a category
+            return null;
         }
 
-        const nodeSet = new Map(); // Track nodes by ID
-        const edgeSet = new Set(); // Track unique edges
+        const nodeSet = new Map();
+        const edgeSet = new Set();
 
         rows.forEach(row => {
             const [id, name, dependencies] = row.split(",");
@@ -36,14 +36,13 @@ function drawGraph() {
             let category = assignCategory(name);
             if (!category) return; // Skip if no category assigned
 
-            // Add node only if it's not already included
             if (!nodeSet.has(id)) {
                 nodeSet.set(id, { id, label: name, color: categories[category] });
             }
 
             if (dependencies) {
                 dependencies.split("|").forEach(dep => {
-                    if (dep && !edgeSet.has(`${dep}-${id}`)) { // Avoid duplicate edges
+                    if (dep && !edgeSet.has(`${dep}-${id}`)) {
                         edges.push({ from: dep, to: id, arrows: "to" });
                         edgeSet.add(`${dep}-${id}`);
                     }
@@ -51,15 +50,21 @@ function drawGraph() {
             }
         });
 
-        // Convert map back to array for vis.js
         const nodesArray = Array.from(nodeSet.values());
 
-        // Create vis.js network
         const container = document.getElementById("mynetwork");
-        const data = { nodes: new vis.DataSet(nodesArray), edges: new vis.DataSet(edges) };
+        if (!container) {
+            console.error("Error: Graph container not found!");
+            return;
+        }
+
+        const data = {
+            nodes: new vis.DataSet(nodesArray),
+            edges: new vis.DataSet(edges)
+        };
+
         const options = {
             layout: {
-                hierarchical: false,
                 improvedLayout: true
             },
             edges: {
@@ -70,7 +75,7 @@ function drawGraph() {
             physics: {
                 enabled: true,
                 repulsion: {
-                    nodeDistance: 150 // Adjusts node spacing
+                    nodeDistance: 150
                 }
             },
             interaction: {
