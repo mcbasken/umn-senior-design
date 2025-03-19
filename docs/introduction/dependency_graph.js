@@ -1,5 +1,5 @@
 function drawGraph() {
-    fetch("digital_design_dependencies.csv")
+    fetch("/umn-senior-design/introduction/digital_design_dependencies.csv")
         .then(response => response.text())
         .then(csv => {
             const rows = csv.split("\n").slice(1).filter(row => row.trim() !== ""); // Remove header & empty lines
