@@ -4,7 +4,7 @@
 
 <div id="mynetwork" style="width: 100%; height: 600px; border: 1px solid lightgray;"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.2/standalone/umd/vis-network.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.2/dist/vis-network.min.js"></script>
 <script src="/umn-senior-design/introduction/dependency_graph.js"></script>
 <script>
     drawGraph();
