@@ -1,0 +1,151 @@
+Concept ID,Concept Name,Dependencies
+1,Digital vs Analog,
+2,Binary System,1
+3,Number Systems,2
+4,Base Conversion,3
+5,Boolean Algebra,3
+6,Logic Gates,5
+7,Truth Tables,6
+8,DeMorgan's Theorems,5
+9,Logic Minimization,5
+10,Karnaugh Maps,9
+11,"Sum of Products (SOP)",10
+12,"Product of Sums (POS)",10
+13,Combinational Circuits,6
+14,"Adders & Subtractors",13
+15,"Multiplexers (MUX)",13
+16,"Demultiplexers (DEMUX)",13
+17,Encoders,13
+18,Decoders,13
+19,Parity Generators,13
+20,Comparators,13
+21,"Arithmetic Logic Unit (ALU)",14
+22,Flip-Flops,28
+23,SR Latch,22
+24,D Flip-Flop,22
+25,JK Flip-Flop,22
+26,T Flip-Flop,22
+27,Master-Slave Flip-Flop,22
+28,Clocking Mechanisms,
+29,Edge vs Level Triggering,28
+30,Timing Diagrams,28
+31,Setup & Hold Time,28
+32,Propagation Delay,28
+33,Asynchronous Circuits,28
+34,Synchronous Circuits,28
+35,Counters,34
+36,Ripple Counters,35
+37,Synchronous Counters,35
+38,Ring Counter,35
+39,Johnson Counter,35
+40,Shift Registers,34
+41,Universal Shift Registers,40
+42,"Finite State Machines (FSM)",22
+43,Moore vs Mealy FSM,42
+44,State Transition Diagrams,42
+45,State Minimization,42
+46,State Encoding,42
+47,One-Hot Encoding,42
+48,Clock Division,28
+49,Debouncing Circuits,28
+50,Glitches & Race Conditions,28
+51,Metastability,28
+52,Hazard Analysis,28
+53,Gray Code,35
+54,PLD Overview,13
+55,PROM,54
+56,PLA,54
+57,PAL,54
+58,GAL,54
+59,CPLD,54
+60,FPGA Basics,54
+61,FPGA vs CPLD,60
+62,Lookup Tables (LUT),60
+63,FPGA Fabric,60
+64,"Configurable Logic Block (CLB)",60
+65,Routing Resources,60
+66,Block RAM (BRAM),60
+67,Distributed RAM,66
+68,DSP Blocks,60
+69,Hardware Multipliers,68
+70,"GPIO & I/O Blocks",60
+71,HDL Basics,60
+72,Verilog Syntax,71
+73,VHDL vs Verilog,71
+74,Modules & Ports,72
+75,Continuous Assignments,72
+76,Procedural Blocks,72
+77,"always & initial Blocks",76
+78,Blocking vs Non-Blocking,77
+79,Sensitivity List,76
+80,Case Statements,76
+81,If-Else Constructs,76
+82,Loops in Verilog,76
+83,Tasks & Functions,76
+84,Parameters & Generics,76
+85,Generate Statements,76
+86,Testbenches,71
+87,Simulation Basics,86
+88,Verilog Timing Controls,72
+89,Delay Modeling,88
+90,Assertions & Coverage,72
+91,Verilog for FSM,42
+92,Synthesizable vs Non-Synthesizable Code,72
+93,RTL Design Flow,72
+94,RTL vs Gate-Level,93
+95,Netlists,93
+96,FPGA Toolchains,60
+97,Constraints Files,96
+98,Clock Constraints,97
+99,Setup & Hold Analysis,97
+100,Timing Reports,99
+101,Logic Optimization,72
+102,Pipelining,101
+103,Retiming,102
+104,Resource Sharing,102
+105,Clock Gating,101
+106,Dynamic Power Estimation,60
+107,Static Power Estimation,60
+108,FPGA Clocking,60
+109,"PLL & Clock Managers",108
+110,Multi-Clock Domain Design,108
+111,CDC (Clock Domain Crossing),110
+112,Reset Strategies,110
+113,FIFO Design,60
+114,AXI Protocol,60
+115,Wishbone Bus,60
+116,AMBA Bus,60
+117,Memory Interfaces,60
+118,DDR Interfaces,117
+119,BRAM Configuration,66
+120,HLS (High-Level Synthesis),60
+121,Partial Reconfiguration,60
+122,Dynamic Reconfiguration,121
+123,FPGA SoC Architectures,60
+124,"Soft Processors (MicroBlaze/Nios)",123
+125,"Hard Processors (ARM Cortex)",123
+126,Embedded Linux on FPGA,123
+127,Device Tree for FPGA,126
+128,Bare Metal Programming,126
+129,Bootloaders in FPGA,126
+130,FPGA-Based System Design,60
+131,Signal Integrity,60
+132,Crosstalk,131
+133,Ground Bounce,131
+134,Power Integrity,131
+135,Transmission Lines,131
+136,Differential Signaling,135
+137,LVDS & TMDS,136
+138,High-Speed SerDes,136
+139,PCIe Interface,138
+140,USB on FPGA,138
+141,AI/ML Acceleration on FPGA,60
+142,DSP Acceleration,68
+143,Video Processing on FPGA,60
+144,Cryptography & FPGA,60
+145,RISC-V on FPGA,60
+146,Hardware Security,60
+147,Fault Tolerant Design,60
+148,FPGA in Automotive,60
+149,FPGA in Aerospace,60
+150,FPGA in Medical Applications,60
