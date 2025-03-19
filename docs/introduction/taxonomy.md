@@ -1,5 +1,12 @@
 # Digital Design Course Taxonomy 
 
+## Dependency Graph of Digital Design Concepts
+<div id="mynetwork" style="width: 100%; height: 600px; border: 1px solid lightgray;"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+<script src="../digital_design_graph.js"></script>
+<script>drawGraph();</script>
+
 ## 1. Foundations of Digital Design
 Digital design forms the basis of modern computing, allowing for the creation of efficient hardware systems. This section introduces fundamental concepts necessary for digital circuit design.
 
