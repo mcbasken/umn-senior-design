@@ -9,24 +9,24 @@ Concept ID,Concept Name,Dependencies
 8,DeMorgan's Theorems,5
 9,Logic Minimization,5
 10,Karnaugh Maps,9
-11,"Sum of Products (SOP)",10
-12,"Product of Sums (POS)",10
-13,Combinational Circuits,6
-14,"Adders & Subtractors",13
-15,"Multiplexers (MUX)",13
-16,"Demultiplexers (DEMUX)",13
+11,Sum of Products (SOP),10
+12,Product of Sums (POS),10
+13,Combinational Circuits,6|10
+14,Adders & Subtractors,13
+15,Multiplexers (MUX),13
+16,Demultiplexers (DEMUX),13
 17,Encoders,13
 18,Decoders,13
 19,Parity Generators,13
 20,Comparators,13
-21,"Arithmetic Logic Unit (ALU)",14
-22,Flip-Flops,28
+21,Arithmetic Logic Unit (ALU),14
+22,Flip-Flops,13
 23,SR Latch,22
 24,D Flip-Flop,22
 25,JK Flip-Flop,22
 26,T Flip-Flop,22
 27,Master-Slave Flip-Flop,22
-28,Clocking Mechanisms,
+28,Clocking Mechanisms,22
 29,Edge vs Level Triggering,28
 30,Timing Diagrams,28
 31,Setup & Hold Time,28
@@ -40,7 +40,7 @@ Concept ID,Concept Name,Dependencies
 39,Johnson Counter,35
 40,Shift Registers,34
 41,Universal Shift Registers,40
-42,"Finite State Machines (FSM)",22
+42,Finite State Machines (FSM),22|34
 43,Moore vs Mealy FSM,42
 44,State Transition Diagrams,42
 45,State Minimization,42
@@ -62,20 +62,20 @@ Concept ID,Concept Name,Dependencies
 61,FPGA vs CPLD,60
 62,Lookup Tables (LUT),60
 63,FPGA Fabric,60
-64,"Configurable Logic Block (CLB)",60
+64,Configurable Logic Block (CLB),60
 65,Routing Resources,60
 66,Block RAM (BRAM),60
 67,Distributed RAM,66
 68,DSP Blocks,60
 69,Hardware Multipliers,68
-70,"GPIO & I/O Blocks",60
+70,GPIO & I/O Blocks,60
 71,HDL Basics,60
 72,Verilog Syntax,71
 73,VHDL vs Verilog,71
 74,Modules & Ports,72
 75,Continuous Assignments,72
 76,Procedural Blocks,72
-77,"always & initial Blocks",76
+77,always & initial Blocks,76
 78,Blocking vs Non-Blocking,77
 79,Sensitivity List,76
 80,Case Statements,76
@@ -107,7 +107,7 @@ Concept ID,Concept Name,Dependencies
 106,Dynamic Power Estimation,60
 107,Static Power Estimation,60
 108,FPGA Clocking,60
-109,"PLL & Clock Managers",108
+109,PLL & Clock Managers,108
 110,Multi-Clock Domain Design,108
 111,CDC (Clock Domain Crossing),110
 112,Reset Strategies,110
@@ -122,8 +122,8 @@ Concept ID,Concept Name,Dependencies
 121,Partial Reconfiguration,60
 122,Dynamic Reconfiguration,121
 123,FPGA SoC Architectures,60
-124,"Soft Processors (MicroBlaze/Nios)",123
-125,"Hard Processors (ARM Cortex)",123
+124,Soft Processors (MicroBlaze/Nios),123
+125,Hard Processors (ARM Cortex),123
 126,Embedded Linux on FPGA,123
 127,Device Tree for FPGA,126
 128,Bare Metal Programming,126
