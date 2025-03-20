@@ -2,8 +2,62 @@
 
 ## Dependency Graph of Digital Design Concepts
 
-<iframe src="/umn-senior-design/introduction/dependency_graph.html" width="100%" height="800px" style="border:none;"></iframe>
+Below is a visual representation of the dependencies between digital design concepts.
 
+<div id="mynetwork" style="width:100%; height:800px; border:1px solid lightgray;"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.2/dist/vis-network.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const nodesArray = [
+        { id: 1, label: "Digital vs Analog" },
+        { id: 2, label: "Binary System" },
+        { id: 3, label: "Number Systems" },
+        { id: 4, label: "Base Conversion" },
+        { id: 5, label: "Boolean Algebra" },
+        { id: 6, label: "Logic Gates" },
+        { id: 42, label: "Finite State Machines (FSM)" },
+        { id: 60, label: "FPGA Basics" },
+        { id: 71, label: "HDL Basics" },
+        { id: 86, label: "Testbenches" }
+    ];
+
+    const edgesArray = [
+        { from: 1, to: 2 },
+        { from: 2, to: 3 },
+        { from: 3, to: 4 },
+        { from: 3, to: 5 },
+        { from: 5, to: 6 },
+        { from: 6, to: 42 },
+        { from: 42, to: 60 },
+        { from: 60, to: 71 },
+        { from: 71, to: 86 }
+    ];
+
+    const nodes = new vis.DataSet(nodesArray);
+    const edges = new vis.DataSet(edgesArray);
+
+    const container = document.getElementById("mynetwork");
+    const data = { nodes, edges };
+    const options = {
+        layout: { improvedLayout: true },
+        nodes: { shape: "dot", size: 10, font: { size: 12, align: "top" } },
+        edges: { arrows: { to: true }, color: "black", smooth: false },
+        physics: {
+            stabilization: { iterations: 100 },
+            barnesHut: {
+                gravitationalConstant: -2000,
+                centralGravity: 0.3,
+                springLength: 50,
+                springConstant: 0.04,
+                damping: 0.09
+            }
+        }
+    };
+
+    new vis.Network(container, data, options);
+});
+</script>
 
 ## 1. Foundations of Digital Design
 Digital design forms the basis of modern computing, allowing for the creation of efficient hardware systems. This section introduces fundamental concepts necessary for digital circuit design.
