@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dependency Graph of Digital Design Concepts</title>
+    <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.2/dist/vis-network.min.js"></script>
+    <style>
+        #mynetwork {
+            width: 100%;
+            height: 800px;
+            border: 1px solid lightgray;
+        }
+        #legend {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+            border-radius: 5px;
+            max-width: 300px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Dependency Graph of Digital Design Concepts</h2>
+    <div id="mynetwork"></div>
+
+    <!-- Legend -->
+    <div id="legend">
+        <strong>Legend:</strong>
+        <div class="legend-item"><div class="legend-color" style="background: #1f77b4;"></div> Foundations of Digital Design</div>
+        <div class="legend-item"><div class="legend-color" style="background: #ff7f0e;"></div> Combinational & Sequential Logic</div>
+        <div class="legend-item"><div class="legend-color" style="background: #2ca02c;"></div> Finite State Machines & Memory</div>
+        <div class="legend-item"><div class="legend-color" style="background: #d62728;"></div> Verilog & Digital Circuit Design</div>
+        <div class="legend-item"><div class="legend-color" style="background: #9467bd;"></div> FPGA & Embedded Systems</div>
+        <div class="legend-item"><div class="legend-color" style="background: #8c564b;"></div> Digital Verification & Optimization</div>
+    </div>
+
+    <script>
+        // Define categories and colors
+        const categories = {
+            "Foundations of Digital Design": "#1f77b4",
+            "Combinational and Sequential Logic": "#ff7f0e",
+            "Finite State Machines and Digital Memory": "#2ca02c",
+            "Verilog and Digital Circuit Design": "#d62728",
+            "FPGA and Embedded Systems": "#9467bd",
+            "Digital Verification and Optimization": "#8c564b"
+        };
+
+        function assignCategory(concept) {
+            if (!concept) return null;
+            if (concept.includes("Number") || concept.includes("Boolean") || concept.includes("Base Conversion")) return "Foundations of Digital Design";
+            if (concept.includes("Combinational") || concept.includes("Flip-Flop") || concept.includes("Counter")) return "Combinational and Sequential Logic";
+            if (concept.includes("FSM") || concept.includes("Memory")) return "Finite State Machines and Digital Memory";
+            if (concept.includes("Verilog")) return "Verilog and Digital Circuit Design";
+            if (concept.includes("FPGA") || concept.includes("Embedded")) return "FPGA and Embedded Systems";
+            if (concept.includes("Verification") || concept.includes("Optimization")) return "Digital Verification and Optimization";
+            return "Foundations of Digital Design";
+        }
+
+        // Define nodes (topics) from CSV
+        const csvData = `Concept ID,Concept Name,Dependencies
+1,Digital vs Analog,
+2,Binary System,1
+3,Number Systems,2
+4,Base Conversion,3
+5,Boolean Algebra,3
+6,Logic Gates,5
+7,Truth Tables,6
+8,DeMorgan's Theorems,5
+9,Logic Minimization,5
+10,Karnaugh Maps,9
+11,Sum of Products (SOP),10
+12,Product of Sums (POS),10
+13,Combinational Circuits,6|10
+14,Adders & Subtractors,13
+15,Multiplexers (MUX),13
+16,Demultiplexers (DEMUX),13
+17,Encoders,13
+18,Decoders,13
+19,Parity Generators,13
+20,Comparators,13
+21,Arithmetic Logic Unit (ALU),14
+22,Flip-Flops,13
+23,SR Latch,22
+24,D Flip-Flop,22
+25,JK Flip-Flop,22
+26,T Flip-Flop,22
+27,Master-Slave Flip-Flop,22
+28,Clocking Mechanisms,22
+29,Edge vs Level Triggering,28
+30,Timing Diagrams,28
+31,Setup & Hold Time,28
+32,Propagation Delay,28
+33,Asynchronous Circuits,28
+34,Synchronous Circuits,28
+35,Counters,34
+36,Ripple Counters,35
+37,Synchronous Counters,35
+38,Ring Counter,35
+39,Johnson Counter,35
+40,Shift Registers,34
+41,Universal Shift Registers,40
+42,Finite State Machines (FSM),22|34
+43,Moore vs Mealy FSM,42
+44,State Transition Diagrams,42
+45,State Minimization,42
+46,State Encoding,42
+47,One-Hot Encoding,42
+48,Clock Division,28
+49,Debouncing Circuits,28
+50,Glitches & Race Conditions,28
+51,Metastability,28
+52,Hazard Analysis,28
+53,Gray Code,35
+54,PLD Overview,13
+55,PROM,54
+56,PLA,54
+57,PAL,54
+58,GAL,54
+59,CPLD,54
+60,FPGA Basics,54
+61,FPGA vs CPLD,60
+62,Lookup Tables (LUT),60
+63,FPGA Fabric,60
+64,Configurable Logic Block (CLB),60
+65,Routing Resources,60
+66,Block RAM (BRAM),60
+67,Distributed RAM,66
+68,DSP Blocks,60
+69,Hardware Multipliers,68
+70,GPIO & I/O Blocks,60
+71,HDL Basics,60
+72,Verilog Syntax,71
+73,VHDL vs Verilog,71
+74,Modules & Ports,72
+75,Continuous Assignments,72
+76,Procedural Blocks,72
+77,always & initial Blocks,76
+78,Blocking vs Non-Blocking,77
+79,Sensitivity List,76
+80,Case Statements,76
+81,If-Else Constructs,76
+82,Loops in Verilog,76
+83,Tasks & Functions,76
+84,Parameters & Generics,76
+85,Generate Statements,76
+86,Testbenches,71
+87,Simulation Basics,86
+88,Verilog Timing Controls,72
+89,Delay Modeling,88
+90,Assertions & Coverage,72
+91,Verilog for FSM,42
+92,Synthesizable vs Non-Synthesizable Code,72
+93,RTL Design Flow,72
+94,RTL vs Gate-Level,93
+95,Netlists,93
+96,FPGA Toolchains,60
+97,Constraints Files,96
+98,Clock Constraints,97
+99,Setup & Hold Analysis,97
+100,Timing Reports,99
+101,Logic Optimization,72
+102,Pipelining,101
+103,Retiming,102
+104,Resource Sharing,102
+105,Clock Gating,101
+106,Dynamic Power Estimation,60
+107,Static Power Estimation,60
+108,FPGA Clocking,60
+109,PLL & Clock Managers,108
+110,Multi-Clock Domain Design,108
+111,CDC (Clock Domain Crossing),110
+112,Reset Strategies,110
+113,FIFO Design,60
+114,AXI Protocol,60
+115,Wishbone Bus,60
+116,AMBA Bus,60
+117,Memory Interfaces,60
+118,DDR Interfaces,117
+119,BRAM Configuration,66
+120,HLS (High-Level Synthesis),60
+121,Partial Reconfiguration,60
+122,Dynamic Reconfiguration,121
+123,FPGA SoC Architectures,60
+124,Soft Processors (MicroBlaze/Nios),123
+125,Hard Processors (ARM Cortex),123
+126,Embedded Linux on FPGA,123
+127,Device Tree for FPGA,126
+128,Bare Metal Programming,126
+129,Bootloaders in FPGA,126
+130,FPGA-Based System Design,60
+131,Signal Integrity,60
+132,Crosstalk,131
+133,Ground Bounce,131
+134,Power Integrity,131
+135,Transmission Lines,131
+136,Differential Signaling,135
+137,LVDS & TMDS,136
+138,High-Speed SerDes,136
+139,PCIe Interface,138
+140,USB on FPGA,138
+141,AI/ML Acceleration on FPGA,60
+142,DSP Acceleration,68
+143,Video Processing on FPGA,60
+144,Cryptography & FPGA,60
+145,RISC-V on FPGA,60
+146,Hardware Security,60
+147,Fault Tolerant Design,60
+148,FPGA in Automotive,60
+149,FPGA in Aerospace,60
+150,FPGA in Medical Applications,60
+`;
+
+        const rows = csvData.split("\n").slice(1).filter(row => row.trim() !== "");
+        const nodesArray = [];
+        const edgesArray = [];
+
+        rows.forEach(row => {
+            const [id, name, dependencies] = row.split(",").map(s => s.trim());
+            nodesArray.push({
+                id: parseInt(id),
+                label: name,
+                color: categories[assignCategory(name)],
+                shape: "dot",
+                size: 10,
+                font: { align: "top" }
+            });
+
+            if (dependencies) {
+                dependencies.split("|").forEach(dep => {
+                    edgesArray.push({ from: parseInt(dep), to: parseInt(id) });
+                });
+            }
+        });
+
+        const nodes = new vis.DataSet(nodesArray);
+        const edges = new vis.DataSet(edgesArray);
+
+        // Create the network visualization
+        const container = document.getElementById("mynetwork");
+        const data = { nodes, edges };
+        const options = {
+            layout: { improvedLayout: true },
+            nodes: {
+                shape: "dot",
+                size: 10,
+                font: { size: 12, align: "top" }
+            },
+            edges: {
+                arrows: { to: true },
+                color: "black",
+                smooth: false
+            },
+            physics: {
+                stabilization: { iterations: 100 },
+                barnesHut: {
+                    gravitationalConstant: -2000,
+                    centralGravity: 0.3,
+                    springLength: 50,
+                    springConstant: 0.04,
+                    damping: 0.09
+                }
+            }
+        };
+
+        new vis.Network(container, data, options);
+    </script>
+</body>
+</html>
