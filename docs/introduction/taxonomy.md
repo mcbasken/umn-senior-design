@@ -2,13 +2,8 @@
 
 ## Dependency Graph of Digital Design Concepts
 
-<div id="mynetwork" style="width: 100%; height: 600px; border: 1px solid lightgray;"></div>
+<iframe src="/umn-senior-design/introduction/dependency_graph.html" width="100%" height="800px" style="border:none;"></iframe>
 
-<script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.2/dist/vis-network.min.js"></script>
-<script src="/umn-senior-design/introduction/dependency_graph.js"></script>
-<script>
-    drawGraph();
-</script>
 
 ## 1. Foundations of Digital Design
 Digital design forms the basis of modern computing, allowing for the creation of efficient hardware systems. This section introduces fundamental concepts necessary for digital circuit design.
