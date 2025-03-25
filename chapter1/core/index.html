@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 1: Foundations of Digital Design</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 40px;
+      max-width: 800px;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 1em;
+    }
+    table, th, td {
+      border: 1px solid #aaa;
+    }
+    th, td {
+      padding: 8px;
+      text-align: center;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    .quiz {
+      background-color: #f9f9f9;
+      border-left: 4px solid #3498db;
+      padding: 10px;
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Chapter 1: Foundations of Digital Design</h1>
+
+<h2>Introduction</h2>
+<p>
+  Digital design is the foundation upon which modern electronic systems are built.
+  From microprocessors and memory units to digital communication systems and embedded controllers,
+  digital design principles enable engineers to create efficient, reliable hardware that manipulates binary information.
+</p>
+<p>
+  This chapter introduces essential topics that form the basis of digital logic design.
+  Mastering these fundamentals is critical for analyzing and building more complex digital systems in later chapters.
+</p>
+
+<h2>1.1 Number Systems and Representations</h2>
+<p>In digital systems, all information is represented using numbers—primarily in binary form. Understanding how these number systems work is essential.</p>
+
+<h3>Common Number Systems</h3>
+<table>
+  <tr>
+    <th>Number System</th>
+    <th>Base</th>
+    <th>Digits Used</th>
+    <th>Example</th>
+  </tr>
+  <tr>
+    <td>Decimal</td>
+    <td>10</td>
+    <td>0–9</td>
+    <td>245₁₀</td>
+  </tr>
+  <tr>
+    <td>Binary</td>
+    <td>2</td>
+    <td>0, 1</td>
+    <td>111101₂</td>
+  </tr>
+  <tr>
+    <td>Octal</td>
+    <td>8</td>
+    <td>0–7</td>
+    <td>75₈</td>
+  </tr>
+  <tr>
+    <td>Hexadecimal</td>
+    <td>16</td>
+    <td>0–9, A–F</td>
+    <td>2F₁₆</td>
+  </tr>
+</table>
+
+<p><strong>Conversion Tip:</strong><br>
+To convert binary <code>1011</code> to decimal:
+<br><code>(1 × 2³) + (0 × 2²) + (1 × 2¹) + (1 × 2⁰) = 8 + 0 + 2 + 1 = 11</code></p>
+
+<p><strong>Simulation Prompt:</strong><br>
+Create a simulation where the user inputs a number in one base (e.g., binary) and the system converts it into decimal, octal, and hexadecimal formats.</p>
+
+<h2>1.2 Boolean Algebra and Logic Gates</h2>
+<p>
+  Boolean algebra deals with variables that have two possible values: 0 (false) and 1 (true).
+  It uses logical operations to represent and simplify digital circuits.
+</p>
+
+<h3>Basic Logic Gates</h3>
+<table>
+  <tr>
+    <th>Gate</th>
+    <th>Symbol</th>
+    <th>Operation</th>
+    <th>Expression</th>
+  </tr>
+  <tr>
+    <td>AND</td>
+    <td>∧</td>
+    <td>Logical Multiply</td>
+    <td>A ∧ B</td>
+  </tr>
+  <tr>
+    <td>OR</td>
+    <td>∨</td>
+    <td>Logical Add</td>
+    <td>A ∨ B</td>
+  </tr>
+  <tr>
+    <td>NOT</td>
+    <td>¬</td>
+    <td>Inversion</td>
+    <td>¬A or A'</td>
+  </tr>
+</table>
+
+<h3>De Morgan’s Theorems</h3>
+<ul>
+  <li>¬(A ∧ B) = ¬A ∨ ¬B</li>
+  <li>¬(A ∨ B) = ¬A ∧ ¬B</li>
+</ul>
+
+<p><strong>Simulation Prompt:</strong><br>
+Design an interactive simulation where users can input Boolean expressions and see real-time gate-level diagrams.</p>
+
+<h2>1.3 Truth Tables and Logic Expressions</h2>
+<p>A truth table shows all possible input combinations and their corresponding output.</p>
+
+<table>
+  <tr>
+    <th>A</th>
+    <th>B</th>
+    <th>¬B</th>
+    <th>F = A · ¬B</th>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+</table>
+
+<h2>1.4 SOP and POS Forms</h2>
+<p>
+  Boolean expressions can be represented in standard formats:
+</p>
+<ul>
+  <li><strong>Sum of Products (SOP):</strong> A series of AND terms OR’ed together<br>
+      Example: F = A¬B + AB</li>
+  <li><strong>Product of Sums (POS):</strong> A series of OR terms AND’ed together<br>
+      Example: F = (A + B)(A + ¬C)</li>
+</ul>
+
+<h2>1.5 Karnaugh Maps and Simplification</h2>
+<p>Karnaugh Maps (K-Maps) are visual tools for simplifying Boolean expressions without algebra.</p>
+
+<h3>2-Variable K-Map Example:</h3>
+<table>
+  <tr>
+    <th></th>
+    <th>B=0</th>
+    <th>B=1</th>
+  </tr>
+  <tr>
+    <th>A=0</th>
+    <td>0</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th>A=1</th>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+</table>
+
+<p><strong>Simulation Prompt:</strong><br>
+Provide an interactive Karnaugh Map editor where students can input a truth table and visually group terms to minimize the logic.</p>
+
+<h2>1.6 Binary Arithmetic and Two’s Complement</h2>
+
+<h3>Unsigned Binary Addition:</h3>
+<pre>
+  0101 (5)
++ 0011 (3)
+= 1000 (8)
+</pre>
+
+<h3>Two’s Complement for Signed Numbers:</h3>
+<p>
+To represent -5 in 4-bit two’s complement:
+</p>
+<ol>
+  <li>Start with +5 → 0101</li>
+  <li>Invert bits → 1010</li>
+  <li>Add 1 → 1011 → (-5)</li>
+</ol>
+
+<p><strong>Simulation Prompt:</strong><br>
+Design a simulation to perform binary addition and display results in both unsigned and two’s complement formats.</p>
+
+<h2>Summary</h2>
+<p>This chapter covered the fundamental building blocks of digital design:</p>
+<ul>
+  <li>Number systems: Binary, octal, decimal, hexadecimal</li>
+  <li>Boolean algebra and logic gates</li>
+  <li>Truth tables and standard Boolean forms (SOP, POS)</li>
+  <li>Karnaugh Maps for simplification</li>
+  <li>Binary arithmetic with signed and unsigned numbers</li>
+</ul>
+
+<div class="quiz">
+  <h2>Quiz: Check Your Understanding</h2>
+  <ol>
+    <li>Convert 101101₂ to decimal.
+      <ul>
+        <li>A) 45</li>
+        <li>B) 53</li>
+        <li>C) 57</li>
+        <li>D) 61</li>
+      </ul>
+    </li>
+    <li>Which of the following represents the NOT operation?
+      <ul>
+        <li>A) +</li>
+        <li>B) ·</li>
+        <li>C) ¬</li>
+        <li>D) ∨</li>
+      </ul>
+    </li>
+    <li>What is the two’s complement of 0110 (6)?
+      <ul>
+        <li>A) 1001</li>
+        <li>B) 1010</li>
+        <li>C) 1110</li>
+        <li>D) 1011</li>
+      </ul>
+    </li>
+    <li>Which of these is a Product of Sums expression?
+      <ul>
+        <li>A) A + B + C</li>
+        <li>B) AB + AC</li>
+        <li>C) (A + B)(A + ¬C)</li>
+        <li>D) A · B · ¬C</li>
+      </ul>
+    </li>
+    <li>How many cells are in a 3-variable Karnaugh Map?
+      <ul>
+        <li>A) 4</li>
+        <li>B) 6</li>
+        <li>C) 8</li>
+        <li>D) 16</li>
+      </ul>
+    </li>
+  </ol>
+</div>
+
+</body>
+</html>
