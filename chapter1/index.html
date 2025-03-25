@@ -242,31 +242,33 @@
     </li>
 
     <!-- Chapter 1 (Active) -->
-    <li class="md-nav__item md-nav__item--nested">
-                <input class="md-nav__toggle md-toggle" type="checkbox" id="__nav_intro" checked>
-                <div class="md-nav__link md-nav__container">
-                    <a href="/umn-senior-design/chapter1/" class="md-nav__link md-nav__link--active">
-                        <span class="md-ellipsis">Chapter 1</span>
-                    </a>
-                    <label class="md-nav__link md-nav__link--active" for="__nav_intro" id="__nav_intro_label" tabindex="0">
-                        <span class="md-nav__icon md-icon"></span>
-                    </label>
-                </div>
-        
-                <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_intro_label" aria-expanded="true">
-                    <label class="md-nav__title" for="__nav_intro">
-                        <span class="md-nav__icon md-icon"></span>
-                        Chapter 1
-                    </label>
-                    <ul class="md-nav__list" data-md-scrollfix>
-                        <li class="md-nav__item">
-                            <a href="core/" class="md-nav__link">
-                                <span class="md-ellipsis">Core Concepts</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </li>
+    <li class="md-nav__item md-nav__item--nested md-nav__item--active">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__nav_ch1" checked>
+      <div class="md-nav__link md-nav__container">
+        <a href="../chapter1/" class="md-nav__link md-nav__link--active">
+          <span class="md-ellipsis">Chapter 1</span>
+        </a>
+        <label class="md-nav__link md-nav__link--active" for="__nav_ch1" id="__nav_ch1_label" tabindex="0">
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      </div>
+    
+      <!-- Nested Subpages under Chapter 1 -->
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_ch1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_ch1">
+          <span class="md-nav__icon md-icon"></span>
+          Chapter 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          <!-- Core Concepts subpage -->
+          <li class="md-nav__item">
+            <a href="../chapter1/core.html" class="md-nav__link">
+              <span class="md-ellipsis">Core Concepts and Techniques</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </li>
 
 
     <!-- Chapter 2 -->
