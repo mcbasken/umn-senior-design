@@ -13,7 +13,12 @@ nav:
       - Taxonomy: introduction/taxonomy.md
   - Chapter 1:
       - Overview: chapter1/index.md
-      - Fundamentals of Digital Logic: chapter1/fundamental_digital_logic.md
+      - Foundations of Digital Logic: chapter1/core.md
+  - Chapter 2:
+  - Chapter 3:
+  - Chapter 4:
+  - Chapter 5:
+  - Chapter 6:
   - Glossary: glossary.md
   - References: references.md
   - Contact: contact.md
