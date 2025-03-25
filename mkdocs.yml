@@ -15,10 +15,15 @@ nav:
       - Overview: chapter1/index.md
       - Foundations of Digital Logic: chapter1/core.md
   - Chapter 2:
+      - Overview: chapter2/index.md
   - Chapter 3:
+      - Overview: chapter3/index.md
   - Chapter 4:
+      - Overview: chapter4/index.md
   - Chapter 5:
+      - Overview: chapter5/index.md
   - Chapter 6:
+      - Overview: chapter6/index.md
   - Glossary: glossary.md
   - References: references.md
   - Contact: contact.md
