@@ -241,34 +241,33 @@
         </a>
     </li>
 
-    <!-- Class 1 -->
-                <li class="md-nav__item md-nav__item--nested">
-                    <input class="md-nav__toggle md-toggle" type="checkbox" id="__nav_5" checked>
-                    <div class="md-nav__link md-nav__container">
-                        <a href="../" class="md-nav__link">
-                            <span class="md-ellipsis">Chapter 1</span>
-                        </a>
-                        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-                            <span class="md-nav__icon md-icon"></span>
-                        </label>
-                    </div>
-                  
-                  <!-- Core -->
-                  <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-                    <label class="md-nav__title" for="__nav_5">
+              <!-- Class 1 (Active) -->
+            <li class="md-nav__item md-nav__item--nested">
+                <input class="md-nav__toggle md-toggle" type="checkbox" id="__nav_intro" checked>
+                <div class="md-nav__link md-nav__container">
+                    <a href="/umn-senior-design/chapter1/" class="md-nav__link md-nav__link--active">
+                        <span class="md-ellipsis">Chapter 1</span>
+                    </a>
+                    <label class="md-nav__link md-nav__link--active" for="__nav_intro" id="__nav_intro_label" tabindex="0">
+                        <span class="md-nav__icon md-icon"></span>
+                    </label>
+                </div>
+        
+                <!-- Nested Taxonomy under Introduction -->
+                <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_intro_label" aria-expanded="true">
+                    <label class="md-nav__title" for="__nav_intro">
                         <span class="md-nav__icon md-icon"></span>
                         Chapter 1
                     </label>
                     <ul class="md-nav__list" data-md-scrollfix>
-                        <!-- Core is set as active -->
-                        <li class="md-nav__item md-nav__item--active">
-                            <a href="../core/" class="md-nav__link md-nav__link--active">
+                        <li class="md-nav__item">
+                            <a href="core/" class="md-nav__link">
                                 <span class="md-ellipsis">Core Structures</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
-                </li>
+            </li>
 
     <!-- Chapter 2 -->
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
