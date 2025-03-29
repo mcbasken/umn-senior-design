@@ -13,7 +13,7 @@ nav:
       - Taxonomy: introduction/taxonomy.md
   - Chapter 1:
       - Overview: chapter1/index.md
-      - Foundations of Digital Logic: chapter1/core.md
+      - Core Structures and Techniques: chapter1/core.md
   - Chapter 2:
       - Overview: chapter2/index.md
   - Chapter 3:
