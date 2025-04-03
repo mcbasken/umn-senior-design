@@ -1,73 +1,64 @@
-let inputField;
-let gateDiagram;
+new p5((p) => {
+  let inputField;
+  let gateDiagram;
 
-function setup() {
-  const canvas = createCanvas(400, 100);
-  canvas.parent('boolean-diagram-container'); // make sure the div exists
-  background(240);
-  fill(0);
-  textSize(20);
-  text('Canvas is working!', 10, 50);
-}
+  p.setup = function () {
+    const container = p.select('#boolean-diagram-container');
+    inputField = p.createInput('').parent(container).style('margin-bottom', '10px');
+    inputField.attribute('placeholder', 'Enter Boolean Expression (e.g., A AND B OR NOT C)');
+    inputField.input(updateDiagram);
 
+    const canvas = p.createCanvas(500, 200);
+    canvas.parent(container);
+    gateDiagram = new LogicDiagram();
+  };
 
+  p.draw = function () {
+    p.background(255);
+    gateDiagram.display(p);
+  };
 
-function draw() {
-  background(255);
-  fill(0);
-  textSize(16);
-  text('Canvas is working!', 10, 30);
-}
-
-
-function updateDiagram() {
-  const expr = inputField.value();
-  gateDiagram.parse(expr);
-  redraw();
-}
-
-class LogicDiagram {
-  constructor() {
-    this.gates = [];
+  function updateDiagram() {
+    const expr = inputField.value();
+    gateDiagram.parse(expr);
   }
 
-  parse(expr) {
-    this.gates = [];
+  class LogicDiagram {
+    constructor() {
+      this.gates = [];
+    }
 
-    const cleaned = expr.replace(/\s+/g, '').toUpperCase();
-    const tokens = cleaned.match(/[A-Z]+|AND|OR|NOT|\(|\)/g);
-    if (!tokens) return;
+    parse(expr) {
+      this.gates = [];
+      const cleaned = expr.replace(/\s+/g, '').toUpperCase();
+      const tokens = cleaned.match(/[A-Z]+|AND|OR|NOT|\(|\)/g);
+      if (!tokens) return;
 
-    let offsetX = 100;
-    let offsetY = 100;
+      let offsetX = 100;
+      let offsetY = 100;
 
-    for (let i = 0; i < tokens.length; i++) {
-      const token = tokens[i];
+      for (let token of tokens) {
+        if (['AND', 'OR', 'NOT'].includes(token)) {
+          this.gates.push({ type: token, x: offsetX, y: offsetY });
+          offsetY += 60;
+        }
+      }
+    }
 
-      if (token === 'AND' || token === 'OR' || token === 'NOT') {
-        this.gates.push({
-          type: token,
-          x: offsetX,
-          y: offsetY,
-        });
-        offsetY += 60;
+    display(p) {
+      for (let g of this.gates) {
+        p.push();
+        p.translate(g.x, g.y);
+        p.stroke(0);
+        p.fill(255);
+        p.rectMode(p.CENTER);
+        p.rect(0, 0, 60, 40);
+        p.fill(0);
+        p.noStroke();
+        p.textAlign(p.CENTER, p.CENTER);
+        p.text(g.type, 0, 0);
+        p.pop();
       }
     }
   }
-
-  display() {
-    for (let g of this.gates) {
-      push();
-      translate(g.x, g.y);
-      stroke(0);
-      fill(255);
-      rectMode(CENTER);
-      rect(0, 0, 60, 40);
-      fill(0);
-      noStroke();
-      textAlign(CENTER, CENTER);
-      text(g.type, 0, 0);
-      pop();
-    }
-  }
-}
+}, 'boolean-diagram-container');
