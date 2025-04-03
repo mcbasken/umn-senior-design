@@ -3,12 +3,12 @@ let inputField;
 let resultDiv;
 
 function setup() {
-  createCanvas(600, 200).parent('base-converter-container');;
+  let container = select('#base-converter-container');
+  createCanvas(600, 200).parent(container);
   textSize(16);
 
-  createElement('label', 'Select Input Base:').position(10, 10);
-  inputBaseSelect = createSelect();
-  inputBaseSelect.position(160, 10);
+  createElement('label', 'Select Input Base:').parent(container);
+  inputBaseSelect = createSelect().parent(container);
   inputBaseSelect.option('Binary (base 2)', '2');
   inputBaseSelect.option('Octal (base 8)', '8');
   inputBaseSelect.option('Decimal (base 10)', '10');
@@ -16,7 +16,6 @@ function setup() {
 
   createElement('label', 'Enter Number:').position(10, 50);
   inputField = createInput('');
-  inputField.position(160, 50);
   inputField.size(200);
   inputField.input(convertInput);
 
