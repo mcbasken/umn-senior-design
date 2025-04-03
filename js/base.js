@@ -3,14 +3,13 @@ let inputField;
 let resultDiv;
 
 function setup() {
+  noCanvas(); // Not drawing anything on canvas now
   const container = select('#base-converter-container');
-  
-  const canvas = createCanvas(500, 100).parent(container);
-  textSize(14);
 
+  // Input base selector
   createElement('label', 'Select Input Base:')
     .parent(container)
-    .style('font-size', '10px');
+    .style('margin-right', '10px');
   
   inputBaseSelect = createSelect().parent(container);
   inputBaseSelect.option('Binary (base 2)', '2');
@@ -19,6 +18,7 @@ function setup() {
   inputBaseSelect.option('Hexadecimal (base 16)', '16');
 
   createElement('br').parent(container); // Line break for layout
+  createElement('br').parent(container);
 
   // Input field
   createElement('label', 'Enter Number:')
@@ -26,11 +26,12 @@ function setup() {
     .style('font-size', '10px');
   
   inputField = createInput('');
-  inputField.size(200);
   inputField.parent(container);
+  inputField.size(200);
   inputField.input(convertInput);
 
   createElement('br').parent(container); // another line break
+  createElement('br').parent(container);
 
   // Output display
   resultDiv = createDiv('').parent(container).style('font-size', '14px');
