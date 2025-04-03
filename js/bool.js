@@ -2,10 +2,10 @@ let inputField;
 let gateDiagram;
 
 function setup() {
-  const canvas = createCanvas(400, 150);
-  canvas.parent(select('#boolean-diagram-container')); // Make sure the div exists
-  background(255);
+  const canvas = createCanvas(400, 200);
+  canvas.parent('boolean-diagram-container'); // Make sure this div exists!
 }
+
 
 function draw() {
   background(255);
