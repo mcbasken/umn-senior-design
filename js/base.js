@@ -3,7 +3,7 @@ let inputField;
 let resultDiv;
 
 function setup() {
-  createCanvas(600, 200);
+  createCanvas(600, 200).parent('base-converter-container');;
   textSize(16);
 
   createElement('label', 'Select Input Base:').position(10, 10);
