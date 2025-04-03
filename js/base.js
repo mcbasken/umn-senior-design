@@ -4,7 +4,7 @@ let resultDiv;
 
 function setup() {
   let container = select('#base-converter-container');
-  let canvas = createCanvas(600, 200).parent(container);
+  let canvas = createCanvas(200, 200).parent(container);
   canvas.style('position', 'relative');
   textSize(16);
 
@@ -15,7 +15,7 @@ function setup() {
   inputBaseSelect.option('Decimal (base 10)', '10');
   inputBaseSelect.option('Hexadecimal (base 16)', '16');
 
-  createElement('label', 'Enter Number:').parent(container);
+  createElement('label', '  Enter Number:').parent(container);
   inputField = createInput('');
   inputField.parent(container);
   inputField.input(convertInput);
