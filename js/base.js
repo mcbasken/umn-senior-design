@@ -40,35 +40,42 @@ function convertInput() {
   const input = inputField.value().trim();
   const base = int(inputBaseSelect.value());
 
-  // Clear result if input is empty
   if (input === '') {
     resultDiv.html('');
     return;
   }
 
-  // Try converting input to decimal from selected base
-  const decimalValue = parseInt(input, base);
-  if (isNaN(decimalValue)) {
+  // Validate input based on selected base
+  const basePatterns = {
+    2: /^[01]+$/,
+    8: /^[0-7]+$/,
+    10: /^\d+$/,
+    16: /^[0-9a-fA-F]+$/
+  };
+
+  if (!basePatterns[base].test(input)) {
     resultDiv.html(`<span style="color: red;">Invalid input for base ${base}</span>`);
     return;
   }
 
-  // Generate only the selected base's output
-  let output = '';
-  switch (base) {
-    case 2:
-      output = `<strong>Binary:</strong> ${input}<br><strong>Decimal:</strong> ${decimalValue}`;
-      break;
-    case 8:
-      output = `<strong>Octal:</strong> ${input}<br><strong>Decimal:</strong> ${decimalValue}`;
-      break;
-    case 10:
-      output = `<strong>Decimal:</strong> ${input}<br><strong>Binary:</strong> ${decimalValue.toString(2)}`;
-      break;
-    case 16:
-      output = `<strong>Hexadecimal:</strong> ${input}<br><strong>Decimal:</strong> ${decimalValue}`;
-      break;
+  const decimalValue = parseInt(input, base);
+  if (isNaN(decimalValue)) {
+    resultDiv.html(`<span style="color: red;">Conversion failed</span>`);
+    return;
   }
 
-  resultDiv.html(output);
+  // Display selected base input and its decimal equivalent
+  let label = '';
+  switch (base) {
+    case 2: label = 'Binary'; break;
+    case 8: label = 'Octal'; break;
+    case 10: label = 'Decimal'; break;
+    case 16: label = 'Hexadecimal'; break;
+  }
+
+  resultDiv.html(`
+    <strong>${label}:</strong> ${input}<br>
+    <strong>Decimal:</strong> ${decimalValue}
+  `);
 }
+
