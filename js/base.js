@@ -38,44 +38,42 @@ function setup() {
 
 function convertInput() {
   const input = inputField.value().trim();
-  const base = int(inputBaseSelect.value());
+  const outputBase = parseInt(inputBaseSelect.value());
 
   if (input === '') {
     resultDiv.html('');
     return;
   }
 
-  // Validate input based on selected base
-  const basePatterns = {
-    2: /^[01]+$/,
-    8: /^[0-7]+$/,
-    10: /^\d+$/,
-    16: /^[0-9a-fA-F]+$/
-  };
-
-  if (!basePatterns[base].test(input)) {
-    resultDiv.html(`<span style="color: red;">Invalid input for base ${base}</span>`);
+  // Validate hex input
+  const isValidHex = /^[0-9a-fA-F]+$/.test(input);
+  if (!isValidHex) {
+    resultDiv.html(`<span style="color: red;">Invalid hexadecimal input</span>`);
     return;
   }
 
-  const decimalValue = parseInt(input, base);
-  if (isNaN(decimalValue)) {
-    resultDiv.html(`<span style="color: red;">Conversion failed</span>`);
-    return;
-  }
+  // Convert from hex to decimal, then to selected base
+  const decimalValue = parseInt(input, 16);
+  let converted;
 
-  // Display selected base input and its decimal equivalent
-  let label = '';
-  switch (base) {
-    case 2: label = 'Binary'; break;
-    case 8: label = 'Octal'; break;
-    case 10: label = 'Decimal'; break;
-    case 16: label = 'Hexadecimal'; break;
+  switch (outputBase) {
+    case 2:
+      converted = decimalValue.toString(2);
+      resultDiv.html(`<strong>Binary:</strong> ${converted}`);
+      break;
+    case 8:
+      converted = decimalValue.toString(8);
+      resultDiv.html(`<strong>Octal:</strong> ${converted}`);
+      break;
+    case 10:
+      converted = decimalValue.toString(10);
+      resultDiv.html(`<strong>Decimal:</strong> ${converted}`);
+      break;
+    case 16:
+      converted = decimalValue.toString(16).toUpperCase();
+      resultDiv.html(`<strong>Hexadecimal:</strong> ${converted}`);
+      break;
+    default:
+      resultDiv.html('Unsupported base');
   }
-
-  resultDiv.html(`
-    <strong>${label}:</strong> ${input}<br>
-    <strong>Decimal:</strong> ${decimalValue}
-  `);
 }
-
