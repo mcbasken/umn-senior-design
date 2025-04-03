@@ -47,8 +47,8 @@ function convertInput() {
 
   // Validate input based on selected base
   const basePatterns = {
-    2: /^[01]+$/,
-    8: /^[0-7]+$/,
+    2: /^\d+$/,
+    8: /^\d+$/,
     10: /^\d+$/,
     16: /^[0-9a-fA-F]+$/
   };
