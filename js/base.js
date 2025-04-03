@@ -3,34 +3,37 @@ let inputField;
 let resultDiv;
 
 function setup() {
-  let container = select('#base-converter-container');
-  let canvas = createCanvas(600, 100).parent(container);
-  canvas.style('position', 'relative');
-  textSize(16);
+  const container = select('#base-converter-container');
+  
+  const canvas = createCanvas(500, 100).parent(container);
+  textSize(14);
 
   createElement('label', 'Select Input Base:')
     .parent(container)
-    .position(10, 10)
-    .style('font-size', '14px');
+    .style('font-size', '10px');
+  
   inputBaseSelect = createSelect().parent(container);
-  inputBaseSelect.position(160, 10);
   inputBaseSelect.option('Binary (base 2)', '2');
   inputBaseSelect.option('Octal (base 8)', '8');
   inputBaseSelect.option('Decimal (base 10)', '10');
   inputBaseSelect.option('Hexadecimal (base 16)', '16');
 
-  createElement('label', '  Enter Number:')
+  createElement('br').parent(container); // Line break for layout
+
+  // Input field
+  createElement('label', 'Enter Number:')
     .parent(container)
-    .position(10, 40)
-    .style('font-size', '14px');
+    .style('font-size', '10px');
   
   inputField = createInput('');
-  inputField.position(160, 40);
   inputField.size(200);
   inputField.parent(container);
   inputField.input(convertInput);
 
-  resultDiv = createDiv('').parent(container);
+  createElement('br').parent(container); // another line break
+
+  // Output display
+  resultDiv = createDiv('').parent(container).style('font-size', '14px');
 }
 
 function convertInput() {
