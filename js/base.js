@@ -43,17 +43,26 @@ function convertInput() {
     return;
   }
 
-  try {
-    const decimalValue = parseInt(input, base);
-    if (isNaN(decimalValue)) throw new Error("Invalid input");
+  // Validate input: make sure it only contains valid digits for the base
+  const validChars = {
+    2: /^[01]+$/,
+    8: /^[0-7]+$/,
+    10: /^[0-9]+$/,
+    16: /^[0-9a-fA-F]+$/
+  };
 
-    resultDiv.html(`
-      <strong>Decimal:</strong> ${decimalValue}<br>
-      <strong>Binary:</strong> ${decimalValue.toString(2)}<br>
-      <strong>Octal:</strong> ${decimalValue.toString(8)}<br>
-      <strong>Hex:</strong> ${decimalValue.toString(16).toUpperCase()}
-    `);
-  } catch (err) {
+  if (!validChars[base].test(input)) {
     resultDiv.html(`<span style="color:red;">Invalid input for base ${base}</span>`);
+    return;
   }
+
+  // Now it's safe to parse
+  const decimalValue = parseInt(input, base);
+
+  resultDiv.html(`
+    <strong>Decimal:</strong> ${decimalValue}<br>
+    <strong>Binary:</strong> ${decimalValue.toString(2)}<br>
+    <strong>Octal:</strong> ${decimalValue.toString(8)}<br>
+    <strong>Hex:</strong> ${decimalValue.toString(16).toUpperCase()}
+  `);
 }
