@@ -7,9 +7,12 @@ function setup() {
 
   const container = select('#base-converter-container');
 
-  // Select base
+  // Row 1: Base selector
   const baseRow = createDiv().parent(container).style('margin-bottom', '8px');
-  createSpan('Base: ').parent(baseRow);
+  baseRow.style('display', 'flex');
+  baseRow.style('align-items', 'center');
+  baseRow.style('gap', '10px');
+  createSpan('Select Input Base:').parent(baseRow).style('font-size', '16px');
   inputBaseSelect = createSelect();
   inputBaseSelect.parent(baseRow);
   inputBaseSelect.option('Binary', '2');
@@ -17,14 +20,17 @@ function setup() {
   inputBaseSelect.option('Decimal', '10');
   inputBaseSelect.option('Hexadecimal', '16');
 
-  // Input
+  // Row 2: Number input
   const inputRow = createDiv().parent(container).style('margin-bottom', '8px');
-  createSpan('Number: ').parent(inputRow);
+  inputRow.style('display', 'flex');
+  inputRow.style('align-items', 'center');
+  inputRow.style('gap', '10px');
+  createSpan('Enter Number:').parent(inputRow).style('font-size', '16px');
   inputField = createInput('');
   inputField.parent(inputRow);
   inputField.input(convertInput);
 
-  // Output
+  // Row 3: Output
   resultDiv = createDiv('').parent(container).style('font-size', '0.9em');
 }
 
