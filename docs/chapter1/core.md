@@ -27,8 +27,15 @@ Understanding how these number systems work is essential.
 To convert binary `1011` to decimal:  
 `(1 × 2³) + (0 × 2²) + (1 × 2¹) + (1 × 2⁰) = 8 + 0 + 2 + 1 = 11`
 
-**Simulation Prompt:**  
-> Create a simulation where the user inputs a number in one base (e.g., binary) and the system converts it into decimal, octal, and hexadecimal formats.
+## Base Converter Simulation
+
+Enter a number in one format, and instantly see it in all others.
+
+<div id="base-converter-container"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+<script src="/umn-senior-design/js/base.js"></script>
+
 
 ---
 
