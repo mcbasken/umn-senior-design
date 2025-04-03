@@ -7,17 +7,22 @@
     width: 50px;
 }
 
-#base-converter-container label,
-#base-converter-container select,
-#base-converter-container input {
-  display: block;
-  margin-top: 10px;
-}
-#base-converter-container {
-  position: relative;
-  min-height: 250px;
-  padding-bottom: 20px;
-}
+ #base-converter-container {
+    position: relative;
+    min-height: 260px;  /* Gives the canvas room */
+    margin-bottom: 2em;
+  }
+
+  #base-converter-container canvas {
+    position: relative !important; /* Prevent p5 from forcing absolute */
+  }
+
+  #base-converter-container label,
+  #base-converter-container input,
+  #base-converter-container select {
+    display: block;
+    margin-top: 8px;
+  }
 
 :root {
     --md-primary-fg-color: #800000;
