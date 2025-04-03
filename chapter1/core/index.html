@@ -768,7 +768,14 @@
     <!-- js Bundles -->
     <script src="/umn-senior-design/js/extra.js"></script>
     <script src="/umn-senior-design/js/base.js"></script>
-    <script src="/umn-senior-design/js/bool.js"></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        let s = document.createElement("script");
+        s.src = "/umn-senior-design/js/bool.js";
+        document.body.appendChild(s);
+      });
+    </script>
+
     
 
 
