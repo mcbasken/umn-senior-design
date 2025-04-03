@@ -4,19 +4,29 @@ let resultDiv;
 
 function setup() {
   let container = select('#base-converter-container');
-  let canvas = createCanvas(200, 200).parent(container);
+  let canvas = createCanvas(600, 100).parent(container);
   canvas.style('position', 'relative');
   textSize(16);
 
-  createElement('label', 'Select Input Base:').parent(container);
+  createElement('label', 'Select Input Base:')
+    .parent(container)
+    .position(10, 10)
+    .style('font-size', '14px');
   inputBaseSelect = createSelect().parent(container);
+  inputBaseSelect.position(160, 10);
   inputBaseSelect.option('Binary (base 2)', '2');
   inputBaseSelect.option('Octal (base 8)', '8');
   inputBaseSelect.option('Decimal (base 10)', '10');
   inputBaseSelect.option('Hexadecimal (base 16)', '16');
 
-  createElement('label', '  Enter Number:').parent(container);
+  createElement('label', '  Enter Number:')
+    .parent(container)
+    .position(10, 40)
+    .style('font-size', '14px');
+  
   inputField = createInput('');
+  inputField.position(160, 40);
+  inputField.size(200);
   inputField.parent(container);
   inputField.input(convertInput);
 
