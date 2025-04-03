@@ -4,7 +4,8 @@ let resultDiv;
 
 function setup() {
   let container = select('#base-converter-container');
-  createCanvas(600, 200).parent(container);
+  canvas = createCanvas(600, 200).parent(container);
+  canvas.style('position', 'relative');
   textSize(16);
 
   createElement('label', 'Select Input Base:').parent(container);
