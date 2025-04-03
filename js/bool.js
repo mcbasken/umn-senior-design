@@ -2,9 +2,12 @@ let inputField;
 let gateDiagram;
 
 function setup() {
-  let cnv = createCanvas(400, 200);
-  cnv.parent('boolean-diagram-container'); // This connects it to your HTML div
+  const canvas = createCanvas(400, 150);
+  canvas.parent('boolean-diagram-container'); // Connects canvas to your div
   background(255);
+  textSize(16);
+  fill(0);
+  text('p5.js is working!', 10, 50);
 
   createSpan('Enter Boolean Expression: ').position(10, 10);
   inputField = createInput('').position(230, 10);
