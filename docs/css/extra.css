@@ -7,13 +7,16 @@
     width: 50px;
 }
 
+#base-converter-container {
+  position: relative;
+  min-height: 250px;
+}
 #base-converter-container label,
 #base-converter-container select,
 #base-converter-container input {
   display: block;
   margin-top: 10px;
 }
-
 
 :root {
     --md-primary-fg-color: #800000;
