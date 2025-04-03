@@ -7,15 +7,13 @@
     width: 50px;
 }
 
-#base-converter-container label {
+#base-converter-container label,
+#base-converter-container select,
+#base-converter-container input {
   display: block;
   margin-top: 10px;
-  font-weight: 600;
 }
-#base-converter-container input, 
-#base-converter-container select {
-  margin-bottom: 10px;
-}
+
 
 :root {
     --md-primary-fg-color: #800000;
