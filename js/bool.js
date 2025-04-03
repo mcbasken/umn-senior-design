@@ -3,20 +3,13 @@ let gateDiagram;
 
 function setup() {
   const canvas = createCanvas(400, 150);
-  canvas.parent('boolean-diagram-container'); // Connects canvas to your div
-  background(255);
-  noLoop();
-  textSize(16);
+  canvas.parent('boolean-diagram-container');
+  background(240);
   fill(0);
-  text('p5.js is working!', 10, 50);
-
-  createSpan('Enter Boolean Expression: ').position(10, 10);
-  inputField = createInput('').position(230, 10);
-  inputField.size(300);
-  inputField.input(updateDiagram);
-
-  gateDiagram = new LogicDiagram();
+  textSize(20);
+  text("✅ It works!", 10, 50);
 }
+
 
 function draw() {
   clear();
