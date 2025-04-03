@@ -40,31 +40,35 @@ function convertInput() {
   const input = inputField.value().trim();
   const base = int(inputBaseSelect.value());
 
+  // Clear result if input is empty
   if (input === '') {
     resultDiv.html('');
     return;
   }
 
-  // Validate input: make sure it only contains valid digits for the base
-  const validChars = {
-    2: /^[01]+$/,
-    8: /^[0-7]+$/,
-    10: /^[0-9]+$/,
-    16: /^[0-9a-fA-F]+$/
-  };
-
-  if (!validChars[base].test(input)) {
-    resultDiv.html(`<span style="color:red;">Invalid input for base ${base}</span>`);
+  // Try converting input to decimal from selected base
+  const decimalValue = parseInt(input, base);
+  if (isNaN(decimalValue)) {
+    resultDiv.html(`<span style="color: red;">Invalid input for base ${base}</span>`);
     return;
   }
 
-  // Now it's safe to parse
-  const decimalValue = parseInt(input, base);
+  // Generate only the selected base's output
+  let output = '';
+  switch (base) {
+    case 2:
+      output = `<strong>Binary:</strong> ${input}<br><strong>Decimal:</strong> ${decimalValue}`;
+      break;
+    case 8:
+      output = `<strong>Octal:</strong> ${input}<br><strong>Decimal:</strong> ${decimalValue}`;
+      break;
+    case 10:
+      output = `<strong>Decimal:</strong> ${input}<br><strong>Binary:</strong> ${decimalValue.toString(2)}`;
+      break;
+    case 16:
+      output = `<strong>Hexadecimal:</strong> ${input}<br><strong>Decimal:</strong> ${decimalValue}`;
+      break;
+  }
 
-  resultDiv.html(`
-    <strong>Decimal:</strong> ${decimalValue}<br>
-    <strong>Binary:</strong> ${decimalValue.toString(2)}<br>
-    <strong>Octal:</strong> ${decimalValue.toString(8)}<br>
-    <strong>Hex:</strong> ${decimalValue.toString(16).toUpperCase()}
-  `);
+  resultDiv.html(output);
 }
