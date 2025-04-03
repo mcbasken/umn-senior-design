@@ -5,6 +5,7 @@ function setup() {
   const canvas = createCanvas(400, 150);
   canvas.parent('boolean-diagram-container'); // Connects canvas to your div
   background(255);
+  noLoop();
   textSize(16);
   fill(0);
   text('p5.js is working!', 10, 50);
