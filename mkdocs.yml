@@ -40,6 +40,8 @@ theme:
   include_sidebar: true
   features:
     - content.code.copy
+    - search.highlight
+    - search.suggest
     - navigation.expand
     - navigation.path
     - navigation.prune
