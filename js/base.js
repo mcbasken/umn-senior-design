@@ -29,6 +29,8 @@ function setup() {
   inputField = createInput('');
   inputField.parent(inputRow);
   inputField.input(convertInput);
+  inputField.style('height', '30px');
+  inputField.style('font-size', '16px');
 
   // Row 3: Output
   resultDiv = createDiv('').parent(container).style('font-size', '0.9em');
