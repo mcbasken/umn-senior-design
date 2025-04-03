@@ -3,13 +3,9 @@ let gateDiagram;
 
 function setup() {
   const canvas = createCanvas(400, 150);
-  canvas.parent(select('#boolean-diagram-container')); // attach to the div
+  canvas.parent(select('#boolean-diagram-container')); // Make sure the div exists
   background(255);
-
-  fill(0);
-  textSize(16);
-  text('Canvas is working!', 10, 30);
-} 
+}
 
 function draw() {
   background(255);
