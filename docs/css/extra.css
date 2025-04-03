@@ -10,7 +10,7 @@
  #base-converter-container {
     position: relative;
     min-height: 260px;  /* Gives the canvas room */
-    margin-bottom: 2em;
+    margin-bottom: 0;
   }
 
   #base-converter-container canvas {
