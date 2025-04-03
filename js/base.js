@@ -2,6 +2,7 @@ new p5((p) => {
   let inputBaseSelect, outputBaseSelect, inputField, resultDiv;
 
   p.setup = function () {
+    p.noCanvas();
     const container = p.select('#base-converter-container');
     container.style('font-family', 'sans-serif');
 
