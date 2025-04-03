@@ -33,21 +33,27 @@ function convertInput() {
       resultDiv.html('');
       return;
     }
-    decimalValue = parseInt(input, base);
+     const decimalValue = parseInt(input, base);
     if (isNaN(decimalValue)) throw new Error("Invalid input");
 
-    const bin = decimalValue.toString(2);
-    const oct = decimalValue.toString(8);
-    const dec = decimalValue.toString(10);
-    const hex = decimalValue.toString(16).toUpperCase();
+    let result = '';
+    switch (base) {
+      case 2:
+        result = `<strong>Binary:</strong> ${input}<br><strong>Decimal:</strong> ${decimalValue}`;
+        break;
+      case 8:
+        result = `<strong>Octal:</strong> ${input}<br><strong>Decimal:</strong> ${decimalValue}`;
+        break;
+      case 10:
+        result = `<strong>Decimal:</strong> ${input}`;
+        break;
+      case 16:
+        result = `<strong>Hexadecimal:</strong> ${input.toUpperCase()}<br><strong>Decimal:</strong> ${decimalValue}`;
+        break;
+    }
 
-    resultDiv.html(`
-      <strong>Decimal:</strong> ${dec}<br>
-      <strong>Binary:</strong> ${bin}<br>
-      <strong>Octal:</strong> ${oct}<br>
-      <strong>Hexadecimal:</strong> ${hex}
-    `);
+    resultDiv.html(result);
   } catch (err) {
-    resultDiv.html('<span style="color: red;">Invalid input for base ' + base + '</span>');
+    resultDiv.html(`<span style="color: red;">Invalid input for base ${base}</span>`);
   }
 }
