@@ -1,1 +1,73 @@
+<h2>Multiplexers and Demultiplexers</h2>
+
+<p><strong>Multiplexers (MUX)</strong> and <strong>Demultiplexers (DEMUX)</strong> are foundational combinational devices used for <em>data selection and routing</em>.</p>
+
+<h3>Multiplexer (MUX)</h3>
+
+<p>A <code>2ⁿ-to-1</code> multiplexer has:</p>
+<ul>
+  <li><code>2ⁿ</code> input lines</li>
+  <li><code>n</code> select lines</li>
+  <li>1 output line</li>
+</ul>
+
+<h4>Example: 4-to-1 MUX</h4>
+
+<table>
+  <thead>
+    <tr><th>S1</th><th>S0</th><th>Y (Output)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>0</td><td>0</td><td>I0</td></tr>
+    <tr><td>0</td><td>1</td><td>I1</td></tr>
+    <tr><td>1</td><td>0</td><td>I2</td></tr>
+    <tr><td>1</td><td>1</td><td>I3</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Logic Expression:</strong></p>
+<pre>Y = (¬S1 ∧ ¬S0 ∧ I0) ∨ (¬S1 ∧ S0 ∧ I1) ∨ (S1 ∧ ¬S0 ∧ I2) ∨ (S1 ∧ S0 ∧ I3)</pre>
+
+<h3>Demultiplexer (DEMUX)</h3>
+
+<p>A <code>1-to-2ⁿ</code> demultiplexer has:</p>
+<ul>
+  <li>1 input line</li>
+  <li><code>n</code> select lines</li>
+  <li><code>2ⁿ</code> output lines</li>
+</ul>
+
+<h4>Example: 1-to-4 DEMUX</h4>
+
+<table>
+  <thead>
+    <tr><th>S1</th><th>S0</th><th>Active Output</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>0</td><td>0</td><td>Y0 = D</td></tr>
+    <tr><td>0</td><td>1</td><td>Y1 = D</td></tr>
+    <tr><td>1</td><td>0</td><td>Y2 = D</td></tr>
+    <tr><td>1</td><td>1</td><td>Y3 = D</td></tr>
+  </tbody>
+</table>
+
+<h3>MicroSim Simulation Prompt</h3>
+<p><strong>Task:</strong> Build a 4-to-1 multiplexer using basic gates (AND, OR, NOT).  
+Connect I0–I3 as inputs, S0 and S1 as select lines, and observe Y as output. Use switches and LEDs for interaction.</p>
+
+<h3>Quick Quiz</h3>
+<ol>
+  <li>How many select lines are needed for an 8-to-1 MUX?</li>
+  <li>What is the output of a DEMUX when no select lines are high?</li>
+  <li>True/False: A MUX routes a single input to one of many outputs.</li>
+  <li>Complete the truth table for a 2-to-1 MUX:  
+    <table>
+      <thead><tr><th>S</th><th>I0</th><th>I1</th><th>Y</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>1</td><td>0</td><td>?</td></tr>
+        <tr><td>1</td><td>1</td><td>0</td><td>?</td></tr>
+      </tbody>
+    </table>
+  </li>
+</ol>
 
