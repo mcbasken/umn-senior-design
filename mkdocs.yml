@@ -29,6 +29,7 @@ nav:
       - FPGA: chapter5/fpga.md
   - Chapter 6:
       - Overview: chapter6/index.md
+      - Optimization: chapter6/opt.md
   - Glossary: glossary.md
   - References: references.md
   - Contact: contact.md
