@@ -23,6 +23,7 @@ nav:
       - FSM: chapter3/fsm.md
   - Chapter 4:
       - Overview: chapter4/index.md
+      - Modeling: chapter4/modeling.md
   - Chapter 5:
       - Overview: chapter5/index.md
   - Chapter 6:
