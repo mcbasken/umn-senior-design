@@ -1,1 +1,144 @@
+<h1>Chapter 3: Designing FSMs and Memory Integration</h1>
+
+<h2>FSM Design and Verilog Implementation</h2>
+
+<p>Designing a Finite State Machine (FSM) involves defining a set of states, identifying the inputs that affect transitions, and determining the outputs. The design process typically includes the following steps:</p>
+
+<ol>
+  <li><strong>Define the States</strong><br>Clearly label each state and assign it a binary encoding.</li>
+  <li><strong>Draw the State Diagram</strong><br>Use circles for states and arrows for transitions, labeled with input/output conditions.</li>
+  <li><strong>Create the State Table</strong><br>Convert the diagram into a table showing current states, inputs, next states, and outputs.</li>
+  <li><strong>Implement in Verilog</strong><br>Use <code>always</code> blocks, <code>case</code> statements, and state registers to model the FSM.</li>
+</ol>
+
+<h3>Example: Simple Traffic Light Controller (Moore Machine)</h3>
+
+<pre><code class="language-verilog">
+module traffic_light (
+    input clk, reset,
+    output reg [1:0] light
+);
+    typedef enum reg [1:0] {RED, GREEN, YELLOW} state_t;
+    state_t current_state, next_state;
+
+    // State transition logic
+    always @(posedge clk or posedge reset) begin
+        if (reset)
+            current_state &lt;= RED;
+        else
+            current_state &lt;= next_state;
+    end
+
+    // Next state logic
+    always @(*) begin
+        case (current_state)
+            RED:    next_state = GREEN;
+            GREEN:  next_state = YELLOW;
+            YELLOW: next_state = RED;
+            default: next_state = RED;
+        endcase
+    end
+
+    // Output logic
+    always @(*) begin
+        case (current_state)
+            RED:    light = 2'b00;
+            GREEN:  light = 2'b01;
+            YELLOW: light = 2'b10;
+        endcase
+    end
+endmodule
+</code></pre>
+
+<hr>
+
+<h2>Integrating FSMs with Memory</h2>
+
+<p>FSMs can also control memory operations, such as <strong>read/write control</strong>, <strong>address sequencing</strong>, or <strong>data validation</strong>. In a typical digital system, an FSM may:</p>
+
+<ul>
+  <li>Select between memory modules (e.g., ROM vs. RAM)</li>
+  <li>Control memory timing signals</li>
+  <li>Track memory address pointers for reads/writes</li>
+  <li>Trigger interrupts or wait states based on memory flags</li>
+</ul>
+
+<h3>Example: FSM Controlling a Simple Memory Read Process</h3>
+
+<p>A <strong>Mealy FSM</strong> can be used to initiate a read from memory only when a <code>read_enable</code> signal is asserted. This allows for outputs that depend on both <strong>current state</strong> and <strong>input conditions</strong>.</p>
+
+<hr>
+
+<h2>Memory Addressing and Timing</h2>
+
+<p>Memory is accessed using <strong>address lines</strong>, which specify the location of data. The process of reading or writing data requires careful coordination of:</p>
+
+<ul>
+  <li><strong>Address setup time</strong></li>
+  <li><strong>Read/write enable signals</strong></li>
+  <li><strong>Clock synchronization</strong></li>
+</ul>
+
+<p>Modern systems often include <strong>memory controllers</strong> managed by FSMs to ensure proper timing and sequencing.</p>
+
+<hr>
+
+<h2>✅ Quiz: FSM &amp; Memory Interaction</h2>
+
+<ol>
+  <li><strong>Which step in FSM design comes immediately after drawing the state diagram?</strong><br>
+    a. Implement in Verilog<br>
+    b. Assign state encodings<br>
+    <strong>c. Create the state table</strong><br>
+    d. Determine output values
+  </li>
+  <li><strong>Which FSM model has outputs that depend on both the current state and inputs?</strong><br>
+    a. Moore<br>
+    <strong>b. Mealy</strong><br>
+    c. Combinational<br>
+    d. Synchronous
+  </li>
+  <li><strong>What is the primary purpose of an FSM in memory access?</strong><br>
+    a. Storing data<br>
+    b. Minimizing latency<br>
+    <strong>c. Sequencing control operations</strong><br>
+    d. Enhancing capacity
+  </li>
+  <li><strong>Which Verilog construct is typically used for next-state logic?</strong><br>
+    a. <code>assign</code><br>
+    b. <code>initial</code><br>
+    <strong>c. <code>always @(*)</code></strong><br>
+    d. <code>always @(posedge clk)</code>
+  </li>
+  <li><strong>What component does an FSM typically control during a memory read operation?</strong><br>
+    a. Address decoder<br>
+    b. Data multiplexer<br>
+    c. Read enable signal<br>
+    <strong>d. All of the above</strong>
+  </li>
+</ol>
+
+<hr>
+
+<h2>🧪 MicroSim Prompt</h2>
+
+<h3>🎯 Simulation Prompt: FSM-Controlled Memory Reader</h3>
+
+<p><strong>Design and simulate a Mealy FSM</strong> that performs the following:</p>
+<ul>
+  <li>Waits for a <code>start_read</code> input signal</li>
+  <li>Cycles through a memory address range (e.g., <code>0x00</code> to <code>0x0F</code>)</li>
+  <li>Asserts <code>read_enable</code> and outputs the address</li>
+  <li>Goes to an idle state after all addresses have been read</li>
+</ul>
+
+<h3>MicroSim Requirements</h3>
+
+<ul>
+  <li><strong>Inputs:</strong> <code>clk</code>, <code>reset</code>, <code>start_read</code></li>
+  <li><strong>Outputs:</strong> <code>address</code>, <code>read_enable</code></li>
+  <li><strong>Optional:</strong> Simulate a simple memory module with fixed data for readout</li>
+</ul>
+
+<p>📌 <strong>Learning Outcome:</strong> Understand how FSMs manage sequential memory access with proper timing and control.</p>
 
