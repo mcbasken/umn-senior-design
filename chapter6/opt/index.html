@@ -1,0 +1,84 @@
+<h1>Chapter 6: Simulation, Debugging, and Design Optimization</h1>
+
+<h2>Simulation and Debugging</h2>
+
+<p>Simulation is a fundamental part of digital verification, allowing designers to test behavior before implementing hardware. Simulation tools can model both functional and timing behavior.</p>
+
+<h3>Key Simulation Techniques:</h3>
+<ul>
+  <li><strong>Waveform viewing</strong>: Observe signal transitions over time.</li>
+  <li><strong>Testbenches</strong>: Apply stimulus to the design and check responses.</li>
+  <li><strong>Assertions</strong>: Monitor for violations of expected behavior.</li>
+</ul>
+
+<h3>Example: Simple Verilog Assertion</h3>
+
+<pre><code>```verilog
+module counter (
+    input clk,
+    input reset,
+    output reg [3:0] out
+);
+    always @(posedge clk or posedge reset) begin
+        if (reset)
+            out <= 0;
+        else
+            out <= out + 1;
+    end
+endmodule
+```
+</code></pre>
+
+<pre><code>```verilog
+// Assertion block
+always @(posedge clk) begin
+    if (out &gt; 4'd10)
+        $fatal("Counter exceeded limit");
+end
+```
+</code></pre>
+
+<hr>
+
+<h2>Power Optimization Techniques</h2>
+
+<p>Reducing power consumption is essential for embedded and portable systems. Strategies include:</p>
+
+<ul>
+  <li><strong>Clock gating</strong>: Disable clocks to unused modules.</li>
+  <li><strong>Logic minimization</strong>: Reduce redundant gates and paths.</li>
+  <li><strong>Voltage scaling</strong>: Lower supply voltage where performance allows.</li>
+  <li><strong>Power-aware synthesis</strong>: Use tools that optimize for power as a constraint.</li>
+</ul>
+
+<hr>
+
+<h2>Design for Testability (DFT)</h2>
+
+<p>DFT makes it easier to test the functionality of internal logic. Techniques include:</p>
+
+<ul>
+  <li><strong>Scan chains</strong>: Connect flip-flops into a shift register for controllability and observability.</li>
+  <li><strong>Built-in Self-Test (BIST)</strong>: Embed test generation and evaluation into the design.</li>
+  <li><strong>Boundary scan (JTAG)</strong>: Test interconnects and I/O pins.</li>
+</ul>
+
+<p>These techniques are especially useful in ASICs and large FPGA projects where visibility is limited after deployment.</p>
+
+<hr>
+
+<h2>Formal Verification and Static Timing Analysis</h2>
+
+<h3>Formal Verification</h3>
+<ul>
+  <li>Proves properties about a design mathematically</li>
+  <li>Uses tools to exhaustively check all possible input conditions</li>
+  <li>Complements simulation by checking corner cases</li>
+</ul>
+
+<h3>Static Timing Analysis (STA)</h3>
+<ul>
+  <li>Analyzes timing without running simulation</li>
+  <li>Identifies paths where signal arrival times may violate setup or hold requirements</li>
+  <li>Helps fix critical path delays before tape-out or FPGA deployment</li>
+</ul>
