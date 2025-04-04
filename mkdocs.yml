@@ -26,6 +26,7 @@ nav:
       - Modeling: chapter4/modeling.md
   - Chapter 5:
       - Overview: chapter5/index.md
+      - FPGA: chapter5/fpga.md
   - Chapter 6:
       - Overview: chapter6/index.md
   - Glossary: glossary.md
