@@ -1,1 +1,53 @@
+<h2>Flip-Flops and Registers</h2>
+
+<p>Sequential circuits store state information using memory elements. The most basic is the <strong>flip-flop</strong>, which can store a single bit. Flip-flops are used to build larger structures like registers, counters, and state machines.</p>
+
+<h3>D Flip-Flop</h3>
+<p>The D flip-flop captures input D on the rising edge of the clock and stores it as output Q.</p>
+
+<table>
+  <thead>
+    <tr><th>Clock Edge</th><th>D</th><th>Q (Next State)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Rising</td><td>0</td><td>0</td></tr>
+    <tr><td>Rising</td><td>1</td><td>1</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Characteristic Equation:</strong> Q(next) = D</p>
+
+<h3>JK Flip-Flop</h3>
+<table>
+  <thead>
+    <tr><th>J</th><th>K</th><th>Q (Next)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>0</td><td>0</td><td>No change</td></tr>
+    <tr><td>0</td><td>1</td><td>0</td></tr>
+    <tr><td>1</td><td>0</td><td>1</td></tr>
+    <tr><td>1</td><td>1</td><td>Toggle</td></tr>
+  </tbody>
+</table>
+
+<h3>Registers</h3>
+<p>A <strong>register</strong> is a group of flip-flops (typically D flip-flops) used to store multi-bit values. A 4-bit register stores four bits in parallel, each controlled by the same clock signal.</p>
+
+<ul>
+  <li>Inputs: D0–D3</li>
+  <li>Outputs: Q0–Q3</li>
+  <li>Trigger: Shared clock signal</li>
+</ul>
+
+<h3>MicroSim Simulation Prompt</h3>
+<p><strong>Task:</strong> Build a 4-bit register using D flip-flops.  
+Connect 4 switches as data inputs and a button as the clock. Attach 4 LEDs to the outputs to observe the stored value after each clock pulse.</p>
+
+<h3>Quick Quiz</h3>
+<ol>
+  <li>What is the output of a D flip-flop when D=1 and a rising clock edge occurs?</li>
+  <li>Which flip-flop toggles its output when both inputs are 1?</li>
+  <li>How many D flip-flops are required to build an 8-bit register?</li>
+  <li>True/False: Flip-flops are used only in combinational logic circuits.</li>
+</ol>
 
