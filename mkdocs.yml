@@ -20,6 +20,7 @@ nav:
       - Sequential: chapter2/sequential.md
   - Chapter 3:
       - Overview: chapter3/index.md
+      - FSM: chapter3/fsm.md
   - Chapter 4:
       - Overview: chapter4/index.md
   - Chapter 5:
