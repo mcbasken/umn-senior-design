@@ -16,6 +16,8 @@ nav:
       - Core Structures and Techniques: chapter1/core.md
   - Chapter 2:
       - Overview: chapter2/index.md
+      - Consequential: chapter2/consequential.md
+      - Sequential: chapter2/sequential.md
   - Chapter 3:
       - Overview: chapter3/index.md
   - Chapter 4:
