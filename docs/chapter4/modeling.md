@@ -1,4 +1,4 @@
-# Chapter 4 (Page 2): Modeling Logic and Simulating Verilog Designs
+# Chapter 4: Modeling Logic and Simulating Verilog Designs
 
 ## Combinational Logic in Verilog
 
