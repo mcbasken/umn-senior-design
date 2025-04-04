@@ -10,7 +10,7 @@ Combinational logic refers to circuits where the output depends only on the curr
 
 ### Example: 4-to-1 Multiplexer Using `assign`
 
-!verilog
+```verilog
 module mux4to1 (
     input [1:0] sel,
     input [3:0] in,
@@ -21,11 +21,11 @@ module mux4to1 (
                  (sel == 2'b10) ? in[2] :
                  in[3];
 endmodule
-!
+```
 
 ### Example: 4-to-1 Multiplexer Using `always`
 
-!verilog
+```verilog
 module mux4to1_proc (
     input [1:0] sel,
     input [3:0] in,
@@ -40,7 +40,7 @@ module mux4to1_proc (
         endcase
     end
 endmodule
-!
+```
 
 ---
 
@@ -55,7 +55,7 @@ Sequential circuits depend on both current inputs and past states, using clock s
 
 ### Example: D Flip-Flop With Reset
 
-!verilog
+```verilog
 module dff (
     input clk,
     input reset,
@@ -69,7 +69,7 @@ module dff (
             q <= d;
     end
 endmodule
-!
+```
 
 ---
 
@@ -84,7 +84,7 @@ Testbenches are used to **verify Verilog modules** by applying test inputs and m
 
 ### Example: Simple Testbench for a D Flip-Flop
 
-!verilog
+```verilog
 module tb_dff;
     reg clk, reset, d;
     wire q;
@@ -104,7 +104,7 @@ module tb_dff;
         #20 $finish;
     end
 endmodule
-!
+```
 
 ---
 
