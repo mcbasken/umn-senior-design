@@ -331,28 +331,23 @@
                   </a>
                 </li>
                 <li class="md-nav__item">
-                  <a href="#moore-mealy" class="md-nav__link">
-                    <span class="md-ellipsis">Moore vs. Mealy FSMs</span>
+                  <a href="#syntax" class="md-nav__link">
+                    <span class="md-ellipsis">4.1 Verilog Syntax and Semantics</span>
                   </a>
                 </li>
                 <li class="md-nav__item">
-                  <a href="#state-diagrams" class="md-nav__link">
-                    <span class="md-ellipsis">State Diagrams and State Tables</span>
+                  <a href="#data-types" class="md-nav__link">
+                    <span class="md-ellipsis">4.2 Data Types in Verilog</span>
                   </a>
                 </li>
                 <li class="md-nav__item">
-                  <a href="#designing-fsm" class="md-nav__link">
-                    <span class="md-ellipsis">Designing FSMs Using Flip-Flops</span>
+                  <a href="#module-definition" class="md-nav__link">
+                    <span class="md-ellipsis">4.3 Module Definition and Instantiation</span>
                   </a>
                 </li>
                 <li class="md-nav__item">
-                  <a href="#fsm-verilog" class="md-nav__link">
-                    <span class="md-ellipsis">FSM Implementation in Verilog</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#applications" class="md-nav__link">
-                    <span class="md-ellipsis">Practical Applications of FSMs</span>
+                  <a href="#io" class="md-nav__link">
+                    <span class="md-ellipsis">4.4 Inputs and Outputs</span>
                   </a>
                 </li>
                 <li class="md-nav__item">
@@ -361,7 +356,7 @@
                   </a>
                 </li>
                 <li class="md-nav__item">
-                  <a href="#sim-prompt" class="md-nav__link">
+                  <a href="#sim" class="md-nav__link">
                     <span class="md-ellipsis">🧪 MicroSim</span>
                   </a>
                 </li>
@@ -390,134 +385,116 @@
     </a>
   
   
-    <h1>Chapter 3: Finite State Machines (FSMs)</h1>
+    <h1>Chapter 4: Verilog Basics</h1>
 
     <h2 id="intro">Introduction</h2>
     <p>
-    Finite State Machines (FSMs) are a powerful abstraction in digital design, used to model systems that move through a sequence of states in response to input signals and clock transitions. FSMs are used extensively in control circuits, communication protocols, sequencing logic, and embedded system design.
+    Verilog is a hardware description language (HDL) used to model electronic systems. It allows designers to describe the structure and behavior of digital circuits and simulate their functionality before physical implementation.
     </p>
     <p>
-    An FSM consists of a finite number of states, transitions between those states based on input conditions, and outputs that depend on the current state (and sometimes input). They are implemented using flip-flops to hold the current state and combinational logic to determine transitions and outputs.
+    This section covers the core syntax and structure of Verilog, including module definitions, ports, data types, and the basic building blocks used to create digital logic systems.
     </p>
     
-    <h2 id="moore-mealy">3.1 Moore vs. Mealy FSMs</h2>
+    <h2 id="syntax">4.1 Verilog Syntax and Semantics</h2>
     <p>
-    FSMs are commonly divided into two categories based on how their outputs are generated:
+    Verilog code is written using modules, which encapsulate design blocks. A module defines inputs, outputs, and internal behavior.
+    </p>
+    <pre><code>module and_gate(input A, input B, output Y);
+      assign Y = A & B;
+    endmodule</code></pre>
+    <p>
+    Semicolons <code>;</code> end statements, and blocks such as <code>module</code>...<code>endmodule</code> define structure.
+    </p>
+    
+    <h2 id="data-types">4.2 Data Types in Verilog</h2>
+    <p>
+    Verilog supports various data types to represent logic values:
     </p>
     <ul>
-      <li><strong>Moore Machine</strong>: Outputs depend only on the current state. Outputs are synchronized with the clock and change only on state transitions.</li>
-      <li><strong>Mealy Machine</strong>: Outputs depend on both the current state and current inputs. This can lead to faster response but may increase design complexity.</li>
+      <li><code>wire</code>: Represents combinational logic connections.</li>
+      <li><code>reg</code>: Holds a value in procedural blocks.</li>
+      <li><code>integer</code>, <code>real</code>: Used for simulations and testbenches.</li>
     </ul>
-    
-    <h2 id="state-diagrams">3.2 State Diagrams and State Tables</h2>
     <p>
-    State diagrams are graphical representations of FSM behavior. Each circle represents a state, and arrows show transitions between states triggered by input conditions. Outputs (in Moore machines) are typically labeled inside the states, while in Mealy machines, outputs are shown on transitions.
+    Example:
     </p>
+    <pre><code>reg [7:0] byte_reg;
+    wire valid_signal;</code></pre>
+    
+    <h2 id="module-definition">4.3 Module Definition and Instantiation</h2>
     <p>
-    State tables provide a structured, tabular format listing all current states, possible inputs, resulting next states, and outputs.
+    A Verilog module defines a reusable component. It can be instantiated within other modules.
     </p>
+    <pre><code>// Define
+    module inverter(input A, output Y);
+      assign Y = ~A;
+    endmodule
     
-    <h2 id="designing-fsm">3.3 Designing FSMs Using Flip-Flops</h2>
+    // Instantiate
+    inverter u1 (.A(signal_in), .Y(signal_out));</code></pre>
+    
+    <h2 id="io">4.4 Inputs and Outputs</h2>
     <p>
-    Designing an FSM requires translating the high-level description into hardware using these steps:
+    Ports allow communication between modules. Inputs, outputs, and bidirectional ports (<code>inout</code>) are declared in the module header.
     </p>
-    <ol>
-      <li>Define all required states, inputs, and outputs.</li>
-      <li>Draw a state diagram showing all transitions and outputs.</li>
-      <li>Assign binary codes to each state (using binary, Gray, or one-hot encoding).</li>
-      <li>Create a state transition table and output table.</li>
-      <li>Derive next-state and output logic equations.</li>
-      <li>Implement using flip-flops (usually D-type) and combinational logic.</li>
-    </ol>
-    
-    <h2 id="fsm-verilog">3.4 FSM Implementation in Verilog</h2>
-    <p>FSMs are coded in Verilog using state variables and case statements:</p>
-    <pre><code>// State encoding
-    parameter IDLE=2'b00, READ=2'b01, WRITE=2'b10;
-    reg [1:0] state, next_state;
-    
-    // State update
-    always @(posedge clk or posedge reset) begin
-      if (reset)
-        state <= IDLE;
-      else
-        state <= next_state;
-    end
-    
-    // Next-state logic
-    always @(*) begin
-      case (state)
-        IDLE:   next_state = start ? READ : IDLE;
-        READ:   next_state = done ? WRITE : READ;
-        WRITE:  next_state = done ? IDLE : WRITE;
-        default: next_state = IDLE;
-      endcase
-    end
-    </code></pre>
-    
-    <h2 id="applications">3.5 Practical Applications of FSMs</h2>
-    <ul>
-      <li>Traffic light controllers</li>
-      <li>UART communication control</li>
-      <li>Elevator controllers</li>
-      <li>Keypad scanners</li>
-      <li>Game logic controllers</li>
-    </ul>
+    <pre><code>module my_module(
+      input clk,
+      input rst,
+      output reg done
+    );</code></pre>
     
     <h2 id="summary">Summary</h2>
     <ul>
-      <li>FSMs describe sequential systems using states, transitions, and outputs</li>
-      <li>Moore and Mealy models differ in timing of outputs</li>
-      <li>Design process involves state diagramming, encoding, and logic implementation</li>
-      <li>FSMs are essential in embedded control and digital communication systems</li>
+      <li>Verilog modules define reusable design blocks.</li>
+      <li><code>wire</code> and <code>reg</code> are used for different types of logic signals.</li>
+      <li>Module instantiation allows hierarchical design.</li>
+      <li>Syntax rules define structure and behavior of the code.</li>
     </ul>
     
-    <h2 id="sim-prompt">🧪 MicroSim Prompt</h2>
-    <p><strong>Simulation Task:</strong> Implement a traffic light controller FSM with three states: Green, Yellow, Red. Use a Moore FSM design pattern.</p>
+    <h2 id="sim">🧪 MicroSim</h2>
+    <p><strong>Simulation Task:</strong> Create a Verilog module that performs a 2-input AND gate operation. Then create a testbench that applies all possible combinations of inputs and prints the output using <code>$display</code>.</p>
     <ul>
-      <li>Input: <code>timer_expired</code></li>
-      <li>Outputs: <code>green</code>, <code>yellow</code>, <code>red</code></li>
+      <li>Use <code>assign</code> for logic.</li>
+      <li>Verify outputs for 00, 01, 10, 11.</li>
     </ul>
-    <p>
-    Simulate over multiple cycles using a testbench. Display state transitions and verify light sequence: Green → Yellow → Red → Green.
-    </p>
     
     <div class="quiz">
       <h2 id="quiz">✅ Quiz: Check Your Understanding</h2>
     
-      <p><strong>1. In a Moore FSM, when are outputs updated?</strong></p>
+      <p><strong>1. Which keyword declares a combinational connection?</strong></p>
       <ul>
-        <li>A) On input change</li>
-        <li>B) On clock edge and input change</li>
-        <li>C) Only when input changes</li>
-        <li>D) Only based on current state</li>
+        <li>A) reg</li>
+        <li>B) wire</li>
+        <li>C) assign</li>
+        <li>D) input</li>
       </ul>
       <details><summary>Show Answer</summary>
-        <p><strong>Correct answer: D) Only based on current state</strong></p>
+        <p><strong>Correct answer: B) wire</strong></p>
       </details>
     
-      <p><strong>2. Which FSM typically requires fewer states for the same functionality?</strong></p>
+      <p><strong>2. What is the correct way to declare an 8-bit register?</strong></p>
       <ul>
-        <li>A) Moore</li>
-        <li>B) Mealy</li>
-        <li>C) Binary-encoded FSM</li>
-        <li>D) One-hot FSM</li>
+        <li>A) reg [8] data;</li>
+        <li>B) reg [0:7] data;</li>
+        <li>C) reg [7:0] data;</li>
+        <li>D) wire [7:0] data;</li>
       </ul>
       <details><summary>Show Answer</summary>
-        <p><strong>Correct answer: B) Mealy</strong></p>
+        <p><strong>Correct answer: C) reg [7:0] data;</strong></p>
       </details>
     
-      <p><strong>3. What is the purpose of state encoding in FSM design?</strong></p>
+      <p><strong>3. Which block is used to define test stimulus in simulation?</strong></p>
       <ul>
-        <li>A) To reduce the number of states</li>
-        <li>B) To improve testbench readability</li>
-        <li>C) To assign binary values to symbolic states</li>
-        <li>D) To convert Mealy to Moore</li>
+        <li>A) assign</li>
+        <li>B) module</li>
+        <li>C) initial</li>
+        <li>D) always</li>
       </ul>
       <details><summary>Show Answer</summary>
-        <p><strong>Correct answer: C) To assign binary values to symbolic states</strong></p>
+        <p><strong>Correct answer: C) initial</strong></p>
       </details>
     </div>
+
 
           
           <!-- Edit Page Button -->
