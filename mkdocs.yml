@@ -24,7 +24,10 @@ nav:
       - Digital Memory and Storage: chapter3/mem.md
   - Chapter 4:
       - Overview: chapter4/index.md
+      - Modeling: chapter4/verilog-basics.md
       - Modeling: chapter4/modeling.md
+      - Modeling: chapter4/fsm.md
+      - Modeling: chapter4/timing-debug.md
   - Chapter 5:
       - Overview: chapter5/index.md
       - FPGA: chapter5/fpga.md
