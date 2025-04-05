@@ -83,40 +83,70 @@ endmodule
 
 <hr>
 
-<h2>✅ Quiz: FSM &amp; Memory Interaction</h2>
+<div class="quiz">
+  <h2 id="quiz">Quiz: Check Your Understanding</h2>
 
-<ol>
-  <li><strong>Which step in FSM design comes immediately after drawing the state diagram?</strong><br>
-    a. Implement in Verilog<br>
-    b. Assign state encodings<br>
-    <strong>c. Create the state table</strong><br>
-    d. Determine output values
-  </li>
-  <li><strong>Which FSM model has outputs that depend on both the current state and inputs?</strong><br>
-    a. Moore<br>
-    <strong>b. Mealy</strong><br>
-    c. Combinational<br>
-    d. Synchronous
-  </li>
-  <li><strong>What is the primary purpose of an FSM in memory access?</strong><br>
-    a. Storing data<br>
-    b. Minimizing latency<br>
-    <strong>c. Sequencing control operations</strong><br>
-    d. Enhancing capacity
-  </li>
-  <li><strong>Which Verilog construct is typically used for next-state logic?</strong><br>
-    a. <code>assign</code><br>
-    b. <code>initial</code><br>
-    <strong>c. <code>always @(*)</code></strong><br>
-    d. <code>always @(posedge clk)</code>
-  </li>
-  <li><strong>What component does an FSM typically control during a memory read operation?</strong><br>
-    a. Address decoder<br>
-    b. Data multiplexer<br>
-    c. Read enable signal<br>
-    <strong>d. All of the above</strong>
-  </li>
-</ol>
+  <p><strong>1. What is the output of a D flip-flop when D = 1 and a rising clock edge occurs?</strong></p>
+  <ul>
+    <li>A) 0</li>
+    <li>B) It toggles</li>
+    <li>C) 1</li>
+    <li>D) No change</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: C) 1</strong></p>
+    <p>
+      A D flip-flop transfers the value of <code>D</code> to the output on a rising clock edge.  
+      Since <code>D = 1</code>, the output becomes <strong>1</strong>.
+    </p>
+  </details>
+
+  <p><strong>2. Which flip-flop toggles its output when both inputs are 1?</strong></p>
+  <ul>
+    <li>A) D flip-flop</li>
+    <li>B) SR flip-flop</li>
+    <li>C) JK flip-flop</li>
+    <li>D) T flip-flop</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: C) JK flip-flop</strong></p>
+    <p>
+      The JK flip-flop toggles its output when both <code>J</code> and <code>K</code> inputs are <strong>1</strong> at the clock edge.
+    </p>
+  </details>
+
+  <p><strong>3. How many D flip-flops are required to build an 8-bit register?</strong></p>
+  <ul>
+    <li>A) 4</li>
+    <li>B) 8</li>
+    <li>C) 16</li>
+    <li>D) 1</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: B) 8</strong></p>
+    <p>
+      Each D flip-flop stores <strong>1 bit</strong>. An 8-bit register therefore requires <strong>8 D flip-flops</strong>.
+    </p>
+  </details>
+
+  <p><strong>4. True or False: Flip-flops are used only in combinational logic circuits.</strong></p>
+  <ul>
+    <li>A) True</li>
+    <li>B) False</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: B) False</strong></p>
+    <p>
+      Flip-flops are the core of <strong>sequential logic</strong>, not combinational logic.  
+      They store state, enabling memory and time-dependent behavior.
+    </p>
+  </details>
+</div>
+
 
 <hr>
 
