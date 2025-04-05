@@ -333,13 +333,38 @@
                   </a>
                 </li>
                 <li class="md-nav__item">
-                  <a href="#mux" class="md-nav__link">
-                    <span class="md-ellipsis">Multiplexer</span>
+                  <a href="#basic-gates" class="md-nav__link">
+                    <span class="md-ellipsis">Basic Logic Gates</span>
                   </a>
                 </li>
                 <li class="md-nav__item">
-                  <a href="#dux" class="md-nav__link">
-                    <span class="md-ellipsis">Demultiplexer</span>
+                  <a href="#adders" class="md-nav__link">
+                    <span class="md-ellipsis">Adders and Subtractors</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#mux-demux" class="md-nav__link">
+                    <span class="md-ellipsis">Multiplexers and Demultiplexers</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#decoders-encoders" class="md-nav__link">
+                    <span class="md-ellipsis">Decoders and Encoders</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#comparators" class="md-nav__link">
+                    <span class="md-ellipsis">Comparators</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#alu" class="md-nav__link">
+                    <span class="md-ellipsis">Arithmetic Logic Units (ALUs)</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#summary" class="md-nav__link">
+                    <span class="md-ellipsis">Summary</span>
                   </a>
                 </li>
                 <li class="md-nav__item">
@@ -371,97 +396,120 @@
     </a>
   
   
-    <h1>Chapter 2: Multiplexers and Demultiplexers</h1>
+    <h1>Chapter 2: Combinational Logic Circuits</h1>
 
     <h2 id="intro">Introduction</h2>
     <p>
-      In this section, we explore two critical components of combinational logic systems: 
-      <strong>Multiplexers (MUX)</strong> and <strong>Demultiplexers (DEMUX)</strong>. These devices are 
-      essential for routing data within digital circuits, making them foundational building blocks in 
-      processors, communication interfaces, and memory systems.
+    Combinational logic circuits are the foundation of all decision-making in digital systems. Unlike sequential circuits, combinational circuits produce outputs solely based on current input values. They do not rely on any internal memory or past states. This chapter explores a variety of fundamental combinational logic structures essential for digital design.
     </p>
-    
-    <h2 id="mux">Multiplexer (MUX)</h2>
-    
     <p>
-      A multiplexer is often described as a "data selector." It chooses one of several input signals and forwards 
-      it to a single output line, based on the values of its <em>select lines</em>. Multiplexers are used to implement 
-      decision logic, encode control paths, and share a single output resource across multiple inputs.
+    You'll learn how these circuits operate, how to analyze and implement them, and how they are applied in computing hardware like CPUs, memory decoders, ALUs, and more.
     </p>
     
-    <p>A general <code>2ⁿ-to-1</code> multiplexer includes:</p>
-    <ul>
-      <li><code>2ⁿ</code> input lines</li>
-      <li><code>n</code> select lines</li>
-      <li>1 output line</li>
-    </ul>
-    
-    <h3>Example: 4-to-1 MUX</h3>
-    
+    <h2 id="basic-gates">2.1 Basic Logic Gates</h2>
     <p>
-      Below is the truth table for a 4-to-1 multiplexer. The two select lines <code>S1</code> and <code>S0</code> 
-      determine which of the four inputs <code>I0</code> to <code>I3</code> is connected to the output <code>Y</code>.
+    Logic gates are the building blocks of digital circuits. Each gate performs a basic logical operation on one or more binary inputs to produce a single binary output.
     </p>
-    
     <table>
       <thead>
-        <tr><th>S1</th><th>S0</th><th>Y (Output)</th></tr>
+        <tr><th>Gate</th><th>Symbol</th><th>Function</th><th>Expression</th></tr>
       </thead>
       <tbody>
-        <tr><td>0</td><td>0</td><td>I0</td></tr>
-        <tr><td>0</td><td>1</td><td>I1</td></tr>
-        <tr><td>1</td><td>0</td><td>I2</td></tr>
-        <tr><td>1</td><td>1</td><td>I3</td></tr>
+        <tr><td>AND</td><td>∧</td><td>True if both A and B are 1</td><td>A ∧ B</td></tr>
+        <tr><td>OR</td><td>∨</td><td>True if A or B is 1</td><td>A ∨ B</td></tr>
+        <tr><td>NOT</td><td>¬</td><td>Inverts the input</td><td>¬A</td></tr>
+        <tr><td>XOR</td><td>⊕</td><td>True if A ≠ B</td><td>A ⊕ B</td></tr>
       </tbody>
     </table>
     
-    <p><strong>Logic Expression:</strong></p>
-    <pre>Y = (¬S1 ∧ ¬S0 ∧ I0) ∨ (¬S1 ∧ S0 ∧ I1) ∨ (S1 ∧ ¬S0 ∧ I2) ∨ (S1 ∧ S0 ∧ I3)</pre>
-    
+    <h2 id="adders">2.2 Adders and Subtractors</h2>
     <p>
-      This expression shows how each combination of select lines gates the appropriate input to the output.
+    Adders are used to perform binary addition. The two most basic types are half adders and full adders.
     </p>
-    
-    <h2 id="dux">Demultiplexer (DEMUX)</h2>
-    
-    <p>
-      A demultiplexer performs the inverse function of a multiplexer. It takes a single input and routes it to 
-      one of many outputs, determined by the select lines. DEMUXs are used for distributing control signals, 
-      activating specific outputs, and address decoding in memory systems.
-    </p>
-    
-    <p>A general <code>1-to-2ⁿ</code> demultiplexer includes:</p>
+    <h3>Half Adder</h3>
+    <p>Adds two bits: A and B.</p>
     <ul>
-      <li>1 input line</li>
-      <li><code>n</code> select lines</li>
-      <li><code>2ⁿ</code> output lines</li>
+      <li>Sum = A ⊕ B</li>
+      <li>Carry = A ∧ B</li>
     </ul>
     
-    <h3>Example: 1-to-4 DEMUX</h3>
+    <h3>Full Adder</h3>
+    <p>Adds three bits: A, B, and Carry-In (Cin).</p>
+    <ul>
+      <li>Sum = A ⊕ B ⊕ Cin</li>
+      <li>Cout = (A ∧ B) ∨ (Cin ∧ (A ⊕ B))</li>
+    </ul>
     
+    <h2 id="mux-demux">2.3 Multiplexers and Demultiplexers</h2>
     <p>
-      In the truth table below, the input <code>D</code> is routed to one of the four outputs <code>Y0</code> to 
-      <code>Y3</code> based on the values of <code>S1</code> and <code>S0</code>. All other outputs are inactive (typically set to 0).
+    Multiplexers (MUX) select one input from many and forward it to the output. Demultiplexers (DEMUX) take a single input and route it to one of many outputs.
     </p>
-    
+    <p>See the detailed section earlier in this chapter.</p>
+            
+    <h2 id="decoders-encoders">2.4 Decoders and Encoders</h2>
+    <p>
+    A <strong>decoder</strong> takes an n-bit input and activates exactly one of 2<sup>n</sup> outputs. It is used to enable memory, select data lines, etc.
+    </p>
+    <p>
+    An <strong>encoder</strong> does the opposite—it takes multiple inputs and encodes the active one into binary.
+    </p>
+    <h3>Example: 2-to-4 Decoder</h3>
     <table>
-      <thead>
-        <tr><th>S1</th><th>S0</th><th>Active Output</th></tr>
-      </thead>
+      <thead><tr><th>I1</th><th>I0</th><th>Output</th></tr></thead>
       <tbody>
-        <tr><td>0</td><td>0</td><td>Y0 = D</td></tr>
-        <tr><td>0</td><td>1</td><td>Y1 = D</td></tr>
-        <tr><td>1</td><td>0</td><td>Y2 = D</td></tr>
-        <tr><td>1</td><td>1</td><td>Y3 = D</td></tr>
+        <tr><td>0</td><td>0</td><td>Y0 = 1</td></tr>
+        <tr><td>0</td><td>1</td><td>Y1 = 1</td></tr>
+        <tr><td>1</td><td>0</td><td>Y2 = 1</td></tr>
+        <tr><td>1</td><td>1</td><td>Y3 = 1</td></tr>
       </tbody>
     </table>
+    
+    <h2 id="comparators">2.5 Comparators</h2>
+    <p>
+    A comparator checks the relationship between two binary numbers and determines if one is greater than, less than, or equal to the other. These are frequently used in control logic and conditional branching.
+    </p>
+    <ul>
+      <li><code>A = B</code>: Output HIGH if all bits match</li>
+      <li><code>A > B</code>: Output HIGH if the leftmost unmatched bit in A is 1</li>
+      <li><code>A < B</code>: Output HIGH if the leftmost unmatched bit in B is 1</li>
+    </ul> 
+          
+    <h2 id="alu">2.6 Arithmetic Logic Units (ALUs)</h2>
+    <p>
+    An ALU is a digital circuit that performs arithmetic and logical operations on binary numbers. It can perform addition, subtraction, AND, OR, and other bitwise operations depending on control inputs.
+    </p>
+    <ul>
+      <li>Inputs: Two operands (A, B), and function select lines</li>
+      <li>Output: Result of the operation</li>
+      <li>Status Flags: Zero, Carry, Overflow, Negative, etc.</li>
+    </ul>
+    
+    <h2 id="summary">Summary</h2>
+    <p>
+    In this chapter, you explored the essential components of combinational logic circuits:
+    </p>
+    <ul>
+      <li>Basic logic gates that form the foundation of all digital operations</li>
+      <li>Binary adders and subtractors for arithmetic</li>
+      <li>Multiplexers and demultiplexers for data routing</li>
+      <li>Decoders and encoders for address translation and signal selection</li>
+      <li>Comparators to evaluate magnitude</li>
+      <li>ALUs that combine multiple functions into a powerful processing unit</li>
+    </ul>
+    <p>
+    Mastery of these topics prepares you for understanding sequential logic, memory systems, and processor design in later chapters.
+    </p>
     
     <h2 id="sim">🧪 MicroSim Simulation </h2>
-    
-    <p>
-      Let’s put theory into practice by simulating a basic multiplexer circuit. This exercise will help you 
-      understand how select lines and logic gates interact to implement controlled data flow.
-    </p>
+        <p><strong>Simulation Task:</strong> Design and simulate a 4-bit ALU that can perform the following operations:</p>
+        <ul>
+          <li>AND, OR, XOR, NOT</li>
+          <li>Addition and subtraction</li>
+          <li>Output flags: Zero, Carry-out</li>
+        </ul>
+        <p>
+        Use switches to enter operands and operation codes. Display results and flags using LEDs or console output. Verify behavior using a waveform viewer or <code>$display</code> statements.
+        </p>
     
     <p><strong>Task:</strong> Build a 4-to-1 multiplexer using basic gates (<code>AND</code>, <code>OR</code>, <code>NOT</code>).  
     Connect <code>I0</code>–<code>I3</code> as inputs, <code>S0</code> and <code>S1</code> as select lines, and observe <code>Y</code> as output.  
@@ -470,54 +518,56 @@
     <div class="quiz">
       <h2 id="quiz">✅ Quiz: Check Your Understanding</h2>
     
-      <p><strong>1. How many select lines are needed for an 8-to-1 MUX?</strong></p>
+      <p><strong>1. What logic gate outputs 1 only when both inputs are 1?</strong></p>
       <ul>
-        <li>A) 2</li>
-        <li>B) 3</li>
-        <li>C) 4</li>
-        <li>D) 8</li>
+        <li>A) OR</li>
+        <li>B) XOR</li>
+        <li>C) AND</li>
+        <li>D) NOT</li>
       </ul>
       <details>
         <summary>Show Answer</summary>
-        <p><strong>Correct answer: B) 3</strong></p>
-        <p>Explanation: An 8-to-1 multiplexer requires 3 select lines since 2³ = 8.</p>
+        <p><strong>Correct answer: C) AND</strong></p>
+        <p>Explanation: The AND gate only outputs 1 when all inputs are 1.</p>
       </details>
     
-      <p><strong>2. What is the output of a DEMUX when no select lines are high?</strong></p>
+      <p><strong>2. What is the sum output of a half adder for A = 1, B = 1?</strong></p>
       <ul>
-        <li>A) All outputs are high</li>
-        <li>B) All outputs are low</li>
-        <li>C) The first output (Y0) is active</li>
-        <li>D) Undefined</li>
+        <li>A) 0</li>
+        <li>B) 1</li>
+        <li>C) Undefined</li>
+        <li>D) 2</li>
       </ul>
       <details>
         <summary>Show Answer</summary>
-        <p><strong>Correct answer: C) The first output (Y0) is active</strong></p>
-        <p>Explanation: When all select lines are 0, the input is routed to Y0.</p>
+        <p><strong>Correct answer: A) 0</strong></p>
+        <p>Explanation: Sum = A ⊕ B = 1 ⊕ 1 = 0</p>
       </details>
     
-      <p><strong>3. True/False: A MUX routes a single input to one of many outputs.</strong></p>
+      <p><strong>3. What is the purpose of a decoder in a digital circuit?</strong></p>
       <ul>
-        <li>A) True</li>
-        <li>B) False</li>
+        <li>A) Compress multiple signals into fewer lines</li>
+        <li>B) Route one input to many outputs</li>
+        <li>C) Select one output line based on input combination</li>
+        <li>D) Compare binary values</li>
       </ul>
       <details>
         <summary>Show Answer</summary>
-        <p><strong>Correct answer: B) False</strong></p>
-        <p>Explanation: A MUX routes one of many inputs to a single output. DEMUX does the opposite.</p>
+        <p><strong>Correct answer: C) Select one output line based on input combination</strong></p>
+        <p>Explanation: A decoder activates a single output based on its binary input.</p>
       </details>
     
-      <p><strong>4. Complete the truth table for a 2-to-1 MUX:</strong></p>
-      <table>
-        <thead><tr><th>S</th><th>I0</th><th>I1</th><th>Y</th></tr></thead>
-        <tbody>
-          <tr><td>0</td><td>1</td><td>0</td><td>1</td></tr>
-          <tr><td>1</td><td>1</td><td>0</td><td>0</td></tr>
-        </tbody>
-      </table>
+      <p><strong>4. Which operation is NOT typically performed by an ALU?</strong></p>
+      <ul>
+        <li>A) Addition</li>
+        <li>B) Bitwise AND</li>
+        <li>C) Memory storage</li>
+        <li>D) Subtraction</li>
+      </ul>
       <details>
-        <summary>Show Explanation</summary>
-        <p>When S = 0, Y = I0. When S = 1, Y = I1. The select line determines which input appears at the output.</p>
+        <summary>Show Answer</summary>
+        <p><strong>Correct answer: C) Memory storage</strong></p>
+        <p>Explanation: Memory storage is handled by memory units, not the ALU.</p>
       </details>
     </div>
 
