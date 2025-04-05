@@ -55,19 +55,57 @@
 <p><strong>Task:</strong> Build a 4-to-1 multiplexer using basic gates (AND, OR, NOT).  
 Connect I0–I3 as inputs, S0 and S1 as select lines, and observe Y as output. Use switches and LEDs for interaction.</p>
 
-<h3>Quick Quiz</h3>
-<ol>
-  <li>How many select lines are needed for an 8-to-1 MUX?</li>
-  <li>What is the output of a DEMUX when no select lines are high?</li>
-  <li>True/False: A MUX routes a single input to one of many outputs.</li>
-  <li>Complete the truth table for a 2-to-1 MUX:  
+<div class="quiz">
+    <h2 id="quiz">Quiz: Check Your Understanding</h2>
+
+    <p><strong>1. How many select lines are needed for an 8-to-1 MUX?</strong></p>
+    <ul>
+      <li>A) 2</li>
+      <li>B) 3</li>
+      <li>C) 4</li>
+      <li>D) 8</li>
+    </ul>
+    <details>
+      <summary>Show Answer</summary>
+      <p><strong>The correct answer is: B) 3</strong></p>
+      <p>Explanation: An 8-to-1 MUX requires 3 select lines since 2³ = 8.</p>
+    </details>
+
+    <p><strong>2. What is the output of a DEMUX when no select lines are high?</strong></p>
+    <ul>
+      <li>A) All outputs are high</li>
+      <li>B) All outputs are low</li>
+      <li>C) The first output (Y0) is active</li>
+      <li>D) Undefined</li>
+    </ul>
+    <details>
+      <summary>Show Answer</summary>
+      <p><strong>The correct answer is: C) The first output (Y0) is active</strong></p>
+      <p>Explanation: When select lines are 0, the DEMUX routes input to Y0.</p>
+    </details>
+
+    <p><strong>3. True/False: A MUX routes a single input to one of many outputs.</strong></p>
+    <ul>
+      <li>A) True</li>
+      <li>B) False</li>
+    </ul>
+    <details>
+      <summary>Show Answer</summary>
+      <p><strong>The correct answer is: B) False</strong></p>
+      <p>Explanation: A MUX selects one of many inputs and routes it to a single output. The description matches a DEMUX.</p>
+    </details>
+
+    <p><strong>4. Complete the truth table for a 2-to-1 MUX:</strong></p>
     <table>
       <thead><tr><th>S</th><th>I0</th><th>I1</th><th>Y</th></tr></thead>
       <tbody>
-        <tr><td>0</td><td>1</td><td>0</td><td>?</td></tr>
-        <tr><td>1</td><td>1</td><td>0</td><td>?</td></tr>
+        <tr><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+        <tr><td>1</td><td>1</td><td>0</td><td>0</td></tr>
       </tbody>
     </table>
-  </li>
-</ol>
+    <details>
+      <summary>Show Explanation</summary>
+      <p>When S=0, Y=I0; when S=1, Y=I1.</p>
+    </details>
+  </div>
 
