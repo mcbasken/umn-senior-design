@@ -80,3 +80,107 @@ module uart_tx (
 endmodule
 ```
 </code></pre>
+
+<h2>✅ Quiz: FPGA and Embedded Systems</h2>
+
+<div class="quiz">
+  <p><strong>1. What is the purpose of the synthesis step in FPGA design?</strong></p>
+  <ul>
+    <li>A) Generate waveforms</li>
+    <li>B) Map HDL to logic gates</li>
+    <li>C) Run simulation</li>
+    <li>D) Configure I/O pins</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: B) Map HDL to logic gates</strong></p>
+    <p>
+      Explanation: Synthesis converts your Verilog or VHDL into a gate-level netlist, mapping your design into FPGA logic blocks.
+    </p>
+  </details>
+
+  <p><strong>2. Which of the following is a soft-core processor?</strong></p>
+  <ul>
+    <li>A) ARM Cortex-A9</li>
+    <li>B) RISC-V (custom core)</li>
+    <li>C) Intel Xeon</li>
+    <li>D) AMD Ryzen</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: B) RISC-V (custom core)</strong></p>
+    <p>
+      Explanation: A soft-core processor like a custom RISC-V core can be synthesized into the programmable fabric of an FPGA, unlike hard processors which are fixed silicon.
+    </p>
+  </details>
+
+  <p><strong>3. What type of communication is UART?</strong></p>
+  <ul>
+    <li>A) Parallel</li>
+    <li>B) Wireless</li>
+    <li>C) Serial</li>
+    <li>D) Optical</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: C) Serial</strong></p>
+    <p>
+      Explanation: UART stands for Universal Asynchronous Receiver/Transmitter and communicates data serially, one bit at a time.
+    </p>
+  </details>
+
+  <p><strong>4. Which tool generates the .bit or .bin file to load into an FPGA?</strong></p>
+  <ul>
+    <li>A) Compiler</li>
+    <li>B) Simulator</li>
+    <li>C) Bitstream generator</li>
+    <li>D) Verilog linter</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: C) Bitstream generator</strong></p>
+    <p>
+      Explanation: The bitstream generator creates the configuration file used to program the FPGA with your synthesized and placed logic.
+    </p>
+  </details>
+
+  <p><strong>5. Which memory type is typically used for external RAM in FPGAs?</strong></p>
+  <ul>
+    <li>A) ROM</li>
+    <li>B) SRAM or DRAM</li>
+    <li>C) PROM</li>
+    <li>D) EEPROM</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: B) SRAM or DRAM</strong></p>
+    <p>
+      Explanation: FPGAs often interface with external SRAM or DRAM for temporary data storage due to their speed and flexibility.
+    </p>
+  </details>
+</div>
+
+<hr>
+
+<h2>🧪 MicroSim Prompt</h2>
+
+<h3>🎯 Simulation Prompt: UART Transmit Controller</h3>
+
+<p><strong>Design a UART transmitter module in Verilog</strong> that supports the following:</p>
+<ul>
+  <li>1 start bit, 8 data bits, 1 stop bit (8N1 format)</li>
+  <li>Configurable baud rate via clock divider</li>
+  <li><code>tx_start</code> signal triggers transmission</li>
+  <li>Output <code>tx</code> signal to line</li>
+  <li><code>tx_busy</code> signal shows when transmitting</li>
+</ul>
+
+<h4>Simulation Requirements:</h4>
+<ul>
+  <li>Generate a 50 MHz clock in your testbench</li>
+  <li>Send two bytes: <code>0x55</code> and <code>0xA3</code></li>
+  <li>Use <code>$display</code> to monitor <code>tx</code> and <code>tx_busy</code></li>
+</ul>
+
+<p>📌 <strong>Learning Outcome:</strong> Learn how serial protocols are implemented in hardware and verify behavior using simulation.</p>
+
