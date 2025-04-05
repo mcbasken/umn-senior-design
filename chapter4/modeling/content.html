@@ -116,47 +116,86 @@ endmodule
 
 <hr>
 
-<h2>✅ Quiz: Combinational and Sequential Logic in Verilog</h2>
+<div class="quiz">
+  <h2 id="quiz">✅ Quiz: Combinational and Sequential Logic in Verilog</h2>
 
-<ol>
-  <li><strong>What is the primary difference between blocking and non-blocking assignments?</strong><br>
-    a. Blocking updates outputs immediately; non-blocking delays them<br>
-    b. Blocking can only be used in testbenches<br>
-    c. Non-blocking is used only for combinational logic<br>
-    d. They both behave the same in all cases
-  </li>
-  <li><strong>Which keyword is used for a continuous assignment in Verilog?</strong><br>
-    a. <code>always</code><br>
-    b. <code>initial</code><br>
-    c. <code>assign</code><br>
-    d. <code>module</code>
-  </li>
-  <li><strong>What does the following line do? <code>always @(posedge clk or posedge reset)</code></strong><br>
-    a. Triggers on both rising and falling edges<br>
-    b. Only sensitive to input changes<br>
-    c. Triggers only when both clk and reset are high<br>
-    d. Triggers on rising edge of clk or reset
-  </li>
-  <li><strong>What is the purpose of a testbench in Verilog?</strong><br>
-    a. To design state machines<br>
-    b. To implement registers<br>
-    c. To verify module functionality<br>
-    d. To generate clock signals only
-  </li>
-  <li><strong>In a 4-to-1 multiplexer, how many select lines are needed?</strong><br>
-    a. 1<br>
-    b. 2<br>
-    c. 3<br>
-    d. 4
-  </li>
-</ol>
+  <p><strong>1. What is the primary difference between blocking and non-blocking assignments?</strong></p>
+  <ul>
+    <li>A) Blocking updates outputs immediately; non-blocking delays them</li>
+    <li>B) Blocking can only be used in testbenches</li>
+    <li>C) Non-blocking is used only for combinational logic</li>
+    <li>D) They both behave the same in all cases</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: A) Blocking updates outputs immediately; non-blocking delays them</strong></p>
+    <p>
+      Explanation: Blocking (`=`) executes sequentially like software instructions,  
+      while non-blocking (`<=`) schedules updates and is commonly used in sequential logic (e.g., `always_ff` style).
+    </p>
+  </details>
 
-<p><strong>Answers:</strong><br>
-1. a<br>
-2. c<br>
-3. d<br>
-4. c<br>
-5. b</p>
+  <p><strong>2. Which keyword is used for a continuous assignment in Verilog?</strong></p>
+  <ul>
+    <li>A) <code>always</code></li>
+    <li>B) <code>initial</code></li>
+    <li>C) <code>assign</code></li>
+    <li>D) <code>module</code></li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: C) <code>assign</code></strong></p>
+    <p>
+      Explanation: The <code>assign</code> keyword is used for continuous assignments in combinational logic.  
+      It drives a wire with the result of an expression at all times.
+    </p>
+  </details>
+
+  <p><strong>3. What does the following line do? <code>always @(posedge clk or posedge reset)</code></strong></p>
+  <ul>
+    <li>A) Triggers on both rising and falling edges</li>
+    <li>B) Only sensitive to input changes</li>
+    <li>C) Triggers only when both <code>clk</code> and <code>reset</code> are high</li>
+    <li>D) Triggers on rising edge of <code>clk</code> or <code>reset</code></li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: D) Triggers on rising edge of <code>clk</code> or <code>reset</code></strong></p>
+    <p>
+      Explanation: This sensitivity list means the block executes on the rising edge of either the clock or the reset signal — common for synchronous resets.
+    </p>
+  </details>
+
+  <p><strong>4. What is the purpose of a testbench in Verilog?</strong></p>
+  <ul>
+    <li>A) To design state machines</li>
+    <li>B) To implement registers</li>
+    <li>C) To verify module functionality</li>
+    <li>D) To generate clock signals only</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: C) To verify module functionality</strong></p>
+    <p>
+      Explanation: A testbench simulates a design by applying inputs and checking outputs — it verifies that your Verilog module behaves as expected.
+    </p>
+  </details>
+
+  <p><strong>5. In a 4-to-1 multiplexer, how many select lines are needed?</strong></p>
+  <ul>
+    <li>A) 1</li>
+    <li>B) 2</li>
+    <li>C) 3</li>
+    <li>D) 4</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: B) 2</strong></p>
+    <p>
+      Explanation: A 4-to-1 multiplexer selects 1 of 4 inputs. You need <strong>log₂(4) = 2</strong> select lines.
+    </p>
+  </details>
+</div>
 
 <hr>
 
