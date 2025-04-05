@@ -82,3 +82,111 @@ end
   <li>Identifies paths where signal arrival times may violate setup or hold requirements</li>
   <li>Helps fix critical path delays before tape-out or FPGA deployment</li>
 </ul>
+
+<h2>✅ Quiz: Digital Verification & Optimization</h2>
+
+<div class="quiz">
+  <p><strong>1. Which technique simulates a design by applying test vectors and viewing output?</strong></p>
+  <ul>
+    <li>A) Formal verification</li>
+    <li>B) Simulation</li>
+    <li>C) Place and route</li>
+    <li>D) Bitstream generation</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: B) Simulation</strong></p>
+    <p>
+      Explanation: Simulation applies test inputs to a design and observes outputs to verify behavior before hardware implementation.
+    </p>
+  </details>
+
+  <p><strong>2. What is the purpose of clock gating?</strong></p>
+  <ul>
+    <li>A) Increase frequency</li>
+    <li>B) Reduce power consumption</li>
+    <li>C) Improve signal integrity</li>
+    <li>D) Add delays to the clock</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: B) Reduce power consumption</strong></p>
+    <p>
+      Explanation: Clock gating disables the clock signal to unused parts of a circuit, lowering dynamic power usage.
+    </p>
+  </details>
+
+  <p><strong>3. Which method allows you to mathematically prove design properties?</strong></p>
+  <ul>
+    <li>A) Simulation</li>
+    <li>B) STA</li>
+    <li>C) Formal verification</li>
+    <li>D) Logic synthesis</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: C) Formal verification</strong></p>
+    <p>
+      Explanation: Formal verification uses mathematical proofs to validate correctness of hardware without exhaustive simulation.
+    </p>
+  </details>
+
+  <p><strong>4. What does a scan chain enable in DFT?</strong></p>
+  <ul>
+    <li>A) Faster clock speeds</li>
+    <li>B) Automatic debugging</li>
+    <li>C) Shift-based test access to flip-flops</li>
+    <li>D) Power gating</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: C) Shift-based test access to flip-flops</strong></p>
+    <p>
+      Explanation: Scan chains allow test patterns to be shifted in and out of flip-flops during Design for Test (DFT) procedures.
+    </p>
+  </details>
+
+  <p><strong>5. What is analyzed in Static Timing Analysis?</strong></p>
+  <ul>
+    <li>A) Memory errors</li>
+    <li>B) Setup and hold time violations</li>
+    <li>C) Test coverage</li>
+    <li>D) Thermal distribution</li>
+  </ul>
+  <details>
+    <summary>Show Answer</summary>
+    <p><strong>Correct answer: B) Setup and hold time violations</strong></p>
+    <p>
+      Explanation: STA checks whether signals arrive in time for proper operation by analyzing setup and hold constraints without simulation.
+    </p>
+  </details>
+</div>
+
+<hr>
+
+<h2>🧪 MicroSim Prompt</h2>
+
+<h3>🎯 Simulation Prompt: Power-Optimized Counter with Clock Gating</h3>
+
+<p><strong>Design a 4-bit up-counter in Verilog</strong> that includes:</p>
+<ul>
+  <li>A clock enable (<code>clk_en</code>) input for gated clock control</li>
+  <li>An asynchronous reset</li>
+  <li>Stops counting when <code>clk_en</code> is low</li>
+</ul>
+
+<h4>Verilog Requirements:</h4>
+<ul>
+  <li>Use <code>clk_en</code> to gate counter updates</li>
+  <li>Use <code>$display</code> to show output count during simulation</li>
+</ul>
+
+<h4>Testbench Suggestions:</h4>
+<ul>
+  <li>Run counter with <code>clk_en = 1</code> for 10 cycles</li>
+  <li>Then disable <code>clk_en</code> for 5 cycles</li>
+  <li>Re-enable and continue counting</li>
+</ul>
+
+<p>📌 <strong>Learning Outcome:</strong> Understand how clock gating works and simulate its impact on design behavior.</p>
+
