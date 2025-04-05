@@ -384,293 +384,130 @@
     </a>
   
   
-    <h1>Chapter 1: Core Structures and Techniques</h1>
+    <h1>Chapter 3: Digital Memory and Storage</h1>
+    
+    <h2 id="intro-memory">Introduction</h2>
+    <p>
+    Digital memory is essential to every computing system. It provides the storage needed to hold data, instructions, and system states, whether temporarily (like RAM) or permanently (like ROM). Memory devices vary in speed, cost, volatility, and purpose. In this section, we'll explore the fundamental types of memory and how they are organized and interfaced in digital systems.
+    </p>
+    
+    <h2 id="memory-types">3.1 Types of Memory: SRAM vs. DRAM</h2>
+    <p>
+    Memory is broadly categorized into two main types based on how data is stored and refreshed:
+    </p>
+    <ul>
+      <li><strong>SRAM (Static RAM)</strong>: Uses flip-flop circuits to store each bit. It is fast and does not require refreshing but consumes more power and is more expensive. Typically used for cache memory in CPUs.</li>
+      <li><strong>DRAM (Dynamic RAM)</strong>: Stores each bit in a capacitor. It is slower than SRAM and must be periodically refreshed, but it is cheaper and more compact. Used as main system memory.</li>
+    </ul>
+    <p>Comparison Table:</p>
+    <table>
+      <tr><th>Characteristic</th><th>SRAM</th><th>DRAM</th></tr>
+      <tr><td>Speed</td><td>Fast</td><td>Slower</td></tr>
+      <tr><td>Cost</td><td>High</td><td>Low</td></tr>
+      <tr><td>Density</td><td>Low</td><td>High</td></tr>
+      <tr><td>Refresh Needed</td><td>No</td><td>Yes</td></tr>
+      <tr><td>Typical Use</td><td>Cache</td><td>Main memory</td></tr>
+    </table>
+    
+    <h2 id="rom-flash">3.2 Read-Only Memory (ROM) and Flash Memory</h2>
+    <p>
+    ROM is a non-volatile memory type, meaning it retains data even when power is removed. Flash is a modern type of ROM that can be electrically erased and reprogrammed.
+    </p>
+    <ul>
+      <li><strong>ROM:</strong> Contents are fixed during manufacturing or programmed once (PROM). Used for firmware and bootloaders.</li>
+      <li><strong>EEPROM:</strong> Electrically erasable PROM, allows reprogramming of small amounts of data.</li>
+      <li><strong>Flash:</strong> Similar to EEPROM but can erase large blocks of data. Common in USB drives, SSDs, and microcontrollers.</li>
+    </ul>
+    
+    <h2 id="addressing">3.3 Memory Addressing and Organization</h2>
+    <p>
+    Memory is structured into addressable units. Each address corresponds to a fixed-size word (e.g., 8-bit, 16-bit, or 32-bit).
+    </p>
+    <p>
+    The total number of memory locations is determined by the number of address lines:
+    </p>
+    <ul>
+      <li>10 address lines → 2<sup>10</sup> = 1024 memory locations</li>
+      <li>16 address lines → 2<sup>16</sup> = 65,536 locations (64 KB)</li>
+    </ul>
+    <p>
+    Memory cells are typically organized into rows and columns, and addressing schemes include:
+    </p>
+    <ul>
+      <li><strong>Byte-addressable memory</strong>: each address points to a single byte</li>
+      <li><strong>Word-addressable memory</strong>: each address points to a multi-byte word</li>
+    </ul>
+    
+    <h2 id="interfacing">3.4 Memory Interfacing and Timing</h2>
+    <p>
+    Interfacing memory with a processor or controller requires a clear protocol for reading and writing data. Key signals include:
+    </p>
+    <ul>
+      <li><strong>CE (Chip Enable)</strong>: Activates the memory chip</li>
+      <li><strong>OE (Output Enable)</strong>: Enables output drivers for reading</li>
+      <li><strong>WE (Write Enable)</strong>: Allows writing data into memory</li>
+    </ul>
+    <p>
+    Memory operations follow a sequence of signal changes:
+    </p>
+    <ul>
+      <li><strong>Read cycle:</strong> Set address → Assert CE and OE → Read data</li>
+      <li><strong>Write cycle:</strong> Set address and data → Assert CE and WE → Write data</li>
+    </ul>
+    
+    <h2 id="summary-memory">Summary</h2>
+    <ul>
+      <li>SRAM and DRAM serve different purposes: speed vs. capacity</li>
+      <li>ROM and Flash store firmware and permanent data</li>
+      <li>Memory addressing defines how processors access specific data locations</li>
+      <li>Proper interfacing ensures reliable data exchange with memory devices</li>
+    </ul>
+    
+    <h2 id="sim-prompt-memory">🧪 MicroSim Prompt</h2>
+    <p><strong>Simulation Task:</strong> Create an 8-word ROM module in Verilog, each word 4 bits wide. Use an address input to select the output.</p>
+    <ul>
+      <li>Use <code>case</code> or <code>initial</code> block to define ROM contents</li>
+      <li>Simulate address changes and verify data output</li>
+      <li>Display contents using <code>$display</code> in a testbench</li>
+    </ul>
+    
+    <div class="quiz">
+      <h2 id="quiz-memory">✅ Quiz: Check Your Understanding</h2>
+    
+      <p><strong>1. Which memory type requires refreshing to retain data?</strong></p>
+      <ul>
+        <li>A) SRAM</li>
+        <li>B) DRAM</li>
+        <li>C) ROM</li>
+        <li>D) Flash</li>
+      </ul>
+      <details><summary>Show Answer</summary>
+        <p><strong>Correct answer: B) DRAM</strong></p>
+      </details>
+    
+      <p><strong>2. Which memory type is used to store the BIOS?</strong></p>
+      <ul>
+        <li>A) SRAM</li>
+        <li>B) DRAM</li>
+        <li>C) ROM</li>
+        <li>D) RAM</li>
+      </ul>
+      <details><summary>Show Answer</summary>
+        <p><strong>Correct answer: C) ROM</strong></p>
+      </details>
+    
+      <p><strong>3. What does 16 address lines allow you to access?</strong></p>
+      <ul>
+        <li>A) 256 bytes</li>
+        <li>B) 1024 locations</li>
+        <li>C) 64 KB</li>
+        <li>D) 1 MB</li>
+      </ul>
+      <details><summary>Show Answer</summary>
+        <p><strong>Correct answer: C) 64 KB</strong></p>
+      </details>
+    </div>
 
-    <h2 id="intro">Introduction</h2>
-    <p>
-      Digital design is the foundation upon which modern electronic systems are built.
-      From microprocessors and memory units to digital communication systems and embedded controllers,
-      digital design principles enable engineers to create efficient, reliable hardware that manipulates binary information.
-    </p>
-    <p>
-      This chapter introduces essential topics that form the basis of digital logic design.
-      Mastering these fundamentals is critical for analyzing and building more complex digital systems in later chapters.
-    </p>
-    
-    <h2 id="one">1.1 Number Systems and Representations</h2>
-    <p>In digital systems, all information is represented using numbers—primarily in binary form. Understanding how these number systems work is essential.</p>
-    
-    <h3>Common Number Systems</h3>
-    <table>
-      <tr>
-        <th>Number System</th>
-        <th>Base</th>
-        <th>Digits Used</th>
-        <th>Example</th>
-      </tr>
-      <tr>
-        <td>Decimal</td>
-        <td>10</td>
-        <td>0–9</td>
-        <td>245₁₀</td>
-      </tr>
-      <tr>
-        <td>Binary</td>
-        <td>2</td>
-        <td>0, 1</td>
-        <td>111101₂</td>
-      </tr>
-      <tr>
-        <td>Octal</td>
-        <td>8</td>
-        <td>0–7</td>
-        <td>75₈</td>
-      </tr>
-      <tr>
-        <td>Hexadecimal</td>
-        <td>16</td>
-        <td>0–9, A–F</td>
-        <td>2F₁₆</td>
-      </tr>
-    </table>
-    
-    <p><strong>Conversion Tip:</strong><br>
-    To convert binary <code>1011</code> to decimal:
-    <br><code>(1 × 2³) + (0 × 2²) + (1 × 2¹) + (1 × 2⁰) = 8 + 0 + 2 + 1 = 11</code></p>
-    
-    <h3>Base Converter</h3>
-    <div id="base-converter-container"></div>
-            
-    <h2 id="two">1.2 Boolean Algebra and Logic Gates</h2>
-    <p>
-      Boolean algebra deals with variables that have two possible values: 0 (false) and 1 (true).
-      It uses logical operations to represent and simplify digital circuits.
-    </p>
-    
-    <h3>Basic Logic Gates</h3>
-    <table>
-      <tr>
-        <th>Gate</th>
-        <th>Symbol</th>
-        <th>Operation</th>
-        <th>Expression</th>
-      </tr>
-      <tr>
-        <td>AND</td>
-        <td>∧</td>
-        <td>Logical Multiply</td>
-        <td>A ∧ B</td>
-      </tr>
-      <tr>
-        <td>OR</td>
-        <td>∨</td>
-        <td>Logical Add</td>
-        <td>A ∨ B</td>
-      </tr>
-      <tr>
-        <td>NOT</td>
-        <td>¬</td>
-        <td>Inversion</td>
-        <td>¬A or A'</td>
-      </tr>
-    </table>
-    
-    <h3>De Morgan’s Theorems</h3>
-    <ul>
-      <li>¬(A ∧ B) = ¬A ∨ ¬B</li>
-      <li>¬(A ∨ B) = ¬A ∧ ¬B</li>
-    </ul>
-    
-    <h3>Boolean Diagram:</h3>
-    <div id="boolean-diagram-container"></div>
-    
-    <h2 id="three">1.3 Truth Tables and Logic Expressions</h2>
-    <p>A truth table shows all possible input combinations and their corresponding output.</p>
-    
-    <table>
-      <tr>
-        <th>A</th>
-        <th>B</th>
-        <th>¬B</th>
-        <th>F = A · ¬B</th>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td>0</td>
-        <td>1</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td>1</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>0</td>
-        <td>1</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>1</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>
-    </table>
-    
-    <h2 id="four">1.4 SOP and POS Forms</h2>
-    <p>
-      Boolean expressions can be represented in standard formats:
-    </p>
-    <ul>
-      <li><strong>Sum of Products (SOP):</strong> A series of AND terms OR’ed together<br>
-          Example: F = A¬B + AB</li>
-      <li><strong>Product of Sums (POS):</strong> A series of OR terms AND’ed together<br>
-          Example: F = (A + B)(A + ¬C)</li>
-    </ul>
-    
-    <h2 id="five">1.5 Karnaugh Maps and Simplification</h2>
-    <p>Karnaugh Maps (K-Maps) are visual tools for simplifying Boolean expressions without algebra.</p>
-    
-    <h3>2-Variable K-Map Example:</h3>
-    <table>
-      <tr>
-        <th></th>
-        <th>B=0</th>
-        <th>B=1</th>
-      </tr>
-      <tr>
-        <th>A=0</th>
-        <td>0</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <th>A=1</th>
-        <td>1</td>
-        <td>1</td>
-      </tr>
-    </table>
-    
-    <p><strong>Simulation Prompt:</strong><br>
-    Provide an interactive Karnaugh Map editor where students can input a truth table and visually group terms to minimize the logic.</p>
-    
-    <h2 id="six">1.6 Binary Arithmetic and Two’s Complement</h2>
-    
-    <h3>Unsigned Binary Addition:</h3>
-    <pre>
-      0101 (5)
-    + 0011 (3)
-    = 1000 (8)
-    </pre>
-    
-    <h3>Two’s Complement for Signed Numbers:</h3>
-    <p>
-    To represent -5 in 4-bit two’s complement:
-    </p>
-    <ol>
-      <li>Start with +5 → 0101</li>
-      <li>Invert bits → 1010</li>
-      <li>Add 1 → 1011 → (-5)</li>
-    </ol>
-    
-    <p><strong>Simulation Prompt:</strong><br>
-    Design a simulation to perform binary addition and display results in both unsigned and two’s complement formats.</p>
-    
-    <h2 id="summary">Summary</h2>
-    <p>This chapter covered the fundamental building blocks of digital design:</p>
-    <ul>
-      <li>Number systems: Binary, octal, decimal, hexadecimal</li>
-      <li>Boolean algebra and logic gates</li>
-      <li>Truth tables and standard Boolean forms (SOP, POS)</li>
-      <li>Karnaugh Maps for simplification</li>
-      <li>Binary arithmetic with signed and unsigned numbers</li>
-    </ul>
-        <div class="quiz">
-          <h2 id="quiz">Quiz: Check Your Understanding</h2>
-        
-          <p><strong>1. Convert 101101₂ to decimal.</strong></p>
-          <ul>
-            <li>A) 45</li>
-            <li>B) 53</li>
-            <li>C) 57</li>
-            <li>D) 61</li>
-          </ul>
-          <details>
-            <summary>Show Answer</summary>
-            <p><strong>The correct answer is: A) 45</strong></p>
-            <p>
-              Explanation: Convert binary 101101 to decimal:  
-              (1×2⁵) + (0×2⁴) + (1×2³) + (1×2²) + (0×2¹) + (1×2⁰) = 32 + 0 + 8 + 4 + 0 + 1 = <strong>45</strong>.
-            </p>
-          </details>
-        
-          <p><strong>2. Which of the following represents the NOT operation?</strong></p>
-          <ul>
-            <li>A) +</li>
-            <li>B) ·</li>
-            <li>C) ¬</li>
-            <li>D) ∨</li>
-          </ul>
-          <details>
-            <summary>Show Answer</summary>
-            <p><strong>The correct answer is: C) ¬</strong></p>
-            <p>
-              Explanation: ¬ (or A′) represents the NOT operation.<br>
-              A) + is OR, B) · is AND, D) ∨ is also OR.
-            </p>
-          </details>
-        
-          <p><strong>3. What is the two’s complement of 0110 (6)?</strong></p>
-          <ul>
-            <li>A) 1001</li>
-            <li>B) 1010</li>
-            <li>C) 1110</li>
-            <li>D) 1011</li>
-          </ul>
-          <details>
-            <summary>Show Answer</summary>
-            <p><strong>The correct answer is: B) 1010</strong></p>
-            <p>
-              Explanation:  
-              1. Invert 0110 → 1001  
-              2. Add 1 → 1001 + 0001 = <strong>1010</strong>, which is the two's complement of 6 (i.e., -6).
-            </p>
-          </details>
-        
-          <p><strong>4. Which of these is a Product of Sums expression?</strong></p>
-          <ul>
-            <li>A) A + B + C</li>
-            <li>B) AB + AC</li>
-            <li>C) (A + B)(A + ¬C)</li>
-            <li>D) A · B · ¬C</li>
-          </ul>
-          <details>
-            <summary>Show Answer</summary>
-            <p><strong>The correct answer is: C) (A + B)(A + ¬C)</strong></p>
-            <p>
-              Explanation: Product of Sums means AND'ing together multiple OR’ed terms.  
-              Only option C fits that structure.
-            </p>
-          </details>
-        
-          <p><strong>5. How many cells are in a 3-variable Karnaugh Map?</strong></p>
-          <ul>
-            <li>A) 4</li>
-            <li>B) 6</li>
-            <li>C) 8</li>
-            <li>D) 16</li>
-          </ul>
-          <details>
-            <summary>Show Answer</summary>
-            <p><strong>The correct answer is: C) 8</strong></p>
-            <p>
-              Explanation: A 3-variable K-map has 2³ = <strong>8</strong> cells.  
-              A) is for 2-variable, D) is for 4-variable maps.
-            </p>
-          </details>
-        </div>
 
           
           <!-- Edit Page Button -->
