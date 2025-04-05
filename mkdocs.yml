@@ -21,6 +21,7 @@ nav:
   - Chapter 3:
       - Overview: chapter3/index.md
       - FSM: chapter3/fsm.md
+      - Digital Memory and Storage: chapter3/mem.md
   - Chapter 4:
       - Overview: chapter4/index.md
       - Modeling: chapter4/modeling.md
