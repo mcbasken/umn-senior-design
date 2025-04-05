@@ -393,11 +393,22 @@
   
     <h1>Chapter 2: Multiplexers and Demultiplexers</h1>
 
-    <p><strong>Multiplexers (MUX)</strong> and <strong>Demultiplexers (DEMUX)</strong> are foundational combinational devices used for <em>data selection and routing</em>.</p>
+    <p>
+      In this section, we explore two critical components of combinational logic systems: 
+      <strong>Multiplexers (MUX)</strong> and <strong>Demultiplexers (DEMUX)</strong>. These devices are 
+      essential for routing data within digital circuits, making them foundational building blocks in 
+      processors, communication interfaces, and memory systems.
+    </p>
     
     <h2>Multiplexer (MUX)</h2>
     
-    <p>A <code>2ⁿ-to-1</code> multiplexer has:</p>
+    <p>
+      A multiplexer is often described as a "data selector." It chooses one of several input signals and forwards 
+      it to a single output line, based on the values of its <em>select lines</em>. Multiplexers are used to implement 
+      decision logic, encode control paths, and share a single output resource across multiple inputs.
+    </p>
+    
+    <p>A general <code>2ⁿ-to-1</code> multiplexer includes:</p>
     <ul>
       <li><code>2ⁿ</code> input lines</li>
       <li><code>n</code> select lines</li>
@@ -405,6 +416,11 @@
     </ul>
     
     <h3>Example: 4-to-1 MUX</h3>
+    
+    <p>
+      Below is the truth table for a 4-to-1 multiplexer. The two select lines <code>S1</code> and <code>S0</code> 
+      determine which of the four inputs <code>I0</code> to <code>I3</code> is connected to the output <code>Y</code>.
+    </p>
     
     <table>
       <thead>
@@ -421,9 +437,19 @@
     <p><strong>Logic Expression:</strong></p>
     <pre>Y = (¬S1 ∧ ¬S0 ∧ I0) ∨ (¬S1 ∧ S0 ∧ I1) ∨ (S1 ∧ ¬S0 ∧ I2) ∨ (S1 ∧ S0 ∧ I3)</pre>
     
+    <p>
+      This expression shows how each combination of select lines gates the appropriate input to the output.
+    </p>
+    
     <h2>Demultiplexer (DEMUX)</h2>
     
-    <p>A <code>1-to-2ⁿ</code> demultiplexer has:</p>
+    <p>
+      A demultiplexer performs the inverse function of a multiplexer. It takes a single input and routes it to 
+      one of many outputs, determined by the select lines. DEMUXs are used for distributing control signals, 
+      activating specific outputs, and address decoding in memory systems.
+    </p>
+    
+    <p>A general <code>1-to-2ⁿ</code> demultiplexer includes:</p>
     <ul>
       <li>1 input line</li>
       <li><code>n</code> select lines</li>
@@ -431,6 +457,11 @@
     </ul>
     
     <h3>Example: 1-to-4 DEMUX</h3>
+    
+    <p>
+      In the truth table below, the input <code>D</code> is routed to one of the four outputs <code>Y0</code> to 
+      <code>Y3</code> based on the values of <code>S1</code> and <code>S0</code>. All other outputs are inactive (typically set to 0).
+    </p>
     
     <table>
       <thead>
@@ -446,7 +477,14 @@
     
     <h2>🧪 MicroSim Simulation Prompt</h2>
     
-    <p><strong>Task:</strong> Build a 4-to-1 multiplexer using basic gates (<code>AND</code>, <code>OR</code>, <code>NOT</code>). Connect I0–I3 as inputs, S0 and S1 as select lines, and observe Y as output. Use switches and LEDs for interaction.</p>
+    <p>
+      Let’s put theory into practice by simulating a basic multiplexer circuit. This exercise will help you 
+      understand how select lines and logic gates interact to implement controlled data flow.
+    </p>
+    
+    <p><strong>Task:</strong> Build a 4-to-1 multiplexer using basic gates (<code>AND</code>, <code>OR</code>, <code>NOT</code>).  
+    Connect <code>I0</code>–<code>I3</code> as inputs, <code>S0</code> and <code>S1</code> as select lines, and observe <code>Y</code> as output.  
+    Use switches and LEDs in your simulation environment to interact with the circuit and test functionality.</p>
     
     <div class="quiz">
       <h2 id="quiz">✅ Quiz: Check Your Understanding</h2>
@@ -460,8 +498,8 @@
       </ul>
       <details>
         <summary>Show Answer</summary>
-        <p><strong>The correct answer is: B) 3</strong></p>
-        <p>Explanation: An 8-to-1 MUX requires 3 select lines since 2³ = 8.</p>
+        <p><strong>Correct answer: B) 3</strong></p>
+        <p>Explanation: An 8-to-1 multiplexer requires 3 select lines since 2³ = 8.</p>
       </details>
     
       <p><strong>2. What is the output of a DEMUX when no select lines are high?</strong></p>
@@ -473,8 +511,8 @@
       </ul>
       <details>
         <summary>Show Answer</summary>
-        <p><strong>The correct answer is: C) The first output (Y0) is active</strong></p>
-        <p>Explanation: When select lines are 0, the DEMUX routes input to Y0.</p>
+        <p><strong>Correct answer: C) The first output (Y0) is active</strong></p>
+        <p>Explanation: When all select lines are 0, the input is routed to Y0.</p>
       </details>
     
       <p><strong>3. True/False: A MUX routes a single input to one of many outputs.</strong></p>
@@ -484,8 +522,8 @@
       </ul>
       <details>
         <summary>Show Answer</summary>
-        <p><strong>The correct answer is: B) False</strong></p>
-        <p>Explanation: A MUX selects one of many inputs and routes it to a single output. The description matches a DEMUX.</p>
+        <p><strong>Correct answer: B) False</strong></p>
+        <p>Explanation: A MUX routes one of many inputs to a single output. DEMUX does the opposite.</p>
       </details>
     
       <p><strong>4. Complete the truth table for a 2-to-1 MUX:</strong></p>
@@ -498,7 +536,7 @@
       </table>
       <details>
         <summary>Show Explanation</summary>
-        <p>When S=0, Y=I0; when S=1, Y=I1.</p>
+        <p>When S = 0, Y = I0. When S = 1, Y = I1. The select line determines which input appears at the output.</p>
       </details>
     </div>
 
