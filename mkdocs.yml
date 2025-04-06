@@ -30,7 +30,9 @@ nav:
       - Modeling: chapter4/timing-debug.md
   - Chapter 5:
       - Overview: chapter5/index.md
-      - FPGA: chapter5/fpga.md
+      - FPGA Architecture and Design Flow: chapter5/fpga.md
+      - Embedded Processors and SoC: chapter5/soc.md
+      - Interfacing and Communication Protocols: chapter5/proto.md
   - Chapter 6:
       - Overview: chapter6/index.md
       - Optimization: chapter6/opt.md
