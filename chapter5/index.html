@@ -21,7 +21,7 @@
         <link rel="prev" href="../chapter4/">
       
       
-        <link rel="next" href="../chapter6/">
+        <link rel="next" href="fpga/">
       
       
       <link rel="icon" href="../docs/img/favicon.ico">
@@ -281,12 +281,44 @@
         </a>
     </li>
 
-    <!-- ✅ Chapter 5 (Active) ✅ -->
-    <li class="md-nav__item md-nav__item--active">
-        <a href="/umn-senior-design/chapter5/" class="md-nav__link md-nav__link--active">
-            <span class="md-ellipsis">Chapter 5</span>
+    <!-- Chapter 5 -->
+<li class="md-nav__item md-nav__item--nested md-nav__item--active">
+  <input class="md-nav__toggle md-toggle" type="checkbox" id="__nav_7" checked>
+  <div class="md-nav__link md-nav__container">
+    <a href="/umn-senior-design/chapter5/" class="md-nav__link md-nav__link--active">
+      <span class="md-ellipsis">Chapter 5</span>
+    </a>
+    <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+  </div>
+
+  <!-- Chapter 5 Subsections -->
+  <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+    <label class="md-nav__title" for="__nav_7">
+      <span class="md-nav__icon md-icon"></span>
+      Chapter 5
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      <li class="md-nav__item">
+        <a href="/umn-senior-design/chapter5/fpga/" class="md-nav__link">
+          <span class="md-ellipsis">FPGA Architecture</span>
         </a>
-    </li>
+      </li>
+      <li class="md-nav__item">
+        <a href="/umn-senior-design/chapter5/soc/" class="md-nav__link">
+          <span class="md-ellipsis">Embedded Processors & SoC</span>
+        </a>
+      </li>
+      <li class="md-nav__item">
+        <a href="/umn-senior-design/chapter5/proto/" class="md-nav__link">
+          <span class="md-ellipsis">Protocols & Interfacing</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</li>
+
 
     <!-- Chapter 6 -->
     <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
@@ -490,7 +522,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../chapter4/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Chapter 4">
+          <a href="../chapter4/timing-debug" class="md-footer__link md-footer__link--prev" aria-label="Previous: Timing & Debugging">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -500,20 +532,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Chapter 4
+                Timing & Debugging
               </div>
             </div>
           </a>
         
         
           
-          <a href="../chapter6/" class="md-footer__link md-footer__link--next" aria-label="Next: Chapter 6">
+          <a href="fpga/" class="md-footer__link md-footer__link--next" aria-label="Next: FPGA Architecture and Design Flow">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Chapter 6
+                FPGA Architecture and Design Flow
               </div>
             </div>
             <div class="md-footer__button md-icon">
