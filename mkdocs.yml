@@ -24,10 +24,10 @@ nav:
       - Digital Memory and Storage: chapter3/mem.md
   - Chapter 4:
       - Overview: chapter4/index.md
-      - Modeling: chapter4/verilog-basics.md
+      - Verilog Basics: chapter4/verilog-basics.md
       - Modeling: chapter4/modeling.md
-      - Modeling: chapter4/fsm.md
-      - Modeling: chapter4/timing-debug.md
+      - FSM: chapter4/fsm.md
+      - Timing & Debugging: chapter4/timing-debug.md
   - Chapter 5:
       - Overview: chapter5/index.md
       - FPGA Architecture and Design Flow: chapter5/fpga.md
@@ -35,7 +35,12 @@ nav:
       - Interfacing and Communication Protocols: chapter5/proto.md
   - Chapter 6:
       - Overview: chapter6/index.md
-      - Optimization: chapter6/opt.md
+      - Simulation & Debugging: chapter6/sim.md
+      - Power Optimization: chapter6/opt.md
+      - Design for Testability (DFT): chapter6/dft.md
+      - Formal Verification: chapter6/f_v.md
+      - Static Timing Analysis: chapter6/s_t.md
+      - Signal Integrity & Clock Distribution: chapter6/s_i.md
   - Glossary: glossary.md
   - References: references.md
   - Contact: contact.md
