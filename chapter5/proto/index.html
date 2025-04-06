@@ -324,59 +324,54 @@
           <div class="md-sidebar__inner">
 
             <!-- Table of Contents Navigation -->
-              <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-                <label class="md-nav__title" for="__toc">
-                  <span class="md-nav__icon md-icon"></span>
-                  Table of Contents
-                </label>
-                <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-                  <li class="md-nav__item">
-                    <a href="#intro-soc" class="md-nav__link">
-                      <span class="md-ellipsis">Introduction</span>
-                    </a>
-                  </li>
-                  <li class="md-nav__item">
-                    <a href="#embedded-architectures" class="md-nav__link">
-                      <span class="md-ellipsis">ARM Cortex, RISC-V, and Soft-Core Processors</span>
-                    </a>
-                  </li>
-                  <li class="md-nav__item">
-                    <a href="#fpga-embedded" class="md-nav__link">
-                      <span class="md-ellipsis">FPGA-Based Embedded Systems</span>
-                    </a>
-                  </li>
-                  <li class="md-nav__item">
-                    <a href="#real-time" class="md-nav__link">
-                      <span class="md-ellipsis">Real-Time Processing</span>
-                    </a>
-                  </li>
-                  <li class="md-nav__item">
-                    <a href="#hierarchy" class="md-nav__link">
-                      <span class="md-ellipsis">Memory Hierarchy and Peripherals</span>
-                    </a>
-                  </li>
-                  <li class="md-nav__item">
-                    <a href="#power" class="md-nav__link">
-                      <span class="md-ellipsis">Power and Performance Considerations</span>
-                    </a>
-                  </li>
-                  <li class="md-nav__item">
-                    <a href="#summary-soc" class="md-nav__link">
-                      <span class="md-ellipsis">Summary</span>
-                    </a>
-                  </li>
-                  <li class="md-nav__item">
-                    <a href="#sim-prompt-soc" class="md-nav__link">
-                      <span class="md-ellipsis">🧪 MicroSim </span>
-                    </a>
-                  </li>
-                  <li class="md-nav__item">
-                    <a href="#quiz-soc" class="md-nav__link">
-                      <span class="md-ellipsis">✅ Quiz: Check Your Understanding</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+            <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+              <label class="md-nav__title" for="__toc">
+                <span class="md-nav__icon md-icon"></span>
+                Table of Contents
+              </label>
+              <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+                <li class="md-nav__item">
+                  <a href="#intro-proto" class="md-nav__link">
+                    <span class="md-ellipsis">Introduction</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#io-blocks" class="md-nav__link">
+                    <span class="md-ellipsis">I/O Blocks and GPIO</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#serial-protocols" class="md-nav__link">
+                    <span class="md-ellipsis">UART, SPI, and I2C</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#parallel-highspeed" class="md-nav__link">
+                    <span class="md-ellipsis">Parallel Interfaces and High-Speed Buses</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#memory-interfaces" class="md-nav__link">
+                    <span class="md-ellipsis">Interfacing with External Memory</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#summary-proto" class="md-nav__link">
+                    <span class="md-ellipsis">Summary</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#sim-prompt-proto" class="md-nav__link">
+                    <span class="md-ellipsis">🧪 MicroSim</span>
+                  </a>
+                </li>
+                <li class="md-nav__item">
+                  <a href="#quiz-proto" class="md-nav__link">
+                    <span class="md-ellipsis">✅ Quiz</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
@@ -394,134 +389,121 @@
     </a>
   
   
-    <h1>Chapter 5: Embedded Processors and SoC</h1>
+    <h1>Chapter 5: Interfacing and Communication Protocols</h1>
 
-<h2 id="intro-soc">Introduction</h2>
-<p>
-Modern FPGAs often include embedded processors or can be configured to host soft-core processors, enabling the creation of complete System-on-Chip (SoC) designs. These embedded systems offer flexibility, high performance, and lower power consumption for real-time and application-specific tasks.
-</p>
-<p>
-This section introduces key processor architectures used in FPGA designs, SoC integration, and the performance trade-offs associated with different embedded systems.
-</p>
+    <h2 id="intro-interface">Introduction</h2>
+    <p>
+    Digital systems rely on interfaces and protocols to exchange data with other components, devices, and the outside world. Communication may happen within a system or across systems using well-defined protocols. In FPGA designs, understanding and implementing these protocols ensures seamless connectivity, performance, and integration.
+    </p>
+    
+    <h2 id="gpio">5.1 I/O Blocks and GPIO</h2>
+    <p>
+    General Purpose Input/Output (GPIO) pins provide basic digital signaling capabilities. These pins can be configured as input or output and are commonly used to interface with LEDs, switches, sensors, and buttons.
+    </p>
+    <ul>
+      <li><strong>Input mode:</strong> Reads logic levels from external devices.</li>
+      <li><strong>Output mode:</strong> Sends logic levels to drive other components.</li>
+      <li><strong>Tri-state buffers:</strong> Allow GPIOs to be disabled (high-Z state) for shared buses.</li>
+    </ul>
+    <p>Example GPIO Verilog stub:</p>
+    <pre><code>module gpio_example(
+      input btn,
+      output led
+    );
+      assign led = btn; // direct connection
+    endmodule</code></pre>
+    
+    <h2 id="serial">5.2 UART, SPI, and I2C Protocols</h2>
+    <p>
+    Serial communication protocols are essential for compact and reliable data transmission between devices. Each has its own advantages:
+    </p>
+    <ul>
+      <li><strong>UART (Universal Asynchronous Receiver/Transmitter):</strong> Simple two-wire protocol (TX/RX). Commonly used for terminal interfaces.</li>
+      <li><strong>SPI (Serial Peripheral Interface):</strong> Synchronous, full-duplex protocol with master-slave topology. Requires MOSI, MISO, SCLK, and SS signals.</li>
+      <li><strong>I2C (Inter-Integrated Circuit):</strong> Two-wire protocol (SDA, SCL) that supports multiple devices via addressing. Ideal for low-speed peripherals.</li>
+    </ul>
+    <p>
+    Implementing these in Verilog typically involves FSMs to handle transmission timing and data framing.
+    </p>
+    
+    <h2 id="parallel">5.3 Parallel Interfaces and High-Speed Buses</h2>
+    <p>
+    Parallel buses transmit multiple bits simultaneously, enabling faster data throughput but requiring more pins. Common types include:
+    </p>
+    <ul>
+      <li><strong>AXI (Advanced eXtensible Interface):</strong> Used in ARM SoCs and Xilinx FPGAs for high-performance interconnects.</li>
+      <li><strong>Wishbone:</strong> An open-source interconnect bus used in many embedded designs.</li>
+      <li><strong>Custom buses:</strong> Designers may implement custom protocols for specific use cases, especially in FPGA-based systems.</li>
+    </ul>
+    <p>
+    Timing synchronization and handshake signals (e.g., valid/ready, strobe) are critical in parallel interfaces.
+    </p>
+    
+    <h2 id="external-memory">5.4 Interfacing with External Memories</h2>
+    <p>
+    FPGA systems often need to connect to external memory devices for expanded storage. Memory interface considerations include timing, data width, and control signals.
+    </p>
+    <ul>
+      <li><strong>SRAM:</strong> Easy to interface due to asynchronous or synchronous operation and predictable timing.</li>
+      <li><strong>DRAM:</strong> Requires complex controllers (e.g., DDR memory interfaces) and calibration for high-speed access.</li>
+      <li><strong>Flash:</strong> Non-volatile storage for configuration or firmware; often accessed through SPI or parallel memory bus.</li>
+    </ul>
+    <p>
+    Memory controllers handle protocol-specific timing and transaction management.
+    </p>
+    
+    <h2 id="summary-interface">Summary</h2>
+    <ul>
+      <li>GPIO enables basic input/output operations in FPGA systems.</li>
+      <li>UART, SPI, and I2C are widely used serial communication protocols.</li>
+      <li>Parallel buses like AXI and Wishbone enable high-speed, multi-bit data exchange.</li>
+      <li>Interfacing with external memory requires understanding protocol timing and control schemes.</li>
+    </ul>
+    
+    <h2 id="sim-interface">🧪 MicroSim </h2>
+    <p><strong>Simulation Task:</strong> Implement an SPI master controller in Verilog. Communicate with a simulated SPI slave that echoes received data. Verify correct data transmission using waveform inspection.</p>
+    <ul>
+      <li>Use FSM for clocking and bit shifting.</li>
+      <li>Include <code>$display</code> in the slave to log received data.</li>
+    </ul>
+    
+    <div class="quiz">
+      <h2 id="quiz-interface">✅ Quiz: Check Your Understanding</h2>
+    
+      <p><strong>1. What is the key difference between UART and SPI?</strong></p>
+      <ul>
+        <li>A) UART is synchronous, SPI is asynchronous</li>
+        <li>B) UART uses addressing, SPI does not</li>
+        <li>C) UART is asynchronous, SPI is synchronous</li>
+        <li>D) SPI uses fewer wires than UART</li>
+      </ul>
+      <details><summary>Show Answer</summary>
+        <p><strong>Correct answer: C) UART is asynchronous, SPI is synchronous</strong></p>
+      </details>
+    
+      <p><strong>2. Which of the following is NOT a signal used in SPI?</strong></p>
+      <ul>
+        <li>A) MISO</li>
+        <li>B) SCLK</li>
+        <li>C) SDA</li>
+        <li>D) MOSI</li>
+      </ul>
+      <details><summary>Show Answer</summary>
+        <p><strong>Correct answer: C) SDA</strong></p>
+      </details>
+    
+      <p><strong>3. What is the role of the Chip Enable (CE) signal in memory interfacing?</strong></p>
+      <ul>
+        <li>A) Enables output data</li>
+        <li>B) Writes data to memory</li>
+        <li>C) Activates the memory chip</li>
+        <li>D) Controls read/write direction</li>
+      </ul>
+      <details><summary>Show Answer</summary>
+        <p><strong>Correct answer: C) Activates the memory chip</strong></p>
+      </details>
+    </div>
 
-<h2 id="embedded-architectures">5.1 ARM Cortex, RISC-V, and Soft-Core Processors</h2>
-<p>
-FPGAs can include or host various types of processors:
-</p>
-<ul>
-  <li><strong>ARM Cortex-A/R/M:</strong> Widely used in commercial SoCs. Cortex-M is popular for real-time control in embedded applications.</li>
-  <li><strong>RISC-V:</strong> An open-source, modular ISA with growing FPGA support. Can be tailored for custom applications.</li>
-  <li><strong>Soft-Core Processors:</strong> Custom processors implemented in logic fabric (e.g., Xilinx MicroBlaze, Intel Nios II).</li>
-</ul>
-<p>
-Soft-core processors are highly configurable but generally slower than hard-core alternatives. Use them when flexibility outweighs raw performance.
-</p>
-
-<h2 id="fpga-embedded">5.2 FPGA-Based Embedded Systems</h2>
-<p>
-An FPGA-based embedded system typically integrates:
-</p>
-<ul>
-  <li>A soft-core or hard-core processor</li>
-  <li>Memory blocks (RAM, ROM)</li>
-  <li>Peripherals (timers, UARTs, GPIO, etc.)</li>
-  <li>Interconnect fabric or bus (AXI, Avalon, etc.)</li>
-</ul>
-<p>
-This configuration allows custom tailoring of the system to the application's exact requirements—often achieving better performance-per-watt than general-purpose CPUs.
-</p>
-
-<h2 id="real-time">5.3 Real-Time Processing</h2>
-<p>
-Real-time systems require predictable timing behavior. FPGA-based embedded systems are ideal for these applications due to:
-</p>
-<ul>
-  <li>Deterministic logic behavior</li>
-  <li>Custom hardware accelerators for critical tasks</li>
-  <li>Low-latency communication between processor and logic</li>
-</ul>
-<p>
-Common use cases include motor control, medical instrumentation, and automotive systems.
-</p>
-
-<h2 id="hierarchy">5.4 Memory Hierarchy and Peripherals</h2>
-<p>
-SoCs implement a memory hierarchy to optimize performance:
-</p>
-<ul>
-  <li><strong>Register files</strong> (fastest, closest to processor)</li>
-  <li><strong>On-chip RAM</strong> (intermediate speed and size)</li>
-  <li><strong>Off-chip memory</strong> (large, but slower)</li>
-</ul>
-<p>
-Peripherals such as UART, SPI, I2C, timers, and GPIO are mapped to memory and controlled via addressable registers.
-</p>
-
-<h2 id="power">5.5 Power and Performance Considerations</h2>
-<p>
-Embedded SoC designs must balance speed and energy usage:
-</p>
-<ul>
-  <li>Use clock gating and power domains to reduce consumption</li>
-  <li>Choose memory sizes and types to match workload needs</li>
-  <li>Design with efficient bus protocols and minimal latency</li>
-</ul>
-<p>
-FPGA vendors provide tools (e.g., Xilinx Power Estimator, Intel Power Analyzer) to help forecast power use during design.
-</p>
-
-<h2 id="summary-soc">Summary</h2>
-<ul>
-  <li>FPGAs support embedded processors via hard-core or soft-core IPs</li>
-  <li>SoCs combine logic, memory, and peripherals into one platform</li>
-  <li>Real-time tasks benefit from FPGA predictability and parallelism</li>
-  <li>Careful design improves performance and energy efficiency</li>
-</ul>
-
-<h2 id="sim-prompt-soc">🧪 MicroSim </h2>
-<p><strong>Simulation Task:</strong> Implement a simple soft-core processor system in simulation. Connect it to a UART transmitter module via memory-mapped I/O.</p>
-<ul>
-  <li>Use Verilog or a soft-core simulation model</li>
-  <li>Simulate instruction fetch and peripheral interaction</li>
-  <li>Display UART activity using <code>$display</code> or waveform output</li>
-</ul>
-
-<div class="quiz">
-  <h2 id="quiz-soc">✅ Quiz: Check Your Understanding</h2>
-
-  <p><strong>1. Which processor type is typically found pre-integrated in commercial FPGA SoCs?</strong></p>
-  <ul>
-    <li>A) RISC-V</li>
-    <li>B) ARM Cortex-A</li>
-    <li>C) Intel i7</li>
-    <li>D) MIPS</li>
-  </ul>
-  <details><summary>Show Answer</summary>
-    <p><strong>Correct answer: B) ARM Cortex-A</strong></p>
-  </details>
-
-  <p><strong>2. What advantage do soft-core processors offer in FPGAs?</strong></p>
-  <ul>
-    <li>A) Higher speed than hard-core CPUs</li>
-    <li>B) Lower power than custom logic</li>
-    <li>C) Customizability in instruction set and peripherals</li>
-    <li>D) Require external memory only</li>
-  </ul>
-  <details><summary>Show Answer</summary>
-    <p><strong>Correct answer: C) Customizability in instruction set and peripherals</strong></p>
-  </details>
-
-  <p><strong>3. Which component is closest to the processor in the memory hierarchy?</strong></p>
-  <ul>
-    <li>A) On-chip RAM</li>
-    <li>B) Register file</li>
-    <li>C) DRAM</li>
-    <li>D) Flash memory</li>
-  </ul>
-  <details><summary>Show Answer</summary>
-    <p><strong>Correct answer: B) Register file</strong></p>
-  </details>
-</div>
 
 
           
