@@ -409,132 +409,95 @@
     </a>
   
   
-    <h1>Chapter 5: FPGA Architecture and Development</h1>
+<h1>Chapter 6: Static Timing Analysis</h1>
 
-    <h2 id="intro">Introduction</h2>
-    <p>
-    Field-Programmable Gate Arrays (FPGAs) are reconfigurable integrated circuits used for implementing custom hardware functions. Their flexibility makes them ideal for prototyping, digital signal processing, embedded systems, and more. In this section, we'll explore the internal architecture of FPGAs, how they compare to ASICs, and the design flow from HDL code to a programmed chip.
-    </p>
-    
-    <h2 id="fpga-vs-asic">5.1 FPGA vs. ASIC: Trade-offs and Use Cases</h2>
-    <p>
-    FPGAs and ASICs serve similar purposes—implementing digital logic—but they differ fundamentally:
-    </p>
-    <ul>
-      <li><strong>FPGAs</strong> are reprogrammable and suited for rapid development and prototyping.</li>
-      <li><strong>ASICs</strong> are fixed-function chips, optimized for performance and cost at scale.</li>
-    </ul>
-    <p>Comparison:</p>
-    <table>
-      <tr><th>Aspect</th><th>FPGA</th><th>ASIC</th></tr>
-      <tr><td>Reprogrammable</td><td>Yes</td><td>No</td></tr>
-      <tr><td>Development Cost</td><td>Low</td><td>High (Non-Recurring Engineering cost)</td></tr>
-      <tr><td>Unit Cost</td><td>High</td><td>Low (at high volume)</td></tr>
-      <tr><td>Performance</td><td>Lower</td><td>Higher</td></tr>
-      <tr><td>Time to Market</td><td>Fast</td><td>Slow</td></tr>
-    </table>
-    
-    <h2 id="lut-flipflop">5.2 Look-Up Tables (LUTs), Flip-Flops, and Interconnects</h2>
-    <p>
-    LUTs are the fundamental building blocks in FPGAs. They implement logic functions by storing output values for all input combinations.
-    </p>
-    <ul>
-      <li><strong>LUT:</strong> A small truth table that acts as a logic gate or small logic function.</li>
-      <li><strong>Flip-Flop:</strong> Stores the output value for use in sequential logic.</li>
-      <li><strong>Interconnect:</strong> The routing fabric that links LUTs and flip-flops together.</li>
-    </ul>
-    
-    <h2 id="clb">5.3 Configurable Logic Blocks (CLBs)</h2>
-    <p>
-    CLBs are modular blocks in an FPGA containing:
-    </p>
-    <ul>
-      <li>One or more LUTs</li>
-      <li>Flip-flops for storage</li>
-      <li>Control logic (e.g., multiplexers)</li>
-    </ul>
-    <p>
-    CLBs are tiled across the FPGA and are connected via programmable interconnects. They are the key to implementing digital circuits using Verilog or VHDL.
-    </p>
-    
-    <h2 id="bitstream">5.4 FPGA Programming and Bitstream Generation</h2>
-    <p>
-    Once a design is described in Verilog and synthesized, it must be translated into a bitstream—a binary file that configures the FPGA hardware.
-    </p>
-    <ol>
-      <li><strong>Synthesis:</strong> Converts HDL to logic gates.</li>
-      <li><strong>Implementation:</strong> Maps logic to LUTs, places them, and routes connections.</li>
-      <li><strong>Bitstream Generation:</strong> Encodes the configuration bits for the FPGA.</li>
-    </ol>
-    <p>
-    This file is then loaded onto the FPGA using a programmer or through boot memory on startup.
-    </p>
-    
-    <h2 id="synthesis">5.5 FPGA Synthesis, Placement, and Routing</h2>
-    <p>
-    The FPGA toolchain handles three key tasks:
-    </p>
-    <ul>
-      <li><strong>Synthesis:</strong> Generates a netlist of logic gates and flip-flops from HDL.</li>
-      <li><strong>Placement:</strong> Assigns logic elements to physical CLBs on the FPGA.</li>
-      <li><strong>Routing:</strong> Connects placed elements using the programmable interconnect.</li>
-    </ul>
-    <p>
-    Design quality is affected by timing closure, logic utilization, and routing congestion.
-    </p>
-    
-    <h2 id="summary">Summary</h2>
-    <ul>
-      <li>FPGAs offer flexibility while ASICs offer performance and efficiency for mass production.</li>
-      <li>LUTs, flip-flops, and interconnects are the core components of FPGAs.</li>
-      <li>CLBs organize these elements into reusable tiles for logic implementation.</li>
-      <li>Bitstream generation translates HDL designs into a binary format to configure the FPGA.</li>
-      <li>Synthesis, placement, and routing are critical steps in the FPGA design process.</li>
-    </ul>
-    
-    <h2 id="sim-prompt">🧪 MicroSim</h2>
-    <p><strong>Simulation Task:</strong> Write a simple Verilog module (e.g., a 2-bit adder), synthesize it, and examine the tool-generated report to identify the number of LUTs and flip-flops used.</p>
-    <ul>
-      <li>Use a synthesis tool like Yosys or Vivado.</li>
-      <li>Explore RTL schematic and timing summary reports.</li>
-    </ul>
-    
-    <div class="quiz">
-      <h2 id="quiz">✅ Quiz: Check Your Understanding</h2>
-    
-      <p><strong>1. What is the purpose of a LUT in an FPGA?</strong></p>
-      <ul>
-        <li>A) To store memory</li>
-        <li>B) To connect CLBs</li>
-        <li>C) To implement logic functions</li>
-        <li>D) To enable serial communication</li>
-      </ul>
-      <details><summary>Show Answer</summary>
-        <p><strong>Correct answer: C) To implement logic functions</strong></p>
-      </details>
-    
-      <p><strong>2. Which step follows synthesis in the FPGA toolchain?</strong></p>
-      <ul>
-        <li>A) Timing analysis</li>
-        <li>B) Bitstream upload</li>
-        <li>C) Placement</li>
-        <li>D) HDL debugging</li>
-      </ul>
-      <details><summary>Show Answer</summary>
-        <p><strong>Correct answer: C) Placement</strong></p>
-      </details>
-    
-      <p><strong>3. Which feature allows FPGAs to be reprogrammable?</strong></p>
-      <ul>
-        <li>A) Flash memory</li>
-        <li>B) CLBs</li>
-        <li>C) Bitstream</li>
-        <li>D) ASIC conversion</li>
-      </ul>
-      <details><summary>Show Answer</summary>
-        <p><strong>Correct answer: C) Bitstream</strong></p>
-      </details>
-    </div>
+<h2 id="intro">Introduction</h2>
+<p>
+As digital designs grow more complex and clock frequencies increase, ensuring that signals propagate through logic within a valid timing window becomes critical. Static Timing Analysis (STA) is a method of verifying that a digital circuit meets its timing requirements—without requiring simulation or test vectors. STA is essential for guaranteeing reliable operation across all possible paths and input conditions and is a standard step in the FPGA and ASIC design flow.
+</p>
+
+<h2 id="sta">6.5 Static Timing Analysis</h2>
+<p>
+Static Timing Analysis (STA) is a simulation-independent technique that checks whether signal paths in a digital design meet setup and hold time constraints. It works by evaluating the delays along all paths between sequential elements in a design and ensures that data arrives in time to be reliably captured by flip-flops or latches.
+</p>
+
+<h3>Key Concepts in STA</h3>
+<ul>
+  <li><strong>Setup Time:</strong> The minimum time before a clock edge that data must be stable.</li>
+  <li><strong>Hold Time:</strong> The minimum time after a clock edge that data must remain stable.</li>
+  <li><strong>Slack:</strong> The difference between the required time and the arrival time. Positive slack means the path meets timing; negative slack means it fails.</li>
+  <li><strong>Critical Path:</strong> The longest path in the design—the one most likely to violate timing constraints.</li>
+</ul>
+
+<h3>Timing Paths in a Digital Design</h3>
+<ul>
+  <li><strong>Combinational Paths:</strong> Between two flip-flops or between input/output ports.</li>
+  <li><strong>Clock Domains:</strong> STA is performed per clock domain and requires special care for multi-clock designs.</li>
+  <li><strong>Clock Skew and Jitter:</strong> Variations in clock arrival times can impact timing margins and must be accounted for.</li>
+</ul>
+
+<h3>Timing Reports</h3>
+<p>
+Synthesis and implementation tools like Vivado, Quartus, or Synopsys PrimeTime provide detailed timing reports. These include:
+</p>
+<ul>
+  <li>Worst-case slack values</li>
+  <li>Critical path identification</li>
+  <li>Violations of setup/hold constraints</li>
+  <li>Clock uncertainty and skew breakdowns</li>
+</ul>
+
+<h3>Improving Timing Closure</h3>
+<ul>
+  <li><strong>Pipeline Stages:</strong> Break long combinational paths by adding flip-flops.</li>
+  <li><strong>Constraint Optimization:</strong> Refine false paths, multicycle paths, and path exceptions.</li>
+  <li><strong>Logic Restructuring:</strong> Simplify or rebalance logic to shorten critical paths.</li>
+  <li><strong>Placement and Routing:</strong> Use floorplanning and logic placement strategies to reduce path delays.</li>
+</ul>
+
+<h2 id="sim-prompt">🧪 MicroSim: Explore Your Critical Paths</h2>
+<p><strong>Analysis Task:</strong> Use your FPGA synthesis tool to generate a timing report for a basic datapath (e.g., a 4-bit ALU or counter). Identify the critical path and examine its slack.</p>
+<ul>
+  <li>Analyze both pre- and post-place-and-route reports.</li>
+  <li>Experiment with pipelining to observe changes in slack and timing performance.</li>
+</ul>
+
+<div class="quiz">
+  <h2 id="quiz">✅ Quiz: Check Your Understanding</h2>
+
+  <p><strong>1. What does negative slack indicate in STA?</strong></p>
+  <ul>
+    <li>A) A logic gate is malfunctioning</li>
+    <li>B) The path meets timing</li>
+    <li>C) The design violates timing requirements</li>
+    <li>D) The power consumption is too high</li>
+  </ul>
+  <details><summary>Show Answer</summary>
+    <p><strong>Correct answer: C) The design violates timing requirements</strong></p>
+  </details>
+
+  <p><strong>2. What is the critical path in a digital circuit?</strong></p>
+  <ul>
+    <li>A) The shortest delay path</li>
+    <li>B) A path between two inputs</li>
+    <li>C) The path with the most slack</li>
+    <li>D) The longest delay path that limits the clock frequency</li>
+  </ul>
+  <details><summary>Show Answer</summary>
+    <p><strong>Correct answer: D) The longest delay path that limits the clock frequency</strong></p>
+  </details>
+
+  <p><strong>3. What are setup and hold times associated with?</strong></p>
+  <ul>
+    <li>A) Clock tree synthesis</li>
+    <li>B) Data transfer reliability at flip-flops</li>
+    <li>C) IO configuration</li>
+    <li>D) FPGA configuration</li>
+  </ul>
+  <details><summary>Show Answer</summary>
+    <p><strong>Correct answer: B) Data transfer reliability at flip-flops</strong></p>
+  </details>
+</div>
 
 
           
