@@ -339,59 +339,35 @@
           <div class="md-sidebar__inner">
 
             <!-- Table of Contents Navigation -->
-            <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-              <label class="md-nav__title" for="__toc">
-                <span class="md-nav__icon md-icon"></span>
-                Table of Contents
-              </label>
-              <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-                <li class="md-nav__item">
-                  <a href="#intro" class="md-nav__link">
-                    <span class="md-ellipsis">Introduction</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#fpga-vs-asic" class="md-nav__link">
-                    <span class="md-ellipsis">FPGA vs. ASIC: Trade-offs and Use Cases</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#lut-flipflop" class="md-nav__link">
-                    <span class="md-ellipsis">LUTs, Flip-Flops, and Interconnects</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#clb" class="md-nav__link">
-                    <span class="md-ellipsis">Configurable Logic Blocks (CLBs)</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#bitstream" class="md-nav__link">
-                    <span class="md-ellipsis">Programming and Bitstream Generation</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#synthesis" class="md-nav__link">
-                    <span class="md-ellipsis">Synthesis, Placement, and Routing</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#summary" class="md-nav__link">
-                    <span class="md-ellipsis">Summary</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#sim-prompt" class="md-nav__link">
-                    <span class="md-ellipsis">🧪 MicroSim</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#quiz" class="md-nav__link">
-                    <span class="md-ellipsis">✅ Quiz</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  <label class="md-nav__title" for="__toc">
+    <span class="md-nav__icon md-icon"></span>
+    Table of Contents
+  </label>
+  <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <li class="md-nav__item">
+      <a href="#intro" class="md-nav__link">
+        <span class="md-ellipsis">Introduction</span>
+      </a>
+    </li>
+    <li class="md-nav__item">
+      <a href="#dft" class="md-nav__link">
+        <span class="md-ellipsis">Design for Testability (DFT)</span>
+      </a>
+    </li>
+    <li class="md-nav__item">
+      <a href="#sim-prompt" class="md-nav__link">
+        <span class="md-ellipsis">🧪 MicroSim</span>
+      </a>
+    </li>
+    <li class="md-nav__item">
+      <a href="#quiz" class="md-nav__link">
+        <span class="md-ellipsis">✅ Quiz</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
           </div>
         </div>
       </div>
@@ -409,132 +385,106 @@
     </a>
   
   
-    <h1>Chapter 5: FPGA Architecture and Development</h1>
+    <h1>Chapter 6: Verification and Optimization Techniques</h1>
 
-    <h2 id="intro">Introduction</h2>
-    <p>
-    Field-Programmable Gate Arrays (FPGAs) are reconfigurable integrated circuits used for implementing custom hardware functions. Their flexibility makes them ideal for prototyping, digital signal processing, embedded systems, and more. In this section, we'll explore the internal architecture of FPGAs, how they compare to ASICs, and the design flow from HDL code to a programmed chip.
-    </p>
-    
-    <h2 id="fpga-vs-asic">5.1 FPGA vs. ASIC: Trade-offs and Use Cases</h2>
-    <p>
-    FPGAs and ASICs serve similar purposes—implementing digital logic—but they differ fundamentally:
-    </p>
-    <ul>
-      <li><strong>FPGAs</strong> are reprogrammable and suited for rapid development and prototyping.</li>
-      <li><strong>ASICs</strong> are fixed-function chips, optimized for performance and cost at scale.</li>
-    </ul>
-    <p>Comparison:</p>
-    <table>
-      <tr><th>Aspect</th><th>FPGA</th><th>ASIC</th></tr>
-      <tr><td>Reprogrammable</td><td>Yes</td><td>No</td></tr>
-      <tr><td>Development Cost</td><td>Low</td><td>High (Non-Recurring Engineering cost)</td></tr>
-      <tr><td>Unit Cost</td><td>High</td><td>Low (at high volume)</td></tr>
-      <tr><td>Performance</td><td>Lower</td><td>Higher</td></tr>
-      <tr><td>Time to Market</td><td>Fast</td><td>Slow</td></tr>
-    </table>
-    
-    <h2 id="lut-flipflop">5.2 Look-Up Tables (LUTs), Flip-Flops, and Interconnects</h2>
-    <p>
-    LUTs are the fundamental building blocks in FPGAs. They implement logic functions by storing output values for all input combinations.
-    </p>
-    <ul>
-      <li><strong>LUT:</strong> A small truth table that acts as a logic gate or small logic function.</li>
-      <li><strong>Flip-Flop:</strong> Stores the output value for use in sequential logic.</li>
-      <li><strong>Interconnect:</strong> The routing fabric that links LUTs and flip-flops together.</li>
-    </ul>
-    
-    <h2 id="clb">5.3 Configurable Logic Blocks (CLBs)</h2>
-    <p>
-    CLBs are modular blocks in an FPGA containing:
-    </p>
-    <ul>
-      <li>One or more LUTs</li>
-      <li>Flip-flops for storage</li>
-      <li>Control logic (e.g., multiplexers)</li>
-    </ul>
-    <p>
-    CLBs are tiled across the FPGA and are connected via programmable interconnects. They are the key to implementing digital circuits using Verilog or VHDL.
-    </p>
-    
-    <h2 id="bitstream">5.4 FPGA Programming and Bitstream Generation</h2>
-    <p>
-    Once a design is described in Verilog and synthesized, it must be translated into a bitstream—a binary file that configures the FPGA hardware.
-    </p>
-    <ol>
-      <li><strong>Synthesis:</strong> Converts HDL to logic gates.</li>
-      <li><strong>Implementation:</strong> Maps logic to LUTs, places them, and routes connections.</li>
-      <li><strong>Bitstream Generation:</strong> Encodes the configuration bits for the FPGA.</li>
-    </ol>
-    <p>
-    This file is then loaded onto the FPGA using a programmer or through boot memory on startup.
-    </p>
-    
-    <h2 id="synthesis">5.5 FPGA Synthesis, Placement, and Routing</h2>
-    <p>
-    The FPGA toolchain handles three key tasks:
-    </p>
-    <ul>
-      <li><strong>Synthesis:</strong> Generates a netlist of logic gates and flip-flops from HDL.</li>
-      <li><strong>Placement:</strong> Assigns logic elements to physical CLBs on the FPGA.</li>
-      <li><strong>Routing:</strong> Connects placed elements using the programmable interconnect.</li>
-    </ul>
-    <p>
-    Design quality is affected by timing closure, logic utilization, and routing congestion.
-    </p>
-    
-    <h2 id="summary">Summary</h2>
-    <ul>
-      <li>FPGAs offer flexibility while ASICs offer performance and efficiency for mass production.</li>
-      <li>LUTs, flip-flops, and interconnects are the core components of FPGAs.</li>
-      <li>CLBs organize these elements into reusable tiles for logic implementation.</li>
-      <li>Bitstream generation translates HDL designs into a binary format to configure the FPGA.</li>
-      <li>Synthesis, placement, and routing are critical steps in the FPGA design process.</li>
-    </ul>
-    
-    <h2 id="sim-prompt">🧪 MicroSim</h2>
-    <p><strong>Simulation Task:</strong> Write a simple Verilog module (e.g., a 2-bit adder), synthesize it, and examine the tool-generated report to identify the number of LUTs and flip-flops used.</p>
-    <ul>
-      <li>Use a synthesis tool like Yosys or Vivado.</li>
-      <li>Explore RTL schematic and timing summary reports.</li>
-    </ul>
-    
-    <div class="quiz">
-      <h2 id="quiz">✅ Quiz: Check Your Understanding</h2>
-    
-      <p><strong>1. What is the purpose of a LUT in an FPGA?</strong></p>
-      <ul>
-        <li>A) To store memory</li>
-        <li>B) To connect CLBs</li>
-        <li>C) To implement logic functions</li>
-        <li>D) To enable serial communication</li>
-      </ul>
-      <details><summary>Show Answer</summary>
-        <p><strong>Correct answer: C) To implement logic functions</strong></p>
-      </details>
-    
-      <p><strong>2. Which step follows synthesis in the FPGA toolchain?</strong></p>
-      <ul>
-        <li>A) Timing analysis</li>
-        <li>B) Bitstream upload</li>
-        <li>C) Placement</li>
-        <li>D) HDL debugging</li>
-      </ul>
-      <details><summary>Show Answer</summary>
-        <p><strong>Correct answer: C) Placement</strong></p>
-      </details>
-    
-      <p><strong>3. Which feature allows FPGAs to be reprogrammable?</strong></p>
-      <ul>
-        <li>A) Flash memory</li>
-        <li>B) CLBs</li>
-        <li>C) Bitstream</li>
-        <li>D) ASIC conversion</li>
-      </ul>
-      <details><summary>Show Answer</summary>
-        <p><strong>Correct answer: C) Bitstream</strong></p>
-      </details>
-    </div>
+<h2 id="intro">Introduction</h2>
+<p>
+As digital systems grow more complex, testing becomes a major challenge in ensuring the correctness and reliability of designs. Traditional testing methods may miss subtle bugs or require excessive time and resources. To address this, engineers use Design for Testability (DFT) techniques to make circuits easier to test, debug, and diagnose during both manufacturing and field operation. In this section, we'll explore how DFT is integrated into digital circuits and why it's essential for modern hardware development.
+</p>
+
+<h2 id="dft">6.3 Design for Testability (DFT)</h2>
+<p>
+Design for Testability (DFT) refers to a collection of design practices that improve the controllability and observability of internal nodes in a circuit. These techniques are essential for detecting faults, reducing test time, and ensuring a high yield in the production of digital chips and systems.
+</p>
+
+<h3>Why DFT Matters</h3>
+<ul>
+  <li><strong>Improved Fault Detection:</strong> Enhances the ability to identify stuck-at faults, shorts, and opens.</li>
+  <li><strong>Efficient Testing:</strong> Supports automated tools and scalable test environments for large designs.</li>
+  <li><strong>Lower Cost of Debug:</strong> Simplifies troubleshooting during prototyping and post-silicon validation.</li>
+</ul>
+
+<h3>Key DFT Techniques</h3>
+<ul>
+  <li><strong>Scan Chains:</strong> Allow test patterns to be shifted into and out of flip-flops, enabling direct access to internal logic during test mode.</li>
+  <li><strong>Built-In Self-Test (BIST):</strong> Enables a circuit to test itself by integrating pattern generation and output verification logic.</li>
+  <li><strong>Boundary Scan (JTAG):</strong> Implements a standardized method (IEEE 1149.1) to test interconnects and access internal nodes without physical probing.</li>
+  <li><strong>Test Point Insertion:</strong> Adds flip-flops or multiplexers in strategic locations to expose internal signals for easier testing.</li>
+</ul>
+
+<h3>Scan Chain Architecture</h3>
+<p>
+A scan chain modifies each flip-flop to operate in both normal and scan mode. In scan mode, flip-flops form a shift register that can load and unload data, enabling:
+</p>
+<ul>
+  <li><strong>Controllability:</strong> Forcing specific values into internal states.</li>
+  <li><strong>Observability:</strong> Reading out internal values for analysis.</li>
+</ul>
+<p>
+Scan-based testing works well with automatic test pattern generation (ATPG) tools and can be synthesized using EDA tools like Synopsys DFT Compiler or Xilinx Vivado DFT features.
+</p>
+
+<h3>Boundary Scan and JTAG</h3>
+<ul>
+  <li>JTAG (Joint Test Action Group) is defined by IEEE standard 1149.1.</li>
+  <li>It provides a test access port (TAP) and a set of shift registers that allow full control of chip pins and select internal states.</li>
+  <li>Used widely for board-level testing, in-system programming, and production diagnostics.</li>
+</ul>
+
+<h3>Built-In Self-Test (BIST)</h3>
+<p>
+BIST automates the test process by embedding a pattern generator and output response checker inside the design. This enables:
+</p>
+<ul>
+  <li>Autonomous testing without external equipment.</li>
+  <li>On-chip diagnostic capability, even after deployment.</li>
+  <li>Reduced dependency on expensive external test patterns and signal probing.</li>
+</ul>
+
+<h2 id="sim-prompt">🧪 MicroSim</h2>
+<p><strong>Simulation Task:</strong> Create a scan-enabled D flip-flop in Verilog. Simulate its behavior in both normal and scan modes by shifting test data through the chain.</p>
+<ul>
+  <li>Verify correct functionality using waveform analysis.</li>
+  <li>Document input/output transitions and compare them between test and functional modes.</li>
+</ul>
+
+<div class="quiz">
+  <h2 id="quiz">✅ Quiz: Check Your Understanding</h2>
+
+  <p><strong>1. What is the main function of a scan chain?</strong></p>
+  <ul>
+    <li>A) Minimize routing delay</li>
+    <li>B) Program bitstreams</li>
+    <li>C) Enable access to internal flip-flops during testing</li>
+    <li>D) Manage power consumption</li>
+  </ul>
+  <details><summary>Show Answer</summary>
+    <p><strong>Correct answer: C) Enable access to internal flip-flops during testing</strong></p>
+  </details>
+
+  <p><strong>2. What standard defines boundary scan architecture?</strong></p>
+  <ul>
+    <li>A) IEEE 802.3</li>
+    <li>B) IEEE 1149.1</li>
+    <li>C) IEEE 1685</li>
+    <li>D) IEEE 754</li>
+  </ul>
+  <details><summary>Show Answer</summary>
+    <p><strong>Correct answer: B) IEEE 1149.1</strong></p>
+  </details>
+
+  <p><strong>3. What component does BIST typically include?</strong></p>
+  <ul>
+    <li>A) An additional ALU</li>
+    <li>B) Test pattern generator and response checker</li>
+    <li>C) External probe controller</li>
+    <li>D) USB programming interface</li>
+  </ul>
+  <details><summary>Show Answer</summary>
+    <p><strong>Correct answer: B) Test pattern generator and response checker</strong></p>
+  </details>
+</div>
+
 
 
           
