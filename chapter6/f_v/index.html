@@ -338,60 +338,36 @@
         <div class="md-sidebar__scrollwrap">
           <div class="md-sidebar__inner">
 
-            <!-- Table of Contents Navigation -->
-            <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-              <label class="md-nav__title" for="__toc">
-                <span class="md-nav__icon md-icon"></span>
-                Table of Contents
-              </label>
-              <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-                <li class="md-nav__item">
-                  <a href="#intro" class="md-nav__link">
-                    <span class="md-ellipsis">Introduction</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#fpga-vs-asic" class="md-nav__link">
-                    <span class="md-ellipsis">FPGA vs. ASIC: Trade-offs and Use Cases</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#lut-flipflop" class="md-nav__link">
-                    <span class="md-ellipsis">LUTs, Flip-Flops, and Interconnects</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#clb" class="md-nav__link">
-                    <span class="md-ellipsis">Configurable Logic Blocks (CLBs)</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#bitstream" class="md-nav__link">
-                    <span class="md-ellipsis">Programming and Bitstream Generation</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#synthesis" class="md-nav__link">
-                    <span class="md-ellipsis">Synthesis, Placement, and Routing</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#summary" class="md-nav__link">
-                    <span class="md-ellipsis">Summary</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#sim-prompt" class="md-nav__link">
-                    <span class="md-ellipsis">🧪 MicroSim</span>
-                  </a>
-                </li>
-                <li class="md-nav__item">
-                  <a href="#quiz" class="md-nav__link">
-                    <span class="md-ellipsis">✅ Quiz</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
+<!-- Table of Contents Navigation -->
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  <label class="md-nav__title" for="__toc">
+    <span class="md-nav__icon md-icon"></span>
+    Table of Contents
+  </label>
+  <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <li class="md-nav__item">
+      <a href="#intro" class="md-nav__link">
+        <span class="md-ellipsis">Introduction</span>
+      </a>
+    </li>
+    <li class="md-nav__item">
+      <a href="#formal-verification" class="md-nav__link">
+        <span class="md-ellipsis">Formal Verification Techniques</span>
+      </a>
+    </li>
+    <li class="md-nav__item">
+      <a href="#sim-prompt" class="md-nav__link">
+        <span class="md-ellipsis">🧪 MicroSim: Prove It, Don’t Just Test It</span>
+      </a>
+    </li>
+    <li class="md-nav__item">
+      <a href="#quiz" class="md-nav__link">
+        <span class="md-ellipsis">✅ Quiz: Check Your Understanding</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
           </div>
         </div>
       </div>
@@ -409,132 +385,89 @@
     </a>
   
   
-    <h1>Chapter 5: FPGA Architecture and Development</h1>
+    <h1>Chapter 6: Formal Verification</h1>
 
-    <h2 id="intro">Introduction</h2>
-    <p>
-    Field-Programmable Gate Arrays (FPGAs) are reconfigurable integrated circuits used for implementing custom hardware functions. Their flexibility makes them ideal for prototyping, digital signal processing, embedded systems, and more. In this section, we'll explore the internal architecture of FPGAs, how they compare to ASICs, and the design flow from HDL code to a programmed chip.
-    </p>
-    
-    <h2 id="fpga-vs-asic">5.1 FPGA vs. ASIC: Trade-offs and Use Cases</h2>
-    <p>
-    FPGAs and ASICs serve similar purposes—implementing digital logic—but they differ fundamentally:
-    </p>
-    <ul>
-      <li><strong>FPGAs</strong> are reprogrammable and suited for rapid development and prototyping.</li>
-      <li><strong>ASICs</strong> are fixed-function chips, optimized for performance and cost at scale.</li>
-    </ul>
-    <p>Comparison:</p>
-    <table>
-      <tr><th>Aspect</th><th>FPGA</th><th>ASIC</th></tr>
-      <tr><td>Reprogrammable</td><td>Yes</td><td>No</td></tr>
-      <tr><td>Development Cost</td><td>Low</td><td>High (Non-Recurring Engineering cost)</td></tr>
-      <tr><td>Unit Cost</td><td>High</td><td>Low (at high volume)</td></tr>
-      <tr><td>Performance</td><td>Lower</td><td>Higher</td></tr>
-      <tr><td>Time to Market</td><td>Fast</td><td>Slow</td></tr>
-    </table>
-    
-    <h2 id="lut-flipflop">5.2 Look-Up Tables (LUTs), Flip-Flops, and Interconnects</h2>
-    <p>
-    LUTs are the fundamental building blocks in FPGAs. They implement logic functions by storing output values for all input combinations.
-    </p>
-    <ul>
-      <li><strong>LUT:</strong> A small truth table that acts as a logic gate or small logic function.</li>
-      <li><strong>Flip-Flop:</strong> Stores the output value for use in sequential logic.</li>
-      <li><strong>Interconnect:</strong> The routing fabric that links LUTs and flip-flops together.</li>
-    </ul>
-    
-    <h2 id="clb">5.3 Configurable Logic Blocks (CLBs)</h2>
-    <p>
-    CLBs are modular blocks in an FPGA containing:
-    </p>
-    <ul>
-      <li>One or more LUTs</li>
-      <li>Flip-flops for storage</li>
-      <li>Control logic (e.g., multiplexers)</li>
-    </ul>
-    <p>
-    CLBs are tiled across the FPGA and are connected via programmable interconnects. They are the key to implementing digital circuits using Verilog or VHDL.
-    </p>
-    
-    <h2 id="bitstream">5.4 FPGA Programming and Bitstream Generation</h2>
-    <p>
-    Once a design is described in Verilog and synthesized, it must be translated into a bitstream—a binary file that configures the FPGA hardware.
-    </p>
-    <ol>
-      <li><strong>Synthesis:</strong> Converts HDL to logic gates.</li>
-      <li><strong>Implementation:</strong> Maps logic to LUTs, places them, and routes connections.</li>
-      <li><strong>Bitstream Generation:</strong> Encodes the configuration bits for the FPGA.</li>
-    </ol>
-    <p>
-    This file is then loaded onto the FPGA using a programmer or through boot memory on startup.
-    </p>
-    
-    <h2 id="synthesis">5.5 FPGA Synthesis, Placement, and Routing</h2>
-    <p>
-    The FPGA toolchain handles three key tasks:
-    </p>
-    <ul>
-      <li><strong>Synthesis:</strong> Generates a netlist of logic gates and flip-flops from HDL.</li>
-      <li><strong>Placement:</strong> Assigns logic elements to physical CLBs on the FPGA.</li>
-      <li><strong>Routing:</strong> Connects placed elements using the programmable interconnect.</li>
-    </ul>
-    <p>
-    Design quality is affected by timing closure, logic utilization, and routing congestion.
-    </p>
-    
-    <h2 id="summary">Summary</h2>
-    <ul>
-      <li>FPGAs offer flexibility while ASICs offer performance and efficiency for mass production.</li>
-      <li>LUTs, flip-flops, and interconnects are the core components of FPGAs.</li>
-      <li>CLBs organize these elements into reusable tiles for logic implementation.</li>
-      <li>Bitstream generation translates HDL designs into a binary format to configure the FPGA.</li>
-      <li>Synthesis, placement, and routing are critical steps in the FPGA design process.</li>
-    </ul>
-    
-    <h2 id="sim-prompt">🧪 MicroSim</h2>
-    <p><strong>Simulation Task:</strong> Write a simple Verilog module (e.g., a 2-bit adder), synthesize it, and examine the tool-generated report to identify the number of LUTs and flip-flops used.</p>
-    <ul>
-      <li>Use a synthesis tool like Yosys or Vivado.</li>
-      <li>Explore RTL schematic and timing summary reports.</li>
-    </ul>
-    
-    <div class="quiz">
-      <h2 id="quiz">✅ Quiz: Check Your Understanding</h2>
-    
-      <p><strong>1. What is the purpose of a LUT in an FPGA?</strong></p>
-      <ul>
-        <li>A) To store memory</li>
-        <li>B) To connect CLBs</li>
-        <li>C) To implement logic functions</li>
-        <li>D) To enable serial communication</li>
-      </ul>
-      <details><summary>Show Answer</summary>
-        <p><strong>Correct answer: C) To implement logic functions</strong></p>
-      </details>
-    
-      <p><strong>2. Which step follows synthesis in the FPGA toolchain?</strong></p>
-      <ul>
-        <li>A) Timing analysis</li>
-        <li>B) Bitstream upload</li>
-        <li>C) Placement</li>
-        <li>D) HDL debugging</li>
-      </ul>
-      <details><summary>Show Answer</summary>
-        <p><strong>Correct answer: C) Placement</strong></p>
-      </details>
-    
-      <p><strong>3. Which feature allows FPGAs to be reprogrammable?</strong></p>
-      <ul>
-        <li>A) Flash memory</li>
-        <li>B) CLBs</li>
-        <li>C) Bitstream</li>
-        <li>D) ASIC conversion</li>
-      </ul>
-      <details><summary>Show Answer</summary>
-        <p><strong>Correct answer: C) Bitstream</strong></p>
-      </details>
-    </div>
+<h2 id="intro">Introduction</h2>
+<p>
+As digital designs grow in complexity, traditional simulation methods alone may not be enough to uncover all potential issues. Formal verification uses mathematical proofs to ensure that a design behaves exactly as intended under all possible input conditions. Unlike simulation, which checks a limited set of scenarios, formal methods can exhaustively analyze the design for correctness, making them a powerful complement to simulation and debugging.
+</p>
+
+<h2 id="formal-verification">6.4 Formal Verification Techniques</h2>
+<p>
+Formal verification is the process of proving the functional correctness of a design using formal logic. It ensures that the design meets its specifications without relying on test vectors or simulation scenarios.
+</p>
+
+<h3>Why Formal Verification?</h3>
+<ul>
+  <li><strong>Exhaustive Checking:</strong> Evaluates all possible input combinations and states.</li>
+  <li><strong>Early Detection of Design Flaws:</strong> Finds bugs that are hard to catch with simulation.</li>
+  <li><strong>Complementary to Simulation:</strong> Works well alongside traditional verification techniques.</li>
+</ul>
+
+<h3>Key Techniques</h3>
+<ul>
+  <li><strong>Equivalence Checking:</strong> Confirms that two versions of a design (e.g., RTL vs. synthesized netlist) are functionally identical.</li>
+  <li><strong>Property Checking:</strong> Uses assertions or formal properties to define what must always (or never) happen in the design.</li>
+  <li><strong>Model Checking:</strong> Builds a model of the system and exhaustively explores its state space to validate behavior.</li>
+</ul>
+
+<h3>Common Applications</h3>
+<ul>
+  <li>Ensuring protocol compliance (e.g., bus interfaces)</li>
+  <li>Verifying safety and liveness properties in control logic</li>
+  <li>Proving reset behavior and state machine correctness</li>
+  <li>Validating equivalence after synthesis or optimization</li>
+</ul>
+
+<h3>Tools and Languages</h3>
+<ul>
+  <li><strong>Languages:</strong> SystemVerilog Assertions (SVA), PSL (Property Specification Language)</li>
+  <li><strong>Tools:</strong> JasperGold (Cadence), Questa Formal (Siemens), Symbiyosys (open-source)</li>
+</ul>
+
+<h2 id="sim-prompt">🧪 MicroSim: Prove It, Don’t Just Test It</h2>
+<p><strong>Verification Task:</strong> Write a SystemVerilog assertion to formally verify the behavior of a simple finite state machine (FSM). Use a formal tool to prove that the FSM never enters an undefined state.</p>
+<ul>
+  <li>Use open-source tools like Symbiyosys or commercial formal tools if available.</li>
+  <li>Explore counterexamples provided when properties fail.</li>
+</ul>
+
+<div class="quiz">
+  <h2 id="quiz">✅ Quiz: Check Your Understanding</h2>
+
+  <p><strong>1. What is the main advantage of formal verification over simulation?</strong></p>
+  <ul>
+    <li>A) It is easier to write testbenches</li>
+    <li>B) It requires fewer tools</li>
+    <li>C) It checks all possible behaviors mathematically</li>
+    <li>D) It only works on small designs</li>
+  </ul>
+  <details><summary>Show Answer</summary>
+    <p><strong>Correct answer: C) It checks all possible behaviors mathematically</strong></p>
+  </details>
+
+  <p><strong>2. What does equivalence checking verify?</strong></p>
+  <ul>
+    <li>A) That the HDL compiles correctly</li>
+    <li>B) That two design representations produce identical outputs</li>
+    <li>C) That the power consumption is minimized</li>
+    <li>D) That synthesis was successful</li>
+  </ul>
+  <details><summary>Show Answer</summary>
+    <p><strong>Correct answer: B) That two design representations produce identical outputs</strong></p>
+  </details>
+
+  <p><strong>3. What kind of language is SystemVerilog Assertions (SVA)?</strong></p>
+  <ul>
+    <li>A) A simulation tool</li>
+    <li>B) A design entry format</li>
+    <li>C) A formal property specification language</li>
+    <li>D) A waveform viewer</li>
+  </ul>
+  <details><summary>Show Answer</summary>
+    <p><strong>Correct answer: C) A formal property specification language</strong></p>
+  </details>
+</div>
 
 
           
