@@ -10,8 +10,10 @@ function setup() {
   // Create toggle buttons for 4-bit input
   for (let i = 0; i < 4; i++) {
     buttons[i] = createButton('0');
-    buttons[i].position(50 + i * 60, 50);
+    buttons[i].parent('sim-wrapper'); // Attach to the same container
+    buttons[i].style('margin', '10px');
     buttons[i].mousePressed(() => toggleBit(i));
+
   }
 }
 
