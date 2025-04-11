@@ -2,7 +2,8 @@ let bits = [0, 0, 0, 0];
 let buttons = [];
 
 function setup() {
-  createCanvas(400, 400);
+  let canvas = createCanvas(400, 400);
+  canvas.parent('sim-wrapper');
   textAlign(CENTER, CENTER);
   textSize(16);
   
