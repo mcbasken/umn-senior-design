@@ -6,7 +6,7 @@ let baseLabels = ["Binary", "Octal", "Decimal", "Hex"];
 
 function setup() {
   const canvas = createCanvas(400, 400);
-  canvas.parent("canvas-container");
+  canvas.parent('canvas-container');
   textAlign(CENTER, CENTER);
   textSize(14);
 
