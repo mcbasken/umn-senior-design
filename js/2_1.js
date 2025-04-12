@@ -83,14 +83,16 @@ function draw() {
 }
 
 function createSwitch(arr, index, x, y, label) {
-  let btn = createButton(arr[index]);
-  btn.position(x, y);
-  btn.size(30, 30);
+let btn = createButton(arr[index]);
+btn.parent('sim-wrapper');
+btn.style('margin', '4px');
   btn.mousePressed(() => {
     arr[index] = arr[index] ? 0 : 1;
     btn.html(arr[index]);
   });
-  let lbl = createDiv(label + index);
-  lbl.position(x, y - 20);
+let lbl = createDiv(label + index);
+lbl.parent('sim-wrapper');
+lbl.style('margin-right', '10px');
+
 }
 
