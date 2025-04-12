@@ -1,9 +1,10 @@
-// LogicLab: Foundations of Digital Design MicroSim
+// Digital Design MicroSim
 let mode = 0;
 let modes = ["Number Systems", "Boolean Logic", "Truth Table"];
 let inputBits = [0, 0, 0, 0]; // 4-bit input
 let baseLabels = ["Binary", "Octal", "Decimal", "Hex"];
 let switchModeBtn;
+let inputButtons = [];
 
 function setup() {
   let canvas = createCanvas(400, 400);
@@ -13,11 +14,11 @@ function setup() {
 
   // Input toggle buttons
   for (let i = 0; i < 4; i++) {
-    let btn = createButton("0");
-    btn.position(60 + i * 70, 50); // Evenly spaced across canvas
-    btn.mousePressed(() => {
+    inputButtons[i] = createButton("0");
+    inputButtons[i].position(80 + i * 60, 50); // Evenly spaced across center
+    inputButtons[i].mousePressed(() => {
       inputBits[i] = inputBits[i] ? 0 : 1;
-      btn.html(inputBits[i]);
+      inputButtons[i].html(inputBits[i]);
     });
   }
 
@@ -33,7 +34,14 @@ function draw() {
   background(245);
   fill(0);
   textSize(16);
-  text("LogicLab: " + modes[mode], width / 2, 20);
+  text(modes[mode], width / 2, 20);
+
+  // Label A, B, C, D under each button
+  textSize(12);
+  let labels = ["A", "B", "C", "D"];
+  for (let i = 0; i < 4; i++) {
+    text(labels[i], 95 + i * 60, 90);
+  }
 
   switch (mode) {
     case 0:
@@ -55,33 +63,37 @@ function drawNumberSystems() {
   let hex = dec.toString(16).toUpperCase();
 
   textSize(16);
-  text("Binary:    " + bin, width / 2, 120);
-  text("Octal:     " + oct, width / 2, 150);
-  text("Decimal:   " + dec, width / 2, 180);
-  text("Hex:       0x" + hex, width / 2, 210);
+  text("Binary:    " + bin, width / 2, 140);
+  text("Octal:     " + oct, width / 2, 170);
+  text("Decimal:   " + dec, width / 2, 200);
+  text("Hex:       0x" + hex, width / 2, 230);
 }
 
 function drawBooleanLogic() {
-  let A = inputBits[2];
-  let B = inputBits[3];
-  let andAB = A & B;
-  let orAB = A | B;
-  let notA = A ^ 1;
-  let xorAB = A ^ B;
+  let B = inputBits[1];
+  let C = inputBits[2];
+  let andBC = B & C;
+  let orBC = B | C;
+  let notB = B ^ 1;
+  let xorBC = B ^ C;
 
-  text("A = " + A + "    B = " + B, width / 2, 120);
-  text("A AND B = " + andAB, width / 2, 150);
-  text("A OR  B = " + orAB, width / 2, 180);
-  text("A XOR B = " + xorAB, width / 2, 210);
-  text("NOT A   = " + notA, width / 2, 240);
+  textSize(16);
+  text("B = " + B + "    C = " + C, width / 2, 130);
+  text("B AND C = " + andBC, width / 2, 160);
+  text("B OR  C = " + orBC, width / 2, 190);
+  text("B XOR C = " + xorBC, width / 2, 220);
+  text("NOT B   = " + notB, width / 2, 250);
 }
 
 function drawTruthTable() {
-  text("Inputs: A = " + inputBits[2] + "  B = " + inputBits[3], width / 2, 100);
-  text("Truth Table for A AND B:", width / 2, 140);
-  text("A B | Y", width / 2, 170);
+  let B = inputBits[1];
+  let C = inputBits[2];
+  textSize(16);
+  text("Inputs: B = " + B + "  C = " + C, width / 2, 110);
+  text("Truth Table for B AND C:", width / 2, 140);
+  text("B C | Y", width / 2, 170);
   let yVals = ["0 0 | 0", "0 1 | 0", "1 0 | 0", "1 1 | 1"];
   for (let i = 0; i < 4; i++) {
     text(yVals[i], width / 2, 200 + i * 20);
   }
-}
+} 
