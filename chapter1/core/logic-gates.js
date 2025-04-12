@@ -5,8 +5,8 @@ let inputBits = [0, 0, 0, 0]; // 4-bit input
 let baseLabels = ["Binary", "Octal", "Decimal", "Hex"];
 
 function setup() {
-  let canvas = createCanvas(400, 400);
-  canvas.parent("sim-wrapper");
+  const canvas = createCanvas(400, 400);
+  canvas.parent('canvas-container');
   textAlign(CENTER, CENTER);
   textSize(14);
 
