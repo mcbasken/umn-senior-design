@@ -9,7 +9,8 @@ let carryOut = 0;
 let muxOut = 0;
 
 function setup() {
-  createCanvas(400, 400);
+  let canvas = createCanvas(400, 400);
+  canvas.parent('sim-wrapper');
   textAlign(CENTER, CENTER);
   textSize(14);
 
