@@ -1,12 +1,17 @@
 let A = [0, 0, 0, 0];
 let B = [0, 0, 0, 0];
-let opcode = [0, 0, 0]; // 3-bit opcode
-let select = [0, 0]; // For 4:1 MUX
+let opcode = [0, 0, 0];
+let buttonsA = [], buttonsB = [], opButtons = [];
 
 let result = [0, 0, 0, 0];
-let zero = 0;
 let carryOut = 0;
-let muxOut = 0;
+let zero = 0;
+
+// MUX stuff
+let muxInputs = [0, 0, 0, 0];  // I0–I3
+let muxSelect = [0, 0];        // S1, S0
+let muxButtons = [], muxSelButtons = [];
+let muxY = 0;
 
 function setup() {
   let canvas = createCanvas(400, 400);
@@ -14,85 +19,133 @@ function setup() {
   textAlign(CENTER, CENTER);
   textSize(14);
 
-  // Create switches for inputs A and B
+  // ALU A inputs
   for (let i = 0; i < 4; i++) {
-    createSwitch(A, i, 30 + i * 40, 30, 'A');
-    createSwitch(B, i, 30 + i * 40, 80, 'B');
+    buttonsA[i] = createButton('0');
+    buttonsA[i].position(40 + i * 40, 20);
+    buttonsA[i].mousePressed(() => toggleBit(A, i, buttonsA[i]));
   }
 
-  // Create switches for opcode
+  // ALU B inputs
+  for (let i = 0; i < 4; i++) {
+    buttonsB[i] = createButton('0');
+    buttonsB[i].position(40 + i * 40, 60);
+    buttonsB[i].mousePressed(() => toggleBit(B, i, buttonsB[i]));
+  }
+
+  // Opcode switches
   for (let i = 0; i < 3; i++) {
-    createSwitch(opcode, i, 30 + i * 40, 140, 'Op');
+    opButtons[i] = createButton('0');
+    opButtons[i].position(250 + i * 30, 20);
+    opButtons[i].mousePressed(() => toggleBit(opcode, i, opButtons[i]));
   }
 
-  // Create switches for multiplexer select lines
+  // MUX inputs I0–I3
+  for (let i = 0; i < 4; i++) {
+    muxButtons[i] = createButton('0');
+    muxButtons[i].position(40 + i * 40, 280);
+    muxButtons[i].mousePressed(() => toggleBit(muxInputs, i, muxButtons[i]));
+  }
+
+  // MUX select S0, S1
   for (let i = 0; i < 2; i++) {
-    createSwitch(select, i, 250 + i * 40, 30, 'S');
+    muxSelButtons[i] = createButton('0');
+    muxSelButtons[i].position(250 + i * 30, 280);
+    muxSelButtons[i].mousePressed(() => toggleBit(muxSelect, i, muxSelButtons[i]));
   }
 }
 
 function draw() {
   background(255);
+  drawALU();
+  drawALUOutput();
+  drawMUX();
+}
 
-  // Determine operation
+function drawALU() {
+  fill(200);
+  stroke(0);
+  rectMode(CENTER);
+  rect(width / 2, height / 2 - 40, 160, 100, 10);
+  fill(0);
+  textSize(16);
+  text("4-Bit ALU", width / 2, height / 2 - 40);
+
+  // Labels
+  fill(0);
+  textSize(12);
+  text("A Input", 20, 35);
+  text("B Input", 20, 75);
+  text("Opcode", 280, 10);
+
+  text("000: AND", 310, 60);
+  text("001: OR", 310, 75);
+  text("010: XOR", 310, 90);
+  text("011: NOT A", 310, 105);
+  text("100: ADD", 310, 120);
+  text("101: SUB", 310, 135);
+}
+
+function drawALUOutput() {
   let op = parseInt(opcode.join(''), 2);
   let aVal = parseInt(A.join(''), 2);
   let bVal = parseInt(B.join(''), 2);
-  let resVal = 0;
+  let res = 0;
 
-  // ALU Ops based on opcode
   switch (op) {
-    case 0: resVal = aVal & bVal; break; // AND
-    case 1: resVal = aVal | bVal; break; // OR
-    case 2: resVal = aVal ^ bVal; break; // XOR
-    case 3: resVal = (~aVal) & 0xF; break; // NOT A
-    case 4: resVal = aVal + bVal; break; // ADD
-    case 5: resVal = (aVal - bVal + 16) % 16; break; // SUB (wrap-around)
-    default: resVal = 0; break;
+    case 0: res = aVal & bVal; break;
+    case 1: res = aVal | bVal; break;
+    case 2: res = aVal ^ bVal; break;
+    case 3: res = (~aVal) & 0b1111; break;
+    case 4: res = aVal + bVal; break;
+    case 5: res = (aVal - bVal + 16) % 16; break;
+    default: res = 0;
   }
 
-  result = resVal.toString(2).padStart(4, '0').split('').map(Number);
-  carryOut = op === 4 && aVal + bVal > 15 ? 1 : 0;
-  zero = resVal === 0 ? 1 : 0;
+  result = res.toString(2).padStart(4, '0').split('').map(Number);
+  carryOut = (op === 4 && aVal + bVal > 15) ? 1 : 0;
+  zero = res === 0 ? 1 : 0;
 
-  // Display ALU result
   fill(0);
-  text("Result (R3 R2 R1 R0): " + result.join(' '), width / 2, 200);
-  text("Zero Flag: " + zero, width / 2, 230);
-  text("Carry-Out: " + carryOut, width / 2, 260);
+  textSize(14);
+  text("Y = " + result.join(''), width / 2, 170);
+  drawLED(width / 2 - 30, 200, zero, "Zero");
+  drawLED(width / 2 + 30, 200, carryOut, "Carry");
 
-  // 4:1 Multiplexer Logic (select between A[0]-A[3])
-  let s = parseInt(select.join(''), 2);
-  muxOut = A[s];
-
-  text(`4:1 MUX Output (Y = A[S1S0] = A[${s}]): ${muxOut}`, width / 2, 300);
-
-  // MUX visual
-  for (let i = 0; i < 4; i++) {
-    fill(i === s ? 'green' : 'lightgray');
-    rect(50 + i * 50, 340, 40, 30);
-    fill(0);
-    text("A" + i + "=" + A[i], 70 + i * 50, 355);
-  }
-
-  // Output LED
-  fill(muxOut ? 'green' : 'red');
-  ellipse(width - 40, 350, 20, 20);
-  fill(0);
-  text("MUX Y", width - 40, 375);
+  console.log(`ALU: A=${A.join('')} B=${B.join('')} OPCODE=${opcode.join('')} => Y=${result.join('')} | Z=${zero} C=${carryOut}`);
 }
 
-function createSwitch(arr, index, x, y, label) {
-let btn = createButton(arr[index]);
-btn.parent('sim-wrapper');
-btn.style('margin', '4px');
-  btn.mousePressed(() => {
-    arr[index] = arr[index] ? 0 : 1;
-    btn.html(arr[index]);
-  });
-let lbl = createDiv(label + index);
-lbl.parent('sim-wrapper');
-lbl.style('margin-right', '10px');
+function drawMUX() {
+  fill(0);
+  text("4:1 MUX Inputs", width / 2, 260);
+  text(`Select: S1=${muxSelect[0]} S0=${muxSelect[1]}`, width / 2, 300);
 
+  // MUX logic
+  let S1 = muxSelect[0], S0 = muxSelect[1];
+  let notS1 = S1 ^ 1;
+  let notS0 = S0 ^ 1;
+
+  let and0 = muxInputs[0] & notS1 & notS0;
+  let and1 = muxInputs[1] & notS1 & S0;
+  let and2 = muxInputs[2] & S1 & notS0;
+  let and3 = muxInputs[3] & S1 & S0;
+
+  muxY = and0 | and1 | and2 | and3;
+
+  drawLED(width - 40, 360, muxY, "MUX Y");
+
+  console.log(`MUX: I=${muxInputs.join('')} S=${muxSelect.join('')} => Y=${muxY}`);
 }
 
+function drawLED(x, y, on, label) {
+  fill(on ? 'green' : 'red');
+  ellipse(x, y, 20);
+  fill(0);
+  textSize(12);
+  text(label, x, y + 20);
+}
+
+function toggleBit(arr, index, button) {
+  arr[index] = arr[index] ? 0 : 1;
+  button.html(arr[index]);
+}
