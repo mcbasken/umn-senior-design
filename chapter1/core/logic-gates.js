@@ -1,6 +1,6 @@
 // Digital Design MicroSim
 let mode = 0;
-let modes = ["Number Systems", "Boolean Logic", "Truth Table"];
+let modes = ["Number Systems", "Boolean Logic"];
 let inputBits = [0, 0, 0, 0]; // 4-bit input
 let baseLabels = ["Binary", "Octal", "Decimal", "Hex"];
 let switchModeBtn;
@@ -36,22 +36,12 @@ function draw() {
   textSize(16);
   text(modes[mode], width / 2, 20);
 
-  // Label A, B, C, D under each button
-  textSize(12);
-  let labels = ["A", "B", "C", "D"];
-  for (let i = 0; i < 4; i++) {
-    text(labels[i], 95 + i * 60, 90);
-  }
-
   switch (mode) {
     case 0:
       drawNumberSystems();
       break;
     case 1:
       drawBooleanLogic();
-      break;
-    case 2:
-      drawTruthTable();
       break;
   }
 }
@@ -70,30 +60,16 @@ function drawNumberSystems() {
 }
 
 function drawBooleanLogic() {
+  let A = inputBits[0];
   let B = inputBits[1];
-  let C = inputBits[2];
-  let andBC = B & C;
-  let orBC = B | C;
-  let notB = B ^ 1;
-  let xorBC = B ^ C;
+  let andAB = A & B;
+  let orAB = A | B;
+  let notA = A ^ 1;
+  let xorAB = A ^ B;
 
   textSize(16);
-  text("B = " + B + "    C = " + C, width / 2, 130);
-  text("B AND C = " + andBC, width / 2, 160);
-  text("B OR  C = " + orBC, width / 2, 190);
-  text("B XOR C = " + xorBC, width / 2, 220);
-  text("NOT B   = " + notB, width / 2, 250);
-}
-
-function drawTruthTable() {
-  let B = inputBits[1];
-  let C = inputBits[2];
-  textSize(16);
-  text("Inputs: B = " + B + "  C = " + C, width / 2, 110);
-  text("Truth Table for B AND C:", width / 2, 140);
-  text("B C | Y", width / 2, 170);
-  let yVals = ["0 0 | 0", "0 1 | 0", "1 0 | 0", "1 1 | 1"];
-  for (let i = 0; i < 4; i++) {
-    text(yVals[i], width / 2, 200 + i * 20);
-  }
+  text("A AND B = " + andAB, width / 2, 160);
+  text("A OR  B = " + orAB, width / 2, 190);
+  text("A XOR B = " + xorAB, width / 2, 220);
+  text("NOT A   = " + notA, width / 2, 250);
 } 
