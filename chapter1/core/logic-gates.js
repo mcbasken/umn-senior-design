@@ -3,27 +3,28 @@ let mode = 0;
 let modes = ["Number Systems", "Boolean Logic", "Truth Table"];
 let inputBits = [0, 0, 0, 0]; // 4-bit input
 let baseLabels = ["Binary", "Octal", "Decimal", "Hex"];
+let switchModeBtn;
 
 function setup() {
-  const canvas = createCanvas(400, 400);
-  canvas.parent('canvas-container');
+  let canvas = createCanvas(400, 400);
+  canvas.parent("canvas-container");
   textAlign(CENTER, CENTER);
   textSize(14);
 
   // Input toggle buttons
   for (let i = 0; i < 4; i++) {
     let btn = createButton("0");
-    btn.position(60 + i * 50, 50);
+    btn.position(60 + i * 70, 50); // Evenly spaced across canvas
     btn.mousePressed(() => {
       inputBits[i] = inputBits[i] ? 0 : 1;
       btn.html(inputBits[i]);
     });
   }
 
-  // Mode toggle button
-  let modeBtn = createButton("Switch Mode");
-  modeBtn.position(140, 10);
-  modeBtn.mousePressed(() => {
+  // Mode toggle button at bottom of canvas
+  switchModeBtn = createButton("Switch Mode");
+  switchModeBtn.position(140, 370);
+  switchModeBtn.mousePressed(() => {
     mode = (mode + 1) % modes.length;
   });
 }
