@@ -237,8 +237,8 @@
                 id: parseInt(id),
                 label: name,
                 color: categories[assignCategory(name)],
-                shape: "dot",
-                size: 10,
+                shape: parseInt(id) === 1 ? "box" : "dot", // Make node 1 a square
+                size: parseInt(id) === 1 ? 20 : 10, // Larger size for the first node
                 font: { align: "top" }
             });
 
@@ -280,6 +280,17 @@
         };
 
         new vis.Network(container, data, options);
+
+                // Focus on the starting node after stabilization
+        network.once('stabilizationIterationsDone', function () {
+            network.focus(1, {
+                scale: 1.5,
+                animation: {
+                    duration: 1000,
+                    easingFunction: "easeInOutQuad"
+                }
+            });
+        });
     </script>
 </body>
 </html>
