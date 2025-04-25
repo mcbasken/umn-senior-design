@@ -239,7 +239,12 @@
                 color: categories[assignCategory(name)],
                 shape: parseInt(id) === 1 ? "box" : "dot", // Make node 1 a box
                 size: 10, // Same size for all nodes
-                font: { align: "top", vadjust: -10 } // Position label above all nodes
+                font: {
+                    align: "top",
+                    vadjust: isStartNode ? -15 : -10 // Slightly higher label for the box
+                },
+                widthConstraint: isStartNode ? { minimum: 30, maximum: 30 } : undefined,
+                heightConstraint: isStartNode ? { minimum: 30, maximum: 30 } : undefined
             });
 
             if (dependencies) {
