@@ -233,18 +233,18 @@
 
         rows.forEach(row => {
             const [id, name, dependencies] = row.split(",").map(s => s.trim());
+            const isStartNode = parseInt(id) === 1;
             nodesArray.push({
                 id: parseInt(id),
                 label: name,
                 color: categories[assignCategory(name)],
-                shape: parseInt(id) === 1 ? "box" : "dot", // Make node 1 a box
-                size: 10, // Same size for all nodes
+                shape: isStartNode ? "box" : "dot",
+                size: 10,
                 font: {
                     align: "top",
-                    vadjust: isStartNode ? -15 : -10 // Slightly higher label for the box
+                    vadjust: -10
                 },
-                widthConstraint: isStartNode ? { minimum: 30, maximum: 30 } : undefined,
-                heightConstraint: isStartNode ? { minimum: 30, maximum: 30 } : undefined
+                margin: isStartNode ? 5 : undefined
             });
 
             if (dependencies) {
