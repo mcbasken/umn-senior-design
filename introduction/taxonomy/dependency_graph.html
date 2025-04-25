@@ -237,9 +237,9 @@
                 id: parseInt(id),
                 label: name,
                 color: categories[assignCategory(name)],
-                shape: parseInt(id) === 1 ? "box" : "dot", // Make node 1 a square
-                size: parseInt(id) === 1 ? 20 : 10, // Larger size for the first node
-                font: { align: "top" }
+                shape: parseInt(id) === 1 ? "box" : "dot", // Make node 1 a box
+                size: 10, // Same size for all nodes
+                font: { align: "top", vadjust: -10 } // Position label above all nodes
             });
 
             if (dependencies) {
