@@ -13,39 +13,16 @@
     --md-primary-fg-color--dark: #600000;
   }
 
-/* Fix page width */
-.md-main__inner {
-  max-width: 1200px; /* Make it much wider */
-}
-
-/* Global text styling */
+/* General body styling (normal textbook pages) */
 body {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #333;
-  text-align: left;
-}
-
-/* Text container */
-.md-content {
-  text-align: left;
-}
-
-/* Prevent centering small content */
-.md-typeset {
-  max-width: 100%;
-  font-size: 18px;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: white;
   margin: 0;
   padding: 0;
-  font-size: 18px; /* Make normal text larger and readable */
-  line-height: 1.6; /* Better spacing for paragraphs */
-  color: #333;
-  text-align: left; /* Normal left-aligned text */
+  font-family: Arial, sans-serif;
+  background: white;
+  font-size: 18px; /* Big readable text */
+  line-height: 1.6;
+  text-align: left;
+  max-width: 100%;
 }
 
 /* ONLY for Microsim pages */
