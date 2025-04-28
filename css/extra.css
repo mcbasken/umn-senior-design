@@ -18,6 +18,21 @@
     --md-primary-fg-color--dark: #600000;
 }
 
+/* Make the site title bigger */
+.md-header__title {
+  font-size: 24px; /* Bigger site title */
+}
+
+/* Make the main navigation sidebar links bigger */
+.md-nav__link {
+  font-size: 18px; /* Bigger nav links */
+}
+
+/* Make the Table of Contents (right sidebar) links bigger */
+.md-sidebar--secondary .md-nav__link {
+  font-size: 18px; /* Bigger ToC links */
+}
+
 /* Base page layout (normal Material layout) */
 body {
   margin: 0;
