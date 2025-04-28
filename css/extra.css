@@ -29,14 +29,19 @@ body {
 
 /* Restore normal centered page */
 .md-main__inner {
-  max-width: 1100px; /* Default Material width */
+  max-width: 1500px; /* Default Material width */
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-/* Restore normal text inside pages */
+/* Actual content inside pages */
 .md-content {
-  font-size: 18px; /* You can bump font size a little */
+  max-width: 100%;
+}
+
+/* This is the real inner text container */
+.md-content__inner {
+  max-width: 100%; /* REMOVE artificial narrow limits */
 }
 
 .md-typeset {
