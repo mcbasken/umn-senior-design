@@ -8,7 +8,7 @@ let inputButtons = [];
 
 function setup() {
   let canvas = createCanvas(600, 600);
-  canvas.parent("canvas-container");
+  canvas.parent("p5-sketch");
   textAlign(CENTER, CENTER);
   textSize(18);
 
