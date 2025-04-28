@@ -7,28 +7,29 @@ let switchModeBtn;
 let inputButtons = [];
 
 function setup() {
-  let canvas = createCanvas(400, 400);
+  let canvas = createCanvas(600, 600); // bigger canvas
   canvas.parent("canvas-container");
   textAlign(CENTER, CENTER);
-  textSize(14);
+  textSize(18); // bump text size a bit too
 
   // Input toggle buttons
   for (let i = 0; i < 4; i++) {
     inputButtons[i] = createButton("0");
-    inputButtons[i].position(80 + i * 60, 50); // Evenly spaced across center
+    inputButtons[i].position(100 + i * 100, 80); // spread across wider area
     inputButtons[i].mousePressed(() => {
       inputBits[i] = inputBits[i] ? 0 : 1;
       inputButtons[i].html(inputBits[i]);
     });
   }
 
-  // Mode toggle button at bottom of canvas
+  // Mode toggle button
   switchModeBtn = createButton("Switch Mode");
-  switchModeBtn.position(140, 370);
+  switchModeBtn.position(width / 2 - 60, height - 50);
   switchModeBtn.mousePressed(() => {
     mode = (mode + 1) % modes.length;
   });
 }
+
 
 function draw() {
   background(245);
