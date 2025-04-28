@@ -235,36 +235,22 @@
             const [id, name, dependencies] = row.split(",").map(s => s.trim());
             const isStartNode = parseInt(id) === 1;
             const commonFont = { size: 14, face: "arial", align: "top", vadjust: -10 };
-
-            // Assume circles have a radius ~10
-            const circleRadius = 10; 
-            const circleArea = Math.PI * Math.pow(circleRadius, 2); 
-            const sideLength = Math.sqrt(circleArea); // Approx side length for same area box
         
-            const node = {
+            nodesArray.push({
                 id: parseInt(id),
                 label: name,
-                color: categories[assignCategory(name)],
-                font: commonFont,
-                size: isStartNode ? undefined : circleRadius, // Only circles use size
-                shape: isStartNode ? "box" : "dot",
-            };
+                color: isStartNode ? "#1f77b4" : categories[assignCategory(name)], // You can customize start node color if needed
+                shape: "dot", // Always a circle
+                size: isStartNode ? 20 : 10, // First node is bigger to stand out
+                font: commonFont
+            });
         
-            if (isStartNode) {
-                node.widthConstraint = { minimum: sideLength * 2, maximum: sideLength * 2 };
-                node.heightConstraint = { minimum: sideLength * 2, maximum: sideLength * 2 };
-            }
-        
-            nodesArray.push(node);
-
-
             if (dependencies) {
                 dependencies.split("|").forEach(dep => {
                     edgesArray.push({ from: parseInt(dep), to: parseInt(id) });
                 });
             }
         });
-
         const nodes = new vis.DataSet(nodesArray);
         const edges = new vis.DataSet(edgesArray);
 
