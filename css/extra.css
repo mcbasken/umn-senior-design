@@ -1,24 +1,4 @@
-/* Keep the default Material centered layout */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: white;
-  color: #333;
-}
 
-/* Only make text inside the content area bigger and more readable */
-.md-content {
-  font-size: 18px; /* Bigger text */
-  line-height: 1.6;
-}
-
-/* Paragraph text and headings */
-.md-typeset {
-  font-size: 18px; /* Bigger body text */
-  line-height: 1.6;
-  text-align: left; /* Make sure text is left aligned inside box */
-}
 
 /* Logo fixes (keep your maroon color theme) */
 .md-header__button.md-logo {
@@ -38,15 +18,10 @@ body {
     --md-primary-fg-color--dark: #600000;
 }
 
-/* (Optional) Slightly bigger side padding if needed */
-.md-main__inner {
-  padding: 0 2rem; /* Adds a little breathing room on the sides */
-}
-
 
 
 /* MicroSim box */
-#canvas-container {
+body.microsim-body #canvas-container {
   background: white;
   width: 90%;
   max-width: 800px;
