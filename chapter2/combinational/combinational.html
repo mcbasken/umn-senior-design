@@ -2,17 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Combinational Logic</title>
+  <title>Unified Logic MicroSim</title>
+  <link rel="stylesheet" href="extra.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-  </style>
 </head>
-<body>
-  <div id="canvas-container"></div>
-  <h1>Combinational MicroSim</h1>
-  <script src="combinational.js"></script>
+<body class="microsim-body">
+
+<div id="canvas-container">
+  <h1>Unified Logic MicroSim</h1>
+  <p>Toggle inputs A and B, select an operation, and view the output!</p>
+
+  <div id="p5-sketch"></div>
+</div>
+
+<script src="unified-microsim.js"></script>
+
 </body>
 </html>
