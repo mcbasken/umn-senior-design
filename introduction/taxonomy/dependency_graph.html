@@ -234,18 +234,29 @@
         rows.forEach(row => {
             const [id, name, dependencies] = row.split(",").map(s => s.trim());
             const isStartNode = parseInt(id) === 1;
-            nodesArray.push({
+            const commonFont = { size: 14, face: "arial", align: "top", vadjust: -10 };
+
+            // Assume circles have a radius ~10
+            const circleRadius = 10; 
+            const circleArea = Math.PI * Math.pow(circleRadius, 2); 
+            const sideLength = Math.sqrt(circleArea); // Approx side length for same area box
+        
+            const node = {
                 id: parseInt(id),
                 label: name,
                 color: categories[assignCategory(name)],
+                font: commonFont,
+                size: isStartNode ? undefined : circleRadius, // Only circles use size
                 shape: isStartNode ? "box" : "dot",
-                size: 10,
-                font: {
-                    align: "top",
-                    vadjust: -10
-                },
-                margin: isStartNode ? 5 : undefined
-            });
+            };
+        
+            if (isStartNode) {
+                node.widthConstraint = { minimum: sideLength * 2, maximum: sideLength * 2 };
+                node.heightConstraint = { minimum: sideLength * 2, maximum: sideLength * 2 };
+            }
+        
+            nodesArray.push(node);
+
 
             if (dependencies) {
                 dependencies.split("|").forEach(dep => {
