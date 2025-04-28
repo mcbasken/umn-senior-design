@@ -124,18 +124,3 @@ body.microsim-body #canvas-container .error {
   color: red;
 }
 
-body.microsim-body #canvas-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#p5-sketch {
-  margin-bottom: 20px;
-}
-
-#gate-selector {
-  margin-top: 10px;
-  font-size: 18px;
-}
