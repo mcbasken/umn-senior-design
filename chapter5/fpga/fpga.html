@@ -2,17 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>FPGA Architecture and Development</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-  </style>
+  <title>FPGA and ASIC MicroSim</title>
+  <link rel="stylesheet" href="extra.css">
 </head>
 <body>
-  <div id="canvas-container"></div>
-  <h1>FPGA MicroSim</h1>
-  <script src="mem.js"></script>
+
+  <div class="microsim-page">
+    <h1>FPGA and ASIC MicroSim</h1>
+    <p>Type your Verilog or FPGA-related code below and click "Check Code"!</p>
+
+    <div id="canvas-container">
+      <textarea id="verilogInput" placeholder="Describe your FPGA or ASIC design process..."></textarea><br>
+      <button id="checkButton">Check Code</button>
+
+      <div id="feedback"></div>
+    </div>
+  </div>
+
+  <script src="fpga.js"></script>
+
 </body>
 </html>
