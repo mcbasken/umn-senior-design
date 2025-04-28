@@ -2,22 +2,13 @@ let inputA = 0;
 let inputB = 0;
 let selectedGate = "AND";
 let gateOptions = ["AND", "OR", "XOR", "NOT"];
-let gateDropdown;
+let gateIndex = 0; // Tracks current selected gate
 
 function setup() {
   let canvas = createCanvas(800, 400);
   canvas.parent('p5-sketch');
   textAlign(CENTER, CENTER);
   textSize(20);
-
-  // Setup dropdown outside the canvas
-  gateDropdown = select('#gateDropdown');
-  for (let option of gateOptions) {
-    gateDropdown.option(option);
-  }
-  gateDropdown.changed(() => {
-    selectedGate = gateDropdown.value();
-  });
 }
 
 function draw() {
@@ -45,6 +36,9 @@ function draw() {
   // Output display
   let output = calculateOutput(inputA, inputB, selectedGate);
   drawOutput(700, 200, output);
+
+  // Draw "dropdown" selector inside canvas
+  drawGateSelector();
 }
 
 function drawInput(x, y, label, value) {
@@ -71,6 +65,15 @@ function drawOutput(x, y, value) {
   text(value, x, y);
 }
 
+function drawGateSelector() {
+  fill(255);
+  stroke(0);
+  rect(width/2 - 80, height - 70, 160, 40, 8);
+  fill(0);
+  noStroke();
+  text("Gate: " + selectedGate, width/2, height - 50);
+}
+
 function mousePressed() {
   // Click input A
   if (dist(mouseX, mouseY, 100, 150) < 25) {
@@ -80,6 +83,13 @@ function mousePressed() {
   if (dist(mouseX, mouseY, 100, 250) < 25) {
     inputB = inputB ? 0 : 1;
   }
+  // Click "dropdown" inside canvas
+  if (mouseX > width/2 - 80 && mouseX < width/2 + 80 &&
+      mouseY > height - 70 && mouseY < height - 30) {
+    // Cycle to next gate
+    gateIndex = (gateIndex + 1) % gateOptions.length;
+    selectedGate = gateOptions[gateIndex];
+  }
 }
 
 function calculateOutput(a, b, gate) {
@@ -87,7 +97,7 @@ function calculateOutput(a, b, gate) {
     case "AND": return a & b;
     case "OR": return a | b;
     case "XOR": return a ^ b;
-    case "NOT": return a ^ 1; // Only treat A for NOT
+    case "NOT": return a ^ 1; // Only NOT A
     default: return 0;
   }
 }
