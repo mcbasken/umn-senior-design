@@ -32,7 +32,7 @@ function setup() {
 
 
 function draw() {
-  background(220, 235, 255);
+  background(245);
   fill(0);
   textSize(18);
   text(modes[mode], width / 2, 20);
