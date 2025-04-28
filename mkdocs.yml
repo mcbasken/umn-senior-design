@@ -69,7 +69,10 @@ theme:
     - navigation.footer
     - content.action.edit
 plugins:
-  - search
+  - search:
+      lang: en
+      separator: '[\s\-\.]+'
+      prebuild_index: true
   - glossary
   - awesome-pages
 #  - social
