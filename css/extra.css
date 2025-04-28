@@ -29,7 +29,7 @@ body {
 
 /* Restore normal centered page */
 .md-main__inner {
-  max-width: 1800px; /* Default Material width */
+  max-width: 1650px; /* Default Material width */
   margin: 0 auto;
   padding: 0 2rem;
 }
