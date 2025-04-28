@@ -5,7 +5,7 @@ let gateOptions = ["AND", "OR", "XOR", "NOT"];
 let gateIndex = 0; // Tracks current selected gate
 
 function setup() {
-  let canvas = createCanvas(800, 400);
+  let canvas = createCanvas(800, 500);
   canvas.parent('p5-sketch');
   textAlign(CENTER, CENTER);
   textSize(20);
@@ -17,27 +17,35 @@ function draw() {
   fill(0);
   text("Logic Gate Simulation", width/2, 30);
 
-  // Input A
+  // Draw Inputs
   drawInput(100, 150, "A", inputA);
-  // Input B
-  drawInput(100, 250, "B", inputB);
+  drawInput(100, 300, "B", inputB);
 
-  // Wires from inputs to gate
+  // Draw wires from Inputs to Gate
   stroke(0);
-  line(125, 150, 300, 150);
-  line(125, 250, 300, 250);
+  strokeWeight(2);
+  
+  // Wire from A
+  line(125, 150, 250, 150);   // horizontal
+  line(250, 150, 250, 200);   // vertical down
+  line(250, 200, 350, 200);   // horizontal into gate
+
+  // Wire from B
+  line(125, 300, 250, 300);   // horizontal
+  line(250, 300, 250, 250);   // vertical up
+  line(250, 250, 350, 250);   // horizontal into gate
 
   // Gate block
-  drawGate(400, 200, selectedGate);
+  drawGate(400, 225, selectedGate);
 
-  // Wire from gate to output
-  line(500, 200, 650, 200);
+  // Wire from Gate to Output
+  line(450, 225, 600, 225);   // horizontal wire
 
-  // Output display
+  // Output circle
   let output = calculateOutput(inputA, inputB, selectedGate);
-  drawOutput(700, 200, output);
+  drawOutput(650, 225, output);
 
-  // Draw "dropdown" selector inside canvas
+  // Draw Gate Selector inside canvas
   drawGateSelector();
 }
 
@@ -52,7 +60,8 @@ function drawInput(x, y, label, value) {
 function drawGate(x, y, type) {
   fill(255);
   stroke(0);
-  rect(x - 50, y - 50, 100, 100, 20);
+  strokeWeight(2);
+  rect(x - 50, y - 40, 100, 80, 20);
   fill(0);
   noStroke();
   text(type, x, y);
@@ -80,13 +89,12 @@ function mousePressed() {
     inputA = inputA ? 0 : 1;
   }
   // Click input B
-  if (dist(mouseX, mouseY, 100, 250) < 25) {
+  if (dist(mouseX, mouseY, 100, 300) < 25) {
     inputB = inputB ? 0 : 1;
   }
   // Click "dropdown" inside canvas
   if (mouseX > width/2 - 80 && mouseX < width/2 + 80 &&
       mouseY > height - 70 && mouseY < height - 30) {
-    // Cycle to next gate
     gateIndex = (gateIndex + 1) % gateOptions.length;
     selectedGate = gateOptions[gateIndex];
   }
