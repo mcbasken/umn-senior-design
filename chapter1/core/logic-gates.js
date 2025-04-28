@@ -7,15 +7,14 @@ let switchModeBtn;
 let inputButtons = [];
 
 function setup() {
-  let canvas = createCanvas(600, 600); // bigger canvas
+  let canvas = createCanvas(600, 600);
   canvas.parent("canvas-container");
   textAlign(CENTER, CENTER);
-  textSize(18); // bump text size a bit too
+  textSize(18);
 
   // Input toggle buttons
   for (let i = 0; i < 4; i++) {
     inputButtons[i] = createButton("0");
-    inputButtons[i].position(100 + i * 100, 80); // spread across wider area
     inputButtons[i].mousePressed(() => {
       inputBits[i] = inputBits[i] ? 0 : 1;
       inputButtons[i].html(inputBits[i]);
@@ -31,24 +30,35 @@ function setup() {
 }
 
 
+
 function draw() {
   background(220, 235, 255);
   fill(0);
   textSize(18);
   text(modes[mode], width / 2, 20);
 
-  // Show/hide input buttons depending on mode
+  // Adjust input buttons and show/hide based on mode
   if (mode === 0) {
     for (let i = 0; i < 4; i++) {
+      inputButtons[i].position(100 + i * 100, 80); // Spread all 4 buttons
       inputButtons[i].show();
     }
   } else if (mode === 1) {
-    for (let i = 0; i < 2; i++) {
-      inputButtons[i].show();
-    }
-    for (let i = 2; i < 4; i++) {
-      inputButtons[i].hide();
-    }
+    // Position only first two buttons centered
+    inputButtons[0].position(width/2 - 80, 80); // A button
+    inputButtons[1].position(width/2 + 20, 80); // B button
+    
+
+    inputButtons[0].show();
+    inputButtons[1].show();
+    inputButtons[2].hide();
+    inputButtons[3].hide();
+
+    // Draw labels "A" and "B" under the buttons
+    textSize(16);
+    fill(50);
+    text("A", width/2 - 60, 130); 
+    text("B", width/2 + 40, 130);
   }
 
   switch (mode) {
@@ -60,6 +70,7 @@ function draw() {
       break;
   }
 }
+
 
 
 function drawNumberSystems() {
