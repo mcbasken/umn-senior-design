@@ -1,6 +1,6 @@
 function setup() {
   let canvas = createCanvas(400, 300);
-  canvas.parent('p5-sketch'); // Attach to the right div
+  canvas.parent("p5-sketch"); // Attach to the right div
   textAlign(CENTER, CENTER);
   textSize(18);
 }
