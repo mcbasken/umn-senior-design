@@ -25,26 +25,26 @@ body {
   line-height: 1.6;
 }
 
-/* FORCE normal layout for all textbook pages */
+/* Widen the main content area */
 .md-main__inner {
-  max-width: none !important; /* Disable narrow layout */
-  width: 100% !important; /* Full width */
-  margin: 0 !important; /* No auto-center */
-  padding: 0 2rem; /* Optional: little padding at edges */
-  text-align: left !important;
+  max-width: 1400px; /* or whatever you like: 1200px, 100% */
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 2rem;
 }
 
-/* Make content expand full width */
+/* Widen content inside pages */
 .md-content {
-  max-width: 100% !important;
+  max-width: 100%;
 }
 
-/* Make paragraphs readable */
+/* Improve paragraph text */
 .md-typeset {
   font-size: 18px;
   line-height: 1.6;
   text-align: left;
 }
+
 
 
 
