@@ -14,16 +14,17 @@
   }
 
 
-/* Only when body has class 'microsim-body' */
+/* ONLY for Microsim pages */
 .microsim-body {
-  min-height: 100vh; /* Full page height */
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  background: #white;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center;     /* Center horizontally */
+  min-height: 100vh;       /* Full screen height */
+  background: #eef6ff;
 }
 
-/* Style for the MicroSim card */
+/* MicroSim box */
 #canvas-container {
   background: white;
   width: 90%;
