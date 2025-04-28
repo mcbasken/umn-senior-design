@@ -7,7 +7,7 @@ function checkVerilog() {
 
   let errors = [];
 
-  // Check 4.1 Module structure
+  // Check module structure
   if (!/module\s+\w+\s*\(.*\)\s*;/.test(code)) {
     errors.push("Missing or incorrect module declaration.");
   }
@@ -18,17 +18,17 @@ function checkVerilog() {
     errors.push("Missing or incorrect 'assign' statement.");
   }
 
-  // Check 4.2 Data Types
+  // Check data types
   if (!/(wire|reg|integer|real)\s/.test(code)) {
-    errors.push("Missing data type declaration (wire, reg, integer, real).");
+    errors.push("Missing data type declaration.");
   }
 
-  // Check 4.3 Instantiation (optional)
+  // Check instantiation
   if (/^\s*\w+\s+\w+\s*\(.*\);/m.test(code)) {
     feedback.innerHTML += "<p class='correct'>Detected module instantiation ✅</p>";
   }
 
-  // Check 4.4 Inputs and Outputs
+  // Check inputs and outputs
   if (!/input\s+/.test(code)) {
     errors.push("Missing 'input' port declaration.");
   }
@@ -36,7 +36,7 @@ function checkVerilog() {
     errors.push("Missing 'output' port declaration.");
   }
 
-  // Final result
+  // Display final results
   if (errors.length === 0) {
     feedback.innerHTML += "<p class='correct'>✅ Great job! Your Verilog structure looks correct.</p>";
   } else {
