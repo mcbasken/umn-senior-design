@@ -29,9 +29,9 @@ body {
 
 /* Restore normal centered page */
 .md-main__inner {
-  max-width: 700px; /* Default Material width */
+  max-width: 1100px; /* Default Material width */
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 
 /* Restore normal text inside pages */
