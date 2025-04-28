@@ -12,16 +12,18 @@
   <h1>Logic Gate MicroSim</h1>
   <p>Click inputs to toggle. Choose a logic gate to simulate!</p>
 
-  <!-- Canvas will go here -->
-  <div id="p5-sketch"></div>
+  <!-- Wrapper ONLY for canvas and selector -->
+  <div id="microsim-wrapper">
+    <div id="p5-sketch"></div>
 
-  <!-- Selector dropdown OUTSIDE the canvas -->
-  <div id="gate-selector">
-    <label for="gateDropdown">Select Logic Gate:</label><br>
-    <select id="gateDropdown"></select>
+    <div id="gate-selector">
+      <label for="gateDropdown">Select Logic Gate:</label><br>
+      <select id="gateDropdown"></select>
+    </div>
   </div>
 
 </div>
+
 
 <script src="logic-gate-microsim.js"></script>
 
