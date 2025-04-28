@@ -26,6 +26,27 @@ body {
 }
 
 
+/* THIS is the missing part: Override MkDocs Material's inner content width */
+.md-main__inner {
+  max-width: none; /* Allow full width */
+  width: 100%;
+  margin: 0; /* Remove auto centering */
+  padding: 0 2rem; /* Optional: Add slight side padding */
+  text-align: left; /* Force left-aligned text */
+}
+
+/* Text styling inside content */
+.md-content {
+  max-width: 100%;
+}
+
+/* Text content */
+.md-typeset {
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: left;
+}
+
 
 /* MicroSim box */
 #canvas-container {
