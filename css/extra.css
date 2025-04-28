@@ -13,27 +13,27 @@
     --md-primary-fg-color--dark: #600000;
   }
 
-/* Verilog MicroSim Bigger Text (only inside #canvas-container) */
 #canvas-container {
   width: 90%;
-  max-width: 900px;
-  margin: auto;
+  max-width: 800px;
+  margin: 40px auto; /* Center it horizontally and add some vertical spacing */
   background: #ffffff;
-  padding: 20px;
+  padding: 30px;
   border-radius: 8px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   
-  font-size: 18px; /* Bigger text inside MicroSim */
+  font-size: 18px;
+  text-align: center; /* Text and textarea are centered inside */
 }
 
 #canvas-container textarea {
-  width: 100%;
+  width: 90%;
   height: 300px;
   font-family: monospace;
   font-size: 18px;
-  margin-bottom: 10px;
-  border: 2px solid #ccc; /* default gray border */
-  transition: border-color 0.3s; /* smooth highlight transition */
+  margin-bottom: 15px;
+  border: 2px solid #ccc;
+  transition: border-color 0.3s;
 }
 
 #canvas-container textarea:focus {
@@ -42,7 +42,7 @@
 
 #canvas-container button {
   padding: 10px 20px;
-  font-size: 18px; /* Bigger button text */
+  font-size: 18px;
   background-color: #1f77b4;
   color: white;
   border: none;
@@ -59,8 +59,9 @@
   padding: 10px;
   border-radius: 5px;
   background: #f9f9f9;
-  box-shadow: 0px 1px 4px rgba(0,0,0,0.1);
-  font-size: 18px; /* Bigger feedback text */
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  text-align: left; /* Feedback still left-aligned inside */
 }
 
 #canvas-container .correct {
