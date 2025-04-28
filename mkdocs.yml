@@ -77,6 +77,8 @@ markdown_extensions:
   - toc:
       permalink: true
   - admonition
+  - codehilite
+  - footnotes
   - md_in_html
   - pymdownx.details
   - pymdownx.superfences
