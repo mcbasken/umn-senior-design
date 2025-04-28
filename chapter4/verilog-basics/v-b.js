@@ -1,143 +1,105 @@
-// Verilog Concepts Microsim (p5.js-based interactive simulation with practice mode)
-let mode = 0;
-let modes = ["Introduction", "Syntax & Structure", "Data Types", "Module Instantiation", "I/O Ports", "Practice"];
-let switchBtn, nextBtn, prevBtn;
-let currentLine = 0;
-let slideLines = [];
-let userInput, submitBtn, feedback = "";
-
-function setup() {
-  let canvas = createCanvas(500, 420);
-  canvas.parent("canvas-container");
-  textAlign(LEFT, CENTER);
-  textSize(14);
-
-  switchBtn = createButton("Switch Topic");
-  switchBtn.position(20, 380);
-  switchBtn.size(100, 25);
-  switchBtn.mousePressed(() => {
-    mode = (mode + 1) % modes.length;
-    currentLine = 0;
-    generateSlide();
-    resetPractice();
-  });
-
-  prevBtn = createButton("← Prev");
-  prevBtn.position(140, 380);
-  prevBtn.size(70, 25);
-  prevBtn.mousePressed(() => {
-    if (currentLine > 0) currentLine--;
-  });
-
-  nextBtn = createButton("Next →");
-  nextBtn.position(220, 380);
-  nextBtn.size(70, 25);
-  nextBtn.mousePressed(() => {
-    if (currentLine < slideLines.length - 1) currentLine++;
-  });
-
-  userInput = createInput();
-  userInput.position(40, 380);
-  userInput.size(300);
-  userInput.hide();
-
-  submitBtn = createButton("Submit");
-  submitBtn.position(350, 380);
-  submitBtn.size(70, 25);
-  submitBtn.mousePressed(checkPractice);
-  submitBtn.hide();
-
-  generateSlide();
-}
-
-function draw() {
-  background(245);
-  fill(0);
-  textSize(16);
-  textAlign(CENTER);
-  text(modes[mode], width / 2, 30);
-  textSize(14);
-  textAlign(LEFT);
-
-  if (mode === 5) {
-    drawPractice();
-  } else {
-    for (let i = 0; i <= currentLine && i < slideLines.length; i++) {
-      fill(i === currentLine ? "red" : 0);
-      text(slideLines[i], 40, 70 + i * 20);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Verilog Syntax MicroSim</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef6ff;
+      padding: 20px;
     }
-  }
-}
+    textarea {
+      width: 100%;
+      height: 300px;
+      font-family: monospace;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #1f77b4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #155a8a;
+    }
+    #feedback {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      background: white;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    }
+    .correct {
+      color: green;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
 
-function generateSlide() {
-  slideLines = [];
-  switch (mode) {
-    case 0:
-      slideLines.push("Verilog is a hardware description language (HDL).");
-      slideLines.push("It models the structure and behavior of digital circuits.");
-      slideLines.push("You can simulate functionality before physical implementation.");
-      slideLines.push("Used in FPGAs, ASICs, and system modeling.");
-      break;
-    case 1:
-      slideLines.push("module and_gate(input A, input B, output Y);");
-      slideLines.push("  assign Y = A & B;");
-      slideLines.push("endmodule");
-      slideLines.push("Modules encapsulate logic with inputs and outputs.");
-      slideLines.push("Use semicolons and 'endmodule' to define structure.");
-      break;
-    case 2:
-      slideLines.push("reg [7:0] byte_reg;   // Stores 8-bit value");
-      slideLines.push("wire valid_signal;    // Combinational signal");
-      slideLines.push("integer counter;      // Used in testbenches");
-      slideLines.push("real delay_time;      // Simulation only");
-      slideLines.push("'reg' holds values; 'wire' is for connections.");
-      break;
-    case 3:
-      slideLines.push("// Define module");
-      slideLines.push("module inverter(input A, output Y);");
-      slideLines.push("  assign Y = ~A;");
-      slideLines.push("endmodule");
-      slideLines.push("// Instantiate module");
-      slideLines.push("inverter u1 (.A(signal_in), .Y(signal_out));");
-      slideLines.push("Instantiation allows reuse of logic blocks.");
-      break;
-    case 4:
-      slideLines.push("module my_module(");
-      slideLines.push("  input clk,");
-      slideLines.push("  input rst,");
-      slideLines.push("  output reg done");
-      slideLines.push(");");
-      slideLines.push("// Internal logic goes here");
-      slideLines.push("endmodule");
-      slideLines.push("Use input/output/inout to define communication.");
-      break;
-  }
-  userInput.hide();
-  submitBtn.hide();
-}
+  <h1>Verilog MicroSim: Syntax Checker</h1>
+  <p>Type your Verilog module below and click "Check Code"!</p>
 
-function drawPractice() {
-  textAlign(LEFT);
-  fill(0);
-  text("Practice Mode: Complete the Verilog statement.", 40, 80);
-  text("Question: What keyword defines a block of hardware logic?", 40, 120);
-  userInput.show();
-  submitBtn.show();
-  fill(feedback === "Correct!" ? "green" : "red");
-  text(feedback, 40, 160);
-}
+  <textarea id="verilogInput" placeholder="Type your Verilog code here..."></textarea><br>
+  <button onclick="checkVerilog()">Check Code</button>
 
-function checkPractice() {
-  const answer = userInput.value().trim().toLowerCase();
-  if (answer === "module") {
-    feedback = "Correct!";
-  } else {
-    feedback = "Try again. Hint: starts with 'm'.";
-  }
-}
+  <div id="feedback"></div>
 
-function resetPractice() {
-  feedback = "";
-  userInput.hide();
-  submitBtn.hide();
-}
+  <script>
+    function checkVerilog() {
+      const code = document.getElementById('verilogInput').value;
+      const feedback = document.getElementById('feedback');
+      feedback.innerHTML = "";
+
+      let errors = [];
+
+      // Check 4.1 Module structure
+      if (!/module\s+\w+\s*\(.*\)\s*;/.test(code)) {
+        errors.push("Missing or incorrect module declaration.");
+      }
+      if (!/endmodule/.test(code)) {
+        errors.push("Missing 'endmodule'.");
+      }
+      if (!/assign\s+.*=/.test(code)) {
+        errors.push("Missing or incorrect 'assign' statement.");
+      }
+
+      // Check 4.2 Data Types
+      if (!/(wire|reg|integer|real)\s/.test(code)) {
+        errors.push("Missing data type declaration (wire, reg, integer, real).");
+      }
+
+      // Check 4.3 Instantiation (optional presence)
+      if (/^\s*\w+\s+\w+\s*\(.*\);/m.test(code)) {
+        feedback.innerHTML += "<p class='correct'>Detected module instantiation ✅</p>";
+      }
+
+      // Check 4.4 Inputs and Outputs
+      if (!/input\s+/.test(code)) {
+        errors.push("Missing 'input' port declaration.");
+      }
+      if (!/output\s+/.test(code)) {
+        errors.push("Missing 'output' port declaration.");
+      }
+
+      // Display final results
+      if (errors.length === 0) {
+        feedback.innerHTML += "<p class='correct'>✅ Great job! Your Verilog structure looks correct.</p>";
+      } else {
+        errors.forEach(err => {
+          feedback.innerHTML += `<p class="error">❌ ${err}</p>`;
+        });
+      }
+    }
+  </script>
+
+</body>
+</html>
