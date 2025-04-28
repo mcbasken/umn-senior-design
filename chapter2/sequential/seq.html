@@ -2,17 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sequential Logic</title>
+  <title>Flip-Flop and Shift Register MicroSim</title>
+  <link rel="stylesheet" href="extra.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-  </style>
 </head>
-<body>
-  <div id="canvas-container"></div>
-  <h1>Sequential MicroSim</h1>
-  <script src="seq.js"></script>
+<body class="microsim-body">
+
+<div id="canvas-container">
+  <h1>Flip-Flop and Shift Register MicroSim</h1>
+  <p>Click "Clock Tick" to advance the clock and watch the flip-flops!</p>
+
+  <div id="p5-sketch"></div>
+
+  <div id="controls">
+    <button id="clockButton">Clock Tick</button>
+    <button id="modeButton">Switch Mode</button>
+  </div>
+</div>
+
+<script src="sequential-microsim.js"></script>
+
 </body>
 </html>
