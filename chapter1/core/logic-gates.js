@@ -38,12 +38,16 @@ function draw() {
   // Gate block
   drawGate(400, 225, selectedGate);
 
-  // Wire from Gate to Output
-  line(450, 225, 600, 225);   // horizontal wire
+    // Draw wire from gate to output
+  // Start wire exactly at the right side of the gate box
+  let gateRightEdgeX = 400 + 50; // center + half width
+  let gateOutputY = 225;
+  stroke(0);
+  line(gateRightEdgeX, gateOutputY, gateRightEdgeX + 100, gateOutputY);
 
-  // Output circle
+  // Draw Output circle
   let output = calculateOutput(inputA, inputB, selectedGate);
-  drawOutput(650, 225, output);
+  drawOutput(gateRightEdgeX + 150, gateOutputY, output);
 
   // Draw Gate Selector inside canvas
   drawGateSelector();
