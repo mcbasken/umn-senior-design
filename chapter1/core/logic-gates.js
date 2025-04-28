@@ -5,15 +5,13 @@ let gateOptions = ["AND", "OR", "XOR", "NOT"];
 let gateDropdown;
 
 function setup() {
-  let canvas = createCanvas(600, 400);
+  let canvas = createCanvas(800, 400);
   canvas.parent('p5-sketch');
   textAlign(CENTER, CENTER);
   textSize(20);
 
-  // Dropdown to select logic gate
-  gateDropdown = createSelect();
-  gateDropdown.parent('p5-sketch');
-  gateDropdown.position(width/2 - 50, height - 60);
+  // Setup dropdown outside the canvas
+  gateDropdown = select('#gateDropdown');
   for (let option of gateOptions) {
     gateDropdown.option(option);
   }
@@ -26,25 +24,27 @@ function draw() {
   background(240);
 
   fill(0);
-  text("Logic Gate MicroSim", width/2, 30);
+  text("Logic Gate Simulation", width/2, 30);
 
-  // Draw Inputs
+  // Input A
   drawInput(100, 150, "A", inputA);
+  // Input B
   drawInput(100, 250, "B", inputB);
 
-  // Draw gate symbol
-  drawGate(width/2, 200, selectedGate);
-
-  // Draw output wire
-  let output = calculateOutput(inputA, inputB, selectedGate);
+  // Wires from inputs to gate
   stroke(0);
-  line(width/2 + 70, 200, width - 100, 200);
+  line(125, 150, 300, 150);
+  line(125, 250, 300, 250);
 
-  // Draw output bubble
-  fill(output ? 'limegreen' : 'red');
-  ellipse(width - 80, 200, 40, 40);
-  fill(255);
-  text(output, width - 80, 200);
+  // Gate block
+  drawGate(400, 200, selectedGate);
+
+  // Wire from gate to output
+  line(500, 200, 650, 200);
+
+  // Output display
+  let output = calculateOutput(inputA, inputB, selectedGate);
+  drawOutput(700, 200, output);
 }
 
 function drawInput(x, y, label, value) {
@@ -64,12 +64,19 @@ function drawGate(x, y, type) {
   text(type, x, y);
 }
 
+function drawOutput(x, y, value) {
+  fill(value ? 'limegreen' : 'red');
+  ellipse(x, y, 50, 50);
+  fill(255);
+  text(value, x, y);
+}
+
 function mousePressed() {
-  // Check if clicking input A
+  // Click input A
   if (dist(mouseX, mouseY, 100, 150) < 25) {
     inputA = inputA ? 0 : 1;
   }
-  // Check if clicking input B
+  // Click input B
   if (dist(mouseX, mouseY, 100, 250) < 25) {
     inputB = inputB ? 0 : 1;
   }
@@ -80,7 +87,7 @@ function calculateOutput(a, b, gate) {
     case "AND": return a & b;
     case "OR": return a | b;
     case "XOR": return a ^ b;
-    case "NOT": return a ^ 1; // Treat NOT A only
+    case "NOT": return a ^ 1; // Only treat A for NOT
     default: return 0;
   }
 }
