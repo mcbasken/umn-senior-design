@@ -2,17 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Clocking, Timing, and Debugging</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-  </style>
+  <title>Clocking, Timing, and Verification MicroSim</title>
+  <link rel="stylesheet" href="extra.css">
 </head>
 <body>
-  <div id="canvas-container"></div>
-  <h1>Timing MicroSim</h1>
-  <script src="mem.js"></script>
+
+  <h1>Clocking, Timing, and Verification MicroSim</h1>
+  <p>Type your Verilog testbench or clocking code below and click "Check Code"!</p>
+
+  <div id="canvas-container">
+    <textarea id="verilogInput" placeholder="Write your Verilog or SystemVerilog code here..."></textarea><br>
+    <button id="checkButton">Check Code</button>
+
+    <div id="feedback"></div>
+  </div>
+
+  <script src="v-b4.js"></script>
+
 </body>
 </html>
