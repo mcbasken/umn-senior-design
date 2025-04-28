@@ -1,50 +1,47 @@
-.md-header__button.md-logo {
-    margin: 0;
-    padding: 0;
-}
-.md-header__button.md-logo img, .md-header__button.md-logo svg {
-    height: 50px;
-    width: 50px;
-}
-
-:root {
-    --md-primary-fg-color: #800000;
-    --md-primary-fg-color--light: #a04545;
-    --md-primary-fg-color--dark: #600000;
-  }
-
-/* Main body font and spacing */
+/* Keep the default Material centered layout */
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  font-size: 18px;
   background: white;
   color: #333;
-  text-align: left;
-  line-height: 1.6;
 }
 
-/* Widen the main content area */
-.md-main__inner {
-  max-width: 1400px; /* or whatever you like: 1200px, 100% */
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 2rem;
-}
-
-/* Widen content inside pages */
+/* Only make text inside the content area bigger and more readable */
 .md-content {
-  max-width: 100%;
-}
-
-/* Improve paragraph text */
-.md-typeset {
-  font-size: 18px;
+  font-size: 18px; /* Bigger text */
   line-height: 1.6;
-  text-align: left;
 }
 
+/* Paragraph text and headings */
+.md-typeset {
+  font-size: 18px; /* Bigger body text */
+  line-height: 1.6;
+  text-align: left; /* Make sure text is left aligned inside box */
+}
+
+/* Logo fixes (keep your maroon color theme) */
+.md-header__button.md-logo {
+    margin: 0;
+    padding: 0;
+}
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+    height: 50px;
+    width: 50px;
+}
+
+/* Color overrides */
+:root {
+    --md-primary-fg-color: #800000;
+    --md-primary-fg-color--light: #a04545;
+    --md-primary-fg-color--dark: #600000;
+}
+
+/* (Optional) Slightly bigger side padding if needed */
+.md-main__inner {
+  padding: 0 2rem; /* Adds a little breathing room on the sides */
+}
 
 
 
