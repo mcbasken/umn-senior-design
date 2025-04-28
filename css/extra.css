@@ -29,7 +29,7 @@ body {
 
 /* Restore normal centered page */
 .md-main__inner {
-  max-width: 1500px; /* Default Material width */
+  max-width: 1800px; /* Default Material width */
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -45,8 +45,8 @@ body {
 }
 
 .md-typeset {
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 20px;
+  line-height: 1.7;
   text-align: left;
   max-width: 100%; /* Expand text too */
 }
@@ -67,7 +67,7 @@ body.microsim-body #canvas-container textarea {
   width: 90%;
   height: 300px;
   font-family: monospace;
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 20px;
   border: 2px solid #ccc;
   transition: border-color 0.3s;
