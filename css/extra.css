@@ -25,15 +25,7 @@ body {
   max-width: 100%;
 }
 
-/* ONLY for Microsim pages */
-.microsim-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center;     /* Center horizontally */
-  min-height: 100vh;       /* Full screen height */
-  background: #eef6ff;
-}
+
 
 /* MicroSim box */
 #canvas-container {
