@@ -11,8 +11,18 @@
   </style>
 </head>
 <body>
-  <div id="canvas-container"></div>
-  <h1>Verilog MicroSim</h1>
+  
+  <h1>Verilog MicroSim: Syntax Checker</h1>
+  <p>Type your Verilog module below and click "Check Code"!</p>
+  
+    <div id="canvas-container">
+    <textarea id="verilogInput" placeholder="Type your Verilog code here..."></textarea><br>
+    <button id="checkButton">Check Code</button>
+
+    <div id="feedback"></div>
+  </div>
+  
   <script src="v-b.js"></script>
+  
 </body>
 </html>
