@@ -13,6 +13,16 @@
     --md-primary-fg-color--dark: #600000;
   }
 
+body {
+  font-family: Arial, sans-serif;
+  background: white;
+  margin: 0;
+  padding: 0;
+  font-size: 18px; /* Make normal text larger and readable */
+  line-height: 1.6; /* Better spacing for paragraphs */
+  color: #333;
+  text-align: left; /* Normal left-aligned text */
+}
 
 /* ONLY for Microsim pages */
 .microsim-body {
