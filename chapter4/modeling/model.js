@@ -3,6 +3,7 @@ document.getElementById('checkButton').addEventListener('click', checkVerilog);
 function checkVerilog() {
   const code = document.getElementById('verilogInput').value;
   const feedback = document.getElementById('feedback');
+  const inputBox = document.getElementById('verilogInput');
   feedback.innerHTML = "";
 
   let errors = [];
@@ -27,7 +28,7 @@ function checkVerilog() {
     errors.push("Missing procedural block (initial or always).");
   }
 
-  // 4.4 Check Blocking (=) vs Non-blocking (<=) Assignments
+  // 4.4 Check Blocking vs Non-blocking Assignments
   const insideAlways = code.match(/always\s*@\(.*\)[\s\S]*?begin([\s\S]*?)end/);
   if (insideAlways) {
     const body = insideAlways[1];
@@ -36,10 +37,12 @@ function checkVerilog() {
     }
   }
 
-  // Display final results
+  // Display results + Highlight the text area
   if (errors.length === 0) {
     feedback.innerHTML += "<p class='correct'>✅ Great job! Your Verilog structure matches the requirements.</p>";
+    inputBox.style.border = "3px solid green";
   } else {
+    inputBox.style.border = "3px solid red";
     errors.forEach(err => {
       feedback.innerHTML += `<p class="error">❌ ${err}</p>`;
     });
