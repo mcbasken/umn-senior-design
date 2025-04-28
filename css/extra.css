@@ -18,7 +18,32 @@
     --md-primary-fg-color--dark: #600000;
 }
 
+/* Base page layout (normal Material layout) */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: white;
+  color: #333;
+}
 
+/* Restore normal centered page */
+.md-main__inner {
+  max-width: 700px; /* Default Material width */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Restore normal text inside pages */
+.md-content {
+  font-size: 18px; /* You can bump font size a little */
+}
+
+.md-typeset {
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: left;
+}
 
 /* MicroSim box */
 body.microsim-body #canvas-container {
@@ -32,7 +57,7 @@ body.microsim-body #canvas-container {
   text-align: center;
 }
 
-#canvas-container textarea {
+body.microsim-body #canvas-container textarea {
   width: 90%;
   height: 300px;
   font-family: monospace;
@@ -42,11 +67,11 @@ body.microsim-body #canvas-container {
   transition: border-color 0.3s;
 }
 
-#canvas-container textarea:focus {
+body.microsim-body #canvas-container textarea:focus {
   outline: none;
 }
 
-#canvas-container button {
+body.microsim-body #canvas-container button {
   padding: 12px 24px;
   font-size: 18px;
   background-color: #1f77b4;
@@ -56,11 +81,11 @@ body.microsim-body #canvas-container {
   cursor: pointer;
 }
 
-#canvas-container button:hover {
+body.microsim-body #canvas-container button:hover {
   background-color: #155a8a;
 }
 
-#canvas-container #feedback {
+body.microsim-body #canvas-container #feedback {
   margin-top: 20px;
   padding: 10px;
   border-radius: 6px;
@@ -70,10 +95,10 @@ body.microsim-body #canvas-container {
   text-align: left;
 }
 
-#canvas-container .correct {
+body.microsim-body #canvas-container .correct {
   color: green;
 }
 
-#canvas-container .error {
+body.microsim-body #canvas-container .error {
   color: red;
 }
