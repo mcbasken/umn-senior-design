@@ -2,17 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Verilog Modeling Techniques</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-  </style>
+  <title>Behavioral and Structural Modeling MicroSim</title>
+  <link rel="stylesheet" href="extra.css">
 </head>
 <body>
-  <div id="canvas-container"></div>
-  <h1>Modeling MicroSim</h1>
-  <script src="modeling.js"></script>
+
+  <h1>Behavioral and Structural Modeling MicroSim</h1>
+  <p>Type your Verilog module below and click "Check Code"!</p>
+
+  <div id="canvas-container">
+    <textarea id="verilogInput" placeholder="Write your Verilog code here..."></textarea><br>
+    <button id="checkButton">Check Code</button>
+
+    <div id="feedback"></div>
+  </div>
+
+  <script src="model.js"></script>
+
 </body>
 </html>
