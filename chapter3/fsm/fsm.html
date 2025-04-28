@@ -2,17 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Finite State Machines(FSM)</title>
+  <title>FSM MicroSim</title>
+  <link rel="stylesheet" href="extra.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-  </style>
 </head>
-<body>
-  <div id="canvas-container"></div>
-  <h1>FSM MicroSim</h1>
-  <script src="fsm.js"></script>
+<body class="microsim-body">
+
+<div id="canvas-container">
+  <h1>Finite State Machine MicroSim</h1>
+  <p>Toggle inputs and click Clock Tick to simulate the FSM!</p>
+
+  <div id="p5-sketch"></div> <!-- Only the canvas here -->
+</div>
+
+<script src="fsm-microsim.js"></script>
+
 </body>
 </html>
