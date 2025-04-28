@@ -13,39 +13,39 @@
     --md-primary-fg-color--dark: #600000;
   }
 
-/* General body styling (normal textbook pages) */
+/* Main body font and spacing */
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  font-size: 18px;
   background: white;
-  font-size: 18px; /* Big readable text */
-  line-height: 1.6;
+  color: #333;
   text-align: left;
-  max-width: 100%;
+  line-height: 1.6;
 }
 
-
-/* THIS is the missing part: Override MkDocs Material's inner content width */
+/* FORCE normal layout for all textbook pages */
 .md-main__inner {
-  max-width: none; /* Allow full width */
-  width: 100%;
-  margin: 0; /* Remove auto centering */
-  padding: 0 2rem; /* Optional: Add slight side padding */
-  text-align: left; /* Force left-aligned text */
+  max-width: none !important; /* Disable narrow layout */
+  width: 100% !important; /* Full width */
+  margin: 0 !important; /* No auto-center */
+  padding: 0 2rem; /* Optional: little padding at edges */
+  text-align: left !important;
 }
 
-/* Text styling inside content */
+/* Make content expand full width */
 .md-content {
-  max-width: 100%;
+  max-width: 100% !important;
 }
 
-/* Text content */
+/* Make paragraphs readable */
 .md-typeset {
   font-size: 18px;
   line-height: 1.6;
   text-align: left;
 }
+
 
 
 /* MicroSim box */
