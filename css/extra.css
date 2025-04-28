@@ -67,16 +67,7 @@ body {
 }
 
 /* MicroSim page container */
-body.microsim-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #eef6ff; /* Light blue background for MicroSims */
-}
-
-/* Canvas container inside MicroSim page */
+/* Main MicroSim container */
 body.microsim-body #canvas-container {
   background: white;
   width: 90%;
@@ -90,13 +81,25 @@ body.microsim-body #canvas-container {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 10;
 }
 
-body.microsim-body #canvas-container textarea:focus {
-  outline: none;
+/* p5.js Sketch Area */
+body.microsim-body #p5-sketch {
+  margin-top: 20px;
 }
 
-body.microsim-body #canvas-container button {
+/* MicroSim Controls */
+body.microsim-body #controls {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* MicroSim Buttons */
+body.microsim-body #controls button {
   padding: 12px 24px;
   font-size: 18px;
   background-color: #1f77b4;
@@ -106,10 +109,27 @@ body.microsim-body #canvas-container button {
   cursor: pointer;
 }
 
-body.microsim-body #canvas-container button:hover {
+body.microsim-body #controls button:hover {
   background-color: #155a8a;
 }
 
+/* MicroSim Textarea (if needed) */
+body.microsim-body #canvas-container textarea {
+  width: 90%;
+  height: 300px;
+  font-family: monospace;
+  font-size: 20px;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  transition: border-color 0.3s;
+}
+
+/* MicroSim Textarea Focus */
+body.microsim-body #canvas-container textarea:focus {
+  outline: none;
+}
+
+/* Feedback and Status Messages */
 body.microsim-body #canvas-container #feedback {
   margin-top: 20px;
   padding: 10px;
@@ -120,6 +140,7 @@ body.microsim-body #canvas-container #feedback {
   text-align: left;
 }
 
+/* Feedback Good and Error Messages */
 body.microsim-body #canvas-container .correct {
   color: green;
 }
@@ -127,5 +148,3 @@ body.microsim-body #canvas-container .correct {
 body.microsim-body #canvas-container .error {
   color: red;
 }
-
-
