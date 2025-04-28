@@ -32,10 +32,24 @@ function setup() {
 
 
 function draw() {
-  background(245);
+  background(220, 235, 255);
   fill(0);
-  textSize(16);
+  textSize(18);
   text(modes[mode], width / 2, 20);
+
+  // Show/hide input buttons depending on mode
+  if (mode === 0) {
+    for (let i = 0; i < 4; i++) {
+      inputButtons[i].show();
+    }
+  } else if (mode === 1) {
+    for (let i = 0; i < 2; i++) {
+      inputButtons[i].show();
+    }
+    for (let i = 2; i < 4; i++) {
+      inputButtons[i].hide();
+    }
+  }
 
   switch (mode) {
     case 0:
@@ -46,6 +60,7 @@ function draw() {
       break;
   }
 }
+
 
 function drawNumberSystems() {
   let bin = inputBits.join("");
