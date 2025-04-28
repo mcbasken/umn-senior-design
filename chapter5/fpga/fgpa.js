@@ -1,74 +1,55 @@
-class FPGASimulator {
-  constructor() {
-    this.step = 0;
-    this.designHDL = false;
-    this.synthesized = false;
-    this.placed = false;
-    this.routed = false;
-    this.bitstreamReady = false;
+document.getElementById('checkButton').addEventListener('click', checkVerilog);
+
+function checkVerilog() {
+  const code = document.getElementById('verilogInput').value.toLowerCase(); // Make lowercase to match
+  const feedback = document.getElementById('feedback');
+  const inputBox = document.getElementById('verilogInput');
+  feedback.innerHTML = "";
+
+  let errors = [];
+
+  // 5.1 FPGA vs ASIC
+  if (!(code.includes('fpga') && code.includes('asic'))) {
+    errors.push("Missing discussion about both FPGA and ASIC trade-offs.");
   }
 
-  startDesign() {
-    console.log("🎯 You are starting a new FPGA design...");
-    console.log("Choose FPGA or ASIC for your application:");
-    console.log("FPGA → Fast prototyping, reprogrammable");
-    console.log("ASIC → High performance, fixed, expensive");
+  // 5.2 Look-Up Tables (LUTs), Flip-Flops, Interconnects
+  if (!code.includes('lut')) {
+    errors.push("Missing mention of LUTs (Look-Up Tables).");
+  }
+  if (!code.includes('flip-flop') && !code.includes('flipflop')) {
+    errors.push("Missing mention of Flip-Flops.");
+  }
+  if (!code.includes('interconnect')) {
+    errors.push("Missing mention of Interconnects.");
   }
 
-  writeHDL() {
-    this.designHDL = true;
-    console.log("\n✍️ Writing Verilog HDL...");
-    console.log("Designing modules using LUTs, Flip-Flops, and registers.");
-    console.log("Design saved. Ready for synthesis.");
+  // 5.3 Configurable Logic Blocks (CLBs)
+  if (!code.includes('clb')) {
+    errors.push("Missing mention of CLBs (Configurable Logic Blocks).");
   }
 
-  synthesize() {
-    if (!this.designHDL) return console.log("⚠️ Write HDL before synthesis.");
-    this.synthesized = true;
-    console.log("\n⚙️ Synthesizing design...");
-    console.log("→ HDL converted into netlist of logic gates and flip-flops.");
+  // 5.4 FPGA Programming and Bitstream
+  if (!code.includes('bitstream')) {
+    errors.push("Missing discussion about Bitstream generation.");
+  }
+  if (!code.includes('synthesis')) {
+    errors.push("Missing discussion about Synthesis.");
   }
 
-  placeLogic() {
-    if (!this.synthesized) return console.log("⚠️ Synthesize before placement.");
-    this.placed = true;
-    console.log("\n📦 Placing logic onto Configurable Logic Blocks (CLBs)...");
+  // 5.5 FPGA Placement and Routing
+  if (!code.includes('placement') || !code.includes('routing')) {
+    errors.push("Missing discussion about Placement and Routing.");
   }
 
-  routeConnections() {
-    if (!this.placed) return console.log("⚠️ Place logic before routing.");
-    this.routed = true;
-    console.log("\n🔗 Routing signals using programmable interconnect...");
-    console.log("→ Timing analysis: checking setup and hold times...");
-  }
-
-  generateBitstream() {
-    if (!this.routed) return console.log("⚠️ Routing must be done before generating bitstream.");
-    this.bitstreamReady = true;
-    console.log("\n📡 Generating bitstream...");
-    console.log("→ Binary file created for FPGA configuration.");
-  }
-
-  programFPGA() {
-    if (!this.bitstreamReady) return console.log("⚠️ Generate bitstream before programming.");
-    console.log("\n✅ Programming FPGA with bitstream...");
-    console.log("🚀 FPGA is now running your custom hardware design!");
-  }
-
-  reset() {
-    console.log("\n🔁 Resetting simulation...");
-    Object.assign(this, new FPGASimulator());
+  // Display results + Highlight
+  if (errors.length === 0) {
+    feedback.innerHTML += "<p class='correct'>✅ Excellent! You covered FPGA/ASIC concepts, LUTs, CLBs, Bitstream, and P&R correctly!</p>";
+    inputBox.style.border = "3px solid green";
+  } else {
+    inputBox.style.border = "3px solid red";
+    errors.forEach(err => {
+      feedback.innerHTML += `<p class="error">❌ ${err}</p>`;
+    });
   }
 }
-
-// Simulation Interface
-const fpga = new FPGASimulator();
-
-// Example Simulation Flow
-fpga.startDesign();
-fpga.writeHDL();
-fpga.synthesize();
-fpga.placeLogic();
-fpga.routeConnections();
-fpga.generateBitstream();
-fpga.programFPGA();
