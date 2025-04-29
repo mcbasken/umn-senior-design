@@ -88,13 +88,13 @@ function drawFSM() {
   line(readX + stateRadius/2, stateY, writeX - stateRadius/2, stateY);
   drawArrowHead(writeX - stateRadius/2 - 10, stateY);
 
-  // Draw WRITE ➔ IDLE (small arch over)
+  // Draw WRITE ➔ IDLE wire (bezier curve wire)
   beginShape();
   vertex(writeX - stateRadius/2, stateY);
   bezierVertex(
-    writeX + 50, stateY - 100,  // Control point 1
-    idleX - 50, stateY - 100,   // Control point 2
-    idleX + stateRadius/2, stateY  // End point
+    writeX + 60, stateY - 120,   // control point 1 (up and right)
+    idleX - 60, stateY - 120,    // control point 2 (up and left)
+    idleX + stateRadius/2, stateY  // end point (landing at IDLE)
   );
   endShape();
   drawArrowHead(idleX + stateRadius/2 - 10, stateY);
