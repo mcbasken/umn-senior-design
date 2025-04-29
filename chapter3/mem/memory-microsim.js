@@ -16,64 +16,66 @@ function setup() {
 function draw() {
   background(245);
 
+  let yOffset = 50;  // ✅ Correct spelling now!
+
   textSize(28);
   fill(0);
-  text("Memory System MicroSim", width/2, 30);
+  text("Memory System MicroSim", width/2, 30 + yOffset);
 
-  drawAddressInputs();
-  drawDataInputs();
-  drawControlSignals();
-  drawMemoryArray();
-  drawActionButtons();
+  drawAddressInputs(yOffset);
+  drawDataInputs(yOffset);
+  drawControlSignals(yOffset);
+  drawMemoryArray(yOffset);
+  drawActionButtons(yOffset);
 }
 
-function drawAddressInputs() {
+function drawAddressInputs(yOffset) {
   fill(0);
   textSize(20);
-  text("Address Inputs (A3 A2 A1 A0)", width/4, 60); // Higher up now!
+  text("Address Inputs (A3 A2 A1 A0)", width/4, 60 + yOffset);
 
   for (let i = 0; i < 4; i++) {
-    drawBit(width/4 - 75 + i*50, 100, addressBits[i], "A" + (3-i));
+    drawBit(width/4 - 75 + i*50, 100 + yOffset, addressBits[i], "A" + (3-i));
   }
 }
 
-function drawDataInputs() {
+function drawDataInputs(yOffset) {
   fill(0);
   textSize(20);
-  text("Data Inputs (D7 D6 ... D0)", width*3/4, 60); // Higher up now!
+  text("Data Inputs (D7 D6 ... D0)", width*3/4, 60 + yOffset);
 
   for (let i = 0; i < 8; i++) {
-    drawBit(width*3/4 - 175 + i*40, 100, dataBits[i], "D" + (7-i));
+    drawBit(width*3/4 - 175 + i*40, 100 + yOffset, dataBits[i], "D" + (7-i));
   }
 }
 
-function drawControlSignals() {
+function drawControlSignals(yOffset) {
   fill(0);
   textSize(20);
-  text("Control Signals", width/2, 200);
+  text("Control Signals", width/2, 200 + yOffset);
 
-  drawSignalButton(width/2 - 100, 220, "CE", CE);
-  drawSignalButton(width/2, 220, "OE", OE);
-  drawSignalButton(width/2 + 100, 220, "WE", WE);
+  drawSignalButton(width/2 - 100, 220 + yOffset, "CE", CE);
+  drawSignalButton(width/2, 220 + yOffset, "OE", OE);
+  drawSignalButton(width/2 + 100, 220 + yOffset, "WE", WE);
 }
 
-function drawMemoryArray() {
+function drawMemoryArray(yOffset) {
   fill(0);
   textSize(20);
-  text("Memory Array", width/2, 300);
+  text("Memory Array", width/2, 300 + yOffset);
 
   textSize(16);
   for (let i = 0; i < 16; i++) {
-    let y = 330 + i*20;
+    let y = 330 + i*20 + yOffset;
     let addr = i.toString(16).toUpperCase().padStart(1, '0');
     text("0x" + addr + ":", width/2 - 150, y);
     text(memory[i].join(""), width/2, y);
   }
 }
 
-function drawActionButtons() {
-  drawButton(width/2 - 100, 670, 80, 40, "Read");
-  drawButton(width/2 + 20, 670, 80, 40, "Write");
+function drawActionButtons(yOffset) {
+  drawButton(width/2 - 100, 670 + yOffset, 80, 40, "Read");
+  drawButton(width/2 + 20, 670 + yOffset, 80, 40, "Write");
 }
 
 function drawBit(x, y, value, label) {
@@ -109,40 +111,42 @@ function drawButton(x, y, w, h, label) {
 }
 
 function mousePressed() {
+  let yOffset = 50;  // Needed here too
+
   // Address Inputs
   for (let i = 0; i < 4; i++) {
     if (mouseX > width/4 - 75 + i*50 && mouseX < width/4 - 35 + i*50 &&
-        mouseY > 100 && mouseY < 140) {
+        mouseY > 100 + yOffset && mouseY < 140 + yOffset) {
       addressBits[i] = addressBits[i] ? 0 : 1;
     }
   }
   // Data Inputs
   for (let i = 0; i < 8; i++) {
     if (mouseX > width*3/4 - 175 + i*40 && mouseX < width*3/4 - 135 + i*40 &&
-        mouseY > 100 && mouseY < 140) {
+        mouseY > 100 + yOffset && mouseY < 140 + yOffset) {
       dataBits[i] = dataBits[i] ? 0 : 1;
     }
   }
   // Control Signals
   if (mouseX > width/2 - 100 && mouseX < width/2 - 40 &&
-      mouseY > 220 && mouseY < 260) {
+      mouseY > 220 + yOffset && mouseY < 260 + yOffset) {
     CE = CE ? 0 : 1;
   }
   if (mouseX > width/2 && mouseX < width/2 + 60 &&
-      mouseY > 220 && mouseY < 260) {
+      mouseY > 220 + yOffset && mouseY < 260 + yOffset) {
     OE = OE ? 0 : 1;
   }
   if (mouseX > width/2 + 100 && mouseX < width/2 + 160 &&
-      mouseY > 220 && mouseY < 260) {
+      mouseY > 220 + yOffset && mouseY < 260 + yOffset) {
     WE = WE ? 0 : 1;
   }
   // Action Buttons
   if (mouseX > width/2 - 100 && mouseX < width/2 - 20 &&
-      mouseY > 670 && mouseY < 710) {
+      mouseY > 670 + yOffset && mouseY < 710 + yOffset) {
     readCycle();
   }
   if (mouseX > width/2 + 20 && mouseX < width/2 + 100 &&
-      mouseY > 670 && mouseY < 710) {
+      mouseY > 670 + yOffset && mouseY < 710 + yOffset) {
     writeCycle();
   }
 }
