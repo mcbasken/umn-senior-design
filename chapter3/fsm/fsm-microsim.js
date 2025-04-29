@@ -59,7 +59,7 @@ function drawButton(x, y, w, h, label) {
 }
 
 function drawFSM() {
-  let cx = width / 2;
+  let cx = width/2;
   let cy = 350;
 
   let idleX = cx - 200;
@@ -80,28 +80,28 @@ function drawFSM() {
   strokeWeight(2);
   noFill();
 
-  // Wire: IDLE ➔ READ
-  line(idleX + stateRadius / 2, stateY, readX - stateRadius / 2 - 10, stateY);
-  drawArrowHead(readX - stateRadius / 2 - 10, stateY);
+  // 1. Wire: IDLE ➔ READ (straight)
+  line(idleX + stateRadius/2, stateY, readX - stateRadius/2, stateY);
+  drawArrowHead(readX - stateRadius/2 - 5, stateY);
 
-  // Wire: READ ➔ WRITE
-  line(readX + stateRadius / 2, stateY, writeX - stateRadius / 2 - 10, stateY);
-  drawArrowHead(writeX - stateRadius / 2 - 10, stateY);
+  // 2. Wire: READ ➔ WRITE (straight)
+  line(readX + stateRadius/2, stateY, writeX - stateRadius/2, stateY);
+  drawArrowHead(writeX - stateRadius/2 - 5, stateY);
 
-  // Wire: WRITE ➔ IDLE (bent wire: up, across, down)
-  let wireUpHeight = 100; // how much the wire arches upward
+  // 3. Wire: WRITE ➔ IDLE (bent wire)
+  let archHeight = 120; // how high the wire arches up
 
-  // Go up
-  line(writeX - stateRadius/2, stateY, writeX - stateRadius/2, stateY - wireUpHeight);
+  // UP from WRITE
+  line(writeX - stateRadius/2, stateY, writeX - stateRadius/2, stateY - archHeight);
 
-  // Across to the left
-  line(writeX - stateRadius/2, stateY - wireUpHeight, idleX + stateRadius/2, stateY - wireUpHeight);
+  // ACROSS toward IDLE
+  line(writeX - stateRadius/2, stateY - archHeight, idleX + stateRadius/2, stateY - archHeight);
 
-  // Down
-  line(idleX + stateRadius/2, stateY - wireUpHeight, idleX + stateRadius/2, stateY);
+  // DOWN into IDLE
+  line(idleX + stateRadius/2, stateY - archHeight, idleX + stateRadius/2, stateY);
 
-  // Arrowhead at bottom near IDLE
-  drawArrowHead(idleX + stateRadius/2 - 10, stateY);
+  // Arrow at bottom going into IDLE
+  drawArrowHead(idleX + stateRadius/2 - 5, stateY);
 }
 
 function drawState(x, y, label, fillColor, outputLabel) {
@@ -116,11 +116,13 @@ function drawState(x, y, label, fillColor, outputLabel) {
   text(outputLabel, x, y + 15);
 }
 
+
 function drawArrowHead(x, y) {
   fill(0);
   noStroke();
   triangle(x, y, x - 10, y - 5, x - 10, y + 5);
 }
+
 
 function mousePressed() {
   // Toggle Start Input
