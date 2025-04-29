@@ -60,10 +60,10 @@ body {
 }
 
 .md-typeset {
-  font-size: 19px;
+  font-size: 21px;
   line-height: 1.7;
   text-align: left;
-  max-width: 100%; /* Expand text too */
+  max-width: 80%; /* Expand text too */
 }
 
 /* MicroSim page container */
