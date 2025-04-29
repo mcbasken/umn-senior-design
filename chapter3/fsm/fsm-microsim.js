@@ -80,7 +80,7 @@ function drawFSM() {
   strokeWeight(2);
   noFill();
 
-  // Draw IDLE ➔ READ transition
+   // Draw IDLE ➔ READ transition
   line(idleX + stateRadius/2, stateY, readX - stateRadius/2, stateY);
   drawArrowHead(readX - stateRadius/2 - 10, stateY);
 
@@ -88,13 +88,18 @@ function drawFSM() {
   line(readX + stateRadius/2, stateY, writeX - stateRadius/2, stateY);
   drawArrowHead(writeX - stateRadius/2 - 10, stateY);
 
-  // Draw WRITE ➔ IDLE (small arch above)
+  // Draw WRITE ➔ IDLE small arch
   beginShape();
   vertex(writeX - stateRadius/2, stateY);
-  bezierVertex(writeX + 50, stateY - 100, idleX - 50, stateY - 100, idleX + stateRadius/2, stateY);
+  bezierVertex(
+    writeX + 50, stateY - 100,  // control point 1 (up and right)
+    idleX - 50, stateY - 100,   // control point 2 (up and left)
+    idleX + stateRadius/2, stateY // end at IDLE
+  );
   endShape();
+
+    // Arrowhead where wire lands back at IDLE
   drawArrowHead(idleX + stateRadius/2 - 10, stateY);
-}
 
 function drawState(x, y, label, fillColor, outputLabel) {
   fill(fillColor);
