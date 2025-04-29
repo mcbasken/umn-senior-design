@@ -2,17 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Digital Memory & Storage</title>
+  <title>Memory System MicroSim</title>
+  <link rel="stylesheet" href="extra.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-  </style>
 </head>
-<body>
-  <div id="canvas-container"></div>
-  <h1>Memory MicroSim</h1>
-  <script src="mem.js"></script>
+<body class="microsim-body">
+
+<div id="canvas-container">
+  <h1>Memory System MicroSim</h1>
+  <p>Set Address, Data, and Control Signals. Perform Read and Write cycles!</p>
+
+  <div id="p5-sketch"></div> <!-- Only the canvas here -->
+</div>
+
+<script src="memory-microsim.js"></script>
+
 </body>
 </html>
