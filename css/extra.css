@@ -7,11 +7,8 @@
 }
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
-    height: 60px;
+    height: 50px;
     width: 50px;
-}
-.md-header {
-  height: 60px; /* Default is about 56px, so 80px looks better */
 }
 
 /* Color overrides */
@@ -24,7 +21,6 @@
 /* Make the site title bigger */
 .md-header__title {
   font-size: 24px; /* Bigger site title */
-line-height: 60px;
 }
 
 /* Make the main navigation sidebar links bigger */
