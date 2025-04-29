@@ -62,40 +62,50 @@ function drawFSM() {
   let cx = width/2;
   let cy = 350;
 
-  // Draw states in a line
-  for (let i = 0; i < states.length; i++) {
-    let x = cx - 200 + i * 200;
-    let y = cy;
+  let idleX = cx - 200;
+  let readX = cx;
+  let writeX = cx + 200;
+  let stateY = cy;
 
-    // Highlight current state
-    if (states[i] === currentState) {
-      fill('gold');
-    } else {
-      fill('white');
-    }
+  let stateRadius = 80;
 
-    stroke(0);
-    ellipse(x, y, 80, 80);
+  textSize(18);
 
-    fill(0);
-    noStroke();
-    textSize(18);
-    text(states[i], x, y);
-  }
+  // Draw state circles
+  drawState(idleX, stateY, "IDLE", currentState === "IDLE" ? 'gold' : 'white', "Ready");
+  drawState(readX, stateY, "READ", currentState === "READ" ? 'gold' : 'white', "Reading...");
+  drawState(writeX, stateY, "WRITE", currentState === "WRITE" ? 'gold' : 'white', "Writing...");
 
-  // Draw arrows
   stroke(0);
   strokeWeight(2);
   noFill();
-  for (let i = 0; i < states.length - 1; i++) {
-    let x1 = cx - 200 + i * 200 + 40;
-    let x2 = cx - 200 + (i + 1) * 200 - 40;
-    line(x1, cy, x2, cy);
-    drawArrowHead(x2 - 10, cy);
-  }
-  // Wrap around back to IDLE
-  arc(cx, cy + 100, 300, 200, PI*1.5, PI*0.5);
-  drawArrowHead(cx - 140, cy + 100);
+
+  // Draw IDLE ➔ READ transition
+  line(idleX + stateRadius/2, stateY, readX - stateRadius/2, stateY);
+  drawArrowHead(readX - stateRadius/2 - 10, stateY);
+
+  // Draw READ ➔ WRITE transition
+  line(readX + stateRadius/2, stateY, writeX - stateRadius/2, stateY);
+  drawArrowHead(writeX - stateRadius/2 - 10, stateY);
+
+  // Draw WRITE ➔ IDLE (small arch above)
+  beginShape();
+  vertex(writeX - stateRadius/2, stateY);
+  bezierVertex(writeX + 50, stateY - 100, idleX - 50, stateY - 100, idleX + stateRadius/2, stateY);
+  endShape();
+  drawArrowHead(idleX + stateRadius/2 - 10, stateY);
+}
+
+function drawState(x, y, label, fillColor, outputLabel) {
+  fill(fillColor);
+  stroke(0);
+  ellipse(x, y, 80, 80);
+
+  fill(0);
+  noStroke();
+  text(label, x, y - 10);
+  textSize(14);
+  text(outputLabel, x, y + 15);
 }
 
 function drawArrowHead(x, y) {
