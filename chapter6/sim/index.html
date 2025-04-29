@@ -359,13 +359,13 @@
                   </a>
                 </li>
                 <li class="md-nav__item">
-                  <a href="#sim-prompt" class="md-nav__link">
-                    <span class="md-ellipsis">🧪 MicroSim</span>
+                  <a href="#quiz" class="md-nav__link">
+                    <span class="md-ellipsis">✅ Quiz</span>
                   </a>
                 </li>
                 <li class="md-nav__item">
-                  <a href="#quiz" class="md-nav__link">
-                    <span class="md-ellipsis">✅ Quiz</span>
+                  <a href="#project" class="md-nav__link">
+                    <span class="md-ellipsis">🛠️ Project</span>
                   </a>
                 </li>
               </ul>
@@ -428,17 +428,6 @@ Simulation and debugging are critical stages in the digital design process. They
   <li>Debug issues by inspecting waveforms and refining your design.</li>
 </ol>
 
-<h2 id="sim-prompt">🧪 MicroSim</h2>
-<p><strong>Simulation Task:</strong> Create a Verilog testbench for a 4-bit counter module. Simulate the design and verify the count sequence using waveform output.</p>
-<ul>
-  <li>Use an open-source simulator (e.g., Icarus Verilog + GTKWave) or commercial tool.</li>
-  <li>Identify reset behavior and count progression over time.</li>
-</ul>
-
-    <h2>Sim</h2>     
-    <div id="sim-wrapper" style="min-height: 420px;"></div>
-    <script src="/umn-senior-design/js/6_1.js"></script>
-
 <div class="quiz">
   <h2 id="quiz">✅ Quiz: Check Your Understanding</h2>
 
@@ -475,6 +464,83 @@ Simulation and debugging are critical stages in the digital design process. They
     <p><strong>Correct answer: C) They check for expected behavior during simulation</strong></p>
   </details>
 </div>
+
+<h2 id="project">🛠️ Project: Simulate and Debug a 2-bit Counter</h2>
+
+<h3>Objective</h3>
+<p>Apply simulation and debugging techniques to validate a simple digital circuit.</p>
+
+<h3>Task</h3>
+<p>Design, simulate, and debug a 2-bit counter using Verilog and a simulation tool of your choice.</p>
+
+<h3>Expected Learning</h3>
+<p>You will gain hands-on practice creating functional testbenches, running simulations, and analyzing waveforms to find and fix problems early in the design flow.</p>
+
+<hr>
+
+<h3>Instructions</h3>
+<ol>
+  <li><strong>Write a Verilog module</strong> for a 2-bit counter that:
+    <ul>
+      <li>Has inputs <code>clk</code> (clock) and <code>rst</code> (reset).</li>
+      <li>Increments the count on each rising edge of <code>clk</code>.</li>
+      <li>Resets to 0 when <code>rst</code> is asserted.</li>
+    </ul>
+  </li>
+  <li><strong>Write a Verilog testbench</strong> that:
+    <ul>
+      <li>Drives the clock signal with a regular period.</li>
+      <li>Pulses the reset at the beginning of the simulation.</li>
+      <li>Lets the counter run for at least 8 clock cycles.</li>
+    </ul>
+  </li>
+  <li><strong>Simulate your design</strong> using a tool such as:
+    <ul>
+      <li>EDA Playground (browser-based, free)</li>
+      <li>Icarus Verilog + GTKWave (open-source)</li>
+      <li>ModelSim, Vivado Simulator, or other commercial tools</li>
+    </ul>
+  </li>
+  <li><strong>Capture and analyze a waveform</strong> showing:
+    <ul>
+      <li>The clock signal (<code>clk</code>)</li>
+      <li>The reset signal (<code>rst</code>)</li>
+      <li>The 2-bit counter output (<code>count[1:0]</code>)</li>
+    </ul>
+  </li>
+  <li><strong>Debug and refine your design</strong>:
+    <ul>
+      <li>Ensure the counter resets correctly after <code>rst</code> goes high.</li>
+      <li>Confirm that the counter counts 0 → 1 → 2 → 3 → 0 cyclically.</li>
+      <li>Identify and correct any timing or functional issues.</li>
+    </ul>
+  </li>
+</ol>
+
+<hr>
+
+<h3>Deliverables</h3>
+<ul>
+  <li>Verilog source file for your 2-bit counter (<code>counter_2bit.v</code>)</li>
+  <li>Verilog testbench file (<code>tb_counter_2bit.v</code>)</li>
+  <li>Screenshot of the waveform display showing correct operation</li>
+  <li>Short writeup (~½ page) summarizing:
+    <ul>
+      <li>Any issues encountered</li>
+      <li>How you identified and fixed them</li>
+    </ul>
+  </li>
+</ul>
+
+<hr>
+
+<h3>Tips</h3>
+<ul>
+  <li>Use <code>$dumpfile</code> and <code>$dumpvars</code> in your testbench to generate waveforms if using Icarus Verilog.</li>
+  <li>Make sure your clock is toggling at a consistent interval.</li>
+  <li>Observe the behavior carefully at reset and around the counter rollover from 3 to 0.</li>
+</ul>
+
 
 
           
