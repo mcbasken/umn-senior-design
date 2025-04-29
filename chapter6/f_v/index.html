@@ -356,13 +356,13 @@
       </a>
     </li>
     <li class="md-nav__item">
-      <a href="#sim-prompt" class="md-nav__link">
-        <span class="md-ellipsis">🧪 MicroSim: Prove It, Don’t Just Test It</span>
+      <a href="#quiz" class="md-nav__link">
+        <span class="md-ellipsis">✅ Quiz: Check Your Understanding</span>
       </a>
     </li>
     <li class="md-nav__item">
-      <a href="#quiz" class="md-nav__link">
-        <span class="md-ellipsis">✅ Quiz: Check Your Understanding</span>
+      <a href="#project" class="md-nav__link">
+        <span class="md-ellipsis">🛠️ Project</span>
       </a>
     </li>
   </ul>
@@ -425,17 +425,6 @@ Formal verification is the process of proving the functional correctness of a de
   <li><strong>Tools:</strong> JasperGold (Cadence), Questa Formal (Siemens), Symbiyosys (open-source)</li>
 </ul>
 
-<h2 id="sim-prompt">🧪 MicroSim: Prove It, Don’t Just Test It</h2>
-<p><strong>Verification Task:</strong> Write a SystemVerilog assertion to formally verify the behavior of a simple finite state machine (FSM). Use a formal tool to prove that the FSM never enters an undefined state.</p>
-<ul>
-  <li>Use open-source tools like Symbiyosys or commercial formal tools if available.</li>
-  <li>Explore counterexamples provided when properties fail.</li>
-</ul>
-
-    <h2>Sim</h2>     
-    <div id="sim-wrapper" style="min-height: 420px;"></div>
-    <script src="/umn-senior-design/js/6_4.js"></script>
-
 <div class="quiz">
   <h2 id="quiz">✅ Quiz: Check Your Understanding</h2>
 
@@ -473,6 +462,76 @@ Formal verification is the process of proving the functional correctness of a de
   </details>
 </div>
 
+            <h2 id="project">🛠️ Project: Prove Correctness Using Formal Verification</h2>
+
+<h3>Objective</h3>
+<p>Apply formal verification methods to mathematically prove the correctness of a small digital design. Explore the use of properties and assertions to verify that key behaviors always hold across all input combinations.</p>
+
+<h3>Task</h3>
+<p>Use a small state machine, counter, or protocol interface as your target design. Write formal properties using SystemVerilog Assertions (SVA) or an open-source tool like Symbiyosys, and prove that your design meets its requirements using formal methods instead of simulation alone.</p>
+
+<h3>Expected Learning</h3>
+<p>By completing this project, you will understand how to express safety and liveness properties, run a formal proof, and identify cases where simulation might miss bugs that formal analysis can catch.</p>
+
+<hr>
+
+<h3>Instructions</h3>
+<ol>
+  <li><strong>Select or implement a small digital design</strong>:
+    <ul>
+      <li>Examples: 2-bit counter, basic FSM, or simple bus handshake logic.</li>
+    </ul>
+  </li>
+
+  <li><strong>Specify formal properties</strong>:
+    <ul>
+      <li>Use SystemVerilog Assertions (SVA), PSL, or another formal property language.</li>
+      <li>Write at least 2–3 properties such as:
+        <ul>
+          <li>"The counter never exceeds its maximum value."</li>
+          <li>"After reset, the system returns to the idle state."</li>
+          <li>"A request signal is always eventually followed by an acknowledge."</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li><strong>Use a formal verification tool</strong>:
+    <ul>
+      <li><strong>Recommended:</strong> <a href="https://github.com/YosysHQ/SymbiYosys">Symbiyosys</a> (open-source), or <a href="https://edaplayground.com/">EDA Playground</a> (SystemVerilog assertions with simulation-based checking).</li>
+      <li>Optional: Use commercial tools like JasperGold or Questa Formal if available.</li>
+    </ul>
+  </li>
+
+  <li><strong>Run formal proofs</strong>:
+    <ul>
+      <li>Verify whether each property holds or fails.</li>
+      <li>If a property fails, analyze the counterexample and fix the design or the assertion.</li>
+    </ul>
+  </li>
+</ol>
+
+<hr>
+
+<h3>Deliverables</h3>
+<ul>
+  <li>Target Verilog design file (<code>design.v</code>)</li>
+  <li>Formal properties file (<code>properties.sv</code> or <code>sby</code> script)</li>
+  <li>Proof results and counterexamples (if any)</li>
+  <li>Short report (~1 page) explaining each property and whether it passed or failed</li>
+</ul>
+
+<hr>
+
+<h3>Tips</h3>
+<ul>
+  <li>Keep your design small — formal tools are powerful but scale poorly with large state spaces.</li>
+  <li>Start with simple safety properties, like bounds on counter values or guaranteed resets.</li>
+  <li>If using Symbiyosys, try verifying a counter or FSM from Chapter 4 for consistency.</li>
+  <li>Compare what you can catch with formal vs. simulation — this shows the true power of formal analysis.</li>
+</ul>
+
+            
 
           
           <!-- Edit Page Button -->
