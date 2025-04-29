@@ -1,21 +1,32 @@
 let processors = ["ARM Cortex-M", "RISC-V", "MicroBlaze"];
 let selectedProcessor = "ARM Cortex-M";
-let slider;
-let signalSpeed = 2;
+let processorDropdown, slider;
+let signalPosition = 0;
+
+let procX, procY, memX, memY, periphX, periphY, busX, busY;
 
 function setup() {
-  let canvas = createCanvas(1200, 900);
+  let canvas = createCanvas(1200, 800);
   canvas.parent('p5-sketch');
   textAlign(CENTER, CENTER);
   textSize(18);
 
-  createProcessorDropdown();
-  createPerformanceSlider();
+  // Position key elements
+  procX = width/2 - 300;
+  procY = 250;
+  memX = width/2 + 150;
+  memY = 250;
+  periphX = width/2 - 75;
+  periphY = 450;
+  busX = width/2;
+  busY = 400;
+
+  createProcessorDropdown(canvas);
+  createPerformanceSlider(canvas);
 }
 
 function draw() {
   background(245);
-
   textSize(28);
   fill(0);
   text("FPGA Embedded SoC MicroSim", width/2, 40);
@@ -25,94 +36,64 @@ function draw() {
   drawPowerPerformanceLabels();
 }
 
-function createProcessorDropdown() {
-  let dropdown = createSelect();
-  dropdown.parent('p5-sketch');
-  dropdown.position(width/2 - 100, 80);
-  for (let p of processors) {
-    dropdown.option(p);
-  }
-  dropdown.changed(() => {
-    selectedProcessor = dropdown.value();
+function createProcessorDropdown(canvas) {
+  processorDropdown = createSelect();
+  processorDropdown.parent('p5-sketch');
+  processorDropdown.position(canvas.position().x + width/2 - 100, canvas.position().y + 90);
+  for (let p of processors) processorDropdown.option(p);
+  processorDropdown.changed(() => {
+    selectedProcessor = processorDropdown.value();
   });
 }
 
-function createPerformanceSlider() {
+function createPerformanceSlider(canvas) {
   slider = createSlider(1, 10, 5);
   slider.parent('p5-sketch');
-  slider.position(width/2 - 150, height - 100);
+  slider.position(canvas.position().x + width/2 - 150, canvas.position().y + height - 100);
   slider.style('width', '300px');
 }
 
 function drawSystemDiagram() {
   fill(255);
   stroke(0);
+  rect(procX, procY, 150, 80, 10);         // Processor
+  rect(memX, memY, 150, 80, 10);           // Memory
+  rect(periphX, periphY, 150, 80, 10);     // Peripherals
 
-  // Draw Processor
-  rect(width/2 - 300, 250, 150, 80, 10);
   fill(0);
   noStroke();
   textSize(20);
-  text(selectedProcessor, width/2 - 225, 290);
+  text(selectedProcessor, procX + 75, procY + 40);
+  text("Memory", memX + 75, memY + 40);
+  text("Peripherals", periphX + 75, periphY + 40);
 
-  // Draw Memory
-  stroke(0);
-  fill(255);
-  rect(width/2 + 150, 250, 150, 80, 10);
-  fill(0);
-  noStroke();
-  text("Memory", width/2 + 225, 290);
-
-  // Draw Peripherals
-  stroke(0);
-  fill(255);
-  rect(width/2 - 75, 450, 150, 80, 10);
-  fill(0);
-  noStroke();
-  text("Peripherals", width/2, 490);
-
-  // Draw horizontal Bus
+  // Horizontal bus
   stroke('#1f77b4');
   strokeWeight(6);
-  line(width/2 - 200, 400, width/2 + 200, 400);
-  fill(0);
+  line(busX - 200, busY, busX + 200, busY);
   noStroke();
-  textSize(20);
-  text("Bus (AXI/Avalon)", width/2, 380);
+  fill(0);
+  text("Bus (AXI/Avalon)", busX, busY - 20);
 
-  // Draw vertical connections
+  // Vertical wires
   stroke('#1f77b4');
   strokeWeight(4);
-  line(width/2 - 225, 330, width/2 - 225, 400); // Processor to Bus
-  line(width/2 + 225, 330, width/2 + 225, 400); // Memory to Bus
-  line(width/2, 450, width/2, 400); // Peripherals to Bus
+  line(procX + 150, procY + 40, busX - 100, busY);      // Processor to Bus
+  line(busX + 100, busY, memX, memY + 40);              // Bus to Memory
+  line(busX, busY + 100, periphX + 75, periphY);        // Bus down to Peripherals
 }
-
-
-let signalPosition = 0;
 
 function drawRealTimeSignals() {
   let speed = slider.value();
   stroke('limegreen');
   strokeWeight(6);
-
   signalPosition += speed * 0.5;
-  if (signalPosition > 400) {
-    signalPosition = 0;
-  }
+  if (signalPosition > 400) signalPosition = 0;
 
-  // Moving dots from Processor -> Bus -> Memory
-  let startX = width/2 - 50 + signalPosition;
-  let y = 240;
-  if (startX < width/2 + 50) {
-    point(startX, y);
-  } else if (startX < width/2 + 150) {
-    point(width/2 + 50, y);
-    point(width/2 + 100, y + (startX - (width/2 + 50)));
-  } else {
-    point(width/2 + 50, y);
-    point(width/2 + 100, y + 100);
-    point(width/2 + 100 + (startX - (width/2 + 150)), 340);
+  // Draw animated signal from processor to memory through bus
+  let x = busX - 200 + signalPosition;
+  if (x <= busX + 200) {
+    point(x, busY);
   }
 }
 
