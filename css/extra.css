@@ -7,11 +7,11 @@
 }
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
-    height: 80px;
+    height: 60px;
     width: 50px;
 }
 .md-header {
-  height: 80px; /* Default is about 56px, so 80px looks better */
+  height: 60px; /* Default is about 56px, so 80px looks better */
 }
 
 /* Color overrides */
@@ -24,7 +24,7 @@
 /* Make the site title bigger */
 .md-header__title {
   font-size: 24px; /* Bigger site title */
-line-height: 80px;
+line-height: 60px;
 }
 
 /* Make the main navigation sidebar links bigger */
@@ -50,7 +50,7 @@ body {
 .md-main__inner {
   max-width: 1650px; /* Default Material width */
   margin: 0 auto;
-  padding: 0 4rem;
+  padding: 0 2rem;
 }
 
 /* Actual content inside pages */
