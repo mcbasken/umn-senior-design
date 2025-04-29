@@ -2,24 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>FPGA and ASIC MicroSim</title>
+  <title>FPGA Architecture MicroSim</title>
   <link rel="stylesheet" href="extra.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </head>
-<body>
+<body class="microsim-body">
 
-  <div class="microsim-page">
-    <h1>FPGA and ASIC MicroSim</h1>
-    <p>Type your Verilog or FPGA-related code below and click "Check Code"!</p>
+<div id="canvas-container">
+  <h1>FPGA Architecture MicroSim</h1>
+  <p>Click "Upload Bitstream" to simulate FPGA synthesis, placement, and routing!</p>
 
-    <div id="canvas-container">
-      <textarea id="verilogInput" placeholder="Describe your FPGA or ASIC design process..."></textarea><br>
-      <button id="checkButton">Check Code</button>
+  <div id="p5-sketch"></div> <!-- Canvas goes here -->
+</div>
 
-      <div id="feedback"></div>
-    </div>
-  </div>
-
-  <script src="fpga.js"></script>
+<script src="fpga-microsim.js"></script>
 
 </body>
 </html>
