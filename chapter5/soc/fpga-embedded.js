@@ -80,7 +80,7 @@ function drawSystemDiagram() {
   strokeWeight(4);
   line(procX + 150, procY + 40, busX - 100, busY);      // Processor to Bus
   line(busX + 100, busY, memX, memY + 40);              // Bus to Memory
-  line(busX, busY + 100, periphX + 75, periphY);        // Bus down to Peripherals
+  line(busX, busY, periphX + 75, periphY);       // Bus down to Peripherals
 }
 
 function drawRealTimeSignals() {
