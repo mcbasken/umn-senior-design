@@ -7,7 +7,7 @@ let OE = 0;
 let WE = 0;
 
 function setup() {
-  let canvas = createCanvas(1000, 700);
+  let canvas = createCanvas(1000, 800);
   canvas.parent('p5-sketch');
   textAlign(CENTER, CENTER);
   textSize(18);
@@ -30,7 +30,7 @@ function draw() {
 function drawAddressInputs() {
   fill(0);
   textSize(20);
-  text("Address Inputs (A3 A2 A1 A0)", width/4, 80);
+  text("Address Inputs (A3 A2 A1 A0)", width/4, 60); // Higher up now!
 
   for (let i = 0; i < 4; i++) {
     drawBit(width/4 - 75 + i*50, 100, addressBits[i], "A" + (3-i));
@@ -40,7 +40,7 @@ function drawAddressInputs() {
 function drawDataInputs() {
   fill(0);
   textSize(20);
-  text("Data Inputs (D7 D6 ... D0)", width*3/4, 80);
+  text("Data Inputs (D7 D6 ... D0)", width*3/4, 60); // Higher up now!
 
   for (let i = 0; i < 8; i++) {
     drawBit(width*3/4 - 175 + i*40, 100, dataBits[i], "D" + (7-i));
