@@ -47,38 +47,47 @@ function createPerformanceSlider() {
 function drawSystemDiagram() {
   fill(255);
   stroke(0);
-  rect(width/2 - 250, 200, 200, 80, 10);
+
+  // Draw Processor
+  rect(width/2 - 300, 250, 150, 80, 10);
   fill(0);
   noStroke();
   textSize(20);
-  text(selectedProcessor, width/2 - 150, 240);
+  text(selectedProcessor, width/2 - 225, 290);
 
+  // Draw Memory
   stroke(0);
   fill(255);
-  rect(width/2, 200, 200, 80, 10);
+  rect(width/2 + 150, 250, 150, 80, 10);
   fill(0);
-  text("Bus (AXI)", width/2 + 100, 240);
+  noStroke();
+  text("Memory", width/2 + 225, 290);
 
+  // Draw Peripherals
   stroke(0);
   fill(255);
-  rect(width/2 + 250, 200, 200, 80, 10);
+  rect(width/2 - 75, 450, 150, 80, 10);
   fill(0);
-  text("Memory", width/2 + 350, 240);
+  noStroke();
+  text("Peripherals", width/2, 490);
 
-  // Bus to peripherals
-  stroke(0);
-  fill(255);
-  rect(width/2 + 100, 350, 200, 80, 10);
-  fill(0);
-  text("Peripherals", width/2 + 200, 390);
-
-  // Lines
-  strokeWeight(3);
+  // Draw horizontal Bus
   stroke('#1f77b4');
-  line(width/2 - 50, 240, width/2 + 50, 240); // Processor to Bus
-  line(width/2 + 150, 240, width/2 + 250, 240); // Bus to Memory
-  line(width/2 + 100, 280, width/2 + 200, 350); // Bus to Peripherals
+  strokeWeight(6);
+  line(width/2 - 200, 400, width/2 + 200, 400);
+  fill(0);
+  noStroke();
+  textSize(20);
+  text("Bus (AXI/Avalon)", width/2, 380);
+
+  // Draw vertical connections
+  stroke('#1f77b4');
+  strokeWeight(4);
+  line(width/2 - 225, 330, width/2 - 225, 400); // Processor to Bus
+  line(width/2 + 225, 330, width/2 + 225, 400); // Memory to Bus
+  line(width/2, 450, width/2, 400); // Peripherals to Bus
 }
+
 
 let signalPosition = 0;
 
