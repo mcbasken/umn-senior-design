@@ -2,8 +2,11 @@ let clbGrid = [];
 let gridRows = 4;
 let gridCols = 4;
 let clbSize = 100;
-let offsetX = 200;
-let offsetY = 200;
+
+let gridWidth;
+let gridHeight;
+let offsetX;
+let offsetY;
 
 let progress = 0;
 let uploading = false;
@@ -14,6 +17,12 @@ function setup() {
   canvas.parent('p5-sketch');
   textAlign(CENTER, CENTER);
   textSize(18);
+
+  // ✅ Now it's safe to calculate after canvas is created:
+  gridWidth = gridCols * clbSize + (gridCols - 1) * 20;
+  gridHeight = gridRows * clbSize + (gridRows - 1) * 20;
+  offsetX = (width - gridWidth) / 2;
+  offsetY = (height - gridHeight) / 2 + 50; // slightly lower for title
 
   // Create CLB grid
   for (let i = 0; i < gridRows; i++) {
