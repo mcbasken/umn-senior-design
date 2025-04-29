@@ -24,7 +24,7 @@ function draw() {
   drawInputToggle(width/2 + 50, 100, "Done", doneInput);
 
   // Draw Clock Button
-  drawButton(width/2 - 60, 180, 120, 50, "Clock Tick");
+  drawButton(width/2 - 60, 140, 120, 50, "Clock Tick");
 
   // Draw FSM Diagram
   drawFSM();
