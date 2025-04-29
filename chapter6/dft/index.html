@@ -356,13 +356,13 @@
       </a>
     </li>
     <li class="md-nav__item">
-      <a href="#sim-prompt" class="md-nav__link">
-        <span class="md-ellipsis">🧪 MicroSim</span>
+      <a href="#quiz" class="md-nav__link">
+        <span class="md-ellipsis">✅ Quiz</span>
       </a>
     </li>
     <li class="md-nav__item">
-      <a href="#quiz" class="md-nav__link">
-        <span class="md-ellipsis">✅ Quiz</span>
+      <a href="#project" class="md-nav__link">
+        <span class="md-ellipsis">🛠️ Project</span>
       </a>
     </li>
   </ul>
@@ -442,17 +442,6 @@ BIST automates the test process by embedding a pattern generator and output resp
   <li>Reduced dependency on expensive external test patterns and signal probing.</li>
 </ul>
 
-<h2 id="sim-prompt">🧪 MicroSim</h2>
-<p><strong>Simulation Task:</strong> Create a scan-enabled D flip-flop in Verilog. Simulate its behavior in both normal and scan modes by shifting test data through the chain.</p>
-<ul>
-  <li>Verify correct functionality using waveform analysis.</li>
-  <li>Document input/output transitions and compare them between test and functional modes.</li>
-</ul>
-
-    <h2>Sim</h2>     
-    <div id="sim-wrapper" style="min-height: 420px;"></div>
-    <script src="/umn-senior-design/js/6_3.js"></script>
-
 <div class="quiz">
   <h2 id="quiz">✅ Quiz: Check Your Understanding</h2>
 
@@ -489,6 +478,77 @@ BIST automates the test process by embedding a pattern generator and output resp
     <p><strong>Correct answer: B) Test pattern generator and response checker</strong></p>
   </details>
 </div>
+
+    <h2>🛠️ Project: Add Testability to a Digital Design Using Scan or BIST Techniques</h2>
+
+<h3>Objective</h3>
+<p>Apply Design for Testability (DFT) concepts to enhance the controllability and observability of a small digital system, using either a scan chain approach or a built-in self-test (BIST) mechanism.</p>
+
+<h3>Task</h3>
+<p>Choose a simple sequential circuit (like a 2-bit shift register or FSM), then modify the design to include DFT features that make it easier to test and debug. Simulate both the functional behavior and the test mode behavior to verify that testability features work correctly.</p>
+
+<h3>Expected Learning</h3>
+<p>You will learn how to integrate scan flip-flops, emulate BIST strategies, and improve the ability to drive and observe internal circuit behavior through simulation. You'll also understand the importance of DFT in modern IC design and validation workflows.</p>
+
+<hr>
+
+<h3>Instructions</h3>
+<ol>
+  <li><strong>Choose or write a small sequential Verilog design</strong>:
+    <ul>
+      <li>Options: 2-bit shift register, small FSM, or 3-bit counter.</li>
+    </ul>
+  </li>
+
+  <li><strong>Implement a DFT enhancement</strong>:
+    <ul>
+      <li><strong>Option A — Scan Chain:</strong> Add a scan input, scan enable, and scan output. Simulate flip-flops behaving as a shift register when scan mode is enabled.</li>
+      <li><strong>Option B — BIST:</strong> Add an LFSR-based pattern generator and an output checker that verifies logic behavior during a test phase.</li>
+    </ul>
+  </li>
+
+  <li><strong>Write a Verilog testbench</strong> to:
+    <ul>
+      <li>Test both normal operation and test mode behavior.</li>
+      <li>Apply scan patterns or enable BIST logic.</li>
+    </ul>
+  </li>
+
+  <li><strong>Simulate your design</strong> using a tool of your choice:
+    <ul>
+      <li>EDA Playground, Icarus Verilog, Vivado Simulator, or ModelSim.</li>
+    </ul>
+  </li>
+
+  <li><strong>Analyze waveforms</strong> to verify:
+    <ul>
+      <li>Scan input correctly shifts data through scan chain (if used).</li>
+      <li>BIST logic generates and checks expected outputs (if used).</li>
+      <li>Internal states are controllable and observable in test mode.</li>
+    </ul>
+  </li>
+</ol>
+
+<hr>
+
+<h3>Deliverables</h3>
+<ul>
+  <li>Original Verilog design (<code>design_base.v</code>)</li>
+  <li>Modified design with DFT features (<code>design_dft.v</code>)</li>
+  <li>Testbench file (<code>tb_dft.v</code>)</li>
+  <li>Waveform screenshots showing scan or BIST activity</li>
+  <li>Short writeup (~1 page) comparing normal mode vs test mode operation</li>
+</ul>
+
+<hr>
+
+<h3>Tips</h3>
+<ul>
+  <li>For scan mode, use a signal like <code>scan_en</code> to multiplex between <code>d</code> and <code>scan_in</code> on flip-flops.</li>
+  <li>An LFSR (linear feedback shift register) can generate pseudo-random patterns for BIST.</li>
+  <li>Use waveform viewers (like GTKWave or EPWave) to verify that internal logic is controllable and observable during test mode.</li>
+</ul>
+
 
 
 
