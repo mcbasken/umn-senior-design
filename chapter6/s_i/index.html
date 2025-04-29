@@ -355,13 +355,13 @@
       </a>
     </li>
     <li class="md-nav__item">
-      <a href="#sim-prompt" class="md-nav__link">
-        <span class="md-ellipsis">🧪 MicroSim: Timing and Signal Quality in Practice</span>
+      <a href="#quiz" class="md-nav__link">
+        <span class="md-ellipsis">✅ Quiz</span>
       </a>
     </li>
     <li class="md-nav__item">
-      <a href="#quiz" class="md-nav__link">
-        <span class="md-ellipsis">✅ Quiz: Check Your Understanding</span>
+      <a href="#project" class="md-nav__link">
+        <span class="md-ellipsis">🛠️ Project</span>
       </a>
     </li>
   </ul>
@@ -431,17 +431,6 @@ The clock signal is the heartbeat of a synchronous system. It must reach all seq
   <li>Use tool-assisted clock planning and constraints (e.g., in Vivado or Quartus).</li>
 </ul>
 
-<h2 id="sim-prompt">🧪 MicroSim: Timing and Signal Quality in Practice</h2>
-<p><strong>Analysis Task:</strong> Simulate a high-speed bus in your HDL design with multiple outputs switching simultaneously. Observe waveform ringing or ground bounce. Then, modify the layout or switching pattern to improve signal quality.</p>
-<ul>
-  <li>Use simulation tools like ModelSim or GTKWave with appropriate signal loads.</li>
-  <li>Apply weak pull-up/down or termination strategies in the HDL model.</li>
-</ul>
-
-    <h2>Sim</h2>     
-    <div id="sim-wrapper" style="min-height: 420px;"></div>
-    <script src="/umn-senior-design/js/6_6.js"></script>
-
 <div class="quiz">
   <h2 id="quiz">✅ Quiz: Check Your Understanding</h2>
 
@@ -478,6 +467,77 @@ The clock signal is the heartbeat of a synchronous system. It must reach all seq
     <p><strong>Correct answer: C) It can cause setup/hold violations if unmanaged</strong></p>
   </details>
 </div>
+
+            <h2 id="project">🛠️ Project: Evaluate Clock Distribution and Signal Integrity in a High-Speed Design</h2>
+
+<h3>Objective</h3>
+<p>Understand and apply clock distribution and signal integrity principles in a high-speed digital system. Identify potential risks like clock skew and crosstalk, and explore how architectural and physical design decisions can impact signal quality and timing consistency.</p>
+
+<h3>Task</h3>
+<p>Create and analyze a small design with multiple sequential blocks driven by a clock. Evaluate the effects of clock skew and simultaneous switching on timing and signal behavior. Implement strategies such as clock buffering or pipelining to improve timing alignment, and propose PCB-level mitigation techniques based on your results.</p>
+
+<h3>Expected Learning</h3>
+<p>You will learn how clock distribution choices affect system timing, how signal integrity violations arise, and how to prevent them through design and layout strategies. This reinforces the importance of architectural and physical awareness in digital hardware development.</p>
+
+<hr>
+
+<h3>Instructions</h3>
+<ol>
+  <li><strong>Create a multi-stage design in Verilog</strong>:
+    <ul>
+      <li>Example: a 4-stage pipelined shift register or small datapath (e.g., ALU + register + FSM).</li>
+      <li>Ensure each stage is clocked by the same clock signal.</li>
+    </ul>
+  </li>
+
+  <li><strong>Insert artificial clock skew</strong> (in testbench or constraints):
+    <ul>
+      <li>Offset clock arrival time to some flip-flops to simulate skew.</li>
+      <li>Observe the resulting timing behavior or violations.</li>
+    </ul>
+  </li>
+
+  <li><strong>Simulate signal toggling</strong>:
+    <ul>
+      <li>Force simultaneous switching on many outputs (e.g., 8-bit bus).</li>
+      <li>Check for artifacts like glitches or ground bounce-like behavior (e.g., unintended toggles or unstable transitions).</li>
+    </ul>
+  </li>
+
+  <li><strong>Apply mitigation strategies</strong>:
+    <ul>
+      <li>Add clock buffers, pipelining, or staged enable logic to improve clock arrival and reduce toggling.</li>
+      <li>Write a short description of how you’d improve layout or power integrity at the PCB level (e.g., decoupling, shielding, trace spacing).</li>
+    </ul>
+  </li>
+</ol>
+
+<hr>
+
+<h3>Deliverables</h3>
+<ul>
+  <li>Verilog design with multiple clocked stages (<code>design_clocked.v</code>)</li>
+  <li>Testbench introducing clock skew and SSO (<code>tb_si.v</code>)</li>
+  <li>Simulation waveforms showing skew effects or glitches</li>
+  <li>Short report (~1 page) including:
+    <ul>
+      <li>Where timing or signal integrity was impacted</li>
+      <li>What changes helped improve signal behavior</li>
+      <li>What PCB-level practices you'd apply to prevent these issues</li>
+    </ul>
+  </li>
+</ul>
+
+<hr>
+
+<h3>Tips</h3>
+<ul>
+  <li>Skew can be simulated by delaying clock signals to different modules using time offsets in the testbench.</li>
+  <li>Simultaneous toggling on a bus can be exaggerated by toggling all bits at once.</li>
+  <li>If using Vivado or Quartus, use the clock planner to review insertion delay and skew.</li>
+  <li>Ground bounce is hard to simulate precisely in logic — represent it by observing false transitions or missed clock edges.</li>
+</ul>
+
 
 
           
