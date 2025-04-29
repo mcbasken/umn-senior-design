@@ -93,17 +93,20 @@ function drawFSM() {
   line(readX + stateRadius/2, stateY, writeX - stateRadius/2, stateY);
   drawArrowHead(writeX - stateRadius/2 - 10, stateY);
 
-  // Draw WRITE ➔ IDLE wire (bezier curve wire)
-  beginShape();
-  vertex(writeX - stateRadius/2, stateY);
-  bezierVertex(
-    writeX + 60, stateY - 120,   // control point 1 (up and right)
-    idleX - 60, stateY - 120,    // control point 2 (up and left)
-    idleX + stateRadius/2, stateY  // end point (landing at IDLE)
-  );
-  endShape();
-
-  // Draw arrowhead where wire lands back at IDLE
+  // Draw WRITE ➔ IDLE bent wire
+  stroke(0);
+  strokeWeight(2);
+  
+  // Go upward from WRITE
+  line(writeX - stateRadius/2, stateY, writeX - stateRadius/2, stateY - 80);
+  
+  // Horizontal wire from WRITE toward IDLE
+  line(writeX - stateRadius/2, stateY - 80, idleX + stateRadius/2, stateY - 80);
+  
+  // Go downward into IDLE
+  line(idleX + stateRadius/2, stateY - 80, idleX + stateRadius/2, stateY);
+  
+  // Arrowhead at landing to IDLE
   drawArrowHead(idleX + stateRadius/2 - 10, stateY);
 }
 
