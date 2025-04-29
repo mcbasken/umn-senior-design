@@ -26,7 +26,7 @@ function draw() {
   // Draw Clock Button
   drawButton(width/2 - 60, 180, 120, 50, "Clock Tick");
 
-  // Draw States
+  // Draw FSM Diagram
   drawFSM();
 
   // Show Current State
@@ -80,7 +80,7 @@ function drawFSM() {
   strokeWeight(2);
   noFill();
 
-   // Draw IDLE ➔ READ transition
+  // Draw IDLE ➔ READ transition
   line(idleX + stateRadius/2, stateY, readX - stateRadius/2, stateY);
   drawArrowHead(readX - stateRadius/2 - 10, stateY);
 
@@ -88,18 +88,17 @@ function drawFSM() {
   line(readX + stateRadius/2, stateY, writeX - stateRadius/2, stateY);
   drawArrowHead(writeX - stateRadius/2 - 10, stateY);
 
-  // Draw WRITE ➔ IDLE small arch
+  // Draw WRITE ➔ IDLE (small arch over)
   beginShape();
   vertex(writeX - stateRadius/2, stateY);
   bezierVertex(
-    writeX + 50, stateY - 100,  // control point 1 (up and right)
-    idleX - 50, stateY - 100,   // control point 2 (up and left)
-    idleX + stateRadius/2, stateY // end at IDLE
+    writeX + 50, stateY - 100,  // Control point 1
+    idleX - 50, stateY - 100,   // Control point 2
+    idleX + stateRadius/2, stateY  // End point
   );
   endShape();
-
-    // Arrowhead where wire lands back at IDLE
   drawArrowHead(idleX + stateRadius/2 - 10, stateY);
+}
 
 function drawState(x, y, label, fillColor, outputLabel) {
   fill(fillColor);
@@ -120,17 +119,17 @@ function drawArrowHead(x, y) {
 }
 
 function mousePressed() {
-  // Check if clicked Start
+  // Toggle Start Input
   if (mouseX > width/2 - 150 && mouseX < width/2 - 50 &&
       mouseY > 100 && mouseY < 140) {
     startInput = startInput ? 0 : 1;
   }
-  // Check if clicked Done
+  // Toggle Done Input
   if (mouseX > width/2 + 50 && mouseX < width/2 + 150 &&
       mouseY > 100 && mouseY < 140) {
     doneInput = doneInput ? 0 : 1;
   }
-  // Check if clicked Clock Tick
+  // Clock Tick Button
   if (mouseX > width/2 - 60 && mouseX < width/2 + 60 &&
       mouseY > 180 && mouseY < 230) {
     clockTick();
