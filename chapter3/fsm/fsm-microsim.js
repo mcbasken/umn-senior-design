@@ -67,11 +67,11 @@ function drawFSM() {
   let writeX = cx + 200;
   let stateY = cy;
 
-  let stateRadius = 80; // diameter of state circles
+  let stateRadius = 40; // RADIUS now (not diameter)
 
   textSize(18);
 
-  // Draw state circles
+  // Draw states
   drawState(idleX, stateY, "IDLE", currentState === "IDLE" ? 'gold' : 'white', "Ready");
   drawState(readX, stateY, "READ", currentState === "READ" ? 'gold' : 'white', "Reading...");
   drawState(writeX, stateY, "WRITE", currentState === "WRITE" ? 'gold' : 'white', "Writing...");
@@ -80,29 +80,28 @@ function drawFSM() {
   strokeWeight(2);
   noFill();
 
-  // 1. Wire: IDLE ➔ READ (straight)
-  line(idleX + stateRadius/2, stateY, readX - stateRadius/2, stateY);
-  drawArrowHead(readX - stateRadius/2 - 5, stateY);
+  // IDLE ➔ READ (straight right)
+  line(idleX + stateRadius, stateY, readX - stateRadius, stateY);
+  drawArrowHead(readX - stateRadius, stateY, 0); // angle 0 radians (pointing right)
 
-  // 2. Wire: READ ➔ WRITE (straight)
-  line(readX + stateRadius/2, stateY, writeX - stateRadius/2, stateY);
-  drawArrowHead(writeX - stateRadius/2 - 5, stateY);
+  // READ ➔ WRITE (straight right)
+  line(readX + stateRadius, stateY, writeX - stateRadius, stateY);
+  drawArrowHead(writeX - stateRadius, stateY, 0); // angle 0 radians (pointing right)
 
-  // 3. Wire: WRITE ➔ IDLE (bent wire)
-  let archHeight = 120; // how high the wire arches up
+  // WRITE ➔ IDLE (up, across, down)
+  let archHeight = 120;
 
   // UP from WRITE
-  line(writeX - stateRadius/2, stateY, writeX - stateRadius/2, stateY - archHeight);
+  line(writeX - stateRadius, stateY, writeX - stateRadius, stateY - archHeight);
 
-  // ACROSS toward IDLE
-  line(writeX - stateRadius/2, stateY - archHeight, idleX + stateRadius/2, stateY - archHeight);
+  // ACROSS from WRITE to IDLE
+  line(writeX - stateRadius, stateY - archHeight, idleX + stateRadius, stateY - archHeight);
 
   // DOWN into IDLE
-  line(idleX + stateRadius/2, stateY - archHeight, idleX + stateRadius/2, stateY);
-
-  // Arrow at bottom going into IDLE
-  drawArrowHead(idleX + stateRadius/2 - 5, stateY);
+  line(idleX + stateRadius, stateY - archHeight, idleX + stateRadius, stateY);
+  drawArrowHead(idleX + stateRadius, stateY, HALF_PI); // angle down (90 degrees = HALF_PI)
 }
+
 
 function drawState(x, y, label, fillColor, outputLabel) {
   fill(fillColor);
@@ -117,11 +116,16 @@ function drawState(x, y, label, fillColor, outputLabel) {
 }
 
 
-function drawArrowHead(x, y) {
+function drawArrowHead(x, y, angle) {
+  push();
+  translate(x, y);
+  rotate(angle);
   fill(0);
   noStroke();
-  triangle(x, y, x - 10, y - 5, x - 10, y + 5);
+  triangle(0, 0, -10, -5, -10, 5);
+  pop();
 }
+
 
 
 function mousePressed() {
