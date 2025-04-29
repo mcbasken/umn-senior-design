@@ -59,7 +59,7 @@ function drawButton(x, y, w, h, label) {
 }
 
 function drawFSM() {
-  let cx = width/2;
+  let cx = width / 2;
   let cy = 350;
 
   let idleX = cx - 200;
@@ -67,7 +67,7 @@ function drawFSM() {
   let writeX = cx + 200;
   let stateY = cy;
 
-  let stateRadius = 80;
+  let stateRadius = 80; // diameter of state circles
 
   textSize(18);
 
@@ -80,33 +80,27 @@ function drawFSM() {
   strokeWeight(2);
   noFill();
 
-  // Draw IDLE ➔ READ transition
-  line(idleX + stateRadius/2, stateY, readX - stateRadius/2, stateY);
-  drawArrowHead(readX - stateRadius/2 - 10, stateY);
+  // Wire: IDLE ➔ READ
+  line(idleX + stateRadius / 2, stateY, readX - stateRadius / 2 - 10, stateY);
+  drawArrowHead(readX - stateRadius / 2 - 10, stateY);
 
-  // Draw READ ➔ WRITE transition
-  line(readX + stateRadius/2, stateY, writeX - stateRadius/2, stateY);
-  drawArrowHead(writeX - stateRadius/2 - 10, stateY);
+  // Wire: READ ➔ WRITE
+  line(readX + stateRadius / 2, stateY, writeX - stateRadius / 2 - 10, stateY);
+  drawArrowHead(writeX - stateRadius / 2 - 10, stateY);
 
-  
-  // Draw READ ➔ WRITE transition
-  line(readX + stateRadius/2, stateY, writeX - stateRadius/2, stateY);
-  drawArrowHead(writeX - stateRadius/2 - 10, stateY);
+  // Wire: WRITE ➔ IDLE (bent wire: up, across, down)
+  let wireUpHeight = 100; // how much the wire arches upward
 
-  // Draw WRITE ➔ IDLE bent wire
-  stroke(0);
-  strokeWeight(2);
-  
-  // Go upward from WRITE
-  line(writeX - stateRadius/2, stateY, writeX - stateRadius/2, stateY - 80);
-  
-  // Horizontal wire from WRITE toward IDLE
-  line(writeX - stateRadius/2, stateY - 80, idleX + stateRadius/2, stateY - 80);
-  
-  // Go downward into IDLE
-  line(idleX + stateRadius/2, stateY - 80, idleX + stateRadius/2, stateY);
-  
-  // Arrowhead at landing to IDLE
+  // Go up
+  line(writeX - stateRadius/2, stateY, writeX - stateRadius/2, stateY - wireUpHeight);
+
+  // Across to the left
+  line(writeX - stateRadius/2, stateY - wireUpHeight, idleX + stateRadius/2, stateY - wireUpHeight);
+
+  // Down
+  line(idleX + stateRadius/2, stateY - wireUpHeight, idleX + stateRadius/2, stateY);
+
+  // Arrowhead at bottom near IDLE
   drawArrowHead(idleX + stateRadius/2 - 10, stateY);
 }
 
@@ -125,7 +119,7 @@ function drawState(x, y, label, fillColor, outputLabel) {
 function drawArrowHead(x, y) {
   fill(0);
   noStroke();
-  triangle(x, y, x-10, y-5, x-10, y+5);
+  triangle(x, y, x - 10, y - 5, x - 10, y + 5);
 }
 
 function mousePressed() {
