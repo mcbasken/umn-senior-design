@@ -43,7 +43,7 @@ function draw() {
   let gateRightEdgeX = 400 + 50; // center + half width
   let gateOutputY = 225;
   stroke(0);
-  line(gateRightEdgeX, gateOutputY, gateRightEdgeX + 100, gateOutputY);
+  line(gateRightEdgeX, gateOutputY, gateRightEdgeX + 150, gateOutputY);
 
   // Draw Output circle
   let output = calculateOutput(inputA, inputB, selectedGate);
