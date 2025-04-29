@@ -356,13 +356,13 @@
       </a>
     </li>
     <li class="md-nav__item">
-      <a href="#sim-prompt" class="md-nav__link">
-        <span class="md-ellipsis">🧪 MicroSim: Explore Your Critical Paths</span>
+      <a href="#quiz" class="md-nav__link">
+        <span class="md-ellipsis">✅ Quiz</span>
       </a>
     </li>
     <li class="md-nav__item">
-      <a href="#quiz" class="md-nav__link">
-        <span class="md-ellipsis">✅ Quiz: Check Your Understanding</span>
+      <a href="#project" class="md-nav__link">
+        <span class="md-ellipsis">🛠️ Project</span>
       </a>
     </li>
   </ul>
@@ -431,17 +431,6 @@ Synthesis and implementation tools like Vivado, Quartus, or Synopsys PrimeTime p
   <li><strong>Placement and Routing:</strong> Use floorplanning and logic placement strategies to reduce path delays.</li>
 </ul>
 
-<h2 id="sim-prompt">🧪 MicroSim: Explore Your Critical Paths</h2>
-<p><strong>Analysis Task:</strong> Use your FPGA synthesis tool to generate a timing report for a basic datapath (e.g., a 4-bit ALU or counter). Identify the critical path and examine its slack.</p>
-<ul>
-  <li>Analyze both pre- and post-place-and-route reports.</li>
-  <li>Experiment with pipelining to observe changes in slack and timing performance.</li>
-</ul>
-
-    <h2>Sim</h2>     
-    <div id="sim-wrapper" style="min-height: 420px;"></div>
-    <script src="/umn-senior-design/js/6_5.js"></script>
-
 <div class="quiz">
   <h2 id="quiz">✅ Quiz: Check Your Understanding</h2>
 
@@ -478,6 +467,85 @@ Synthesis and implementation tools like Vivado, Quartus, or Synopsys PrimeTime p
     <p><strong>Correct answer: B) Data transfer reliability at flip-flops</strong></p>
   </details>
 </div>
+
+    <h2 id="project">🛠️ Project: Analyze and Optimize Timing Paths in a Digital Design</h2>
+
+<h3>Objective</h3>
+<p>Apply static timing analysis (STA) concepts to evaluate and improve the timing performance of a synthesized digital circuit. Identify the critical path, evaluate timing slack, and explore optimizations for achieving timing closure.</p>
+
+<h3>Task</h3>
+<p>Use a small Verilog design (e.g., a 4-bit ripple adder, multiplexer tree, or FSM) and synthesize it using a timing-aware tool such as Vivado, Quartus, or open-source tools like Yosys + OpenSTA. Analyze the generated timing report and identify the critical path and any violations. Then, modify the design or constraints to improve slack and close timing.</p>
+
+<h3>Expected Learning</h3>
+<p>You will gain experience reading and interpreting STA reports, understanding setup/hold constraints, and performing architectural optimizations to improve the timing of a digital design.</p>
+
+<hr>
+
+<h3>Instructions</h3>
+<ol>
+  <li><strong>Create or select a small Verilog design</strong>:
+    <ul>
+      <li>Examples: 4-bit ripple-carry adder, barrel shifter, basic FSM, or serial-to-parallel converter.</li>
+    </ul>
+  </li>
+
+  <li><strong>Synthesize the design using a supported tool</strong>:
+    <ul>
+      <li><strong>Recommended:</strong> Xilinx Vivado, Intel Quartus Prime, or open-source flow like Yosys + nextpnr + OpenSTA.</li>
+      <li>Apply basic timing constraints (e.g., 100MHz clock).</li>
+    </ul>
+  </li>
+
+  <li><strong>Generate and analyze the timing report</strong>:
+    <ul>
+      <li>Identify the <strong>critical path</strong>.</li>
+      <li>Record the <strong>worst-case slack</strong> value.</li>
+      <li>Check for <strong>setup or hold violations</strong>.</li>
+    </ul>
+  </li>
+
+  <li><strong>Apply timing optimizations</strong>:
+    <ul>
+      <li>Insert pipeline flip-flops to break long combinational paths.</li>
+      <li>Simplify or restructure logic.</li>
+      <li>Experiment with path constraints (e.g., multicycle paths).</li>
+    </ul>
+  </li>
+
+  <li><strong>Re-synthesize and compare timing</strong>:
+    <ul>
+      <li>Did slack improve?</li>
+      <li>Did the critical path change?</li>
+    </ul>
+  </li>
+</ol>
+
+<hr>
+
+<h3>Deliverables</h3>
+<ul>
+  <li>Original and optimized Verilog files (<code>design_base.v</code> and <code>design_optimized.v</code>)</li>
+  <li>Synthesis timing reports (before and after optimization)</li>
+  <li>Screenshot of STA summary from your tool (Vivado, Quartus, or OpenSTA)</li>
+  <li>Short report (~1 page) describing:
+    <ul>
+      <li>The original timing bottleneck</li>
+      <li>Your optimization strategy</li>
+      <li>The impact on timing slack and critical path</li>
+    </ul>
+  </li>
+</ul>
+
+<hr>
+
+<h3>Tips</h3>
+<ul>
+  <li>Slack = Required Time − Arrival Time. Try to maximize it!</li>
+  <li>The critical path determines your max clock speed.</li>
+  <li>Breaking up long paths with registers (pipelining) often helps timing dramatically.</li>
+  <li>If using open-source tools, combine <code>Yosys</code> + <code>OpenSTA</code> for full timing analysis.</li>
+</ul>
+
 
 
           
