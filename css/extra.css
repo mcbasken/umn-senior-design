@@ -10,6 +10,9 @@
     height: 50px;
     width: 50px;
 }
+.md-header {
+  height: 80px; /* Default is about 56px, so 80px looks better */
+}
 
 /* Color overrides */
 :root {
@@ -46,7 +49,7 @@ body {
 .md-main__inner {
   max-width: 1650px; /* Default Material width */
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 4rem;
 }
 
 /* Actual content inside pages */
